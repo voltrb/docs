@@ -40,7 +40,6 @@
    * [Testing](docs/testing.md)
    * [Debugging](docs/debugging.md)
    * [Volt Helpers](docs/volt_helpers.md)
-* [Why Volt](why_volt/README.md)
 * [Getting Help](getting_help/README.md)
 * [Contributing](contributing/README.md)
 
