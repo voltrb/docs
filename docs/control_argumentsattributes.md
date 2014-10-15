@@ -1,4 +1,4 @@
-# Control Arguments/Attributes
+# Tag Arguments/Attributes
 
 Like other html tags, controls can be passed attributes.  These are then converted into an object that is passed as the first argument to the initialize method on the controller.  The standard ModelController's initialize will then assign the object to the attrs property which can be accessed with ```#attrs```  This makes it easy to access attributes passed in.
 

@@ -22,7 +22,7 @@ page._settings._color
 # => @'blue'
 
 page._settings
-# => @#<Model:_settings {:_color=>"blue"}>
+# => @#<Model:_settings {:color=>"blue"}>
 ```
 
 Nested data is automatically setup when assigned.  In this case, page._settings is a model that is part of the page model.  This allows nested models to be bound to a binding without the need to setup the model before use.
@@ -33,14 +33,14 @@ In Volt models, plural properties return an ArrayModel instance.  ArrayModels be
 page._items
 # #<ArrayModel:70303686333720 []>
 
-page._items << {_name: 'Item 1'}
+page._items << {name: 'Item 1'}
 
 page._items
-# #<ArrayModel:70303686333720 [<Model:70303682055800 {:_name=>"Item 1"}>]>
+# #<ArrayModel:70303686333720 [<Model:70303682055800 {:name=>"Item 1"}>]>
 
 page._items.size
 # => 1
 
 page._items[0]
-# => <Model:70303682055800 {:_name=>"Item 1"}>
+# => <Model:70303682055800 {:name=>"Item 1"}>
 ```

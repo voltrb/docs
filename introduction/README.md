@@ -9,7 +9,7 @@ Volt has the following goals:
 5. Concurrent.  Volt provides tools to simplify concurrency.  Component rendering is done in parallel on the server
 6. Intelligent asset management
 7. Secure (shouldn't need to be said, but it does)
-8. Be fast/light
+8. Be fast, light, and scalable
 9. Understandable code base
 10. Control upgradeability
 

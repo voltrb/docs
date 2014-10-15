@@ -8,8 +8,8 @@ For convenience, when placing a hash inside of another model, it is automaticall
     user = Model.new
     user._name = 'Ryan'
     user._profiles = {
-      _twitter: 'http://www.twitter.com/ryanstout',
-      _dribbble: 'http://dribbble.com/ryanstout'
+      twitter: 'http://www.twitter.com/ryanstout',
+      dribbble: 'http://dribbble.com/ryanstout'
     }
 
     user._name
@@ -30,7 +30,7 @@ Arrays inside of models are automatically converted to an instance of ArrayModel
 
 ```ruby
     model = Model.new
-    model._items << {_name: 'item 1'}
+    model._items << {name: 'item 1'}
     model._items.class
     # => ArrayModel
 
@@ -51,7 +51,7 @@ To convert a Model or an ArrayModel back to a normal hash, call .to_h or .to_a r
     }
 
     user._profiles.to_h
-    # => {_twitter: 'http://www.twitter.com/ryanstout', _dribbble: 'http://dribbble.com/ryanstout'}
+    # => {twitter: 'http://www.twitter.com/ryanstout', dribbble: 'http://dribbble.com/ryanstout'}
 
     items = ArrayModel.new([1,2,3,4])
     # => #<ArrayModel:70226521081980 [1, 2, 3, 4]>

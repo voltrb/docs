@@ -10,7 +10,7 @@ page._info._name
 # => <Model:70260795424200 nil>
 
 page._info._name = 'Ryan'
-# => <Model:70161625994820 {:_info=><Model:70161633901800 {:_name=>"Ryan"}>}>
+# => <Model:70161625994820 {:info=><Model:70161633901800 {:name=>"Ryan"}>}>
 ```
 
 One gotchya with NilModels is that they are a truthy value (since only nil and false are falsy in ruby).  To make things easier, calling ```.nil?``` on a NilModel will return true.
