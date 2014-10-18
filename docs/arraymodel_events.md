@@ -3,7 +3,7 @@
 Models trigger events when their data is updated.  Currently, models emit two events: added and removed.  For example:
 
 ```ruby
-    model = Model.new
+    model = Volt::Model.new
 
     model._items.on('added') { puts 'item added' }
     model._items << 1
