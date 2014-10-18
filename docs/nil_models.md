@@ -4,13 +4,13 @@ As a convience, calling something like ```page._info``` returns what's called a 
 
 ```ruby
 page._info
-# => <Model:70260787225140 nil>
+# => <Volt::Model:70260787225140 nil>
 
 page._info._name
-# => <Model:70260795424200 nil>
+# => <Volt::Model:70260795424200 nil>
 
 page._info._name = 'Ryan'
-# => <Model:70161625994820 {:info=><Model:70161633901800 {:name=>"Ryan"}>}>
+# => <Volt::Model:70161625994820 {:info => <Volt::Model:70161633901800 {:name => "Ryan"}>}>
 ```
 
 One gotchya with NilModels is that they are a truthy value (since only nil and false are falsy in ruby).  To make things easier, calling ```.nil?``` on a NilModel will return true.

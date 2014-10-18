@@ -8,7 +8,7 @@ In Volt you can access ```store``` on the front-end and the back-end.  Data will
     store._items << {_name: 'Item 1'}
 
     store._items[0]
-    # => <Model:70303681865560 {:name=>"Item 1", :_id=>"e6029396916ed3a4fde84605"}>
+    # => <Volt::Model:70303681865560 {:name=>"Item 1", :_id=>"e6029396916ed3a4fde84605"}>
 ```
 
 Inserting into ```store._items``` will create a ```_items``` table and insert the model into it.  An pseudo-unique _id will be automatically generated.

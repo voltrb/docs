@@ -1,6 +1,6 @@
 # Models
 
-Volt's concept of a model is slightly different from many frameworks where a model is the name for the ORM to the database.  In Volt a model is a class where you can store data easily.  Models can be created with a "Persistor", which is responsible for storing the data in the model somewhere.  Models created without a persistor, simply store the data in the classes instance.  Lets first see how to use a model.
+Volt's concept of a model is slightly different from many frameworks where a model is the name for the ORM to the database.  In Volt a model is a class where you can store data easily.  Models can be created with a "Volt::Persistor", which is responsible for storing the data in the model somewhere.  Models created without a persistor, simply store the data in the classes instance.  Lets first see how to use a model.
 
 Volt comes with many built-in models; one is called `page`.  If you call `#page` on a controller, you will get access to the model.
 
@@ -22,25 +22,25 @@ page._settings._color
 # => @'blue'
 
 page._settings
-# => @#<Model:_settings {:color=>"blue"}>
+# => @#<Volt::Model:_settings {:color=>"blue"}>
 ```
 
 Nested data is automatically setup when assigned.  In this case, page._settings is a model that is part of the page model.  This allows nested models to be bound to a binding without the need to setup the model before use.
 
-In Volt models, plural properties return an ArrayModel instance.  ArrayModels behave the same way as normal arrays.  You can add/remove items to the array with normal array methods (#<<, push, append, delete, delete_at, etc...)
+In Volt models, plural properties return a Volt::ArrayModel instance.  ArrayModels behave the same way as normal arrays.  You can add/remove items to the array with normal array methods (#<<, push, append, delete, delete_at, etc...)
 
 ```ruby
 page._items
-# #<ArrayModel:70303686333720 []>
+# #<Volt::ArrayModel:70303686333720 []>
 
 page._items << {name: 'Item 1'}
 
 page._items
-# #<ArrayModel:70303686333720 [<Model:70303682055800 {:name=>"Item 1"}>]>
+# #<Volt::ArrayModel:70303686333720 [<Volt::Model:70303682055800 {:name=>"Item 1"}>]>
 
 page._items.size
 # => 1
 
 page._items[0]
-# => <Model:70303682055800 {:name=>"Item 1"}>
+# => <Volt::Model:70303682055800 {:name=>"Item 1"}>
 ```

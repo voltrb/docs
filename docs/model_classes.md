@@ -4,13 +4,13 @@ By default all collections use the Model class by default.
 
 ```ruby
     page._info.class
-    # => Model
+    # => Volt::Model
 ```
 
-You can provide classes that will be loaded in place of the standard model class.  You can place these in any app/{component}/models folder.  For example, you could add ```app/main/info.rb```  Model classes should inherit from ```Model```
+You can provide classes that will be loaded in place of the standard model class.  You can place these in any app/{component}/models folder.  For example, you could add ```app/main/info.rb```.  Model classes should inherit from ```Volt::Model```
 
 ```ruby
-    class Info < Model
+    class Info < Volt::Model
     end
 ```
 

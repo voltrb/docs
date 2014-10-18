@@ -1,11 +1,11 @@
 # Tasks
 
-Sometimes you need to explicitly execute some code on the server. Volt solves this problem through *tasks*. You can define your own tasks by inheriting from ```TaskHandler```. Ruby files in a ```tasks``` folder, which end with ```_tasks.rb``` will be automatically required.  All tasks should inherit from ```TaskHandler```.
+Sometimes you need to explicitly execute some code on the server. Volt solves this problem through *tasks*. You can define your own tasks by inheriting from ```Volt::TaskHandler```. Ruby files in a ```tasks``` folder, which end with ```_tasks.rb``` will be automatically required.  All tasks should inherit from ```Volt::TaskHandler```.
 
 ```ruby
     # app/main/tasks/logging_tasks.rb
 
-    class LoggingTasks < TaskHandler
+    class LoggingTasks < Volt::TaskHandler
         def log(message)
             puts message
         end
@@ -17,7 +17,7 @@ Volt will automatically generate wrappers for you on the client side which will 
 *Note that the classes on the server side use instance methods while the wrapper classes represent those methods as class methods*  For more information on using promises in ruby see [here](http://opalrb.org/blog/2014/05/07/promises-in-opal/).
 
 ```ruby
-    class Contacts < ModelController
+    class Contacts < Volt::ModelController
         def hello
             promise = LoggingTasks.log('Hello World!')
         end

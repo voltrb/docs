@@ -3,7 +3,7 @@
 The default ModelController proxies any missing methods to its model.  Sometimes you need to store additional data reactively in the controller outside of the model.  (Though often you may want to condier doing another control/controller).  In this case, you can add a ```reactive_accessor```.  These behave just like ```attr_accessor``` except the values assigned and returned are tracked for any Computations.
 
 ```ruby
-  class Contacts < ModelController
+  class Contacts < Volt::ModelController
     reactive_accessor :query
   end
 ```

@@ -52,7 +52,7 @@ page._last = 'Jones'
 # => Jimmy Jones
 ```
 
-When you call ```.watch!``` the return value is a Computation object.  In the event you no longer want to receive updates, you can call ```.stop``` on the computation.
+When you call ```.watch!``` the return value is a Volt::Computation object.  In the event you no longer want to receive updates, you can call ```.stop``` on the computation.
 
 ```ruby
 page._name = 'Ryan'

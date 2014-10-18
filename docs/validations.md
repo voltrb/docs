@@ -5,7 +5,7 @@ Within a model class, you can setup validations.  Validations let you restrict t
 At the moment we only have two validations implemented (length and presence).  Though a lot more will be coming.
 
 ```ruby
-    class Info < Model
+    class Info < Volt::Model
       validate :_name, length: 5
       validate :_state, presence: true
     end

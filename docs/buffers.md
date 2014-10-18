@@ -35,4 +35,4 @@ Because the store collection is automatically synced to the backend, any change 
     end
 ```
 
-Calling .buffer on an existing model will return a buffer for that model instance.  If you call .buffer on an ArrayModel (plural sub-collection), you will get a buffer for a new item in that collection.  Calling .save! will then add the item to that sub-collection as if you had done << to push the item into the collection.
+Calling .buffer on an existing model will return a buffer for that model instance.  If you call .buffer on a Volt::ArrayModel (plural sub-collection), you will get a buffer for a new item in that collection.  Calling .save! will then add the item to that sub-collection as if you had done << to push the item into the collection.
