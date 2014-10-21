@@ -7,7 +7,7 @@
 * [Docs](docs/README.md)
    * [Rendering](docs/rendering.md)
    * [Views](docs/views.md)
-       * [Content Binding](docs/content_binding.md)
+       * [Content Binding](docs/content_bindings.md)
        * [If Binding](docs/if_binding.md)
        * [Each Binding](docs/each_binding.md)
        * [Attribute Bindings](docs/attribute_bindings.md)
