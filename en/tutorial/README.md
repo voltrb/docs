@@ -1,8 +1,6 @@
-# -- WORK IN PROGRESS --
-
 # Tutorial
 
-This guide will take you through creating a basic web application in Volt.  This tutorial assumes a basic knowledge of Ruby and web development.
+This guide will take you through creating a basic web application in Volt.  This tutorial assumes a basic knowledge of Ruby and web development.  Also this tutorial is a work in progress :-)
 
 ## Setup
 
