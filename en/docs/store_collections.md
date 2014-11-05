@@ -1,4 +1,4 @@
-## Store Collection
+# Store Collection
 
 The store collection backs data in the data store.  Currently the only supported data store is Mongo. (More coming soon, RethinkDb will probably be next)  You can use store very similar to the other collections.
 
@@ -21,3 +21,18 @@ Currently one difference between ```store``` and other collections is ```store``
 ```
 
 Note: We're planning to add support for direct ```store``` properties.
+
+## Store Model State
+
+Because there is a delay when syncing data to the server, store models provide a ```state``` method that can be used to determine if the model is loaded or synced.
+
+
+| state       | description                                                  |
+|-------------|--------------------------------------------------------------|
+| not_loaded  | data is not loaded                                           |
+| loading     | model is fetching data from the server                       |
+| loaded      | data is loaded and no changes are unsynced                   |
+| dirty       | data has been changed, but is not synced back to the server yet |
+| inactive    | model is not listening for updates.                          |
+
+The inactive state can happen because there are no current event listeners or bindings listening on the model.
