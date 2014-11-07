@@ -48,7 +48,7 @@ And then add a `/todos` link to the navbar, which is rendered from `app/main/vie
       </ul>
 ...
 ```
-And also add a route for todos in `app/config/routes.rb`:
+And also add a route for todos in `app/main/config/routes.rb`:
 ```ruby
 get '/about', _action: 'about'
 get '/todos', _action: 'todos' # New route
@@ -58,7 +58,10 @@ Once all these changes are saved, you will be able to navigate to the page we cr
 
 Next we want to add a way for users to add a Todo to the list with a form, so we'll start by adding to the body of `todos.html`:
 ```html
+...
 <:Body>
+  <h1>Todo List</h1>
+
   <form e-submit="add_todo" role="form">
     <div class="form-group">
       <label>Todo</label>
@@ -77,7 +80,10 @@ end
 ```
 This method will append a hash to `page._todos` with the value of `page._new_todo` and clear out `page._new_todo`. To be able to fully appreciate the `page._todos` collection, we'll add a table to our page:
 ```html
+...
 <:Body>
+  <h1>Todo List</h1>
+
   <table class="table">
     {{ page._todos.each do |todo| }}
       <tr>
@@ -87,5 +93,5 @@ This method will append a hash to `page._todos` with the value of `page._new_tod
   </table>
 ...
 ```
-Now, once everything is saved and reloads, any time you submit by hitting inter, it'll add to the list and clear out the form. Volt is reactive and intelligent, so any time the list is updated, the new elements will be drawn; it won't redraw the entire list.
+Now, once everything is saved and reloads, any time you submit by hitting enter, it'll add to the list and clear out the form. Volt is reactive and intelligent, so any time the list is updated, the new elements will be drawn; it won't redraw the entire list.
 

@@ -13,20 +13,24 @@ end
 ```
 And in `app/main/views/main/todos.html`, add a button to the table of todos:
 ```html
+...
 <tr>
   <td>{{ todo._name }}</td>
   <td><button e-click="remove_todo(todo)">X</button></td>
 </tr>
+...
 ```
 
 Obviously, our todo list also needs to be able to monitor which items have been completed. If we simply added a checkbox it wouldn't be too interesting, but because things are synced everywhere we can use that value in a number of ways. We're going to apply some CSS to completed items in the list.
 
 ```html
+...
 <tr>
   <td><input type="checkbox" checked="{{ todo._completed }}" /></td>
   <td class="{{ if todo._completed }}complete{{ end }}">{{ todo._name }}</td>
   <td><button e-click="remove_todo(todo)">X</button></td>
 </tr>
+...
 ```
 
 Here's some CSS that we'll use to make the todos prettier. In Volt, all CSS and JavaScript is included by default, so you rarely have to mess with require tags or script tags. You can just drop this into `app/main/assets/css/app.css.scss`:
@@ -71,7 +75,7 @@ Another feature we might want to add is the ability to select a Todo and add an 
       <h1>Todo List</h1>
 
       <table class="table">
-        {{page. _todos.each do |todo| }}
+        {{page._todos.each do |todo| }}
         <!-- Use params to store the current index -->
         <tr
           e-click="params._index = index"
@@ -97,10 +101,11 @@ Another feature we might want to add is the ability to select a Todo and add an 
       {{ if current_todo }}
       <h2>{{ current_todo._name }}</h2>
 
-      <textarea>{{ current_todo.description }}</textarea>
+      <textarea>{{ current_todo._description }}</textarea>
       {{ end }}
     </div>
   </div>
+...
 ```
 
 The new stuff in our table makes it so that any time you click on a todo it sets the index in Volt's params collection, which equates to the URL params which are automatically updated.
@@ -138,7 +143,7 @@ From here it's simple to add a couple more features to our list:
       <h1>{{ _todos.size }} Todo List</h1>
 ...
 ```
-This will show the number of current todos items, and wil update automatically.
+This will show the number of current todos items, and will update automatically.
 
 
 If we want to manage multiple todos at once, we can take advantage of the fact that Volt collections support the methods of normal ruby collections.
