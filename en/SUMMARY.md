@@ -37,6 +37,7 @@
        * [Tag Arguments/Attributes](docs/control_argumentsattributes.md)
    * [Routes](docs/routes.md)
        * [Routes File](docs/routes_file.md)
+   * [Users](docs/users.md)
    * [Channel](docs/channel.md)
    * [Testing](docs/testing.md)
    * [Debugging](docs/debugging.md)
