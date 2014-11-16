@@ -43,6 +43,7 @@
    * [Debugging](docs/debugging.md)
    * [Volt Helpers](docs/volt_helpers.md)
 * [Deployment](deployment/README.md)
+  * [Heroku](deployment/heroku.md)
 * [Getting Help](getting_help/README.md)
 * [Contributing](contributing/README.md)
 

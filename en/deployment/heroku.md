@@ -7,7 +7,7 @@ source 'https://rubygems.org'
 
 ruby "2.1.3" # specify a Ruby version
 
-gem 'volt', '0.8.21'
+gem 'volt', '0.8.22'
 ```
 
 Add a ```Procfile``` that uses Thin
