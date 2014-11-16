@@ -6,13 +6,9 @@ Flash コレクションを使うと、クライアント側のユーザーに�
 
 ```ruby
 flash._successes << "Your data has been saved"
-``````ruby
-flash._successes << "Your data has been saved"
 ```
 
 ```ruby
-flash._errors << "Unable to save because your not on the internet"
-``````ruby
 flash._errors << "Unable to save because your not on the internet"
 ```
 
@@ -27,15 +23,12 @@ Flash のサブコレクションに追加された文字列は、5秒後に削�
 ```cookies``` コレクションは、データをブラウザーの cookie に保存します。割り当てられたプロパティはそれぞれ、同盟の cookie に保存されます:
 
 ```ruby
-cookies._user_id = 520```ruby
 cookies._user_id = 520
 
 puts cookie._user_id
-# => "520"puts cookie._user_id
 # => "520"
 
 cookies.delete(:user_id)
-```cookies.delete(:user_id)
 ```
 
  Cookie コレクションでは、値は文字列に変換されます。説明の追加などのオプション機能については todo 項目としてあがっています。現在のところ、cookie の有効期間は1年間に設定されています。
