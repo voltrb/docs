@@ -16,6 +16,8 @@ You can access the current user model with ```Volt.user```  This will return a u
 
 ## Restricting Models
 
+Volt provides helpers to ensure that models can only be modified by certain users.
+
 ... TODO DOCS ...
 
 ## Logging In
