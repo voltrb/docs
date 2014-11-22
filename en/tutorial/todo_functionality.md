@@ -65,7 +65,7 @@ tr.selected td button {
 ```
 Now you can see that checking and unchecking things updates the state right away.
 
-Another feature we might want to add is the ability to select a Todo and add an extra description to it. We'll do this by adding more to our view:
+Another feature we might want to add is the ability to select a todo and add an extra description to it. We'll do this by adding more to our view:
 ```html
 ...
 <:Body>
@@ -143,10 +143,9 @@ From here it's simple to add a couple more features to our list:
       <h1>{{ _todos.size }} Todo List</h1>
 ...
 ```
-This will show the number of current todos items, and will update automatically.
+This will show the number of current todo items, and will update automatically.
 
-
-If we want to manage multiple todos at once, we can take advantage of the fact that Volt collections support the methods of normal ruby collections.
+If we want to manage multiple todos at once, we can take advantage of the fact that Volt collections support the methods of normal Ruby collections.
 ```ruby
 ...
 def check_all
@@ -158,15 +157,15 @@ def completed
 end
 
 def incomplete
-  _todos.size - _completed
+  _todos.size - completed
 end
 
 def percent_complete
-  return ((completed / _todos.size.to_f) * 100.0).round
+  (completed / _todos.size.to_f * 100).round
 end
 ...
 ```
-Now we can add a button that checks all items and once and a progress bar which will show how many of the items we've done so far.
+Now we can add a button that checks all items at once and a progress bar which will show how many of the items we've done so far.
 ```html
 ...
 <h1>{{ _todos.size }} Todo List</h1>
