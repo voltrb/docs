@@ -1,8 +1,8 @@
 # A Sample Todo App
 
-Sometimes easiest way to learn a new piece of technology is to start building.  Our first example project will be a simple todo app like the ones on [todomvc.com](http://todomvc.com/)  Our app will have many simple features:
+Sometimes the easiest way to learn a new piece of technology is to start building.  Our first example project will be a simple todo app like the ones on [todomvc.com](http://todomvc.com/). Our app will have many simple features:
 
-- A field where users type in a todo and press enter to add.
+- A field where users type in a todo and press enter to add
 - A list of todos
     - A checkbox to complete the todo
     - An x button to remove the todo
@@ -11,7 +11,7 @@ Sometimes easiest way to learn a new piece of technology is to start building.  
 
 If you want, you can view [this tutorial in video form](https://www.youtube.com/watch?v=Tg-EtRnMz7o) and follow along.
 
-To start lets generate a new app:
+To start, let's generate a new app:
 
 ```bash
 gem install volt
@@ -56,7 +56,7 @@ get '/todos', _action: 'todos' # New route
 ```
 Once all these changes are saved, you will be able to navigate to the page we created for the Todo List.
 
-Next we want to add a way for users to add a Todo to the list with a form, so we'll start by adding to the body of `todos.html`:
+Next, we want to add a way for users to add a todo to the list with a form, so we'll start by adding to the body of `todos.html`:
 ```html
 ...
 <:Body>
@@ -69,11 +69,11 @@ Next we want to add a way for users to add a Todo to the list with a form, so we
     </div>
   </form>
 ```
-Anything in `{{ }}` is executed as ruby code, so we are binding the value of the form to a member of the `page` collection. In Volt, there are a number of different collections, `page` is just a temporary collection, and will be lost if you navigate away or refresh. Any value that gets bound in the view will automatically update in all places, so `page._new_todo` is accessable from other parts of your code. We'll take advantage of this by adding a method to `app/main/controllers/main_controller.rb`:
+Anything in `{{ }}` is executed as Ruby code, so we are binding the value of the form to a member of the `page` collection. In Volt, there are a number of different collections, `page` is just a temporary collection, and will be lost if you navigate away or refresh. Any value that gets bound in the view will automatically update in all places, so `page._new_todo` is accessible from other parts of your code. We'll take advantage of this by adding a method to `app/main/controllers/main_controller.rb`:
 ```ruby
 ...
 def add_todo
-  page._todos << {name: page._new_todo}
+  page._todos << { name: page._new_todo }
   page._new_todo = ''
 end
 ...
