@@ -27,6 +27,7 @@
        * [Automatic Model Conversion](docs/automatic_model_conversion.md)
    * [Controllers](docs/controllers.md)
        * [Reactive Accessors](docs/reactive_accessors.md)
+       * [url_for and url_with](docs/url_for_and_url_with.md)
    * [Tasks](docs/tasks.md)
    * [Components](docs/components.md)
        * [Dependencies](docs/dependencies.md)
@@ -43,7 +44,7 @@
    * [Debugging](docs/debugging.md)
    * [Volt Helpers](docs/volt_helpers.md)
 * [Deployment](deployment/README.md)
-  * [Heroku](deployment/heroku.md)
+   * [Heroku](deployment/heroku.md)
 * [Getting Help](getting_help/README.md)
 * [Contributing](contributing/README.md)
 
