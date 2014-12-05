@@ -21,6 +21,7 @@
        * [Flash, Local, and Cookies Collection](docs/flash_collection.md)
        * [Sub Collections](docs/sub_collections.md)
        * [Model Classes](docs/model_classes.md)
+       * [Fields](docs/fields.md)
        * [Buffers](docs/buffers.md)
        * [Validations](docs/validations.md)
        * [ArrayModel Events](docs/arraymodel_events.md)

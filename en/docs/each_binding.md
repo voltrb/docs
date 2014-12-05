@@ -13,7 +13,7 @@ Above, if ```_items``` is an array, the block will be rendered for each item in 
 You can also access the position of the item in the array with the #index method.
 
 ```html
-{{ each _items do |item| }}
+{{ _items.each do |item| }}
   <p>{{ index }}. {{ item }}</p>
 {{ end }}
 ```

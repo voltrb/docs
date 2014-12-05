@@ -12,8 +12,6 @@ page._name
 
 Models act like a hash that you can access with getters and setters that start with an underscore.  If an attribute is accessed that hasn't yet been assigned, you will get back a "nil model".  Prefixing with an underscore makes sure we don't accidentally try to call a method that doesn't exist and get back nil model instead of raising an exception. Fields behave similarly to a hash, but with a different access and assignment syntax.
 
--- # TODO: Add docs on fields in classes
-
 Models also let you nest data without creating the intermediate models:
 
 ```ruby
