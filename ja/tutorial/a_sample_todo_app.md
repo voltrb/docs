@@ -92,7 +92,7 @@ end
 <:Body>
   <h1>Todo List</h1>
 
-  <table class="table">
+  <table class="todo-table">
     {{ page._todos.each do |todo| }}
       <tr>
         <td>{{ todo._name }}</td>

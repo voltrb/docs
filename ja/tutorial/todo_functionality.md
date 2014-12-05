@@ -36,32 +36,34 @@ end
 適用する CSS はこちらです。これで Todo をよりいい感じに表示することができるでしょう。Volt は、デフォルトですべての CSS と JavaScript をインクルードするようになっていますので、たくさんの require タグや script タグに悩まされることはほとんどありません。以下を `app/main/assets/css/app.css.scss` に記載してください:
 
 ```scss
-.todo-table {
-  width: auto;
-}
-
-.todo-table td {
-  padding: 5px;
-  border-top: 1px solid #EEEEEE;
-}
-
-.complete, tr.selected td.complete {
-  text-decoration: line-through;
-  color: #CCCCCC;
-}
-
-tr.selected td {
-  background-color: #428bca;
-  color: #FFFFFF;
-}
-
 textarea {
   height: 140px;
-  width: 400px;
+  width: 100%;
 }
 
-tr.selected td button {
-  color: #000000;
+.todo-table {
+  width: auto;
+
+  tr {
+    &.selected td {
+      background-color: #428bca;
+      color: #FFFFFF;
+
+      button {
+        color: #000000;
+      }
+    }
+
+    td {
+      padding: 5px;
+      border-top: 1px solid #EEEEEE;
+
+      &.complete {
+        text-decoration: line-through;
+        color: #CCCCCC;
+      }
+    }
+  }
 }
 ```
 
@@ -72,12 +74,12 @@ tr.selected td button {
 ```html
 ...
 <:Body>
-  <div class = "row">
-    <div class = "col-md-4">
+  <div class="row">
+    <div class="col-md-4">
 
       <h1>Todo List</h1>
 
-      <table class="table">
+      <table class="todo-table">
         {{page._todos.each do |todo| }}
         <!-- Use params to store the current index -->
         <tr
@@ -100,7 +102,7 @@ tr.selected td button {
     </div>
 
     <!-- Display extra info -->
-    <div class = "col-md-8">
+    <div class="col-md-8">
       {{ if current_todo }}
       <h2>{{ current_todo._name }}</h2>
 

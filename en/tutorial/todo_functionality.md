@@ -35,46 +35,48 @@ Obviously, our todo list also needs to be able to monitor which items have been 
 
 Here's some CSS that we'll use to make the todos prettier. In Volt, all CSS and JavaScript is included by default, so you rarely have to mess with require tags or script tags. You can just drop this into `app/main/assets/css/app.css.scss`:
 ```scss
-.todo-table {
-  width: auto;
-}
-
-.todo-table td {
-  padding: 5px;
-  border-top: 1px solid #EEEEEE;
-}
-
-.complete, tr.selected td.complete {
-  text-decoration: line-through;
-  color: #CCCCCC;
-}
-
-tr.selected td {
-  background-color: #428bca;
-  color: #FFFFFF;
-}
-
 textarea {
   height: 140px;
-  width: 400px;
+  width: 100%;
 }
 
-tr.selected td button {
-  color: #000000;
+.todo-table {
+  width: auto;
+
+  tr {
+    &.selected td {
+      background-color: #428bca;
+      color: #FFFFFF;
+
+      button {
+        color: #000000;
+      }
+    }
+
+    td {
+      padding: 5px;
+      border-top: 1px solid #EEEEEE;
+
+      &.complete {
+        text-decoration: line-through;
+        color: #CCCCCC;
+      }
+    }
+  }
 }
 ```
 Now you can see that checking and unchecking things updates the state right away.
 
-Another feature we might want to add is the ability to select a todo and add an extra description to it. We'll do this by adding more to our view:
+Another feature we might want to add is the ability to select a todo and add an extra description to it. At this point we will also add a few grid framework (Bootstrap) placement classes to make the layout look a little nicer. We'll do this by adding more to our view:
 ```html
 ...
 <:Body>
-  <div class = "row">
-    <div class = "col-md-4">
+  <div class="row">
+    <div class="col-md-4">
 
       <h1>Todo List</h1>
 
-      <table class="table">
+      <table class="todo-table">
         {{page._todos.each do |todo| }}
         <!-- Use params to store the current index -->
         <tr
@@ -97,7 +99,7 @@ Another feature we might want to add is the ability to select a todo and add an 
     </div>
 
     <!-- Display extra info -->
-    <div class = "col-md-8">
+    <div class="col-md-8">
       {{ if current_todo }}
       <h2>{{ current_todo._name }}</h2>
 

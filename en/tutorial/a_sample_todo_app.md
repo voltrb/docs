@@ -84,7 +84,7 @@ This method will append a hash to `page._todos` with the value of `page._new_tod
 <:Body>
   <h1>Todo List</h1>
 
-  <table class="table">
+  <table class="todo-table">
     {{ page._todos.each do |todo| }}
       <tr>
         <td>{{ todo._name }}</td>

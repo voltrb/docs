@@ -52,7 +52,7 @@ This returns immediately and triggers a change event on ```Volt.user```
 
 ## Creating Users
 
-To see an exaple of creating users, see [volt-user-templates](https://github.com/voltrb/volt-user-templates).
+To see an example of creating users, see [volt-user-templates](https://github.com/voltrb/volt-user-templates).
 
 Volt provides a ```Volt::User``` class that any model can inherit from by a model.  By default Volt provides a User model in app/main/models/user.rb  By default
 ```Volt::User``` uses the ```email``` property as the login, however you can configure an app to use ```username``` instead.  In ```config/app.rb``` you can add:
