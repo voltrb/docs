@@ -13,12 +13,12 @@
 また、#index メソッドを使うことで、配列の各要素の位置を得ることもできます。
 
 ```html
-{{ each _items do |item| }}
+{{ _items.each do |item| }}
   <p>{{ index }}. {{ item }}</p>
 {{ end }}
 ```
 
-Note: This will be switched to each_with_index
+メモ: この機能は each_with_index に変更される予定です
 
 例えば、```['one', 'two', 'three']``` という配列の場合であれば、以下のように出力されます。
 

@@ -33,8 +33,7 @@ end
 ...
 ```
 
-適用する CSS はこちらです。これで Todo をよりいい感じに表示することができるでしょう。Volt は、デフォルトですべての CSS と JavaScript をインクルードするようになっていますので、たくさんの require タグや script タグに悩まされることはほとんどありません。以下を `app/main/assets/css/app.css.scss` に記載してください:
-
+適用する CSS はこちらです。これで Todo をよりいい感じに表示することができるでしょう。Volt は、デフォルトですべての CSS と JavaScript をインクルードするようになっていますので、たくさんの require タグや script タグに悩まされることはほとんどありません。You can just drop this into `app/main/assets/css/app.css.scss`:
 ```scss
 textarea {
   height: 140px;
@@ -69,7 +68,7 @@ textarea {
 
 これで、チェックボックスの ON/OFF によって状態が即座に更新されることを確認できるようになりました。
 
-もうひとつ機能を追加しましょう。ある Todo を選択し、その項目に対して詳細情報を追加できるようにします。ビューを以下のように編集してください。
+もうひとつ機能を追加しましょう。ある todo を選択し、その項目に対して詳細情報を追加できるようにします。そして、レイアウトを少しキレイに見せるために、いくつかグリッドフレークワーク (Bootstrap) のためのクラスをここで追加します。ビューを以下のように編集してください。
 
 ```html
 ...
@@ -151,10 +150,7 @@ class MainController < Volt::ModelController
       <h1>{{ _todos.size }} Todo List</h1>
 ...
 ```
-
 これは現在の Todo 項目の数を表示する機能です。数は自動的に更新されます。
-
-
 
 複数の Todo 項目を同時に扱いたい場合には、Volt コレクションが、通常の Ruby のコレクションと同様のメソッドをサポートしていることを利用することができます。
 ```ruby
@@ -168,16 +164,17 @@ def completed
 end
 
 def incomplete
-  _todos.size - _completed
+  _todos.size - completed
 end
 
 def percent_complete
-  return ((completed / _todos.size.to_f) * 100.0).round
+  (completed / _todos.size.to_f * 100).round
 end
 ...
 ```
 
 ここまでできれば、あとは、すべての項目を一度にチェックするボタンと、完了している Todo 項目の数を表示するプログレスバーを追加するだけです。
+
 ```html
 ...
 <h1>{{ _todos.size }} Todo List</h1>
