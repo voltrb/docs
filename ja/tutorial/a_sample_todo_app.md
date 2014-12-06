@@ -80,7 +80,7 @@ get '/todos', _action: 'todos' # New route
 ```ruby
 ...
 def add_todo
-  page._todos << {name: page._new_todo}
+  page._todos << { name: page._new_todo }
   page._new_todo = ''
 end
 ...
