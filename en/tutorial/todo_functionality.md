@@ -128,9 +128,13 @@ class MainController < Volt::ModelController
 
 ...
 ```
-Now we can replace all references to `page._todos` with `_todos` (in both the controller and the view) and our todos will persist to the database. Volt will now automatically sync these values to any open clients; try opening your Todos page in a few different windows and watch the changes be pushed from the server to each of the clients.
+Now we can replace all references to `page._todos` with `_todos` (in both the controller and the view) and our todos will persist to the database. We just need to have Mongo running.
 
-(Note: for this to work, you will need Mongo running for your server to store things in.)
+If you've never used Mongo before, you can find instructions for installing it on your operating system on their website, under [Installation Guides](http://docs.mongodb.org/manual/installation/). As mentioned in their instructions, be sure that the user who is going to be running Mongo has read and write permissions for the `/data/db` directory. If you'd like to run Mongo as the user that you are currently logged in as without using `sudo` or similar, be sure to run `sudo chown $USER /data/db` after you've created the directory.
+
+Once you have Mongo installed, you can start it as either a background process or by simply running the `mongod` in a separate terminal. As long as it's running, and you are using `_todos` in the view and controller, Volt will now automatically sync these values to any open clients.
+
+Go ahead and try opening your Todos page in a few different windows and make some changes to one of the Todo items. If you've set up Mongo correctly, you should see your changes get pushed from the server to each of the clients.
 
 From here it's simple to add a couple more features to our list:
 
