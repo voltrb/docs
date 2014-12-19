@@ -5,13 +5,13 @@ The store collection backs data in the data store.  Currently the only supported
 In Volt you can access ```store``` on the front-end and the back-end.  Data will automatically be synced between the front-end and the backend.  Any changes to the data in store will be reflected on any clients using the data (unless a [buffer](#buffers) is in use - see below).
 
 ```ruby
-    store._items << {_name: 'Item 1'}
+    store._items << {name: 'Item 1'}
 
     store._items[0]
     # => <Volt::Model:70303681865560 {:name=>"Item 1", :_id=>"e6029396916ed3a4fde84605"}>
 ```
 
-Inserting into ```store._items``` will create a ```_items``` table and insert the model into it.  An pseudo-unique _id will be automatically generated.
+Inserting into ```store._items``` will create a ```items``` table and insert the model into it.  An pseudo-unique _id will be automatically generated.
 
 Currently one difference between ```store``` and other collections is ```store``` does not store properties directly.  Only ArrayModels are allowed directly on ```store```
 
