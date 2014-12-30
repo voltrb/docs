@@ -1,6 +1,6 @@
 ## Model Classes
 
-By default all collections use the Model class by default.
+By default all collections use the Model class.
 
 ```ruby
     page._info.class
