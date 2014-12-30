@@ -1,6 +1,6 @@
 # Fields
 
-Once you have a model class you can specify fields on the model explicitely instead of using the underscore syntax.
+Once you have a model class you can specify fields on the model explicitly instead of using the underscore syntax.
 
 ```ruby
 class Post < Volt::Model
