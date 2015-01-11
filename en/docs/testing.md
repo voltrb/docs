@@ -1,6 +1,7 @@
 # Testing
 
 ** Testing is being reworked at the moment.
+
 Volt provides rspec and capybara out of the box.  You can test directly against your models, controllers, etc... or you can do full integration tests via [Capybara](https://github.com/jnicklas/capybara).
 
 To run Capybara tests, you need to specify a driver.  The following drivers are currently supported:

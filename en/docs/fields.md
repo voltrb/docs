@@ -1,6 +1,6 @@
 # Fields
 
-Once you have a model class you can specify fields on the model explicitely instead of using the underscore syntax.
+Once you have a model class you can specify fields on the model explicitly instead of using the underscore syntax.
 
 ```ruby
 class Post < Volt::Model
@@ -9,7 +9,7 @@ class Post < Volt::Model
 end
 ```
 
-Fields can optionally take a type restriction.  Once you add fields, they can be read and assigned with methods.
+Fields can optionally take a type restriction.  Once you add fields, they can be read and assigned with getter and setter methods.
 
 ```ruby
 new_post = Post.new(body: 'it was the best of times')

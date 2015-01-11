@@ -1,6 +1,6 @@
 # Controllers
 
-A controller can be any class in Volt, however it is common to have that class inherit from ModelController.  A model controller lets you specify a model that the controller works off of.  This is a common pattern in Volt.  The model for a controller can be assigned by one of the following:
+A controller can be any class in Volt. However, it is common to have that class inherit from ```Volt::ModelController```.  A model controller lets you specify a model that the controller works off of.  This is a common pattern in Volt.  The model for a controller can be assigned by one of the following:
 
 1. A symbol representing the name of a provided collection model:
 
@@ -24,11 +24,11 @@ A controller can be any class in Volt, however it is common to have that class i
 
 When a model is set, any missing methods will be proxied to the model.  This lets you bind within the views without prefixing the model object every time.  It also lets you change out the current model and have the views update automatically.
 
-In ModelController's, the `#model` method returns the current model.
+In ModelControllers, the `#model` method returns the current model.
 
 See the [provided collections](#provided-collections) section for a list of the available collection models.
 
-You can also provide your own object to model.
+You can also provide your own object to be a model.
 
 In the example above, any methods not defined on the TodosController will fall through to the provided model.  All views in ```views/{controller_name}``` will have this controller as the target for any Ruby run in their bindings.  This means that calls on ```self``` (implicit or with ```self```.) will have the model as their target (after calling through the controller).  This lets you add methods to the controller to control how the model is handled, or provide extra methods to the views.
 

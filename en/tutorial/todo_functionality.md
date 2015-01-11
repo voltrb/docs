@@ -4,6 +4,7 @@ Sure, now we have a list, but things don't start to get interesting until you bu
 
 To be able to remove items from the todo list, we'll need a method in the controller as well as a button linked to that method.
 We'll define a `remove_todo` method in `app/main/controllers/main_controller.rb`:
+
 ```ruby
 ...
 def remove_todo(todo)
@@ -11,7 +12,9 @@ def remove_todo(todo)
 end
 ...
 ```
+
 And in `app/main/views/main/todos.html`, add a button to the table of todos:
+
 ```html
 ...
 <tr>
@@ -34,6 +37,7 @@ Obviously, our todo list also needs to be able to monitor which items have been 
 ```
 
 Here's some CSS that we'll use to make the todos prettier. In Volt, all CSS and JavaScript is included by default, so you rarely have to mess with require tags or script tags. You can just drop this into `app/main/assets/css/app.css.scss`:
+
 ```scss
 textarea {
   height: 140px;
@@ -65,9 +69,11 @@ textarea {
   }
 }
 ```
+
 Now you can see that checking and unchecking things updates the state right away.
 
 Another feature we might want to add is the ability to select a todo and add an extra description to it. At this point we will also add a few grid framework (Bootstrap) placement classes to make the layout look a little nicer. We'll do this by adding more to our view:
+
 ```html
 ...
 <:Body>
@@ -110,10 +116,10 @@ Another feature we might want to add is the ability to select a todo and add an 
 ...
 ```
 
-The new stuff in our table makes it so that any time you click on a todo it sets the index in Volt's params collection, which equates to the URL params which are automatically updated.
-Because values in the params collection could be unassigned, we use `#or` to provide a default value, and then apply some extra CSS to the selected todo.
+The new stuff in our table makes it so that any time you click on a todo it sets the index in Volt's params collection, which equates to the URL params which are automatically updated.  Because values in the params collection could be unassigned, we use `#or` to provide a default value, and then apply some extra CSS to the selected todo.
 
-The new section at the bottom says that if there is a `current_todo` we want to display some extra details about it. For this to work, we're going to need another method in our controller:
+The new section at the bottom says that if there is a `current_todo`, we want to display some extra details about it. For this to work, we're going to need another method in our controller:
+
 ```ruby
 ...
 def current_todo
@@ -121,20 +127,23 @@ def current_todo
 end
 ...
 ```
-Now when you click on a todo the notes section of the page will update automatically.
+
+Now, when you click on a todo, the notes section of the page will update automatically.
 
 Controllers in Volt inherit from `ModelController` which means you can assign a model to your controller and any missing methods on the controller get passed to the model. We're going to back up all of our todos to a database by importing a model:
+
 ```ruby
 class MainController < Volt::ModelController
   model :store
 
 ...
 ```
+
 Now we can replace all references to `page._todos` with `_todos` (in both the controller and the view) and our todos will persist to the database. We just need to have Mongo running.
 
 If you've never used Mongo before, you can find instructions for installing it on your operating system on their website, under [Installation Guides](http://docs.mongodb.org/manual/installation/). As mentioned in their instructions, be sure that the user who is going to be running Mongo has read and write permissions for the `/data/db` directory. If you'd like to run Mongo as the user that you are currently logged in as without using `sudo` or similar, be sure to run `sudo chown $USER /data/db` after you've created the directory.
 
-Once you have Mongo installed, you can start it as either a background process or by simply running `mongod` in a separate terminal. As long as it's running, and you are using `_todos` in the view and controller, Volt will now automatically sync these values to any open clients.
+Once you have Mongo installed, you can start it as either a background process, or by simply running `mongod` in a separate terminal. As long as it's running, and you are using `_todos` in the view and controller, Volt will now automatically sync these values to any open clients.
 
 Go ahead and try opening your Todos page in a few different windows and make some changes to one of the Todo items. If you've set up Mongo correctly, you should see your changes get pushed from the server to each of the clients.
 
@@ -149,9 +158,11 @@ From here it's simple to add a couple more features to our list:
       <h1>{{ _todos.size }} Todo List</h1>
 ...
 ```
-This will show the number of current todo items, and will update automatically.
+
+This will show the number of current todo items and will update automatically.
 
 If we want to manage multiple todos at once, we can take advantage of the fact that Volt collections support the methods of normal Ruby collections.
+
 ```ruby
 ...
 def check_all
@@ -171,7 +182,9 @@ def percent_complete
 end
 ...
 ```
+
 Now we can add a button that checks all items at once and a progress bar which will show how many of the items we've done so far.
+
 ```html
 ...
 <h1>{{ _todos.size }} Todo List</h1>

@@ -14,8 +14,8 @@ Add a ```Procfile``` that uses Thin
 
     web: bundle exec thin start -p $PORT -e $RACK_ENV
 
-Set up your data store connection in ```/config/app.rb```.
-Below you see an example for MongoHQ. You need to adapt for your provider.
+Set up your data store connection in ```config/app.rb```.
+Below you see an example for MongoHQ. You'll need to adapt for your provider.
 
 
 ```ruby

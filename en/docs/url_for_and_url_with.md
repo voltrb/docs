@@ -4,9 +4,9 @@ If you need to generate urls using the routes, you can call ```url_for``` or ```
 
 ## url_for
 
-```url_for``` takes a hash of params and returns a url based on the routes (and passed in params.)
+```url_for``` takes a hash of params and returns a url based on the routes and passed in params.
 
-Below is an example of doing a link to change ```?page=``` on the query string.  This example assumes routes for a todos controller.
+Below is an example of doing a link to change ```?page=``` on the query string.  This example assumes routes exist for a todos controller.
 
 ```ruby
 url_for(controller: 'todos', page: 5)
@@ -22,7 +22,7 @@ url_with(page: 5)
 # => 'http://localhost:3000/todos?page=5'
 ```
 
-Because url_for is a controller method, it can also be accessed in views.
+Because ```url_for``` is a controller method, it can also be accessed in views:
 
 ```html
 <a href="{{ url_with(page: 5) }}">page 5</a>

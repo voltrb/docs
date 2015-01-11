@@ -1,6 +1,6 @@
 ## Provided Collections
 
-Above, I mentioned that Volt comes with many default collection models accessible from a controller.  Each stores in a different location.
+Above, we mentioned that Volt comes with many default collection models accessible from a controller.  Each stores in a different location.
 
 | Name        | Storage Location                                                          |
 |-------------|---------------------------------------------------------------------------|

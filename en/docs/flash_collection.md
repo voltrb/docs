@@ -1,6 +1,6 @@
 # Flash Collection
 
-The flash collection lets you easily display information to the user on the client side.  Flash contains four (default) subcollections, ```successes```, ```notices```, ```warnings```, and ```errors```.  When these collections are appended to the message will be displayed in a div with the classes of ```"alert alert-{{ ..collection name.. }}"```
+The flash collection lets you easily display information to the user on the client side.  Flash contains four (default) subcollections, ```successes```, ```notices```, ```warnings```, and ```errors```.  When these collections are appended to, the message will be displayed in a div with the classes of ```"alert alert-{{ ..collection name.. }}"```
 
 ### Example
 
@@ -9,14 +9,14 @@ flash._successes << "Your data has been saved"
 ```
 
 ```ruby
-flash._errors << "Unable to save because your not on the internet"
+flash._errors << "Unable to save because you're not on the internet"
 ```
 
-Strings added to any subcollection on flash will be removed after 5 seconds.  By default the flash message can be clicked on to clear.
+Strings added to any subcollection on flash will be removed after 5 seconds.  By default the flash message can be clicked to clear.
 
 # Local Store Collection
 
-The ```local_store``` collection persists its data the browsers local store.
+The ```local_store``` collection persists its data in the browser's local store.
 
 # Cookies Collection
 
@@ -31,6 +31,6 @@ puts cookie._user_id
 cookies.delete(:user_id)
 ```
 
- Values in the cookie collection are converted to a string.  Adding expiration and other options are still on the todo list.  Right now cookies default to 1 year expiration.
+Values in the cookie collection are converted to strings.  Adding expiration and other options are still on our todo list.  Right now cookies default to a 1 year expiration.
 
 

@@ -1,6 +1,6 @@
 ## ArrayModel Events
 
-Models trigger events when their data is updated.  Currently, models emit two events: added and removed.  For example:
+Models trigger events when their data is updated.  Currently, models emit two events: ```added``` and ```removed```.  For example:
 
 ```ruby
     model = Volt::Model.new
