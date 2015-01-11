@@ -10,15 +10,13 @@ For iteration over objects, you can use ```.each```
 
 Above, if ```_items``` is an array, the block will be rendered for each item in the array, setting ```item``` to the value of the array element.
 
-You can also access the position of the item in the array with the #index method.
+You can also call .each_with_index to place the index in a local variable within the block
 
 ```html
-{{ _items.each do |item| }}
+{{ _items.each_with_index do |item, index| }}
   <p>{{ index }}. {{ item }}</p>
 {{ end }}
 ```
-
-Note: This will be switched to each_with_index
 
 For the array: ```['one', 'two', 'three']``` this would print:
 
