@@ -1,13 +1,14 @@
-
 ## Logging
 
-Volt provides a helper for logging.  Calling ```Volt.logger``` returns an instance of the ruby logger.  See [here](http://www.ruby-doc.org/stdlib-2.1.3/libdoc/logger/rdoc/Logger.html) for more.
+Volt provides a helper for logging.  Calling ```Volt.logger``` will return an instance of the Ruby logger.  See [here](http://www.ruby-doc.org/stdlib-2.1.3/libdoc/logger/rdoc/Logger.html) for more.
+
+An example:
 
 ```ruby
 Volt.logger.info("Some info...")
 ```
 
-You can change the logger with:
+You can change the logger like this:
 
 ```ruby
 Volt.logger = Logger.new
@@ -15,11 +16,11 @@ Volt.logger = Logger.new
 
 ## App Configuration
 
-Like many frameworks, Volt changes some default settings based on an environment flag.  You can set the volt environment with the VOLT_ENV environment variable.
+Like many frameworks, Volt changes some default settings based on an environment flag.  You can set the Volt environment with the ```VOLT_ENV``` environment variable.
 
 All files in the app's ```config``` folder are loaded when Volt boots.  This is similar to the ```initializers``` folder in Rails.
 
-Volt does its best to start with useful defaults.  You can configure things like your database and app name in the config/app.rb file.  The following are the current configuration options:
+Volt does its best to start with useful defaults.  You can configure things, like your database and app name, in the ```config/app.rb``` file.  The following are the current configuration options:
 
 | name      | default                   | description                                                   |
 |-----------|---------------------------|---------------------------------------------------------------|

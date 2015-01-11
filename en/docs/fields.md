@@ -9,7 +9,7 @@ class Post < Volt::Model
 end
 ```
 
-Fields can optionally take a type restriction.  Once you add fields, they can be read and assigned with methods.
+Fields can optionally take a type restriction.  Once you add fields, they can be read and assigned with getter and setter methods.
 
 ```ruby
 new_post = Post.new(body: 'it was the best of times')

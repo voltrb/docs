@@ -5,23 +5,24 @@ When a user interacts with a web page, typically we want to do two things:
 1. Change application state
 2. Update the DOM
 
-For example when a user clicks to add a new todo item to a todo list, we might create an object to represent the todo item, then add an item to the list's DOM.  A lot of work needs to be done to make sure that the object and the DOM always stay in sync.
+For example, when a user clicks to add a new todo item to a todo list, we might create an object to represent the todo item, then add an item to the list's DOM.  A lot of work needs to be done to make sure that the object and the DOM always stay in sync.
 
-The idea of "reactive programming" can be used to simplify maintaining the DOM.  Instead of having event handlers that manage a model and manage the DOM, we have event handlers that update reactive data models.  We describe our DOM layer in a declarative way so that it automatically knows how to render what's in our our data models.
+The idea of "reactive programming" can be used to simplify maintaining the DOM.  Instead of having event handlers that manage a model and manage the DOM, we have event handlers that update reactive data models.  In this style of programming, we describe our DOM layer in a declarative way and it automatically knows how to render and stay up-to-date with what's in our our data models.
 
 ## State and Computations
 
-Web applications center around maintaining state.  Many events can trigger changes to a state.  Page interaction like entering text into form elements, clicking a button, links, scrolling, etc.. can all change the state of the app.  In the past, each page interaction event would manually change any state stored on a page.
+Web applications center around maintaining state.  Many events can trigger changes to a state.  Page interactions like entering text into form elements, clicking a button or link, scrolling, etc. can all change the state of the app.  In the past, each page interaction event would manually change any state stored on a page.
 
-To simplify managing application state, all application state is kept in models that can optionally be persisted in different locations.  By centralizing the application state, we reduce the amount of complex code needed to update a page.  We can then build our page's html declaratively.  The relationship to the page's models' are bound using function and method calls.
+In Volt, to simplify managing application state, all application state is kept in models that can optionally be persisted in different locations.  By centralizing the application state, we reduce the amount of complex code needed to update a page.  We can then build our page's html declaratively.  The relationships between the page and it's models are bound using function and method calls.
 
 We want our DOM to automatically update when our model data changes.  To make this happen, Volt lets you "watch" any method/proc for updates.
 
 ## Computations
 
-Lets take a look at this in practice.  We'll use the ```page``` collection as an example.  (You'll see more on collections later)
+Lets take a look at this in practice.  We'll use the ```page``` collection as an example.  (You'll learn more about collections later.)
 
-First, we setup a computation watch.  Computations are built by calling .watch! on a Proc.  Here we'll use the ruby 1.9 proc shorthand syntax ```-> { ... }``` It will run once, then run again each time the data in page._name changes.
+First, we setup a computation watch.  Computations are built by calling ```.watch!``` on a Proc.  Here we'll use the ruby 1.9 proc shorthand syntax ```-> { ... }```. It will run once, then run again each time the data in ```page._name``` changes.
+
 ```ruby
 page._name = 'Ryan'
 -> { puts page._name }.watch!
@@ -30,7 +31,7 @@ page._name = 'Jimmy'
 # => Jimmy
 ```
 
-Each time ```page._name``` is assigned to a new value, the computation is run again.  A re-run of the computation will be triggered when any data accessed in the previous run is changed.  This lets us access data through methods and still have watches re-triggered.
+Each time ```page._name``` is assigned to a new value, the computation is run again.  A re-run of the computation will be triggered when any data accessed in the previous run is changed.  This lets us access data through methods and still have watches be re-triggered.
 
 ```ruby
 page._first = 'Ryan'
@@ -52,7 +53,7 @@ page._last = 'Jones'
 # => Jimmy Jones
 ```
 
-When you call ```.watch!``` the return value is a Volt::Computation object.  In the event you no longer want to receive updates, you can call ```.stop``` on the computation.
+When you call ```.watch!```, the return value is a ```Volt::Computation``` object.  In the event that you no longer want to receive updates, you can call ```.stop``` on the computation.
 
 ```ruby
 page._name = 'Ryan'
@@ -73,4 +74,4 @@ page._name = 'Jo'
 
 TODO: Explain Dependencies
 
-As a Volt user, you rarely need to use Comptuations and Dependencies directly.  Instead you usually just interact with models and bindings.  Computations are used under the hood, and having a full understanding of what's going on is useful, but not required.
+As a Volt user, you rarely need to use Computations and Dependencies directly.  Instead, you usually just interact with models and bindings.  Computations are used under the hood, and having a full understanding of what's going on is useful, but not required.

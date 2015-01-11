@@ -31,7 +31,7 @@ Radio buttons bind to a checked state as well, except instead of setting the val
 <input type="radio" checked="{{ _radio }}" value="two" />
 ```
 
-When a radio button is checked, whatever checked is bound to is set to the field's value.  When the checked binding value is changed, any radio buttons where the binding's value matches the fields value are checked.  NOTE: This seems to be the most useful behaviour for radio buttons.
+When a radio button is checked, whatever checked is bound to is set to the field's value.  When the checked binding value is changed, any radio buttons where the binding's value matches the fields value are checked.  NOTE: This seems to be the most useful behavior for radio buttons.
 
 ## Select Boxes
 

@@ -18,7 +18,7 @@ You can also access the position of the item in the array with the #index method
 {{ end }}
 ```
 
-Note: This will be switched to each_with_index
+Note: This will be switching to ```each_with_index```.
 
 For the array: ```['one', 'two', 'three']``` this would print:
 
