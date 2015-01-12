@@ -35,7 +35,7 @@ When a radio button is checked, whatever checked is bound to is set to the field
 
 ## Select Boxes
 
-Select boxes can be bound to a value (while not technically a DOM property, this is another convient behavior Volt adds).
+Select boxes can be bound to a value (while not technically a DOM property, this is another convenient behavior Volt adds).
 
 ```html
 <select value="{{ _rating }}">
