@@ -1,28 +1,27 @@
 # Why Volt
 
-I've been building websites since 1996.  My first real web application was in 1998.  In the time since, I've seen layer after layer of tools and technologies added to web development stacks.  Each layer enables more power and flexability, but it also add complexity.  Even for most simple apps, a modern web developer needs to be familiar with html, css, javascript, a back-end language, http, headers, caching, a back-end framework, a front-end framework, REST, asset compilation, and more.
+私は1996年から Web サイトの構築をしています。初めての Web アプリケーションは1998年に開発しました。それから、Web 開発に対して、新しい様々なツールや技術がレイヤーとして積み重なるのを目にしてきました。それぞれのレイヤーが更なるパワーと柔軟性を与えてきましたが、同時に複雑にもなってしましました。最もシンプルなアプリケーションでも、現代の Web 開発者であれば、html、css、javascript、バックエンドのプログラム言語、http、ヘッダー、キャッシュ、バックエンドのフレームワークフロントエンドのフレームワーク、REST、アセットコンパイル、などの多くに精通している必要があります。
 
-The list of tools and technologies can go on and on.  To make building web applications faster we need to be able to outsource some of the complexity.  We do this in other spaces, but in some ways we have yet to in the web community.  For example, in most languages we no longer manage our own memory, we don't (usually) write our own file systems, and we don't typically render our UI directly.  Instead we use things like garbage collection and UI toolkits to hide that complexity.
+これらのツールのリストはまだまだ続きます。Web アプリケーションの構築を高速化するためには、その複雑性をアウトソースする必要があると考えています。これは Web コミュニティはまだ実現できていないことですが、別の領域ではすでに実際に行われています。例えば、ほとんどのプログラミング言語において、我々は自身でメモリ管理を行う必要はありませんし、独自のファイルシステムを (普通は) 作ることはしませんし、UI を直接構築することもしません。その代わりに、ガベージコレクションや UI ツールキットを使うことで、それらの複雑性は覆い隠されました。
 
-Having an understanding of how garbage collection works is useful and can make you a better programmer, but littering your code with (possibly buggy) mallocs and free's only adds to the complexity.
+ガベージコレクションの仕組みを理解することは役に立ちます。それを知ることでより良いプログラマーとなることができるでしょう。しかし、(バグの可能性のある) malloc や free の多用でコードをややこしくすることは複雑さしか与えないと思います。
 
-Volt tries to do reduce web complexity in a similar way.  Lets look at how it simplifies some of the normal complexity.
+Volt は、これと同様の方法で Web の複雑性を減らすことを試みています。どのようにその複雑さをシンプルにするか見てみましょう。
 
-### Language
+### 言語
 
-Until recently all web applications were written in a backend language that wasn't JavaScript and JavaScript as a front-end language.  Then people started using JavaScript as a back-end language.  The node community validly argued that using one language on client and server simplifies things.  The Volt team completely agrees, however we feel the future is compiling to JavaScript and not JavaScript as a server language.
+少し前までは、すべての Web アプリケーションは JavaScript ではない別のバックエンドの言語で記述され、JavaScript はフロントエンドの言語として利用されていました。それから、JavaScript をバックエンドの言語として利用する人たちが現れました。Node のコミュニティは、クライアントとサーバーで同一の言語を使用することが、物事をシンプルにする、との正当な主張をしています。Volt チームはこれに完全に同意します。しかし、我々が描いている未来は、サーバーの言語として JavaScript を直接使うのではなく、JavaScript へのコンパイルを行うものです。
 
-Running the same language on client and server does reduce some cognative load by preventing context switches, however the big win is being able to run *the same code* on both sides.  Something most node programmers are not doing yet.
+同一の言語がクライアントとサーバーで動作することは、コンテキストの変更による認知的負荷 (cognitive load) を現象させます。しかし、一番良いのは**「同一のコード」**がどちらでも動作することです。これは、Node のプログラマーがまだ実現していないものです。
 
-### Front-end and Back-end framework
+### フロントエンドとバックエンドのフレームワーク
 
-Today web apps are typically built with a back-end framework and a front-end framework.  This means two different ways of doing similar things.  Volt is one framework that runs on both the client and the server.
+今日の Web アプリケーションは、一般的にバックエンドのフレームワークとフロントエンドのフレームワークの両方から構築されます。これは、同じようなことも2つの異なる方法でやるということです。Volt は、クライアントとサーバーのどちらでも動作する1つのフレームワークです。
 
-### HTTP and REST
+### HTTP と REST
 
-Since most apps are built with different tools on the client and server, data is synced via REST api's.  Volt lets you use access data using Model classes that are automatically synced between the client and server with no code from a you as a developer.
+ほとんどのアプリケーションはクライアントとサーバーで別のツールを使って構築されています。したがって、REST API を用いて同期されます。Volt では、クライアントとサーバー間で自動的に同期するモデルのクラスを使ってデータにアクセスすることができます。また、開発者がそのためのコードを書く必要がありません。
 
-### Full Stack Components
+### フルスタックのコンポーネント
 
-The achelies heel of most web stacks is the lack of a standard between the client and server.
-
+ほとんどの Web スタックのアキレス腱と言えるのは、クライアントとサーバー間の標準が存在しないことです。Volt はこれを標準化します。再度言いますが、同一のコードがクライアントとサーバーで動作するのです。

@@ -1,11 +1,12 @@
-# Testing
+# テスト
 
-** Testing is being reworked at the moment.
-Volt provides rspec and capybara out of the box.  You can test directly against your models, controllers, etc... or you can do full integration tests via [Capybara](https://github.com/jnicklas/capybara).
+** テストに関しては現在再検討中です。
 
-To run Capybara tests, you need to specify a driver.  The following drivers are currently supported:
+Volt は最初から rspec と capybara を提供しています。モデルやコントローラーを直接テストすることもできますし、[Capybara](https://github.com/jnicklas/capybara) を使った結合テストも可能です。
 
-1. Phantom (via poltergeist)
+Capybara でテストを実行するためには、ドライバーを指定する必要があります。現在、以下のドライバーをサポートしています。
+
+1. Phantom (poltergeist 経由で利用する)
 
 ```BROWSER=phantom bundle exec rspec```
 
@@ -15,4 +16,4 @@ To run Capybara tests, you need to specify a driver.  The following drivers are 
 
 3. IE - coming soon
 
-Chrome is not supported due to [this issue](https://code.google.com/p/chromedriver/issues/detail?id=887#makechanges) with ChromeDriver.  Feel free to go [here](https://code.google.com/p/chromedriver/issues/detail?id=887#makechanges) and pester the chromedriver team to fix it.
+Chrome は、ChromeDriver に関する[この問題](https://code.google.com/p/chromedriver/issues/detail?id=887#makechanges) が存在するため、サポートしていません。[このページ](https://code.google.com/p/chromedriver/issues/detail?id=887#makechanges)から、修正してくれるように chromedriver チームにアピールをお願いします！

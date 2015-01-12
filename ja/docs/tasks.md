@@ -1,14 +1,14 @@
 # タスク
 
-明示的にサーバー上でコードを実行したいこともあるでしょう。Volt では *タスク* を使ってこの問題を解決します。タスクは ```Volt::TaskHandler```.を継承することで定義できます。```tasks``` フォルダーに格納された ```_task.rb``` で終わる名前の Ruby ファイルは自動的に require されます。すべてのタスクは ```Volt::TaskHandler``` を継承しなければなりません。
+明示的にサーバー上でコードを実行したいこともあるでしょう。Volt では *タスク* を使ってこの問題を解決します。タスクは ```Volt::TaskHandler```.を継承することで定義できます。```tasks``` フォルダーに格納された ```_tasks.rb``` で終わる名前の Ruby ファイルは自動的に require されます。
 
 ```ruby
     # app/main/tasks/logging_tasks.rb
 
     class LoggingTasks < Volt::TaskHandler
-        def log(message)
-            puts message
-        end
+      def log(message)
+        puts message
+      end
     end
 ```
 
@@ -18,9 +18,9 @@
 
 ```ruby
     class Contacts < Volt::ModelController
-        def hello
-            promise = LoggingTasks.log('Hello World!')
-        end
+      def hello
+        promise = LoggingTasks.log('Hello World!')
+      end
     end
 ```
 
@@ -28,10 +28,10 @@
 
 ```ruby
     MathTasks.add(23, 5).then do |result|
-        # result should be 28
-        alert result
+      # result should be 28
+      alert result
     end.fail do |error|
-        puts "Error: #{error}"
+      puts "Error: #{error}"
     end
 ```
 

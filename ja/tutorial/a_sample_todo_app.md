@@ -5,7 +5,7 @@
 - ユーザーが todo を入力し、enter キーを押すと登録されるフィールド
 - todo のリスト
     - todo を完了するためのチェックボックス
-    - todo を削除するための x ボタン
+    - todo を削除するための X ボタン
 - 残っている todo の数の表示
 - すべてのタスクを完了にするためのボタン (すべてのタスクがすでに完了済の場合は無効)
 
@@ -19,16 +19,19 @@ volt new todo_example
 cd todo_example
 ```
 
-上記を実行すると、Volt は todo_example フォルダーを作成し、その中に Volt プロジェクトのための土台 (scaffold) となるファイル群を格納します。また、Gemfile や .gitignore といった一般的なファイルも同時に作成されます。Volt アプリケーションはネストされたコンポーネントから構成され、アプリケーションは `main` というコンポーネントから起動します。`main` コンポーネントは1つのコントローラーといくつかのビューを持っています。
+上記を実行すると、Volt は ```todo_example``` フォルダーを作成し、その中に Volt プロジェクトのための土台 (scaffold) となるファイル群を格納します。また、Gemfile や .gitignore といった一般的なファイルも同時に作成されます。Volt アプリケーションはネストされたコンポーネントから構成され、アプリケーションは `main` というコンポーネントから起動します。`main` コンポーネントは1つのコントローラーといくつかのビューを持っています。
 
-以下を実行すると、組み込みサーバーが起動します:
+テンプレートのサーバーは以下で起動します:
+
 ```bash
 bundle exec volt server
 ```
 
-ファイルが変更されたときには、Volt は自動的にそのファイルをリロードし、すべての開いているページに対して変更をプッシュします。したがって、サーバーが起動したままの状態で新しいページを作ることができます。
+ファイルが変更されたときには、Volt は自動的にそのファイルをリロードし、すべての開いているページに対して変更をプッシュします。サーバーが起動したままの状態で、新しいページを作成してみましょう。
 
-まずは、`app/main/views/main/todos.html` という新規ファイルを作成し、そこに基本的なコンテンツを追加してみましょう:
+まずは、`app/main/views/main/todos.html` という新規ファイルを作成し、そこに基本的なコンテンツを追加します:
+
+
 ```html
 <:Title>
   Todos
@@ -38,6 +41,7 @@ bundle exec volt server
 ```
 
 そして、ナビゲーションバーに `/todos` リンクを追加します。ナビゲーションバーをレンダリングする `app/main/views/main/main.html` ファイルを編集しましょう:
+
 
 ```html
 ...
@@ -53,6 +57,7 @@ bundle exec volt server
 ```
 
 また、`app/main/config/routes.rb` に、todos のためのルーティングを設定します:
+
 ```ruby
 get '/about', _action: 'about'
 get '/todos', _action: 'todos' # New route
@@ -63,7 +68,9 @@ get '/todos', _action: 'todos' # New route
 
 次に、ユーザーが Todo をリストに追加できるようにしましょう。そのために、`todos.html` の body に追加していきます:
 
+
 ```html
+...
 <:Body>
   <h1>Todo List</h1>
 
@@ -77,6 +84,7 @@ get '/todos', _action: 'todos' # New route
 
 `{{ }}` で括った中にあるものはすべて Ruby コードとして実行されます。つまりこれは、フォームの value を `page` コレクションに対してバインドしているということです。Volt には様々なコレクションがあります。この `page` というのは一時的な用途で使われるコレクションで、ページを移動したり更新したりすると消えます。ビューでバインドされていると、その値は自動的にすべての場所で更新されます。したがって、`page._new_todo` に対して、コードの別の箇所からでもアクセスすることが可能です。これを活用するために、`app/main/controllers/main_controller.rb` に以下のメソッドを追加しましょう:
 
+
 ```ruby
 ...
 def add_todo
@@ -89,6 +97,7 @@ end
 このメソッドは、`page._todos` に対して `page._new_todo` の値の Hash を追加したあとで、`page._new_todo` を空にします。`page._todos` コレクションについて深く理解するために、ページにテーブルを追加します:
 
 ```html
+...
 <:Body>
   <h1>Todo List</h1>
 

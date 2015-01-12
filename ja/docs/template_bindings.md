@@ -15,7 +15,8 @@
 ```html
 {{ template "header" }}
 ```
-Given the string "header", Volt will search for the view file in the following locations (in order):
+
+「header」の文字列が与えられると、Volt は次の場所からビューのファイルを (順番に) 探します:
 
 | Section   | View File    | View Folder    | Component   |
 |-----------|--------------|----------------|-------------|
@@ -26,7 +27,6 @@ Given the string "header", Volt will search for the view file in the following l
 | :body     | index.html   | index          | gems/header |
 
 ビューが見つかると、それに関連するコントローラーがまず読み込まれます。
-
 
 上記の各パートについて説明します:
 
@@ -40,13 +40,13 @@ Given the string "header", Volt will search for the view file in the following l
 上記で見つからなければ、Volt はビューのフォルダーの中で、コントローラーの名前のファイル、もしくは index.html を探します。そして、:body セクションにレンダリングされます。もしコントローラーがビューのフォルダーに存在した場合には、そのコントローラーのインスタンスが新しく生成され、そのインスタンスでレンダリングが行われます。
 
 4. コンポーネント
-次に、app/ 以下のすべてのフォルダーをチェックします。対象となるビューのパスは {component}/index/index.html で、:body セクションを持っているものになります。
+次に、app/ 以下のすべてのフォルダーをチェックします。対象となるビューのパスは ```{component}/index/index.html``` で、:body セクションを持っているものになります。
 
 5. gem
-最後に、「volt」で始まるすべての gem の app フォルダをチェックします。コンポーネントに対しても上記と同様にチェックされます。
+最後に、```volt``` で始まるすべての gem の app フォルダをチェックします。コンポーネントに対しても上記と同様のパスでチェックされます。
 
 
-また、テンプレートバインディングを作成するときに、その名前に複数の探索パスを指定することもできます。各パートは ```/``` で区切る必要があります。例えば:
+また、テンプレートバインディングを作成するときに、その名前に複数の探索パスを指定することもできます。各パートは ```/``` で区切る必要があります。例:
 
 ```html
     {{ template "blog/comments" }}
@@ -61,5 +61,4 @@ Given the string "header", Volt will search for the view file in the following l
 | :body        | index.html       | comments           | blog           |
 | :body        | index.html       | comments           | gems/blog      |
 
-コントロールやテンプレートのためのビューのファイルが見つかれば、それにマッチするコントローラーを探します。もしテンプレートのファイルがコントローラーに関連付けられていなければ、```ModelController``` が使われます。コントローラーが見つかって読み込まれると、それに対応する「アクション (action)」メソッドが (存在すれば) コントローラー上で実行されます。デフォルトのアクションメソッドは「index」となります。ただし、コンポーネントかテンプレートのパスが2つのパートを持っている場合には、その最後のパートがアクションとなります。
-
+コントロールやテンプレートのためのビューのファイルが見つかれば、それにマッチするコントローラーを探します。もしテンプレートのファイルがコントローラーに関連付けられていなければ、新しい ```ModelController``` が使われます。コントローラーが見つかって読み込まれると、それに対応する「アクション (action)」メソッドが (存在すれば) コントローラー上で実行されます。デフォルトのアクションメソッドは「index」となります。ただし、コンポーネントかテンプレートのパスが2つのパートを持っている場合には、その最後のパートがアクションとなります。
