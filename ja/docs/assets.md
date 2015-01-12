@@ -1,9 +1,9 @@
-## Assets
+## アセット
 
-**Note, asset management is still early, and likely will change quite a bit**
+**注意: アセット管理については今後大きく変更される可能性があります。**
 
-In Volt, assets such as JavaScript and CSS (or sass) are automatically included on the page for you.  Anything placed inside of a components asset/js or assets/css folder is served at /assets/{js,css} (via [Sprockets](https://github.com/sstephenson/sprockets)).  Link and script tags are automatically added for each css and js file in assets/css and assets/js respectively.  Files are included in their lexical order, so you can add numbers in front if you need to change the load order.
+Volt では、JavaScript や CSS (または sass) といったアセットは、自動的にページにインクルードされます。asset/js や assets/css フォルダーに格納されたコンポーネントはすべて、([Sprockets](https://github.com/sstephenson/sprockets) を介して) /assets/{js,css} としてサーブされます。/assets/css や /assets/js に格納されている css や js のファイルそれぞれに対して、link や script タグが自動的に追加されます。y.  ファイルはその並び順通りに読み込まれるので、読み込み順を変更したい場合にはファイル名の先頭に数値を付けてください。
 
-Any JS/CSS from an included component or component gem will be included as well.  By default [bootstrap](http://getbootstrap.com/) is provided by the volt-bootstrap gem.
+インクルードされたコンポーネントやコンポーネントの gem が持っているすべての JS/CSS も同様にインクルードされます。デフォルトで、 [bootstrap](http://getbootstrap.com/) が volt-bootstrap gem により提供されています。
 
-**Note: asset bundling is on the TODO list**
+**メモ: アセットバンドルについては検討中です**

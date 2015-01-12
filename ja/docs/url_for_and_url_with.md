@@ -22,7 +22,7 @@ url_with(page: 5)
 # => 'http://localhost:3000/todos?page=5'
 ```
 
-url_for はコントローラーのメソッドなので、ビューからもアクセスすることが可能です。
+```url_for``` はコントローラーのメソッドなので、ビューからもアクセスすることが可能です。
 
 ```html
 <a href="{{ url_with(page: 5) }}">page 5</a>

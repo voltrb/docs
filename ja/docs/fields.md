@@ -9,7 +9,7 @@ class Post < Volt::Model
 end
 ```
 
-フィールドには、オプションで型の制約を設定することが可能です。フィールドに対する参照や代入はメソッドを介して行います。
+フィールドには、オプションで型の制約を設定することが可能です。フィールドに対する参照や代入は、getter と setter のメソッドを介して行います。
 
 ```ruby
 new_post = Post.new(body: 'it was the best of times')

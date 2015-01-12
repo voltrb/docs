@@ -1,13 +1,13 @@
 ## Model クラス
 
-デフォルトでは、すべてのコレクションは Model クラスを使用します。
+デフォルトでは、すべてのコレクションは ```Volt::Model``` クラスを使用します。
 
 ```ruby
     page._info.class
     # => Volt::Model
 ```
 
-標準の Model クラスの代わりに、自分でクラスを用意してそれを読み込むことも可能です。クラスは /app/{component}/models フォルダに格納します。例えば、```app/main/info.rb``` という具合です。このとき、モデルとするクラスは ```Volt::Model``` を継承している必要があります。
+標準の Model クラスの代わりに、自分でクラスを用意してそれを読み込むことも可能です。このとき、モデルとするクラスは ```Volt::Model``` を継承している必要があります。クラスは /app/{component}/models フォルダに格納します。例えば、```app/main/info.rb``` などです。
 
 ```ruby
     class Info < Volt::Model
