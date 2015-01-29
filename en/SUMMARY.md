@@ -46,6 +46,7 @@
    * [Volt Helpers](docs/volt_helpers.md)
 * [Deployment](deployment/README.md)
    * [Heroku](deployment/heroku.md)
+   * [Docker](deployment/docker.md)
 * [Getting Help](getting_help/README.md)
 * [FAQ](getting_help/faq.md)
 * [Contributing](contributing/README.md)
