@@ -29,6 +29,7 @@
    * [コントローラー](docs/controllers.md)
        * [リアクティブ アクセサ](docs/reactive_accessors.md)
        * [url_for と url_with](docs/url_for_and_url_with.md)
+       * [コールバックとアクション](docs/callbacks_and_actions.md)
    * [タスク](docs/tasks.md)
    * [コンポーネント](docs/components.md)
        * [依存関係](docs/dependencies.md)
@@ -47,5 +48,8 @@
 * [デプロイ](deployment/README.md)
    * [Heroku](deployment/heroku.md)
 * [ヘルプが必要なとき](getting_help/README.md)
+* [FAQ](getting_help/faq.md)
+   [どこで何が動いている？クライアント VS サーバー](getting_help/what_runs_on_the_client_vs_server.md)
+   * [jQuery やその他の DOM 操作の JS を使うことができますか？](getting_help/can_i_use_jquery_or_other_dom_manipulating_js.md)
 * [Volt への貢献](contributing/README.md)
 
