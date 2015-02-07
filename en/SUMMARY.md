@@ -47,6 +47,7 @@
    * [Volt Helpers](docs/volt_helpers.md)
 * [Deployment](deployment/README.md)
    * [Heroku](deployment/heroku.md)
+   * [Docker](deployment/docker.md)
 * [Getting Help](getting_help/README.md)
 * [FAQ](getting_help/faq.md)
    * [What runs on the Client vs Server?](getting_help/what_runs_on_the_client_vs_server.md)
