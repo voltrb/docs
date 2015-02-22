@@ -73,7 +73,7 @@ Next, we want to add a way for users to add a todo to the list with a form, so w
   <form e-submit="add_todo" role="form">
     <div class="form-group">
       <label>Todo</label>
-      <input class="form-control" type="text" value="{{ page._new_todo  }}" />
+      <input class="form-control" type="text" value="{{ page._new_todo }}" />
     </div>
   </form>
 ```
