@@ -72,3 +72,5 @@ end
 ```
 
 You can use [volt-fields](https://github.com/voltrb/volt-fields) to show any errors when creating a user.
+
+You can find more on users in the [source code](http://www.github.com/voltrb/volt/tree/master/app/volt/models/user.rb).

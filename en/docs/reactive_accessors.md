@@ -9,3 +9,5 @@ The default ModelController proxies any missing methods to its model.  Sometimes
 ```
 
 Now from the view we can bind to query while also changing in and out the model.  You can also use ```reactive_reader``` and ```reactive_writer```. When query is accessed it tracks that it was accessed and will any Computations when it changes.
+
+More on reactive accessors can be found in the [source code](http://www.github.com/voltrb/volt/blob/master/lib/volt/reactive/reactive_accessors.rb).

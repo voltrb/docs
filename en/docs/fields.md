@@ -21,3 +21,5 @@ new_post.title
 
 store._posts << new_post
 ```
+
+More on field helpers can be found in the [source code](http://www.github.com/voltrb/volt/blob/master/lib/volt/models/field_helpers.rb).

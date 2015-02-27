@@ -18,3 +18,5 @@ When calling save on a model with validations, the following occurs:
     - re-running the validations on the server side makes sure that no data can be saved that doesn't pass the validations
 3. If all validations pass, the data is saved to the database and the promise resolved on the client.
 4. The data is synced to all other clients.
+
+More on validations can be found in the [source code](http://www.github.com/voltrb/volt/tree/master/lib/volt/models/validations.rb).

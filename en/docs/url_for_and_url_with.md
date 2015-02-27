@@ -27,3 +27,9 @@ Because url_for is a controller method, it can also be accessed in views.
 ```html
 <a href="{{ url_with(page: 5) }}">page 5</a>
 ```
+
+You can see more on `url_for` and `url_with` in the source code files:
+
+[1](https://github.com/voltrb/volt/blob/master/lib/volt/controllers/model_controller.rb),
+
+[2](https://github.com/voltrb/volt/blob/master/lib/volt/models/url.rb)

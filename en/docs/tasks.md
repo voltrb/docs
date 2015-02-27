@@ -35,3 +35,7 @@ You can use the ```#then``` method of the returned promise to get the result of 
     end
 ```
 
+You can see more on tasks in the source code files.
+[1](http://www.github.com/voltrb/volt/tree/master/lib/volt/tasks),
+
+[2](http://www.github.com/voltrb/volt/tree/master/app/volt/tasks)

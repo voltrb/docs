@@ -19,3 +19,5 @@ In Volt, views are written in a simple template language where ruby can be inser
 While we use the controller terminology, Volt is closer to a MVVM framework.  Any method call or instance variable lookup runs in the context of a controller.  The controller
 
 If you have a view at ```app/home/views/index/index.html``` it will load the controller at ```app/home/controller/index_controller.rb```.
+
+More on bindings can be found in the [source code](http://www.github.com/voltrb/volt/tree/master/lib/volt/page/bindings).

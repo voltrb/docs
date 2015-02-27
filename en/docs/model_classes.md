@@ -22,3 +22,5 @@ Now when you access any sub-collection called ```_info```, it will load as an in
 ```
 
 This lets you set custom methods and validations within collections.
+
+More on models can be found in the [source code](http://www.github.com/voltrb/volt/tree/master/lib/volt/models/).

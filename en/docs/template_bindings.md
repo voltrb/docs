@@ -63,3 +63,4 @@ The above would search the following:
 
 Once the view file for the control or template is found, it will look for a matching controller.  If the template file does not have an associated controller, a ```ModelController``` will be used.  Once a controller is found and loaded, a corresponding "action" method will be called on it if its exists.  Action methods default to "index" unless the component or template path has two parts, in which case the last part is the action.
 
+You can see more on template bindings in the [source code](http://www.github.com/voltrb/volt/blob/master/lib/volt/page/bindings/template_binding.rb).
