@@ -24,7 +24,7 @@ end
 
 ## Using actions
 
-Volt provides callbacks into the rendering life-cycle of views.  See [Callbacks and Actions](callbacks_and_actions.html) for info.  When managing your own dom bindings, you need to set them up after the view has rendered and remove them before the view removes.
+Volt provides callbacks into the rendering life-cycle of views.  See [Callbacks and Actions](../docs/callbacks_and_actions.html) for info.  When managing your own dom bindings, you need to set them up after the view has rendered and remove them before the view removes.
 
 ```ruby
 class Post < Volt::ModelController
