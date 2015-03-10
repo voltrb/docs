@@ -6,8 +6,8 @@ At the moment, we only have two validations implemented (length and presence).  
 
 ```ruby
     class Info < Volt::Model
-      validate :_name, length: 5
-      validate :_state, presence: true
+      validate :name, length: 5
+      validate :state, presence: true
     end
 ```
 
