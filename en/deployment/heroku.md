@@ -29,3 +29,7 @@ else
   config.db_port = 27017
 end
 ```
+
+Set Volt environment on Heroku to production.
+
+    $ heroku config:add VOLT_ENV='production'
