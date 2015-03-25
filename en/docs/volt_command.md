@@ -32,6 +32,12 @@ Example:
 
 ```bundle exec volt generate component blog```
 
+### gem
+
+```bundle exec volt generate gem NAME```
+
+Gem generates the files for a component gem.  Component gems allow you to easily reuse components between projects.
+
 ## server
 
 ```bundle exec volt server```
@@ -41,12 +47,6 @@ Server runs the server on port 3000 by default.
 Options:
 1.  -p, [--port=the port the server should run on]
 2.  -b, [--bind=the ip the server should bind to]
-
-## gem
-
-```bundle exec volt gem NAME```
-
-Gem generates the files for a component gem.  Component gems allow you to easily reuse components between projects.
 
 ## precompile
 
