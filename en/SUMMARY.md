@@ -33,6 +33,7 @@
        * [Reactive Accessors](docs/reactive_accessors.md)
        * [url_for and url_with](docs/url_for_and_url_with.md)
        * [Callbacks and Actions](docs/callbacks_and_actions.md)
+   * [HTTP Controllers](docs/http_controllers.md)
    * [Tasks](docs/tasks.md)
    * [Components](docs/components.md)
        * [Dependencies](docs/dependencies.md)

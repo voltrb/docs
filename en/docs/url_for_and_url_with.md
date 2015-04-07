@@ -12,6 +12,12 @@ Below is an example of doing a link to change ```?page=``` on the query string. 
 url_for(controller: 'todos', page: 5)
 # => 'http://localhost:3000/todos?page=5'
 ```
+You can also create urls for [HTTP Controllers](http_controllers.md) by setting the corresponding method as first argument.
+
+```ruby
+url_for(:get, controller: 'todos', action: 'index')
+# => 'http://localhost:3000/api/todos
+```
 
 ## url_with
 
