@@ -38,6 +38,30 @@ Example:
 
 Gem generates the files for a component gem.  Component gems allow you to easily reuse components between projects.
 
+### view 
+
+```bundle exec volt generate view NAME COMPONENT```
+
+Gem generates the files for a Volt view. If a matching model controller is not present, it is created as well. 
+
+It optionally can be passed a component, but defauls to `main`.
+
+### task 
+
+```bundle exec volt generate task NAME COMPONENT```
+
+Gem generates the files for a Volt task. It optionally can be passed a component, but defauls to `main`.
+
+It optionally can be passed a component, but defauls to `main`.
+
+### controller 
+
+```bundle exec volt generate controller NAME COMPONENT```
+
+Gem generates the files for a Volt view. If a matching model controller is not present, it is created as well.
+
+It optionally can be passed a component, but defauls to `main`.
+
 ## server
 
 ```bundle exec volt server```
