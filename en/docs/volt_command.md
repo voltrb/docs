@@ -52,15 +52,17 @@ It optionally can be passed a component, but defauls to `main`.
 
 Gem generates the files for a Volt task. It optionally can be passed a component, but defauls to `main`.
 
-It optionally can be passed a component, but defauls to `main`.
-
-### controller 
+### model controller 
 
 ```bundle exec volt generate controller NAME COMPONENT```
 
-Gem generates the files for a Volt view. If a matching model controller is not present, it is created as well.
+Gem generates the files for a Volt model controller. It optionally can be passed a component, but defauls to `main`.
 
-It optionally can be passed a component, but defauls to `main`.
+### http_controller 
+
+```bundle exec volt generate http_controller NAME COMPONENT```
+
+Gem generates the files for a Volt http_controller. It optionally can be passed a component, but defauls to `main`.
 
 ## server
 
