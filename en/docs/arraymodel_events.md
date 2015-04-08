@@ -13,3 +13,5 @@ Models trigger events when their data is updated.  Currently, models emit two ev
     model._items.delete_at(0)
     # => item removed
 ```
+
+This is used internally on each bindings, but can be used in your own code.

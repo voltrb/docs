@@ -10,20 +10,18 @@ page._name
 # => 'Ryan'
 ```
 
-Models act like a hash that you can access with getters and setters that start with an underscore.  If an attribute is accessed that hasn't yet been assigned, you will get back a "nil model".  Prefixing with an underscore makes sure that we don't accidentally try to call a method that doesn't exist.  Instead, we get back a nil model instead of raising an exception. Fields behave similarly to a hash, but with different access and assignment syntax.
+Models act like a hash and have attributes that you can access with getters and setters that start with an underscore. When calling an underscore method, we either get back the attribute value, or ```nil``` if the value isn't defined.  Prefixing with an underscore makes sure that when calling normal methods, we still get a ```NoMethodError``` if we accidentally misspell a normal method name. Fields behave similarly to a hash, but with different access and assignment syntax.
 
-Models also let you nest data without having to manually create the intermediate models:
+You can also deeply nest models.  If you want to deeply nest, you can either assign an empty hash at the parent levels, or use the ```!``` on the end of the lookup to auto generate an empty model. (We call this expanding)
 
 ```ruby
-page._settings._color = 'blue'
-page._settings._color
-# => @'blue'
+page._setting!._color = 'blue'
+page._setting._color
+# => 'blue'
 
-page._settings
-# => @#<Volt::Model:_settings {:color=>"blue"}>
+page._setting
+# => #<Volt::Model:70100138058800 path:[:setting] state:loaded {:color=>"blue"}>
 ```
-
-Nested data is automatically setup when assigned.  In this case, ```page._settings``` is a model that is part of the page model.  This allows nested models to be bound in a binding without the need to setup the model before use.
 
 In Volt models, plural properties return a ```Volt::ArrayModel``` instance.  ArrayModels behave the same way as normal arrays.  You can add/remove items to the array with normal array methods like ```#<<```, ```push```, ```append```, ```delete```, ```delete_at```, etc.
 

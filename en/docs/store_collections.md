@@ -11,7 +11,7 @@ In Volt, you can access ```store``` on the front-end and the back-end.  Data wil
     # => <Volt::Model:70303681865560 {:name=>"Item 1", :_id=>"e6029396916ed3a4fde84605"}>
 ```
 
-Inserting into ```store._items``` will create an ```_items``` table and insert the model into it.  A pseudo-unique ```_id``` will be generated automatically.
+Inserting into ```store._items``` will create an ```items``` collection in mongo and insert the model document into it.  A pseudo-unique ```_id``` will be generated automatically.
 
 Currently, one difference between ```store``` and other collections is that ```store``` does not store properties directly.  Only ArrayModels are allowed directly on the ```store``` collection.
 
@@ -24,7 +24,7 @@ Note: We're are planning to add support for direct ```store``` properties.
 
 ## Store Model State
 
-Because there is a delay when syncing data to the server, store models provide a ```state``` method that can be used to determine if the model is loaded or synced.
+Because there is a delay when syncing data to the server, store models provide a ```loaded_state``` method that can be used to determine if the model is in the process of loading.
 
 
 | state       | description                                                  |
@@ -32,10 +32,7 @@ Because there is a delay when syncing data to the server, store models provide a
 | not_loaded  | data is not loaded                                           |
 | loading     | model is fetching data from the server                       |
 | loaded      | data is loaded and no changes are unsynced                   |
-| dirty       | data has been changed, but is not synced back to the server yet |
-| inactive    | model is not listening for updates.                          |
-
-The ```inactive``` state can happen because there are no current event listeners or bindings listening on the model.
+| dirty       | the data was loaded, but it is no longer being kept in sync with the server |
 
 ## Reactive Loading
 
@@ -61,6 +58,8 @@ promise.then do |items|
 end
 ```
 
+[See here](http://opalrb.org/blog/2014/05/07/promises-in-opal/) for more information on promises in ruby/opal.
+
 ```.fetch_first``` loads and resolves the first item (using .limit(1))
 
 ## Promises in Bindings
@@ -80,7 +79,7 @@ Passing in a block is a convience method for calling .then
 If you are working with store on the server only (in tasks for example), you can call ```.sync``` on a Promise to have it synchronusly resolve and return the result.  If the promise is rejected, ```.sync``` will raise the error.
 
 ```ruby
-# Remember this only works on the server
+# Remember this only works on the server or console
 
 # .sync blocks until the items are loaded
 items = store._items.fetch.sync

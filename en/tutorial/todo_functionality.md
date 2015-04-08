@@ -2,29 +2,18 @@
 
 Sure, now we have a list, but things don't start to get interesting until you build additional functionality on top of that list.
 
-To be able to remove items from the todo list, we'll need a method in the controller as well as a button linked to that method.
-We'll define a `remove_todo` method in `app/main/controllers/main_controller.rb`:
-
-```ruby
-...
-def remove_todo(todo)
-  page._todos.delete(todo)
-end
-...
-```
-
 And in `app/main/views/main/todos.html`, add a button to the table of todos:
 
 ```html
 ...
 <tr>
   <td>{{ todo._name }}</td>
-  <td><button e-click="remove_todo(todo)">X</button></td>
+  <td><button e-click="todo.destroy">X</button></td>
 </tr>
 ...
 ```
 
-Obviously, our todo list also needs to be able to monitor which items have been completed. If we simply added a checkbox it wouldn't be too interesting, but because things are synced everywhere we can use that value in a number of ways. We're going to apply some CSS to completed items in the list.
+Obviously, our todo list also needs to be able to monitor which items have been completed. If we simply added a checkbox it wouldn't be too interesting, but because things are synced everywhere we can use that value in a number of ways. We're going to apply a CSS class to completed items in the list.
 
 ```html
 ...
@@ -70,7 +59,7 @@ textarea {
 }
 ```
 
-Now you can see that checking and unchecking things updates the state right away.
+Now the class changes based on the checkbox state.
 
 Another feature we might want to add is the ability to select a todo and add an extra description to it. At this point we will also add a few grid framework (Bootstrap) placement classes to make the layout look a little nicer. We'll do this by adding more to our view:
 
@@ -83,15 +72,15 @@ Another feature we might want to add is the ability to select a todo and add an 
       <h1>Todo List</h1>
 
       <table class="todo-table">
-        {{page._todos.each do |todo| }}
+        {{page._todos.each_with_index do |todo, index| }}
         <!-- Use params to store the current index -->
         <tr
           e-click="params._index = index"
-          class="{{ if params._index.or(0).to_i == index }}selected{{ end }}"
+          class="{{ if (params._index || 0).to_i == index }}selected{{ end }}"
           >
           <td><input type="checkbox" checked="{{ todo._completed }}" /></td>
           <td class="{{ if todo._completed }}complete{{ end }}">{{ todo._name }}</td>
-          <td><button e-click="remove_todo(todo)">X</button></td>
+          <td><button e-click="todo.destroy">X</button></td>
         </tr>
         {{ end }}
       </table>
@@ -116,30 +105,31 @@ Another feature we might want to add is the ability to select a todo and add an 
 ...
 ```
 
-The new stuff in our table makes it so that any time you click on a todo it sets the index in Volt's params collection, which equates to the URL params which are automatically updated.  Because values in the params collection could be unassigned, we use `#or` to provide a default value, and then apply some extra CSS to the selected todo.
+The new stuff in our table makes it so that any time you click on a todo it sets the index in Volt's params collection, which equates to the URL params which are automatically updated.  Because values in the params collection could be unassigned, we use `||` to provide a default value, and then apply some extra CSS to the selected todo.
 
 The new section at the bottom says that if there is a `current_todo`, we want to display some extra details about it. For this to work, we're going to need another method in our controller:
 
 ```ruby
 ...
 def current_todo
-  page._todos[params._index.or(0).to_i]
+  page._todos[(params._index || 0).to_i]
 end
 ...
 ```
 
 Now, when you click on a todo, the notes section of the page will update automatically.
 
-Controllers in Volt inherit from `ModelController` which means you can assign a model to your controller and any missing methods on the controller get passed to the model. We're going to back up all of our todos to a database by importing a model:
+Controllers are also contained inside of a namespace that matches their component (more on components later.)  Controllers in Volt typically inherit from `Volt::ModelController` which means you can assign a model to your controller and any missing methods on the controller get passed to the model.  We're going to back up all of our todos to a database by assigning a model:
 
 ```ruby
-class MainController < Volt::ModelController
-  model :store
+module Main
+  class MainController < Volt::ModelController
+    model :store
 
 ...
 ```
 
-Now we can replace all references to `page._todos` with `_todos` (in both the controller and the view) and our todos will persist to the database. We just need to have Mongo running.
+Now we can replace all references to `page._todos` with `_todos` (in both the controller and the view) and our todos will persist to the database. We just need to have Mongo running.  (Note: more databases coming soon!)
 
 If you've never used Mongo before, you can find instructions for installing it on your operating system on their website, under [Installation Guides](http://docs.mongodb.org/manual/installation/). As mentioned in their instructions, be sure that the user who is going to be running Mongo has read and write permissions for the `/data/db` directory. If you'd like to run Mongo as the user that you are currently logged in as without using `sudo` or similar, be sure to run `sudo chown $USER /data/db` after you've created the directory.
 

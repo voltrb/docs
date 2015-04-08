@@ -1,12 +1,12 @@
 # Views
 
-Views in Volt use a templating language similar to handlebars. They can be broken up into sections. A section header looks like the following:
+Volt views have their own simple templating language.  They can be broken up into sections. A section header looks like the following:
 
 ```html
 <:Body>
 ```
 
-Section headers should start with a capital letter so as not to be confused with [controls](#controls).  Section headers do not use closing tags.  If no section header is provided, the ```:Body``` section is assumed.
+Section headers should start with a capital letter so as not to be confused with [tags](#tags).  Section headers do not use closing tags.  If no section header is provided, the ```:Body``` section is assumed.
 
 Sections help you split up different parts of the same content (title and body usually), but within the same file.
 
@@ -16,6 +16,6 @@ In Volt, views are written in a simple template language where ruby can be inser
 
 # Controller Backing
 
-While we use the controller terminology, Volt is closer to a MVVM framework.  Any method call or instance variable lookup runs in the context of a controller.
+While we use the controller terminology, Volt is closer to a MVVM framework.  Any method call or instance variable lookup in a view runs in the context of a controller.
 
-If you have a view at ```app/home/views/index/index.html``` it will load the controller at ```app/home/controller/index_controller.rb```.
+If you have a view at ```app/main/views/index/index.html``` it will load the controller at ```app/main/controller/index_controller.rb```.

@@ -89,7 +89,7 @@ end
 ...
 ```
 
-This method will append a hash to `page._todos` with the value of `page._new_todo` and clear out `page._new_todo`. To be able to fully appreciate the `page._todos` collection, we'll add a table to our page:
+This method will append a hash to `page._todos` with the value of `page._new_todo` and clear out `page._new_todo`. To be able to see the `page._todos` collection, we'll add a table to our page:
 
 ```html
 ...

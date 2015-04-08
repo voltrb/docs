@@ -3,7 +3,7 @@
 By default all collections use the ```Volt::Model``` class.
 
 ```ruby
-    page._info.class
+    page._info!.class
     # => Volt::Model
 ```
 
@@ -17,7 +17,7 @@ You can provide classes that will be loaded in place of the standard model class
 Now when you access any sub-collection called ```_info```, it will load as an instance of ```Info```
 
 ```ruby
-    page._info.class
+    page._info!.class
     # => Info
 ```
 

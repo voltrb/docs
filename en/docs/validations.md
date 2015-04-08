@@ -2,7 +2,17 @@
 
 Within a model class, you may setup validations.  Validations let you restrict the types of data that can be stored in a model.  Validations are mostly useful for the ```store``` collection, though they can be used elsewhere.
 
-At the moment, we only have two validations implemented (length and presence).  A lot more are coming!
+At the moment, we have the following validations (with more on the way):
+
+- length
+- present
+- email
+- format
+- numericality
+- phone number
+- unique
+-
+See [this folder](https://github.com/voltrb/volt/tree/master/lib/volt/models/validators) for more info on the validators.
 
 ```ruby
     class Info < Volt::Model
@@ -11,7 +21,7 @@ At the moment, we only have two validations implemented (length and presence).  
     end
 ```
 
-When calling save on a model with validations, the following occurs:
+When ```save!``` on a buffer with validations is called, the following occurs:
 
 1. Client side validations are run; if they fail, the promise from ```save!``` is rejected with the error object.
 2. The data is sent to the server where client- and server-side validations are both run on the server; any failures are returned and the promise is rejected on the front-end (with the error object)

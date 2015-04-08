@@ -3,14 +3,17 @@
 Bindings can also be placed inside of attributes.
 
 ```html
-<p class="{{ if _is_cool? }}cool{{ end }}">Text</p>
+<p class="{{ if is_cool? }}cool{{ end }}">Text</p>
 ```
 
+## Two Way Attribute Bindings
 There are some special features provided to make elements work as "two way bindings":
 
 ```html
 <input type="text" value="{{ _name }}" />
 ```
+
+Above if ```_name``` changes, the value in the text box will be updated.  The binding calls ```_name``` on the controller to fetch the name value. When a user types into the text box, the equivilent setter method will be called on the controller.  In this case ```_name=``` will be called on the controller and the new field value will be passed in.  This gives the effect of two way bindings, but you are able to change how data is updated (by defining a different setter).  We think this gives the benifits of both one way bindings and two way bindings.
 
 ## CheckBoxes
 
@@ -24,7 +27,7 @@ If the value of a checked attribute is ```true```, the checkbox will be shown ch
 
 ## Radio Buttons
 
-Radio buttons bind to a checked state as well, except instead of setting the value to true or false, they set it to a supplied field value.
+Radio buttons bind to a checked state as well, except instead of setting the value to ```true``` or ```false```, they set it to a supplied field value.
 
 ```html
 <input type="radio" checked="{{ _radio }}" value="one" />

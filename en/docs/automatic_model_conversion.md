@@ -7,20 +7,18 @@ For convenience, when placing a hash inside of another model, it is automaticall
 ```ruby
     user = Volt::Model.new
     user._name = 'Ryan'
-    user._profiles = {
+    user._profile = {
       twitter: 'http://www.twitter.com/ryanstout',
       dribbble: 'http://dribbble.com/ryanstout'
     }
 
     user._name
     # => "Ryan"
-    user._profiles._twitter
+    user._profile._twitter
     # => "http://www.twitter.com/ryanstout"
-    user._profiles.class
+    user._profile.class
     # => Volt::Model
 ```
-
-Models are accessed differently from hashes.  Instead of using `model[:symbol]` to access, you call a method `model.method_name`.  This provides a dynamic unified store where setters and getters can be added without changing any access code.
 
 You can get a Ruby hash back out by calling `#to_h` on a Model.
 
@@ -46,12 +44,12 @@ To convert them to a JavaScript Object (for passing to some JavaScript code), ca
 ```ruby
     user = Volt::Model.new
     user._name = 'Ryan'
-    user._profiles = {
+    user._profile = {
       _twitter: 'http://www.twitter.com/ryanstout',
       _dribbble: 'http://dribbble.com/ryanstout'
     }
 
-    user._profiles.to_h
+    user._profile.to_h
     # => {twitter: 'http://www.twitter.com/ryanstout', dribbble: 'http://dribbble.com/ryanstout'}
 
     items = Volt::ArrayModel.new([1,2,3,4])

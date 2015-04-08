@@ -1,6 +1,6 @@
 # Yield Binding
 
-When using [Tags](http://docs.voltframework.com/en/docs/controls.html), content can be passed between tags as follows:
+When using [Tags](#tags), content can be passed between tags as follows:
 
 ```html
 <:nav href="/about">About</:nav>
