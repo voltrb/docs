@@ -29,4 +29,4 @@ Volt does its best to start with useful defaults.  You can configure things, lik
 | db_name   | "#{app_name}_#{Volt.env}  | The name of the mongo database.                               |
 | db_host   | 'localhost'               | The hostname for the mongo database.                          |
 | db_port   | 27017                     | The port for the mongo database.                              |
-| compress_deflate | false              | If true, will run deflate in the app server, its better to let something like nginx do this though |
+| compress_deflate | false              | If true, will run deflate in the app server. It's better to let something like nginx do this, though. |
