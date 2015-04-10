@@ -1,4 +1,4 @@
-## Assets
+# Assets
 
 **Note, asset management is still early, and likely will change quite a bit**
 

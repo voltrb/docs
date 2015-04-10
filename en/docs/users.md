@@ -4,7 +4,7 @@ Users are a core component of most web apps.  To help standardize things, Volt b
 
 ## Note
 
-Some features in the ```users``` component are still a work in process (as of Nov 9, 2014).  The plan is to add [omniauth](https://github.com/intridea/omniauth) support to be able login through third party services.  Right now only an email or username/password option is provided.
+Volt's user features are still being worked on. The plan is to add [omniauth](https://github.com/intridea/omniauth) support to be able login through third party services.  Right now only an email or username/password option is provided.
 
 ## Working with Users
 
@@ -12,13 +12,11 @@ Volt ships with the [volt-user-tempates](https://github.com/voltrb/volt-user-tem
 
 ```volt-user-templates``` provides signup and login templates that render via the default main route template.  Volt provides routes at ```/signup``` and ```/login``` in ```routes.rb```, or you can render the templates using a tag.  See the [volt-user-templates readme](https://github.com/voltrb/volt-user-templates) for more info.
 
-You can access the current user model with ```Volt.user```.  This will return a user model if the user is logged in.  If the user is not logged in, it will return ```nil```.
+You can access the current user model with ```Volt.current_user```.  This will return nil at first, then reactively update with the user once it is fetched from the server.  If you want to wait for the user to return, you can use ```Volt.fetch_current_user```, which will return a promise that resolves when the user is loaded, or resolve nil if the user is not logged in.
 
 ## Restricting Models
 
-Volt provides helpers to ensure that models can only be modified by certain users.
-
-... TODO DOCS ...
+Volt provides helpers to ensure that models can only be modified by certain users.  See [permissions](#permissions) for more information.
 
 ## Logging In
 
@@ -48,7 +46,7 @@ You can log a user out by calling:
 Volt.logout
 ```
 
-This call returns immediately and triggers a change event on ```Volt.user```.
+This call returns immediately and triggers a change event on ```Volt.current_user```.
 
 ## Creating Users
 
