@@ -8,12 +8,13 @@ Page HTML is written in a template language where you can put Ruby between ```{{
 
 See some demo videos here:
 
-** Note ** These videos were created for 0.8.x.  Updated videos for 0.9.x are coming soon.
-- [Volt Todos Example](https://www.youtube.com/watch?v=Tg-EtRnMz7o)
+- [Volt Todos Example](https://www.youtube.com/watch?v=KbFtIt7-ge8)
+- [What Is Volt in 6 Minutes](https://www.youtube.com/watch?v=P27EPQ4ne7o)
 - [Pagination Example](https://www.youtube.com/watch?v=1uanfzMLP9g)
-- [Build a Blog with Volt](https://www.youtube.com/watch?v=c478sMlhx1o)
+- [Routes and Templates](https://www.youtube.com/watch?v=1yNMP3XR6jU)
+- [Isomorphic App Development - RubyConf 2014](https://www.youtube.com/watch?v=7i6AL7Walc4)
 
 Check out demo apps:
- - https://github.com/voltrb/todos3
- - https://github.com/voltrb/contactsdemo
+ - https://github.com/voltrb/todomvc
+ - https://github.com/voltrb/blog5
 
