@@ -62,6 +62,8 @@ end
 
 ```.fetch_first``` loads and resolves the first item (using .limit(1))
 
+```.fetch_each``` fetches, then yields each item.  It returns the promise from the fetch.
+
 ## Promises in Bindings
 
 Promises can be passed to bindings and the bindings will update with the value once the promise resolves.  This means you can do something like the following:
