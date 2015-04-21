@@ -6,7 +6,7 @@ Instead of syncing data between the client and the server via HTTP, Volt uses a 
 
 Page HTML is written in a template language where you can put Ruby between ```{{``` and ```}}```.  Volt uses data flow/reactive programming to automatically and intelligently propagate changes to the DOM (or any other code that wants to know when a value changes).  When something in the DOM changes, Volt intelligently updates only the nodes that need to be changed.
 
-See some demo videos here:
+In addition to the docs, a good way to get started is with the demo videos:
 
 - [Volt Todos Example](https://www.youtube.com/watch?v=KbFtIt7-ge8)
 - [What Is Volt in 6 Minutes](https://www.youtube.com/watch?v=P27EPQ4ne7o)
