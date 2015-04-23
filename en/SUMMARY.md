@@ -50,6 +50,7 @@
    * [Debugging](docs/debugging.md)
    * [Volt Helpers](docs/volt_helpers.md)
    * [Volt Command](docs/volt_command.md)
+   * [Lib](docs/lib.md)
 * [Deployment](deployment/README.md)
    * [Heroku](deployment/heroku.md)
    * [Docker](deployment/docker.md)

@@ -48,16 +48,16 @@ And then add a `/todos` link to the navbar, which is rendered from `app/main/vie
     <div class="header">
       <ul class="nav nav-pills pull-right">
         <:nav href="/" text="Home" />
-        <:nav href="/todos" text="Todos" /> <!-- New link -->
-        <:nav href="/about" text="About" />
+        <:nav href="/todos" />Todos</:nav> <!-- New link -->
+        <:nav href="/about" />About</:nav>
       </ul>
 ...
 ```
 
 And also add a route for todos in `app/main/config/routes.rb`:
 ```ruby
-get '/about', _action: 'about'
-get '/todos', _action: 'todos' # New route
+client '/about', _action: 'about'
+client '/todos', _action: 'todos' # New route
 ...
 ```
 
