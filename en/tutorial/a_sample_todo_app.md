@@ -56,8 +56,8 @@ And then add a `/todos` link to the navbar, which is rendered from `app/main/vie
 
 And also add a route for todos in `app/main/config/routes.rb`:
 ```ruby
-client '/about', _action: 'about'
-client '/todos', _action: 'todos' # New route
+client '/about', action: 'about'
+client '/todos', action: 'todos' # New route
 ...
 ```
 
