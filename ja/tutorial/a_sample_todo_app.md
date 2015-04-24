@@ -49,9 +49,9 @@ bundle exec volt server
   <div class="container">
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <:nav href="/" text="Home" />
-        <:nav href="/todos" text="Todos" /> <!-- New link -->
-        <:nav href="/about" text="About" />
+        <:nav href="/">Home</:nav>
+        <:nav href="/todos">Todos</:nav> <!-- New link -->
+        <:nav href="/about">About</:nav>
       </ul>
 ...
 ```

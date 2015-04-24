@@ -20,7 +20,7 @@ Obviously, our todo list also needs to be able to monitor which items have been 
 <tr>
   <td><input type="checkbox" checked="{{ todo._completed }}" /></td>
   <td class="{{ if todo._completed }}complete{{ end }}">{{ todo._name }}</td>
-  <td><button e-click="remove_todo(todo)">X</button></td>
+  <td><button e-click="todo.destroy">X</button></td>
 </tr>
 ...
 ```

@@ -47,9 +47,9 @@ And then add a `/todos` link to the navbar, which is rendered from `app/main/vie
   <div class="container">
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <:nav href="/" text="Home" />
-        <:nav href="/todos" />Todos</:nav> <!-- New link -->
-        <:nav href="/about" />About</:nav>
+        <:nav href="/">Home</:nav>
+        <:nav href="/todos">Todos</:nav> <!-- New link -->
+        <:nav href="/about">About</:nav>
       </ul>
 ...
 ```
