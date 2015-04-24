@@ -61,6 +61,8 @@ client '/todos', action: 'todos' # New route
 ...
 ```
 
+Currently after adding routes you need to restart the server.
+
 Once all these changes are saved, you will be able to navigate to the page we created for the Todo List.
 
 Next, we want to add a way for users to add a todo to the list with a form, so we'll start by adding to the body of `todos.html`:
