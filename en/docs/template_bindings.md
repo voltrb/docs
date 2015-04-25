@@ -55,4 +55,4 @@ The above would search the following:
 | :body     | index.html   | comments       | blog        |
 | :body     | index.html   | comments       | gems/blog   |
 
-Once the file for the control or view is found, Volt will look for a matching controller.  If the view file does not have an associated controller, a new ```ModelController``` will be used.  Once a controller is found and loaded, a corresponding "action" method will be called on it if it exists.  Action methods default to the name of the view file (without .html)
+Once the file for the tag or view is found, Volt will look for a matching controller.  If the view file does not have an associated controller, a new ```ModelController``` will be used.  Once a controller is found and loaded, a corresponding "action" method will be called on it if it exists.  Action methods default to the name of the view file (without .html)
