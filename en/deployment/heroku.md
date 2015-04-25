@@ -7,7 +7,7 @@ source 'https://rubygems.org'
 
 ruby "2.1.3" # specify a Ruby version
 
-gem 'volt', '0.8.22'
+gem 'volt', ~> '0.9.0'
 ```
 
 Add a ```Procfile``` that uses Thin
@@ -16,16 +16,19 @@ Add a ```Procfile``` that uses Thin
 
 Set up your data store connection in ```config/app.rb```.
 Below you see an example for MongoHQ. You'll need to adapt for your provider.
-
+[MongoLabs](http://www.mongolabs.com) is a great free solution.
 
 ```ruby
 config.db_driver = 'mongo'
 config.db_name = (config.app_name + '_' + Volt.env.to_s)
 
 if ENV['MONGOHQ_URL'].present?
-  config.db_uri = ENV['MONGOHQ_URL']
+  config.db_uri = ENV['MONGOHQ_URL'] # you will have to set this on heroku
 else
   config.db_host = 'localhost'
   config.db_port = 27017
 end
 ```
+
+You can see an example application that has been deployed [here](https://murmuring-hollows-3078.herokuapp.com/about).
+
