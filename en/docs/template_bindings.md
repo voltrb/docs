@@ -2,8 +2,6 @@
 
 (Previously called Template Bindings)
 
-All ```views/*.html``` files are view files that can be rendered inside other views using the view binding.
-
 All ```views/*.html``` files (view files) can be rendered inside other views using the ```view``` binding.
 
 
