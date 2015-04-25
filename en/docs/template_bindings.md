@@ -9,9 +9,9 @@ All ```views/*.html``` files (view files) can be rendered inside other views usi
 {{ view "header" }}
 ```
 
-The string passed to ```view``` should be a *view path*.  Both view bindings and tags (which we'll cover later) lookup views and controllers in the same way.
+The string you pass to ```view``` should be a *view path*.  Both view bindings and tags (which we'll cover later) lookup views and controllers in the same way.
 
-Everyone wishes that we could predict the scope and required features for each part of an application, but in the real world, things we don't expect to grow large often do and things that we think will be large don't always end up that way.  View bindings and tags let you quickly setup reusable code/views.  The location of views or tags code can be moved as they grow without changing the way they are invoked.
+Everyone wishes that we could predict the scope and required features for each part of an application, but in the real world, things we don't expect to grow large often do and things that we think will be large don't always end up that way.  View bindings and tags let you quickly setup reusable code and views.  The location of views or tags code can be moved as they grow without changing the way they are invoked.
 
 Lets take a look at example lookup paths for a sample view.
 
