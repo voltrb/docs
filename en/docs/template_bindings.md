@@ -34,9 +34,13 @@ Once a view is found, the associated controller will be loaded first.
 Each part is explained below:
 
 1. Section - views are composed of sections.  Sections start with a ```<:SectionName>``` and are not closed.  Volt will look first for a section in the same view.
+
 2. Views - next, Volt will look for a view file with the template path.  If found, it will render the body section of that view.
+
 3. View folder - failing above, Volt will look for a view folder with the control name, and an index.html file within that folder.  It will render the :body section of that view.  If a controller exists for the view folder, it will make a new instance of that controller and render in that instance.
+
 4. Component - next, all folders under app/ are checked.  The view path looked for is ```{component}/index/index.html``` with a section of :body.
+
 5. Gems - lastly, the app folder of all gems that start with ```volt``` are checked.  They are checked for similar paths to component, above.
 
 
