@@ -1,19 +1,19 @@
-# Template Bindings
+# View Bindings
 
-All ```views/*.html``` files are templates that can be rendered inside of other views using the template binding.
+All ```views/*.html``` files are views that can be rendered inside other views using the view binding.
 
 ```html
-{{ template "header" }}
+{{ view "header" }}
 ```
 
-The string passed to ```template``` should be a *template path*.  Both templates and tags (which we'll cover later) lookup views and controllers in the same way.
+The string passed to ```view``` should be a *view path*.  Both view bindings and tags (which we'll cover later) lookup views and controllers in the same way.
 
-Everyone wishes that we could predict the scope and required features for each part of an application, but in the real world, things we don't expect to grow large often do and things that we think will be large don't always end up that way.  Templates and tags let you quickly setup reusable code/views.  The location of templates or tags code can be moved as they grow without changing the way they are invoked.
+Everyone wishes that we could predict the scope and required features for each part of an application, but in the real world, things we don't expect to grow large often do and things that we think will be large don't always end up that way.  View bindings and tags let you quickly setup reusable code/views.  The location of views or tags code can be moved as they grow without changing the way they are invoked.
 
-Lets take a look at example lookup paths for a sample template.
+Lets take a look at example lookup paths for a sample view.
 
 ```html
-{{ template "header" }}
+{{ view "header" }}
 ```
 
 Given the string "header", Volt will search for the view file in the following locations (in order):
@@ -46,10 +46,10 @@ Next, all folders under app/ are checked.  The view path looked for is ```{compo
 Lastly, the app folder of all gems that start with ```volt``` are checked.  They are checked for similar paths to component, above.
 
 
-When you create a template binding, you can also specify multiple parts of the search path in the name.  The parts should be separated by a ```/```.  For example:
+When you create a view binding, you can also specify multiple parts of the search path in the name.  The parts should be separated by a ```/```.  For example:
 
 ```html
-    {{ template "blog/comments" }}
+    {{ view "blog/comments" }}
 ```
 
 The above would search the following:
@@ -61,4 +61,4 @@ The above would search the following:
 | :body     | index.html   | comments       | blog        |
 | :body     | index.html   | comments       | gems/blog   |
 
-Once the view file for the control or template is found, Volt will look for a matching controller.  If the template file does not have an associated controller, a new ```ModelController``` will be used.  Once a controller is found and loaded, a corresponding "action" method will be called on it if it exists.  Action methods default to the name of the view file (without .html)
+Once the file for the control or view is found, Volt will look for a matching controller.  If the view file does not have an associated controller, a new ```ModelController``` will be used.  Once a controller is found and loaded, a corresponding "action" method will be called on it if it exists.  Action methods default to the name of the view file (without .html)
