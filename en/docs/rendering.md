@@ -74,7 +74,7 @@ page._name = 'Jo'
 
 ## Dependencies
 
-As mentioned above, you will rarely use Dependencies directly, but having an understanding of them is useful.
+As mentioned above, you will rarely use Dependencies directly, but having an understanding of them is useful. Let's take a brief look at them here.
 
 TODO: Explain Dependencies
 
