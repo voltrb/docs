@@ -2,18 +2,32 @@
 
 クライアントとサーバーの両方で動くフレームワークでは、「どこで何か動いているか」を知ることが困難になりがちです。To simplify things, we'll break down the different parts of app's and where they run.
 
-## Controllers, Models, and Views
+## コントローラーとビュー
 
-In volt, controllers, models, and views are accessable on both the client and server.  Typically however, **controllers** and **views** usually run on the client only.  In the future, they will run once on the server for an initial page request, to allow for faster loading.
+Voltでは、コントローラーとモデルとビューには、クライアント側とサーバー側の両方でアクセスすることができます。ただ、一般的には **コントローラー** と **ビュー** は通常クライアント側だけで動作します。将来的には、ロード時間の高速化のため、最初のページのリクエストではサーバー側でまず実行されるようになる予定です。
 
-## Tasks
+## もでる
 
-Tasks are interesting.  They are primarially designed to allow the client side to call code on the server.  Thanks to Volt's syncing models, you can write most of your app so it runs on the client.  Running code on the client allows for fast reloading and sharing of data between actions.  However, there are many times when you might want to call server code from the client:
+モデルはクライアントとサーバーの両方で動きます。モデルが変更された場合、そのバリデーション/パーミッションの処理、変更が許可されたものであるかをチェックするために、まずクライアントサイドで実行されます。それが成功したら、変更はサーバーに通知され、サーバー側でモデルが再度読み込まれ、サーバー側に変更が反映されます。サーバー側でもバリデーションパーミッションの処理が実行され、それにパスすると、モデルは保存されて他のクライアントにも同期します。このことはモデルのコードはクライアントとサーバーのどちらでも動作する必要があるということを意味しています。
 
-- **Security**: Some data needs to be processed without sending it to the client.
-- **Bandwidth**: You want to process a large amount of data to create a small result.
-- **Opal incompatible gems**: Some gems are not supported by Opal, these can be easily accessed through Tasks.
+## タスク
 
-Tasks provide an asynchronus interface to all methods in a task instance.  All public task methods are accessable through a...
+タスクは興味深い機能です。サーバー側のコードをクライアント側から呼び出すことを意図しています。Voltの同期モデルによって、書いたアプリケーションのほとんどはクライアント側で動作します。クライアント側でコードが動作することで、高速なリロードやアクション間でのデータの共有が実現できます。しかし、クライアント側からサーバー側のコードを呼び出したい場合は多いでしょう。
 
-TODO: complete
+- **セキュリティ**: あるデータはサーバー側で処理をして、クライアントには送信したくない場合。
+- **帯域**: 最終的な結果は小さいが、大量のデータを処理する必要がある場合。
+- **Opal非互換Gem**: GemによってはOpalがサポートしていないものもあります。タスクを経由すれば容易にアクセス可能です。
+
+タスクはTaskインスタンスのすべてのメソッドに対して非同期のインターフェースを提供します。すべてのパブリックなタスクメソッドにアクセスするには…
+
+## クライアントかサーバーのいずれかでコードを実行する
+
+```Volt.server?```  と```Volt.client?``` を利用すれば、コードがサーバーとクライアントのどちらで動作しているか確認することができます。しかし時には、クライアント側ではコードを一切コンパイルしないようにしたい場合もあるでしょう。そのような場合には、Opalが提供している、コードをコンパイルしないようにするための方法を利用します。以下のようにします。:
+
+```ruby
+if RUBY_PLATFORM != 'opal'
+  ...
+end
+```
+
+上記の冴えた方法によって、完全にコードは取り除かれ、クライアントに送信されることはありません。ただ、この方法は```require```には効果がないことに注意してください。Opalはコンパイル時にrequireを実行するからです。
