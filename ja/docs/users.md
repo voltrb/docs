@@ -4,7 +4,7 @@
 
 ## メモ
 
-```users``` コンポーネントに関するいくつかの機能はまだ開発中です (2014年11月9日現在) 。サードパーティのサービス経由でログインできるように、[omniauth](https://github.com/intridea/omniauth) のサポートを計画中です。現在は E メールまたはユーザー名とパスワードのオプションのみが提供されています。
+Voltのユーザーに関する機能は開発中の段階です。サードパーティのサービス経由でログインできるように、[omniauth](https://github.com/intridea/omniauth) のサポートを計画中です。現在は E メールまたはユーザー名とパスワードのオプションのみが提供されています。
 
 ## ユーザーを利用する
 
@@ -12,13 +12,11 @@ Volt は [volt-user-tempates](https://github.com/voltrb/volt-user-templates) gem
 
 volt-user-template はサインアップとログインのためのテンプレートを提供します。それらは、デフォルトのルーティングテンプレートによってレンダリングされます。Volt は ```/signup``` と ```/login``` を ```routes.rb``` に定義しています。タグを使ってテンプレートのレンダリングをすることも可能です。詳しくは、[volt-user-templates の readme](https://github.com/voltrb/volt-user-templates) を参照してください。
 
-現在のユーザーモデルには ```Volt.user``` でアクセスすることができます。もしそのユーザーがログインしていれば、ユーザーのモデルを返します。ユーザーがログインしていない場合は ```nil``` を返します。
+現在のユーザーモデルには ```Volt.current_user``` でアクセスすることができます。これは最初はnilを返しますが、サーバーからデータが取得でき次第、ユーザーのデータがリアクティブに更新されます。もしユーザーが返ってくるまで待つ必要がある場合には、```Volt.fetch_current_user```を利用することができます。これは、ユーザーが読み込まれたときに解決するpromiseを返します。もしユーザーがログインしていなれければnilで解決します。
 
 ## 制限付きモデル
 
-Volt は、モデルの変更をある特定のユーザーのみに制限するためのヘルパーを備えています。
-
-... TODO DOCS ...
+Volt は、モデルの変更をある特定のユーザーのみに制限するためのヘルパーを備えています。詳細は[パーミッション](#permissions) を参照してください。
 
 ## ログイン
 
@@ -48,7 +46,7 @@ end
 Volt.logout
 ```
 
-これは即座に実行され、```Volt.user``` に対して変更 (change) イベントをトリガーします。
+これは即座に実行され、```Volt.current_user``` に対して変更 (change) イベントをトリガーします。
 
 ## ユーザーを作成する
 
@@ -73,3 +71,36 @@ end
 ```
 
 ユーザー作成時のエラーを表示するためには、[volt-fields](https://github.com/voltrb/volt-fields) を利用することができます。
+
+## require_login
+
+Volt::ModelController には ```require_login``` メソッドが用意されており、ユーザーがログインしているかをチェックし、ログインしていなければログインページにリダイレクトさせることができます。また、ログインのフラッシュメッセージを表示することもできます。
+
+:require_loginのbeforeフィルターを利用すれば、特定のアクションのみでログインを要求することが可能です。
+
+```ruby
+module Main
+  class MainController < Volt::ModelController
+    before_filter :require_login
+
+    def index
+    end
+  end
+end
+```
+
+require_loginにはカスタムメッセージを設定することが可能です。また、フラッシュメッセージを表示させたくない場合にはnilを指定してください。
+
+```ruby
+module Main
+  class MainController < Volt::ModelController
+    before_filter do
+      require_login('Login or else')
+    end
+
+    def index
+    end
+  end
+end
+```
+

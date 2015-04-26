@@ -57,12 +57,13 @@ bundle exec volt server
 ```
 
 また、`app/main/config/routes.rb` に、todos のためのルーティングを設定します:
-
 ```ruby
-get '/about', _action: 'about'
-get '/todos', _action: 'todos' # New route
+client '/about', action: 'about'
+client '/todos', action: 'todos' # New route
 ...
 ```
+
+現在は、ルーティングを追加した場合はサーバーを再起動する必要があります。
 
 ここまでの変更を保存してください。これで、Todo リストへのナビゲーションが用意できました。
 
@@ -77,7 +78,7 @@ get '/todos', _action: 'todos' # New route
   <form e-submit="add_todo" role="form">
     <div class="form-group">
       <label>Todo</label>
-      <input class="form-control" type="text" value="{{ page._new_todo  }}" />
+      <input class="form-control" type="text" value="{{ page._new_todo }}" />
     </div>
   </form>
 ```
@@ -94,7 +95,7 @@ end
 ...
 ```
 
-このメソッドは、`page._todos` に対して `page._new_todo` の値の Hash を追加したあとで、`page._new_todo` を空にします。`page._todos` コレクションについて深く理解するために、ページにテーブルを追加します:
+このメソッドは、`page._todos` に対して `page._new_todo` の値の Hash を追加したあとで、`page._new_todo` を空にします。`page._todos` コレクションを確認するため、ページにテーブルを追加します:
 
 ```html
 ...

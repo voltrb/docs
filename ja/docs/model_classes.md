@@ -3,7 +3,7 @@
 デフォルトでは、すべてのコレクションは ```Volt::Model``` クラスを使用します。
 
 ```ruby
-    page._info.class
+    page._info!.class
     # => Volt::Model
 ```
 
@@ -17,7 +17,7 @@
 これで、```_info``` というサブコレクションにアクセスすることができます。それは ```Info``` のインスタンスとして読み込まれるものです。
 
 ```ruby
-    page._info.class
+    page._info!.class
     # => Info
 ```
 

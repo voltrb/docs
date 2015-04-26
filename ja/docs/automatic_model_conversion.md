@@ -7,20 +7,18 @@
 ```ruby
     user = Volt::Model.new
     user._name = 'Ryan'
-    user._profiles = {
+    user._profile = {
       twitter: 'http://www.twitter.com/ryanstout',
       dribbble: 'http://dribbble.com/ryanstout'
     }
 
     user._name
     # => "Ryan"
-    user._profiles._twitter
+    user._profile._twitter
     # => "http://www.twitter.com/ryanstout"
-    user._profiles.class
+    user._profile.class
     # => Volt::Model
 ```
-
-Model へのアクセス方法はハッシュとは異なります。`model[:symbol]` としてアクセスするのではなく、`model.method_name` としてメソッドを呼び出します。これは統一されたデータ保存のための機構として動的に提供されるものであり、セッター/ゲッターを追加するためにコードを書く必要はありません。
 
 Model をハッシュに戻したい場合には、`#to_h` を実行してください。
 
@@ -40,17 +38,18 @@ Model の中のアレイは自動的に ArrayModel のインスタンスに変�
 ```
 
 
-Volt::Model や Volt::ArrayModel を通常のハッシュに戻したい場合には、それぞれ .to_h と .to_a を実行してください。(JavaScript のコードに渡すために) JavaScript のオブジェクトに変換したい場合には、`#to_n` (to native) を実行してください。
+Volt::Model や Volt::ArrayModel を通常のハッシュに戻したい場合には、それぞれ .to_h と .to_a を実行してください。
+(JavaScript のコードに渡すために) JavaScript のオブジェクトに変換したい場合には、`#to_n` (to native) を実行してください。
 
 ```ruby
     user = Volt::Model.new
     user._name = 'Ryan'
-    user._profiles = {
+    user._profile = {
       _twitter: 'http://www.twitter.com/ryanstout',
       _dribbble: 'http://dribbble.com/ryanstout'
     }
 
-    user._profiles.to_h
+    user._profile.to_h
     # => {twitter: 'http://www.twitter.com/ryanstout', dribbble: 'http://dribbble.com/ryanstout'}
 
     items = Volt::ArrayModel.new([1,2,3,4])
