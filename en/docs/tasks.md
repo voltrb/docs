@@ -1,11 +1,11 @@
 # Tasks
 
-Sometimes you need to explicitly execute some code on the server. Volt solves this problem through *tasks*. You can define your own tasks by inheriting from ```Volt::TaskHandler```. Ruby files in a ```tasks``` folder, which end with ```_tasks.rb```, will be required automatically.
+Sometimes you need to explicitly execute some code on the server. Volt solves this problem through *tasks*. You can define your own tasks by inheriting from ```Volt::Task```. Ruby files in a ```tasks``` folder, which end with ```_tasks.rb```, will be required automatically.
 
 ```ruby
 # app/main/tasks/logging_tasks.rb
 
-class LoggingTasks < Volt::TaskHandler
+class LoggingTasks < Volt::Task
   def log(message)
     puts message
   end

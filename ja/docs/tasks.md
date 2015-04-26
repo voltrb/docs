@@ -1,11 +1,11 @@
 # タスク
 
-明示的にサーバー上でコードを実行したいこともあるでしょう。Volt では *タスク* を使ってこの問題を解決します。タスクは ```Volt::TaskHandler```.を継承することで定義できます。```tasks``` フォルダーに格納された ```_tasks.rb``` で終わる名前の Ruby ファイルは自動的に require されます。
+明示的にサーバー上でコードを実行したいこともあるでしょう。Volt では *タスク* を使ってこの問題を解決します。タスクは ```Volt::Task```.を継承することで定義できます。```tasks``` フォルダーに格納された ```_tasks.rb``` で終わる名前の Ruby ファイルは自動的に require されます。
 
 ```ruby
     # app/main/tasks/logging_tasks.rb
 
-    class LoggingTasks < Volt::TaskHandler
+    class LoggingTasks < Volt::Task
       def log(message)
         puts message
       end
