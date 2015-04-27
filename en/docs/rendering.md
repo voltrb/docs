@@ -19,7 +19,9 @@ We want our DOM to automatically update when our model data changes.  To make th
 
 ## Computations
 
-Lets take a look at this in practice.  We'll use the ```page``` collection as an example.  (You'll learn more about collections later.)
+As a Volt user, you rarely need to use Computations and Dependencies directly.  Instead, you usually just interact with models and bindings.  Computations are used under the hood, and having a full understanding of what's going on is useful, but not required.
+
+Lets take a look at Computations in practice.  We'll use the ```page``` collection as an example.  (You'll learn more about collections later.)
 
 First, we setup a computation watch.  Computations are built by calling ```.watch!``` on a Proc.  Here we'll use the ruby 1.9 proc shorthand syntax ```-> { ... }```. It will run once, then run again each time the data in ```page._name``` changes.
 
@@ -72,6 +74,8 @@ page._name = 'Jo'
 
 ## Dependencies
 
+As mentioned above, you will rarely use Dependencies directly, but having an understanding of them is useful. Let's take a brief look at them here.
+
 TODO: Explain Dependencies
 
-As a Volt user, you rarely need to use Computations and Dependencies directly.  Instead, you usually just interact with models and bindings.  Computations are used under the hood, and having a full understanding of what's going on is useful, but not required.
+
