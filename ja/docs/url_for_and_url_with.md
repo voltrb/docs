@@ -13,6 +13,13 @@ url_for(controller: 'todos', page: 5)
 # => 'http://localhost:3000/todos?page=5'
 ```
 
+[HTTPコントローラー](http_controllers.md) のためのURLを設定する場合は、対応するメソッドを第1引数に指定してください。
+
+```ruby
+url_for(:get, controller: 'todos', action: 'index')
+# => 'http://localhost:3000/api/todos
+```
+
 ## url_with
 
 ```url_with``` は ```url_for``` と似ていますが、現在のパラメータ (params) とマージされる点が異なります。以下の例では、パラメータが ```{controller: 'todos'}``` であるとして URL を返します。

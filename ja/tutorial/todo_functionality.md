@@ -2,23 +2,13 @@
 
 これで Todo のリストが完成しましたが、これだけでは面白くありません。Todo にもっと機能を追加しましょう。
 
-Todo リストから項目を削除できるようにするために、コントローラーにメソッドを追加し、同時にそのメソッドに紐付いたボタンを追加しましょう。`app/main/controllers/main_controller.rb` に `remove_todo` メソッドを定義します:
-
-```ruby
-...
-def remove_todo(todo)
-  page._todos.delete(todo)
-end
-...
-```
-
 次に、`app/main/views/main/todos.html` を編集し、Todo テーブルにボタンを追加しましょう:
 
 ```html
 ...
 <tr>
   <td>{{ todo._name }}</td>
-  <td><button e-click="remove_todo(todo)">X</button></td>
+  <td><button e-click="todo.destroy">X</button></td>
 </tr>
 ...
 ```
@@ -30,7 +20,7 @@ end
 <tr>
   <td><input type="checkbox" checked="{{ todo._completed }}" /></td>
   <td class="{{ if todo._completed }}complete{{ end }}">{{ todo._name }}</td>
-  <td><button e-click="remove_todo(todo)">X</button></td>
+  <td><button e-click="todo.destroy">X</button></td>
 </tr>
 ...
 ```
@@ -69,7 +59,7 @@ textarea {
 }
 ```
 
-これで、チェックボックスの ON/OFF によって状態が即座に更新されることを確認できるようになりました。
+これで、チェックボックスの状態に応じてクラスが変更されるようになりました。
 
 もうひとつ機能を追加しましょう。ある todo を選択し、その項目に対して詳細情報を追加できるようにします。そして、レイアウトを少しキレイに見せるために、いくつかグリッドフレークワーク (Bootstrap) のためのクラスをここで追加します。ビューを以下のように編集してください:
 
@@ -82,15 +72,15 @@ textarea {
       <h1>Todo List</h1>
 
       <table class="todo-table">
-        {{page._todos.each do |todo| }}
+        {{page._todos.each_with_index do |todo, index| }}
         <!-- Use params to store the current index -->
         <tr
           e-click="params._index = index"
-          class="{{ if params._index.or(0).to_i == index }}selected{{ end }}"
+          class="{{ if (params._index || 0).to_i == index }}selected{{ end }}"
           >
           <td><input type="checkbox" checked="{{ todo._completed }}" /></td>
           <td class="{{ if todo._completed }}complete{{ end }}">{{ todo._name }}</td>
-          <td><button e-click="remove_todo(todo)">X</button></td>
+          <td><button e-click="todo.destroy">X</button></td>
         </tr>
         {{ end }}
       </table>
@@ -115,30 +105,31 @@ textarea {
 ...
 ```
 
-テーブルに追加したのは、Todo 項目をクリックしたときに Volt の params コレクションにインデックスを設定するためのものです。そして、それは自動的に更新される URL パラメータと等しくなります。params コレクションに格納される値は割り当てられていない可能性もあるので、`#or` メソッドを使ってデフォルト値を設定した上で、選択された Todo 項目に対して追加の CSS を適用しています。
+テーブルに追加したのは、Todo 項目をクリックしたときに Volt の params コレクションにインデックスを設定するためのものです。そして、それは自動的に更新される URL パラメータと等しくなります。params コレクションに格納される値は割り当てられていない可能性もあるので、`||` メソッドを使ってデフォルト値を設定した上で、選択された Todo 項目に対して追加の CSS を適用しています。
 
 また、一番最後の部分に新しいセクションを追加していますが、これは詳細情報を表示させたい現在の Todo (`current_todo`) があるかどうかを判定するためのものです。\ただし、これだけではまだこの機能は動作しません。合わせて、コントローラーに以下のメソッドを追加してください:
 
 ```ruby
 ...
 def current_todo
-  page._todos[params._index.or(0).to_i]
+  page._todos[(params._index || 0).to_i]
 end
 ...
 ```
 
 これで、Todo 項目をクリックすると、それに応じた詳細情報が表示され、編集することが可能になります。
 
-Volt ではコントローラーは `ModelController` を継承しています。このことは、コントローラーにモデルを割り当てることが可能で、そして、コントローラーに存在しないメソッドの呼び出しはモデルに受け渡されることを意味しています。これから、モデルをインポートして、Todo のデータをデータベースに保存します:
+コントローラーは、コンポーネントに対応する名前空間に属しています (コンポーネントについては改めて記載します)。Volt では、コントローラーは `ModelController` を継承しています。このことは、コントローラーにモデルを割り当てることが可能で、そして、コントローラーに存在しないメソッドの呼び出しはモデルに受け渡されることを意味しています。We're going to back up all of our todos to a database by assigning a model:
 
 ```ruby
-class MainController < Volt::ModelController
-  model :store
+module Main
+  class MainController < Volt::ModelController
+    model :store
 
 ...
 ```
 
-ここまで書いてきた `page._todos` は、ここからは `_todos` に置き換えることができます (コントローラーとビューのどちらも置き換えてください)。これで、Todo のデータはデータベースに永続化されます。ただし、そのためには Mongo が起動している必要があります。
+ここまで書いてきた `page._todos` は、ここからは `_todos` に置き換えることができます (コントローラーとビューのどちらも置き換えてください)。これで、Todo のデータはデータベースに永続化されます。ただし、そのためには Mongo が起動している必要があります。(※今後、利用できるデータベースの追加を予定しています！)
 
 もし Mongo の利用が初めてであれば、使っている OS へのインストール手順が、ウェブサイトの [Installation Guides](http://docs.mongodb.org/manual/installation/) に記載されています。手順の中にも記載されていますが、Mongo を起動しているユーザーが `/data/db` ディレクトリに対して read/write 権限を持っていることを確認してください。もし、`sudo` などを使うことなく、ログイン中のユーザーで Mongo を起動したいのであれば、ディレクトリを作成したあとで `sudo chown $USER /data/db` を実行する必要があります。
 
