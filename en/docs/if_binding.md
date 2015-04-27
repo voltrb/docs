@@ -8,7 +8,7 @@ An ```if``` binding lets you provide basic flow control.
 {{ end }}
 ```
 
-Blocks are closed with a ```{{ end }}```
+Blocks are closed with ```{{ end }}```
 
 When the ```if``` binding is rendered, it will run the ruby code after "if".  If the code is true, it will render the code in the block below.  Any changes to the data in the ```if``` condition will update the rendered block.
 
