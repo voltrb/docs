@@ -91,7 +91,11 @@ end
 ...
 ```
 
-This method will append a hash to `page._todos` with the value of `page._new_todo` and clear out `page._new_todo`. To be able to see the `page._todos` collection, we'll add a table to our page:
+This method will append a hash to `page._todos` with the value of `page._new_todo` and clear out `page._new_todo`.
+
+**Note:** Notice that in `add_todo` we did not need to initialize an empty array into `page._todos`. This is because Volt will automatically initialize pluralized attributes to an empty `Volt::ArrayModel`. There is no need to initialize the attribute beforehand.
+
+To be able to see the `page._todos` collection, we'll add a table to our page:
 
 ```html
 ...
