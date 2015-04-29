@@ -59,7 +59,7 @@ textarea {
 }
 ```
 
-Now the class changes based on the checkbox state.
+Now the class attribute changes based on the checkbox state.
 
 Another feature we might want to add is the ability to select a todo and add an extra description to it. At this point we will also add a few grid framework (Bootstrap) placement classes to make the layout look a little nicer. We'll do this by adding more to our view:
 
