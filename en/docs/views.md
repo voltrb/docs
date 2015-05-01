@@ -16,7 +16,7 @@ In Volt, views are written in a simple template language where ruby can be inser
 
 # Controller Backing
 
-Volt is more of a Model View ViewModel (MVVM) framework than a Model View Controller (MVC) framework, but we have opted to use the controller terminology - so the term 'controller' and 'ViewModel' can be used interchangeably.
+While Volt is more of a Model View ViewModel (MVVM) framework than a MVC framework, we have opted to use the controller terminology - this just means we use the term 'Controller' instead of 'ViewModel'.
 
 Any method call or instance variable lookup in a view runs in the context of such a controller.
 
