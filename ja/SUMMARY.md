@@ -12,7 +12,7 @@
        * [If バインディング](docs/if_binding.md)
        * [Each バインディング](docs/each_binding.md)
        * [属性バインディング](docs/attribute_bindings.md)
-       * [テンプレートバインディング](docs/template_bindings.md)
+       * [テンプレートバインディング](docs/view_bindings.md)
        * [Yieldバインディング](docs/yield_binding.md)
        * [エスケープ](docs/escaping.md)
    * [モデル](docs/models.md)

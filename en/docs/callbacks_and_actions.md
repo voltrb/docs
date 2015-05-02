@@ -1,6 +1,6 @@
 # Controller Actions
 
-When a template binding or tag renders a view, it first loads a controller.  There are four callbacks around the rendering.  The ```{action}``` is the same as the view file's name.  So if you were rendering ```about.html```, ```about``` would be the action.  Simply create the correct method in the controller and it will called at the time.
+When a view binding or tag renders a view, it first loads a controller.  There are four callbacks around the rendering.  The ```{action}``` is the same as the view file's name.  So if you were rendering ```about.html```, ```about``` would be the action.  Simply create the correct method in the controller and it will called at the time.
 
 | action name           | description |
 |-----------------------|-----------------------------------------------------|
