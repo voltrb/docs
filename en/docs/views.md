@@ -12,10 +12,12 @@ Sections help you split up different parts of the same content (title and body u
 
 # Bindings
 
-In Volt, views are written in a simple template language where ruby can be inserted anywhere between ```{{``` and ```}}```.  Volt lets you use the usual flow control statements in views (```if```, ```elsif```, ```else```, and ```each```).  You can also render other views using the ```template``` binding.
+In Volt, views are written in a simple template language where ruby can be inserted anywhere between ```{{``` and ```}}```.  Volt lets you use the usual flow control statements in views (```if```, ```elsif```, ```else```, and ```each```).  You can also render other views using the ```view``` binding.
 
 # Controller Backing
 
-While we use the controller terminology, Volt is closer to a MVVM framework.  Any method call or instance variable lookup in a view runs in the context of a controller.
+While Volt is more of a Model View ViewModel (MVVM) framework than a MVC framework, we have opted to use the controller terminology - this just means we use the term 'Controller' instead of 'ViewModel'.
+
+Any method call or instance variable lookup in a view runs in the context of such a controller.
 
 If you have a view at ```app/main/views/index/index.html``` it will load the controller at ```app/main/controller/index_controller.rb```.
