@@ -12,7 +12,7 @@
        * [If Binding](docs/if_binding.md)
        * [Each Binding](docs/each_binding.md)
        * [Attribute Bindings](docs/attribute_bindings.md)
-       * [Template Bindings](docs/template_bindings.md)
+       * [View Bindings](docs/view_bindings.md)
        * [Yield Binding](docs/yield_binding.md)
        * [Escaping](docs/escaping.md)
    * [Models](docs/models.md)
