@@ -23,3 +23,13 @@ If bindings can also have ```elsif``` and ```else``` blocks.
   <p>neither true</p>
 {{ end }}
 ```
+
+## Unless
+
+Unless is supported as well.
+
+```html
+{{ unless some_check? }}
+  <p>render this when some_check? is false</p>
+{{ end }}
+```
