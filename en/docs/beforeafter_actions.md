@@ -40,4 +40,4 @@ You can limit which actions a filter runs on by passing ```only: :some_action```
 
 It is common to redirect from inside of a before filter.  If you no longer wish to continue with the rendering, you can call ```stop_chain``` in an action and the rendering will stop.
 
-```stop_chain``` raises an exception that will be caught by the filter runner, so no code after ```stop_action``` will be run.
+```stop_chain``` raises an exception that will be caught by the filter runner, so no code after ```stop_chain``` will be run.
