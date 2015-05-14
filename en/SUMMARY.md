@@ -61,5 +61,7 @@
    * [Can I use opal gems?](getting_help/can_i_use_opal_gems.md)
    * [What's the difference between Volt and Meteor?](getting_help/whats_the_difference_between_volt_and_meteor.md)
    * [Is keeping a persistent connection open a performance problem?](getting_help/is_keeping_a_persistent_connection_open_a_performance_problem.md)
+   * [What browsers does Volt support?](getting_help/what_browsers_does_volt_support.md)
+* [Component Gems](contributing/component_gems.md)
 * [Contributing](contributing/README.md)
 

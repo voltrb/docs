@@ -7,3 +7,11 @@ For example with opal/browser, you can simply add the following to config/app.rb
 ```ruby
 require 'opal/browser'
 ```
+
+Then in a controller where you want to use opal-browser, add the following to the top of the file:
+
+```ruby
+if RUBY_PLATFORM == 'opal'
+  require 'browser'
+end
+```

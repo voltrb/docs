@@ -57,7 +57,7 @@ end
 ```ruby
 class Todo < Volt::Model
   permissions(:create, :update) do
-    deny :notes unless owner?
+    deny :notes, :secret_notes unless owner?
   end
 
   permissions(:read) do
@@ -70,7 +70,7 @@ class Todo < Volt::Model
 end
 ```
 
-^ The above would allow anyone to change notes, but only the owner could change other fields.  Only the owner could read secret_notes (while all other fields would be able to be read by anyone).  And only the owner could delete the model.
+^ The above would allow only the owner to change ```notes``` and ```secret_notes```, but anyone can change the other fields.  Only the owner could read ```secret_notes``` (while all other fields would be able to be read by anyone).  And only the owner could delete the model.
 
 ### Passing in the action
 
