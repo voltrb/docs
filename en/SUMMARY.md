@@ -28,6 +28,7 @@
        * [ArrayModel Events](docs/arraymodel_events.md)
        * [Automatic Model Conversion](docs/automatic_model_conversion.md)
        * [Permissions](docs/permissions.md)
+       * Underscore Accessors
    * [Controllers](docs/controllers.md)
        * [Reactive Accessors](docs/reactive_accessors.md)
        * [url_for and url_with](docs/url_for_and_url_with.md)
