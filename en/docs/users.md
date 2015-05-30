@@ -76,12 +76,12 @@ You can use [volt-fields](https://github.com/voltrb/volt-fields) to show any err
 
 Volt::ModelController has a ```require_login``` method that will check if the user is logged in, and redirect to the login page if they are not.  It will also flash up a message to login.
 
-You can require a logged in user for certain actions using the :require_login before filter.
+You can require a logged in user for certain actions using the :require_login before action.
 
 ```ruby
 module Main
   class MainController < Volt::ModelController
-    before_filter :require_login
+    before_action :require_login
 
     def index
     end
@@ -94,7 +94,7 @@ You can also pass a custom message to require_login, or nil if you don't want to
 ```ruby
 module Main
   class MainController < Volt::ModelController
-    before_filter do
+    before_action do
       require_login('Login or else')
     end
 
