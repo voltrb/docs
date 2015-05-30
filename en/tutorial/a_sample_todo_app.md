@@ -21,7 +21,7 @@ cd todo_example
 
 You'll notice that Volt created a ```todo_example``` folder and filled it with the scaffolding for a new Volt project, along with other common things like a Gemfile and sensible .gitignore. Volt apps are built as nested components, and your app starts with a component called `main`, which has a controller and some views.
 
-To run the template server:
+To run the server:
 
 ```bash
 bundle exec volt server
@@ -61,8 +61,6 @@ client '/todos', action: 'todos' # New route
 ...
 ```
 
-Currently after adding routes you need to restart the server.
-
 Once all these changes are saved, you will be able to navigate to the page we created for the Todo List.
 
 Next, we want to add a way for users to add a todo to the list with a form, so we'll start by adding to the body of `todos.html`:
@@ -80,7 +78,7 @@ Next, we want to add a way for users to add a todo to the list with a form, so w
   </form>
 ```
 
-Anything in `{{ }}` is executed as Ruby code, both on the client and the server, so we are binding the value of the form to a member of the `page` collection. In Volt, there are a number of different collections, `page` is just a temporary collection, and will be lost if you navigate away or refresh. Any value that gets bound in the view will be automatically updated in all places, so `page._new_todo` is accessible from other parts of your code. We'll take advantage of this by adding a method to `app/main/controllers/main_controller.rb`:
+Anything in `{{ }}` is executed as Ruby code.  Code in controllers and views is compiled to JavaScript (using [Opal](http://opalrb.org/) and runs in the browser. Above we are binding the value of the form to a member of the `page` collection. In Volt, there are a number of different collections, `page` is a temporary in memory collection, and will be lost if you navigate away or refresh. Any value that gets bound in the view will be automatically updated in all places they are shown.  We'll take advantage of this by adding a method to `app/main/controllers/main_controller.rb`:
 
 ```ruby
 ...
@@ -93,7 +91,7 @@ end
 
 This method will append a hash to `page._todos` with the value of `page._new_todo` and clear out `page._new_todo`.
 
-**Note:** Notice that in `add_todo` we did not need to initialize an empty array into `page._todos`. This is because Volt will automatically initialize pluralized attributes to an empty `Volt::ArrayModel`. There is no need to initialize the attribute beforehand.
+**Note:** Notice that in `add_todo` we did not need to initialize an empty array into `page._todos`. This is because Volt will automatically initialize pluralized attributes to an empty `Volt::ArrayModel`. There is no need to initialize the attribute beforehand.  Also, when we append a hash to a ```Volt::ArrayModel``` it will automatically be converted to a Volt model.
 
 To be able to see the `page._todos` collection, we'll add a table to our page:
 
@@ -112,5 +110,5 @@ To be able to see the `page._todos` collection, we'll add a table to our page:
 ...
 ```
 
-Now, once everything is saved and reloads, any time you submit by hitting enter, it'll add to the list and clear out the form. Volt is reactive and intelligent, so any time the list is updated, only the new elements will be drawn; it won't redraw the entire list.
+Now, once everything is saved and reloads, any time you submit by hitting enter, it will add to the list and clear out the form. Volt is reactive and intelligent, so any time the list is updated, only the new elements will be drawn; it won't redraw the entire list.
 

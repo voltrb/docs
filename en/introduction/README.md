@@ -3,15 +3,14 @@
 Volt has the following goals:
 
 1. Developer happiness
-2. Sharing of code between the client and server
+2. Eliminate duplication by sharing of code between the client and server
 3. Automatic data syncing between client and server
-4. Apps are built as nested components.  Components can be shared (via gems)
+4. Apps are built as nested components.  Components can be shared (via gems), or run as services.
 5. Concurrent.  Volt provides tools to simplify concurrency.  Component rendering is done in parallel on the server.
 6. Intelligent asset management
 7. Secure (shouldn't need to be said, but it does)
 8. Fast, light, and scalable
 9. Understandable code base
-10. Upgradeability
 
 # Road Map
 
