@@ -46,6 +46,7 @@
        * [Routes File](docs/routes_file.md)
    * [Users](docs/users.md)
    * [Channel](docs/channel.md)
+   * [Message Bus](docs/message_bus.md)
    * [Testing](docs/testing.md)
    * [Debugging](docs/debugging.md)
    * [Volt Helpers](docs/volt_helpers.md)

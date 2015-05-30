@@ -46,6 +46,55 @@ end
 
 The block should return a hash of errors.  Each key relates to an error message for the field.  You can return multiple errors and they will be merged.
 
+## Conditional Validations
+
+You may wish to use an existing validator only in certain situations.  For example, you may have a blog post that has a publish_date that should be set, but only when the post is published.  You can use any validator within a ```validations``` block (notice the plural).
+
+```ruby
+class Post < Volt::Model
+  field :title, String
+  field :published, Boolean
+  field :publish_date
+
+  validate :title, length: 5
+
+  validations do
+    if published
+      validate :publish_date, presence: true
+    end
+  end
+end
+```
+
+You can also specify that the validation should only happen on create or update:
+
+```ruby
+class Post < Volt::Model
+  field :published, Boolean
+  field :publish_date
+
+  validations(:update) do
+    if _published
+      validate :publish_date, presence: true
+    end
+  end
+end
+```
+
+Lastly, ```validations``` passes in :create or :update based on the state.
+
+```ruby
+class Post < Volt::Model
+  ...
+  
+  validations do |action|
+    if action == :update && _published
+      validate :publish_date, presence: true
+    end
+  end
+end
+```
+
 ## Custom Validators
 
 TODO: Document custom validator classes

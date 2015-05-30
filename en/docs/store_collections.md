@@ -1,17 +1,18 @@
 # Store Collection
 
-The store collection backs data in the data store.  Currently, the only supported data store is Mongo. (More coming soon, RethinkDb will probably be next).  You can use ```store``` very similarly to the other Volt collections.
+The store collection backs data in the data store.  Currently, the only supported data store is Mongo. (More coming soon, RethinkDb and Postgres will probably be next).  Because ```store``` sometimes need to wait for data to come back from the server, all query methods on ```store``` return a Promise.  If you are new to promises, be sure to [read more about Opal's promises](http://opalrb.org/docs/promises/) before continuing.
 
 In Volt, you can access ```store``` on the front-end and the back-end.  Data will automatically be synced between the front-end and the backend.  Any changes to the data in ```store``` will be reflected on any clients using the data (unless a [buffer](#buffers) is in use - see below).
 
 ```ruby
-    store._items << {name: 'Item 1'}
+    store._items.create({name: 'Item 1'})
+    # => #<Promise(70241075567160): <Volt::Model {:id=>"a00c3a11d0d1212ebd58e74a", :name=>"Item 1"}>>
 
     store._items[0]
-    # => <Volt::Model:70303681865560 {:name=>"Item 1", :_id=>"e6029396916ed3a4fde84605"}>
+    # => #<Promise(70241056101540): <Volt::Model {:id=>"3e960e6f891140e1990985d4", :name=>"Item 1"}>>
 ```
 
-Inserting into ```store._items``` will create an ```items``` collection in mongo and insert the model document into it.  A pseudo-unique ```_id``` will be generated automatically.
+Calling ```create``` (or ```append```, or ```<<```) on ```store._items``` will create an ```items``` table in the data store and insert the model document into it.  A [golbally unique](http://en.wikipedia.org/wiki/Globally_unique_identifier) ```id``` will be generated automatically.
 
 Currently, one difference between ```store``` and other collections is that ```store``` does not store properties directly.  Only ArrayModels are allowed directly on the ```store``` collection.
 
