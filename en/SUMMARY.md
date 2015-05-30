@@ -16,6 +16,7 @@
        * [Yield Binding](docs/yield_binding.md)
        * [Escaping](docs/escaping.md)
    * [Models](docs/models.md)
+       * Underscore Accessors
        * [Provided Collections](docs/provided_collections.md)
        * [Store Collections](docs/store_collections.md)
        * [Flash, Local, and Cookies Collection](docs/flash_collection.md)
@@ -28,7 +29,6 @@
        * [ArrayModel Events](docs/arraymodel_events.md)
        * [Automatic Model Conversion](docs/automatic_model_conversion.md)
        * [Permissions](docs/permissions.md)
-       * Underscore Accessors
    * [Controllers](docs/controllers.md)
        * [Reactive Accessors](docs/reactive_accessors.md)
        * [url_for and url_with](docs/url_for_and_url_with.md)
