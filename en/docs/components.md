@@ -1,6 +1,6 @@
 # Components
 
-Apps are made up of Components.  Each folder under ```app/``` is a component.  Components can also be included from gems.  Apps are commonly broken up into multiple components.  Components can be anything from a small reusable widget to a large section of the app.  Since components be included in other components, we reccomend starting with smaller components and building up larger ones.  Components that are likely to be reused can be build as [component gems](docs/component_gems.md), or you can move a component into a gem at a later time.
+Apps are made up of Components.  Each folder under ```app/``` is a component.  Components can also be included from gems.  Apps are commonly broken up into multiple components.  Components can be anything from a small reusable widget to a large section of the app.  Since components can be included in other components, we recommend starting with smaller components and building up larger ones.  Components that are likely to be reused can be built as [component gems](docs/component_gems.md), or you can move a component into a gem at a later time.
 
 The code inside of a component can be accessed in a few ways.  Model code is accessable from anywhere in the app.  Views/controllers can be accessed using tags or view bindings.  See [tags](docs/tags.md) for info on how view path lookup works.
 
