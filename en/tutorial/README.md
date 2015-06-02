@@ -4,7 +4,7 @@ This guide will take you through creating a basic web application in Volt.  This
 
 ## Setup
 
-First, lets install Volt and create an empty app.  Be sure you have ruby (>2.1.0) and rubygems installed.
+First, let's install Volt and create an empty app.  Be sure you have ruby (>2.1.0) and rubygems installed.
 
 Next install the volt gem:
 

@@ -9,7 +9,7 @@ Yes!  At the moment Volt ships with jQuery, though this will be removed in a fut
 
 NOTE: The docs below are for 0.8.27.beta3 and above.
 
-First lets talk about how to call JS code from Volt (via Opal)  Opal has some docs on it [here](http://opalrb.org/docs/compiled_ruby/)  Typically you can just do inline JS by using backticks (``` ` ```).  If you want your controller method to run both on the server and the client, you'll need to only run it if your in opal.  This can be accomplished as follows:
+First let's talk about how to call JS code from Volt (via Opal).  Opal has some docs on it [here](http://opalrb.org/docs/compiled_ruby/).  Typically you can just do inline JS by using backticks (``` ` ```).  If you want your controller method to run both on the server and the client, you'll need to only run it if you're in opal.  This can be accomplished as follows:
 
 ```ruby
 class PostController < Volt::ModelController
@@ -42,7 +42,7 @@ end
 
 ## Getting the view DOM nodes
 
-Often your views will be rendered multiple times on a page.  In these case you will want to know which dom node's the view for this controller has.  Currently Volt does not allow for id's with bindings in them.  (This will change in the future)  However Volt's ```ModelController``` provides two different ways to access the dom nodes.
+Often your views will be rendered multiple times on a page.  In these cases you will want to know which dom node's the view for this controller has.  Currently Volt does not allow for id's with bindings in them.  (This will change in the future.)  However, Volt's ```ModelController``` provides two different ways to access the dom nodes.
 
 ```
 class Post < Volt::ModelController

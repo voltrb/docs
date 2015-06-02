@@ -1,6 +1,6 @@
 ## Heroku
 
-Edit your ```Gemfile``` to specify Ruby version, e.g
+Edit your ```Gemfile``` to specify Ruby version, e.g.
 
 ```ruby
 source 'https://rubygems.org'
