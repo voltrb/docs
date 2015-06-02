@@ -1,6 +1,6 @@
 # Validations
 
-Within a model class, you may setup validations.  Validations let you restrict the types of data that can be stored in a model.  Validations are mostly useful for the ```store``` collection, though they can be used elsewhere.
+Within a model class, you can setup validations.  Validations let you restrict the types of data that can be stored in a model.  Validations are mostly useful for the ```store``` collection, though they can be used elsewhere.
 
 At the moment, we have the following validations (with more on the way):
 
@@ -15,10 +15,10 @@ At the moment, we have the following validations (with more on the way):
 See [this folder](https://github.com/voltrb/volt/tree/master/lib/volt/models/validators) for more info on the validators.
 
 ```ruby
-    class Info < Volt::Model
-      validate :name, length: 5
-      validate :state, presence: true
-    end
+class Info < Volt::Model
+  validate :name, length: 5
+  validate :state, presence: true
+end
 ```
 
 When ```save!``` on a buffer with validations is called, the following occurs:
@@ -35,7 +35,6 @@ You can create a one off custom validation by passing a block to validate:
 
 ```ruby
 validate do
-
   if _name.present?
     {name: 'must be present'}
   else
@@ -86,7 +85,7 @@ Lastly, ```validations``` passes in :create or :update based on the state.
 ```ruby
 class Post < Volt::Model
   ...
-  
+
   validations do |action|
     if action == :update && _published
       validate :publish_date, presence: true
