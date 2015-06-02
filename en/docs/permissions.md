@@ -52,7 +52,7 @@ class Todo < Volt::Model
 end
 ```
 
-^ only allow and complete would be allowed, all others would be blocked.  Using ```permission``` without any arguments will setup permissions for all CRUD operations (create, read, update, delete)  To restrict the permissions to only certain actions, you can pass in symbol's for each action as arguments to the ```permissions``` method.  You can also specify multiple permission blocks.
+^ only label and complete would be allowed, all others would be blocked.  Using ```permission``` without any arguments will setup permissions for all CRUD operations (create, read, update, delete)  To restrict the permissions to only certain actions, you can pass in symbol's for each action as arguments to the ```permissions``` method.  You can also specify multiple permission blocks.
 
 ```ruby
 class Todo < Volt::Model

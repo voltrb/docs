@@ -4,9 +4,9 @@ The volt command provides various helpers for managing a project and working wit
 
 ## new
 
-You can use ```volt new project_name``` to create a new project.  The new command will setup the basic app structure and is the reccomended way to create new projects.
+You can use ```volt new project_name``` to create a new project.  The new command will setup the basic app structure and is the recommended way to create new projects.
 
-NOTE: volt new is the only command that should be run without ```bundle exec``` in front of it.  Alll other commands should use ```bundle exec```
+NOTE: volt new is the only command that should be run without ```bundle exec``` in front of it.  All other commands should use ```bundle exec```
 
 ## generate
 
@@ -44,25 +44,25 @@ Gem generates the files for a component gem.  Component gems allow you to easily
 
 Gem generates the files for a Volt view. If a matching model controller is not present, it is created as well.
 
-It optionally can be passed a component, but defauls to `main`.
+It optionally can be passed a component, but defaults to `main`.
 
 ### task
 
 ```bundle exec volt generate task NAME COMPONENT```
 
-Gem generates the files for a Volt task. It optionally can be passed a component, but defauls to `main`.
+Gem generates the files for a Volt task. It optionally can be passed a component, but defaults to `main`.
 
 ### model controller
 
 ```bundle exec volt generate controller NAME COMPONENT```
 
-Gem generates the files for a Volt model controller. It optionally can be passed a component, but defauls to `main`.
+Gem generates the files for a Volt model controller. It optionally can be passed a component, but defaults to `main`.
 
 ### http_controller
 
 ```bundle exec volt generate http_controller NAME COMPONENT```
 
-Gem generates the files for a Volt http_controller. It optionally can be passed a component, but defauls to `main`.
+Gem generates the files for a Volt http_controller. It optionally can be passed a component, but defaults to `main`.
 
 ## server
 
