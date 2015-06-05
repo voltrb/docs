@@ -16,7 +16,7 @@ Add a ```Procfile``` that uses Thin
 
 Set up your data store connection in ```config/app.rb```.
 Below you see an example for MongoHQ. You'll need to adapt for your provider.
-[MongoLabs](http://www.mongolabs.com) is a great free solution.
+[MongoLab](http://www.mongolab.com) is a great free solution.
 
 ```ruby
 config.db_driver = 'mongo'
