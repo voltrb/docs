@@ -88,6 +88,28 @@ class Todo < Volt::Model
 end
 ```
 
+### Skipping Permissions
+
+Sometimes rather than setting up comlex logic in permissions, you can simply deny changes, then only do changes from a task.  For example, if you wanted to set an ```admin``` flag on the user model.  You could simply deny updates to ```admin``` and then manually set admin by skipping permissions.
+
+```ruby
+class User < Volt::User
+  permissions(:create, :update) do
+    # make it so no one can update without skipping permissions
+    deny :admin
+  end
+end
+```
+
+You can skip permissions by running ```Volt.skip_permissions``` and passing it a block.  ```skip_permissions``` can only be run on the server, for obvious reasons.
+
+```ruby
+Volt.skip_permissions do
+  # Running without permission checks.
+  # Set admin
+  user._admin = true
+end
+```
 ### Wrapping Up
 
 The permissions API attempts to provide a simple way to define who can do what to your app's data.  You can put any logic inside of the permissions blocks
