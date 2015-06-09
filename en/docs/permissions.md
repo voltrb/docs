@@ -26,7 +26,9 @@ end
 
 ## Own by User
 
-You can use the ```own_by_user``` method to assign a ```user_id``` field when the model is created and the user is logged in (See [Users](http://docs.voltframework.com/en/docs/users.html) for more info)  If a model is owned by the user, you can check if the currently logged in user is the owner in a permissions block by calling ```.owner?```  Owner will return true if the current user is the owner.
+You can use the ```own_by_user``` method to automatically assign the ```user_id``` field to the logged in user when a model is created (See [Users](http://docs.voltframework.com/en/docs/users.html) for more info)  It will also setup a belongs_to :user (or optionally another key passed in for the ```user_id```)
+
+If a model is owned by the user, you can check if the currently logged in user is the owner in a permissions block by calling ```.owner?```  Owner will return true if the current user is the owner.
 
 ```ruby
 class Todo < Volt::Model
