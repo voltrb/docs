@@ -164,11 +164,19 @@ def completed
 end
 
 def incomplete
-  _todos.size - completed
+  # because .size and completed both return promises, we need to
+  # call .then on them to get their value.
+  _todos.size.then do |size|
+    completed.then do |completed|
+      size - completed
+    end
+  end
 end
 
 def percent_complete
-  (completed / _todos.size.to_f * 100).round
+  completed.then do |completed|
+    (completed / _todos.size.to_f * 100).round
+  end
 end
 ...
 ```
