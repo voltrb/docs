@@ -36,14 +36,14 @@ You can create a one off custom validation by passing a block to validate:
 ```ruby
 validate do
   if _name.present?
-    {name: 'must be present'}
-  else
     {}
+  else
+    { name: ['must be present'] }
   end
 end
 ```
 
-The block should return a hash of errors.  Each key relates to an error message for the field.  You can return multiple errors and they will be merged.
+The block should return a hash of errors.  Each key relates to an array of error messages for the field.  You can return multiple errors and they will be merged.
 
 ## Conditional Validations
 
