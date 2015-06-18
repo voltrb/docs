@@ -29,7 +29,7 @@ When a model is set, any missing methods will be proxied to the model.  This let
 
 In ModelControllers, the `#model` method returns the current model.
 
-See the [provided collections](#provided-collections) section for a list of the available collection models.
+See the [provided collections](provided_collections.md) section for a list of the available collection models.
 
 You can also provide your own object to be a model.
 
