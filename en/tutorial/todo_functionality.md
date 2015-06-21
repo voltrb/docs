@@ -174,8 +174,10 @@ def incomplete
 end
 
 def percent_complete
-  completed.then do |completed|
-    (completed / _todos.size.to_f * 100).round
+  _todos.size then do |size|
+    completed.then do |completed|
+      (completed / size.to_f * 100).round
+    end
   end
 end
 ...
