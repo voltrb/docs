@@ -31,3 +31,22 @@ end
 ```
 
 The nice thing with the above is it will completely remove the code and not send it to the client.  Keep in mind however that this does not work around ```require``` since opal does requires at compile time.
+
+## Security
+
+A common question is what do I have to do to secure my app.  The two places you need to worry about security are:
+1) model permissions
+2) tasks
+
+### Model permissions
+
+Model permissions determine how data can be changed.  They are run both on the client side and again on the server side when data is changed or read.  Unlike backend frameworks, data can be changed from the client side without you needing to build an API.  Adding [model permissions](docs/permissions.md) is a simple way to secure your data according to your business logic.  See the [permissions](docs/permissions.md) page for more details.  The user model comes with permissions setup out of the box.
+
+### Tasks
+
+Tasks are similar to controllers in backend frameworks, except they work at the method level instead of using http.  Any public methods on a Task call be called from the client using class level methods.  The arguments will be passed to the backend, then the return value from the method will be sent back to the client.  Arguments in methods to Tasks should be validated, since they can contain any data that can be serialized to JSON (and Time objects)  Models will still validate permissions when used inside of a Task.
+
+### How to be secure
+
+1) Make sure model permissions are in place and match how you want data read and manuipulated.
+2) validate any data coming in as arguments to Tasks.  For example if you are requesting a remote API from a task, don't pass the whole URL in from the client side.  This would allow any url to be hit.  If you do pass the whole URL, check to make sure the domain/etc.. matches the url you want to hit.
