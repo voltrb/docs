@@ -46,6 +46,7 @@
        * [Tag Arguments/Attributes](docs/tag_attributes.md)
    * [Routes](docs/routes.md)
        * [Routes File](docs/routes_file.md)
+   * [Url](docs/url.md)
    * [Users](docs/users.md)
    * [Channel](docs/channel.md)
    * [Message Bus](docs/message_bus.md)
