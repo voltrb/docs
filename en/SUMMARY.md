@@ -27,6 +27,7 @@
        * [Validations](docs/validations.md)
        * [ArrayModel Events](docs/arraymodel_events.md)
        * [Permissions](docs/permissions.md)
+       * [Model States](docs/model_states.md)
    * [Controllers](docs/controllers.md)
        * [Reactive Accessors](docs/reactive_accessors.md)
        * [url_for and url_with](docs/url_for_and_url_with.md)
@@ -69,6 +70,7 @@
    * [Is keeping a persistent connection open a performance problem?](getting_help/is_keeping_a_persistent_connection_open_a_performance_problem.md)
    * [What browsers does Volt support?](getting_help/what_browsers_does_volt_support.md)
    * [Why use underscore accessors instead of [:property]](getting_help/why_use_underscore_accessors_instead_of_[property].md)
+   * [Does Volt support Haml, Slim, etc...](getting_help/does_volt_support_haml,_slim,_etc.md)
 * [Component Gems](contributing/component_gems.md)
 * [Contributing](contributing/README.md)
 
