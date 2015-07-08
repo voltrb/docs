@@ -1,93 +1,65 @@
 # Store コレクション
 
-ストアコレクションは、データストアにデータを保存するためのものです。現在サポートされているデータストアは Mongo のみです。(他のものも検討中です。おそらく次はRethinkDBに対応するでしょう)```store``` は他のコレクションとほとんど同じように利用することができます。
+ストアコレクションは、データベースにデータを保存するためのものです。現在サポートされているデータベースは Mongo のみです。(他のものも検討中です。おそらく次は RethinkDB と Postgres に対応するでしょう)```store``` は、サーバーからデータが帰ってくるのを待つ必要があります。したがって、```store``` に対するクエリメソッドはすべて promise を返すようになっています。もし promise について知らないのであれば、続きを読む前に [Opal の promise に関するドキュメントを一読してください](http://opalrb.org/docs/promises/)  。
 
-Volt ではフロントエンドとバックエンドのどちらでも ```store``` にアクセスすることができます。そして、フロントエンドとバックエンドでデータが自動的に同期されます。```store``` のデータに対する変更はすべて、そのデータを利用中のすべてのクライアントに対して反映されます。(ただし、後述の [buffer](#buffer) が使われている場合は除きます。)
+Volt ではフロントエンドとバックエンドのどちらでも ```store``` にアクセスすることができます。そして、ブラウザとサーバー間でデータが自動的に同期されます。```store``` のデータに対する変更はすべて、そのデータを利用中のすべてのクライアントに対して反映されます。(ただし、後述の [buffer](#buffer) が使われている場合は除きます。)
 
 ```ruby
-    store._items << {name: 'Item 1'}
+store._items.create({name: 'Item 1'})
+# => #<Promise(70297824266280): #<Volt::Model id: "9a46..5dd7", name: "Item 1">>
 
-    store._items[0]
-    # => <Volt::Model:70303681865560 {:name=>"Item 1", :_id=>"e6029396916ed3a4fde84605"}>
+store._items[0]
+# => #<Promise(70297821413860): #<Volt::Model id: "9a46..5dd7", name: "Item 1">>
 ```
 
-```store._items``` へ挿入を行うと、```_items``` コレクションがMongoDBに作成され、そこにモデルのドキュメントが格納されます。そのとき、仮の一意な ```_id``` が自動的に生成されます。
+```create``` (もしくは```append``` や ```<<```) を ```store._items``` に対して実行すると、データストアに ```items``` テーブルが (まだ存在していなかった場合は) 作成され、モデルのドキュメントが挿入されますその際、[グローバルにユニークな](http://en.wikipedia.org/wiki/Globally_unique_identifier) ```id``` が自動的に生成されます。
 
-現在、```store``` とそれ以外のコレクションで異なっている点は、```store``` はプロパティを直接持つことができないことです。```store``` コレクションに直接設定することができるのは ArrayModel のみとなっています。
+## store における promise
 
-```ruby
-    store._something = 'yes'
-    # => won't be saved at the moment
-```
-
-メモ: ```store``` に直接プロパティを設定できるようにすることも検討中です。
-
-## モデルの状態の保存
-
-サーバーとのデータの同期にはどうしても遅延があります。そこで、モデルが読み込み状態であるかを判断するための ```loaded_state``` というメソッドをストアモデルは提供します。
-
-
-| 状態        | 説明                                                         |
-|-------------|--------------------------------------------------------------|
-| not_loaded  | データは読み込まれていません                                 |
-| loading     | モデルはサーバーからデータを取得中です                       |
-| loaded      | データは読み込まれており、未同期のデータはありません         |
-| dirty       | データは読み込まれていますが、サーバーと同期されていません |
-
-
-## リアクティブ ローデイング
-
-storeを使っていて、ArrayModelが空になっていることに気づくと思います。この理由は、storeはサーバーに接続し結果を取得する必要があるためです。もしその結果がバインディングとして使われていれば、バインディングは更新され、データがロードされたタイミングで値を表示します。しかし、データがロードされるまで待つ必要があることもあるでしょう。その場合には、```.fetch``` と ```.fetch_first```を利用することができます。
-
-```.fetch```はブロックあり/なし、どちらでも実行できます。ブロックが指定された場合、データがロードされるとその値をyieldし、promiseを返します。ブロックが指定されなければ、単純にpromiseを返します。
-
-例:
+非同期の読み込みを実現するために、store の ArrayModel に対するメソッド実行は promise を返します。そのクエリの結果を処理する場合は .then を使います。
 
 ```ruby
-store._items.fetch do |items|
-  # => items == the loaded items
-end
-```
-
-または、以下のように取得します:
-
-```ruby
-promise = store._items.fetch
-
-promise.then do |items|
-  # => items == the loaded items
+store._items.first.then do |item|
+  # item に対する処理
 end
 ```
 
 ruby/opal のpromiseについては[このページを参照してください](http://opalrb.org/blog/2014/05/07/promises-in-opal/)。
-
-```.fetch_first``` は最初の要素を読み込み、解決します (.limit(1) を使用)。
-
-```.fetch_each``` は、取得を行い、それぞれの要素をyieldします。これはfetchのpromiseを返します。
 
 ## バインディングにおけるpromise
 
 promiseはバインディングに渡され、promiseが解決されると値を更新します。これは、以下のようなことが可能であることを意味します:
 
 ```html
-{{ store._items.fetch_first.then {|v| v._name } }}
+{{ store._items.first.then {|i| i._name } }}
 ```
 
 これは最初の要素を取得し、それが解決したらその名前を返しています。これはリアクティブ性を保つためでもあります。なぜなら、もし最初の要素が変わった場合、バインディングを再度実行して再度解決するからです。
 
-## promiseの同期
+## Promise メソッド フォワーディング
 
-Passing in a block is a convience method for calling .then ？ どう訳せばいいか検討中。
+上記の例をよりシンプルにするために、Volt は promise を拡張し、promise に対してのメソッドの直接実行を可能にし、promise が解決した場合にそのメソッドが解決された値に対して実行されるようにしています。したがって、意味的に以下は同じになります。
+
+```ruby
+store._items.first.then {|i| i._name }
+store._items.first._name
+```
+
+## promiseの同期
 
 もしstoreが(例えばtasksなどで)サーバー側のみである場合、promiseに対して```.sync```を実行することで、同期的に解決しその結果を返すことができます。もしpromiseが失敗した場合、```.sync```はエラーを発生させます。
 
 ```ruby
 # これはサーバー、もしくはコンドール上でのみ有効です
 
-# .sync blocks until the items are loaded
-items = store._items.fetch.sync
+store._items.create({name: 'Item 1'})
 
-items.size
+# .sync blocks until the items are loaded
+store._items.first.sync
+# => #<Volt::Model id: "3607..a0b0", name: "Item 1">
+
+store._items.size.sync
+# => 1
 ```
 
 ## クエリ
@@ -109,5 +81,17 @@ items.size
 ### .order
 
 ```.order``` は引数をMongoDBに渡し、```.sort``` を呼び出します。```.sort``` はすでにRubyのEnumクラスで定義されているため、代わりに```.order```をメソッド名として使っています。
+
+## モデルの状態の保存
+
+サーバーとのデータの同期にはどうしても遅延があります。そこで、モデルが読み込み状態であるかを判断するための ```loaded_state``` というメソッドをストアモデルは提供します。
+
+| 状態        | 説明                                                         |
+|-------------|--------------------------------------------------------------|
+| not_loaded  | データは読み込まれていません                                 |
+| loading     | モデルはサーバーからデータを取得中です                       |
+| loaded      | データは読み込まれており、未同期のデータはありません         |
+| dirty       | データは読み込まれていますが、サーバーと同期されていません |
+
 
 

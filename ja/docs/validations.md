@@ -15,10 +15,10 @@
 より詳細な内容については、[このフォルダー](https://github.com/voltrb/volt/tree/master/lib/volt/models/validators) を参照してください。
 
 ```ruby
-    class Info < Volt::Model
-      validate :name, length: 5
-      validate :state, presence: true
-    end
+class Info < Volt::Model
+  validate :name, length: 5
+  validate :state, presence: true
+end
 ```
 
 バリデーションがある場合、ここでバッファに対して ```save!``` を実行すると、以下のようになります:
@@ -35,16 +35,64 @@
 
 ```ruby
 validate do
-
   if _name.present?
-    {name: 'must be present'}
-  else
     {}
+  else
+    { name: ['must be present'] }
   end
 end
 ```
 
-ブロックはエラーのハッシュを返す必要があります。キーはそれぞれ、フィールドのエラーメッセージに対応します。複数のエラーを返すことも可能で、その場合、それらのエラーはマージされます。
+ブロックはエラーのハッシュを返す必要があります。キーはそれぞれ、フィールドのエラーメッセージの配列に対応します。複数のエラーを返すことも可能で、その場合、それらのエラーはマージされます。
+
+## 条件バリデーション
+
+特定の状況でのみバリデータを使いたい、というケースがあると思います。例えば、blog のポストがあったとき、そのポストが publish されている場合に限り、publish_date というデータが必ず設定されている必要があるといった場合です。```validations``` ブロックの内部では、自由にバリデータを利用することができます (複数形であることに注意)。
+
+```ruby
+class Post < Volt::Model
+  field :title, String
+  field :published, Boolean
+  field :publish_date
+
+  validate :title, length: 5
+
+  validations do
+    if published
+      validate :publish_date, presence: true
+    end
+  end
+end
+```
+
+また、create/update の場合にのみバリデーションを実行したい場合は以下のようにします。
+
+```ruby
+class Post < Volt::Model
+  field :published, Boolean
+  field :publish_date
+
+  validations(:update) do
+    if _published
+      validate :publish_date, presence: true
+    end
+  end
+end
+```
+
+```validations``` に :create または :update を状態に応じて渡すことも可能です
+
+```ruby
+class Post < Volt::Model
+  ...
+
+  validations do |action|
+    if action == :update && _published
+      validate :publish_date, presence: true
+    end
+  end
+end
+```
 
 ## カスタムバリデーター
 

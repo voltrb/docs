@@ -1,31 +1,39 @@
 ## サブコレクション
 
-モデルは ```store``` 上でネストすることができます。
+他のコレクションと同じように、 モデルは ```store``` 上でネストすることができます:
 
 ```ruby
-    store._states << {name: 'Montana'}
-    montana = store._states[0]
-
-    montana._cities << {name: 'Bozeman'}
-    montana._cities << {name: 'Helena'}
-
-    store._states << {name: 'Idaho'}
-    idaho = store._states[1]
-
+store._states.create({name: 'Montana'}).then do |montana|
+  montana._cities << {name: 'Bozeman'}
+  montana._cities << {name: 'Helena'}
+end.then do
+  store._states.create({name: 'Idaho'}).then do |idaho|
     idaho._cities << {name: 'Boise'}
     idaho._cities << {name: 'Twin Falls'}
+  end
+end
+```
 
-    store._states
-    # #<Volt::ArrayModel:70129010999880 [<Volt::Model:70129010999460 {:name=>"Montana", :_id=>"e3aa44651ff2e705b8f8319e"}>, <Volt::Model:70128997554160 {:name=>"Montana", :_id=>"9aaf6d2519d654878c6e60c9"}>, <Volt::Model:70128997073860 {:name=>"Idaho", :_id=>"5238883482985760e4cb2341"}>, <Volt::Model:70128997554160 {:name=>"Montana", :_id=>"9aaf6d2519d654878c6e60c9"}>, <Volt::Model:70128997073860 {:name=>"Idaho", :_id=>"5238883482985760e4cb2341"}>]>
+以下のモデルが作成されたことが確認できます:
+```ruby
+store._states
+# => #<Volt::ArrayModel [#<Volt::Model id: "9fd5..66ff", name: "Montana">, #<Volt::Model id: "7d72..f4a1", name: "Idaho">]>
+```
+では、最初の state が含んでいる city が何か確認してみましょう。.first は promise を返すので、._cities の呼び出しも同様に promise を返します。
+
+お```ruby
+store._states.first._cities
+# => #<Promise(70258435892520): #<Volt::ArrayModel [#<Volt::Model id: "41d5..b233", name: "Bozeman", state_id: "9fd53272ee1e4447c48866ff">, #<Volt::Model id: "f7ea..d07f", name: "Helena", state_id: "9fd53272ee1e4447c48866ff">]>>
 ```
 
 先にモデルを作って、後からそれを挿入することも可能です:
 
 ```ruby
-    montana = Model.new({name: 'Montana'})
+montana = Volt::Model.new({name: 'Montana'})
 
-    montana._cities << {name: 'Bozeman'}
-    montana._cities << {name: 'Helena'}
+montana._cities.create({name: 'Bozeman'})
+montana._cities.create({name: 'Helena'})
 
-    store._states << montana
+store._states.create(montana)
+# => #<Promise(70297821780700): #<Volt::Model id: "84bd..b3be", name: "Montana">>
 ```
