@@ -29,4 +29,4 @@ Volt には、初めからいくつかのデフォルト構成が設定されて
 | db_name   | "#{app\_name}\_#{Volt.env}  | mongo のデータベース名です。|
 | db_host   | 'localhost'               | mongo のデータベースのためのホスト名です。|
 | db_port   | 27017                     | mongo のデータベースのためのポートです。|
-| compress_deflate | false              | true の場合、アプリケーションサーバーで圧縮を行います。(ただ、これは本来は Nginx などに任せた方が良いでしょう)||
+| compress_deflate | false              | true の場合、アプリケーションサーバーで圧縮を行います。(ただ、これは本来は Nginx などに任せた方が良いでしょう)|

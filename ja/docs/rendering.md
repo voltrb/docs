@@ -20,14 +20,17 @@ Volt では、アプリケーションの状態管理をシンプルにするた
 
 ## 評価
 
-実例を見てみましょう。ここでは、```page``` コレクションを例とします。(後でより多くのコレクションを紹介します)
+Volt を利用するにあたって、評価 (Computation) や依存関係 (Dependency) を直接扱う必要はほとんどありません。その代わりに、通常はモデルやバインディングに対して操作を行います。評価 (Computation) は見えないところで動いているものなので、それがどのような仕組みで動いているかについて完全に理解することは役に立つことですが、必ずしも必須ではありません。
+
+では、評価について実例を見てみましょう。ここでは、```page``` コレクションを例とします。(後でより多くのコレクションを紹介します)
 
 はじめに、評価のための監視設定を行います。計算 (Computation) は、Proc オブジェクトに対して `.watch!` を実行ことで設定されます。ここでは、Ruby 1.9 の Proc の短縮シンタックス ```-> { .. }``` を使います。これを一度実行すると、以後 ```page._name``` が変更されたときに毎回実行されます。
 
 
 ```ruby
 page._name = 'Ryan'
--> { puts page._name }.watch!# => Ryan
+-> { puts page._name }.watch!
+# => Ryan
 page._name = 'Jimmy'
 # => Jimmy
 ```
@@ -45,7 +48,8 @@ end
 
 -> do
   puts lookup_name
-end.watch!# => Ryan Stout
+end.watch!
+# => Ryan Stout
 
 page._first = 'Jimmy'
 # => Jimmy Stout
@@ -59,7 +63,8 @@ page._last = 'Jones'
 ```ruby
 page._name = 'Ryan'
 
-comp = -> { puts page._name }.watch!# => Ryan
+comp = -> { puts page._name }.watch!
+# => Ryan
 
 page._name = 'Jimmy'
 # => Jimmy
@@ -72,6 +77,8 @@ page._name = 'Jo'
 
 ## 依存関係
 
-TODO: Explain Dependencies
+前述のように、依存関係を直接扱うことはほとんどありませんが、理解しておくことは損にはならないでしょう。ここから概要を見ていきます。
 
-Volt を利用するにあたって、評価 (Computation) や依存関係 (Dependency) を直接扱う必要はほとんどありません。その代わりに、通常はモデルやバインディングに対して操作を行います。評価 (Computation) は見えないところで動いているものなので、それがどのような仕組みで動いているかについて完全に理解することは役に立つことですが、必ずしも必須ではありません。
+TODO: 依存関係についての説明を書く
+
+

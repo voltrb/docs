@@ -26,7 +26,9 @@ end
 
 ## own_by_user
 
-```own_by_user```メソッドを利用すると、モデルが生成され、ユーザーがログインしている場合には```user_id```フィールドをアサインすることが可能です (詳しくは [ユーザー](http://docs.voltframework.com/en/docs/users.html)を参照してください)。ユーザーがモデルのオーナーである場合は、現在ログインしているユーザーがオーナーであるかどうかを、permissionsブロック内で```.owner?```を実行することで確認することができます。もし現在のユーザーがオーナーであれば、trueを返します。
+```own_by_user```メソッドを利用すると、モデルが生成され、ユーザーがログインしている場合には```user_id```フィールドをアサインすることが可能です (詳しくは [ユーザー](http://docs.voltframework.com/en/docs/users.html)を参照してください)。そのとき、自動的に :user への belong_to 関連が設定されます (```user_id``` に別のキーを指定することも可能です)。
+
+ユーザーがモデルのオーナーである場合は、現在ログインしているユーザーがオーナーであるかどうかを、permissionsブロック内で```.owner?```を実行することで確認することができます。もし現在のユーザーがオーナーであれば、trueを返します。
 
 ```ruby
 class Todo < Volt::Model
@@ -57,7 +59,7 @@ end
 ```ruby
 class Todo < Volt::Model
   permissions(:create, :update) do
-    deny :notes unless owner?
+    deny :notes, :secret_notes unless owner?
   end
 
   permissions(:read) do
@@ -70,7 +72,7 @@ class Todo < Volt::Model
 end
 ```
 
-^ 上記では、notesに対しては誰でも変更を加えることができますが、他のフィールドはオーナーのみが変更できます。また、secret_notesを読むことができるのはオーナーのみです (他のすべてのフィールドは誰でも読むことが可能です)。そして、モデルを削除できるはオーナーだけです。
+^ 上記では、```notes``` と ```secret_notes``` を変更することができるのはオーナーだけですが、他のフィールドは誰でも変更することが可能です。また、```secret_notes``` を読むことができるのはオーナーのみです (他のすべてのフィールドは誰でも読むことが可能です)。そして、モデルを削除できるはオーナーだけです。
 
 ### アクションを渡す
 
@@ -88,6 +90,28 @@ class Todo < Volt::Model
 end
 ```
 
+### パーミッションのスキップ
+
+パーミッションの複雑なロジックを構成することなく、もっと単純に、変更できないデータを設定しておき、タスクからのみ変更できるようにすることが可能です。例えば、ユーザーモデルに ```admin``` フラグを設定する場合などが例としてあげられるでしょう。そのためには、```admin``` に対する更新を禁止しておいて、手動でパーミッションのスキップを指定します。
+
+```ruby
+class User < Volt::User
+  permissions(:create, :update) do
+    # このようにすることで、パーミッションのスキップなしでは誰も更新できません
+    deny :admin
+  end
+end
+```
+
+パーミションのスキップは ```Volt.skip_permissions``` にブロックを指定して実行することで指定します。言うまでもないですが、 ```skip_permissions``` はサーバー側でのみ有効です。
+
+```ruby
+Volt.skip_permissions do
+  # パーミションのチェックをしない
+  # admin をセット
+  user._admin = true
+end
+```
 ### まとめ
 
 パーミッションAPIによって、アプリケーションのデータに対して「誰が」「何を」できるのかをシンプルな方法で設定することが可能です。また、permissionsブロック内にはどんなロジックでも書くことができます。

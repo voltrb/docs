@@ -23,3 +23,13 @@
   <p>neither true</p>
 {{ end }}
 ```
+
+## unless
+
+unless もサポートしています。
+
+```html
+{{ unless some_check?}}
+  <p>render this when some_check?is false</p>
+{{ end }}
+```

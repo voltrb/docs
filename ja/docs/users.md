@@ -76,12 +76,12 @@ end
 
 Volt::ModelController には ```require_login``` メソッドが用意されており、ユーザーがログインしているかをチェックし、ログインしていなければログインページにリダイレクトさせることができます。また、ログインのフラッシュメッセージを表示することもできます。
 
-:require_loginのbeforeフィルターを利用すれば、特定のアクションのみでログインを要求することが可能です。
+:require_login の before action を利用すれば、特定のアクションのみでログインを要求することが可能です。
 
 ```ruby
 module Main
   class MainController < Volt::ModelController
-    before_filter :require_login
+    before_action :require_login
 
     def index
     end
@@ -94,7 +94,7 @@ require_loginにはカスタムメッセージを設定することが可能で�
 ```ruby
 module Main
   class MainController < Volt::ModelController
-    before_filter do
+    before_action do
       require_login('Login or else')
     end
 
