@@ -32,3 +32,5 @@ simply use:
 Additionally, ```#and``` works the same way as ```&&```.  ```#and``` and ```#or``` let you easily deal with default values involving NilModels.
 
 -- TODO: Document .true? / .false?
+
+Modified at {{ file.mtime }}

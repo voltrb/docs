@@ -12,3 +12,5 @@ Volt.current_app.middleware.use(SomeMiddleware)
 - ```run```
 
 (※ミドルウェアの順序を設定するためのメソッドが追加される予定です)
+
+で修正されましたt {{ file.mtime }}

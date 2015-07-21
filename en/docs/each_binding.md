@@ -27,3 +27,5 @@ For the array: ```['one', 'two', 'three']``` this would print:
 You can do ```{{ index + 1 }}``` to correct the zero offset.
 
 When items are removed or added to the array, the ```each``` binding automatically and intelligently adds or removes the items from/to the DOM.
+
+Modified at {{ file.mtime }}

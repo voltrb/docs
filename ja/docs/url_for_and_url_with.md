@@ -34,3 +34,5 @@ url_with(page: 5)
 ```html
 <a href="{{ url_with(page: 5) }}">page 5</a>
 ```
+
+で修正されましたt {{ file.mtime }}

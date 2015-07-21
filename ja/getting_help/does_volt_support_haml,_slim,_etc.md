@@ -14,3 +14,5 @@
 それは実現できないほど困難、というわけではありませんが、Haml や Slim の Gem はそのままでは Volt で使えるようには設計されていません。Volt のコンパイルされたテンプレートフォーマットにコンパイル可能なテンプレート言語はであればすべて利用することができます。その、コンパイルされたテンプレートフォーマットというのは Ruby のコードです (Opal 経由でクライアントにコンパイルされます)。それは HTML と バインディングから構成されています。HTML はプレースホルダー (現在、特殊なコメントとして実装) を持っており、バインディングがレンダリングされるべき場所を示しています。バインディングは Ruby の Proc であり、バインディングのインスタンスをセットアップします。(Volt::EachBinding, Volt::ContentBinding, Volt::AttributeBinding, Volt::IfBinding, and Volt::EventBinding)
 
 Haml や Slim をコンパイルするためには、Haml や Slim が (レンダリング済みの HTML ではなく) Volt のコンパイルされたテンプレートのフォーマットを生成するように改修する必要があります。もし興味がある方がいれば、ぜひ [gitter](https://gitter.im/voltrb/volt) で @ryanstout までお知らせください。
+
+で修正されましたt {{ file.mtime }}

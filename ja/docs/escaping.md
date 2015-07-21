@@ -6,3 +6,5 @@
 ```html
     {{{ bindings look like: {{this}}  }}}
 ```
+
+で修正されましたt {{ file.mtime }}

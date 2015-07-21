@@ -10,3 +10,5 @@ In volt you can access information about the url via the ```url``` method, which
 - fragment
 
 Each method will reactively update when the url changes.
+
+Modified at {{ file.mtime }}

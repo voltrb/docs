@@ -17,3 +17,5 @@ The message bus can also be used from your app's code.  The message bus provides
 ## Custom Message Bus
 
 You can create your own message bus implementation by implementing the ```BaseMessageBus``` class at ```lib/volt/message_bus/base_message_bus.rb```  Then you can set the ```config.message_bus.bus_name = 'name_of_class'``` where ```name_of_class``` is the underscored version of you class name.  See ```base_message_bus.rb``` for details on implementing your own bus.
+
+Modified at {{ file.mtime }}

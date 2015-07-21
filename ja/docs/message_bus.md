@@ -17,3 +17,5 @@ Volt は、ある Volt クラスター (同一のデータベースに接続し�
 ## カスタムメッセージバス
 
 ```lib/volt/message_bus/base_message_bus.rb``` に ```BaseMessageBus``` クラスを実装することで、独自のメッセージバスを用意することができます。それを ```config.message_bus.bus_name = 'name_of_class'``` として設定します。```name_of_class``` はクラス名をアンダースコア表記にしたものです。独自バスの実装に関する詳細は ```base_message_bus.rb``` を参照してください。
+
+で修正されましたt {{ file.mtime }}

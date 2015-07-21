@@ -22,3 +22,5 @@ Now when you access any sub-collection called ```_info```, it will load as an in
 ```
 
 This lets you set custom methods and validations within collections.
+
+Modified at {{ file.mtime }}

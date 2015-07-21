@@ -21,3 +21,5 @@ flash._notices << "message to flash"
 ```
 
 メッセージ5秒間表示された後に (画面からもコレクションからも) 消えます。
+
+で修正されましたt {{ file.mtime }}

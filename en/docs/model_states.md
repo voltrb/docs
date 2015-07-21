@@ -22,3 +22,5 @@ On any store model (or buffer) you can call .saved_state and will get back one o
 | dirty     | The data was loaded at one point, but is no longer being synced with the server.  This will happen if no bindings are reactively listening on the data or anything produced from the data |
 
 
+
+Modified at {{ file.mtime }}

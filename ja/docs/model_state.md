@@ -8,3 +8,5 @@
 | loading     | maybe        | someone either accessed the data or bound an event           |
 | loaded      | yes          | data is loaded and there is an event bound                   |
 | dirty       | no           | data was either accessed without binding an event, or an event was bound, but later unbound. |
+
+で修正されましたt {{ file.mtime }}

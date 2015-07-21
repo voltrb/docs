@@ -11,3 +11,5 @@ end
 ```
 
 これで、```query``` をビューからバインドすることができます。while also changing in and out the model. query へのアクセスは追跡され、変更があった際には評価が実行されます。
+
+で修正されましたt {{ file.mtime }}

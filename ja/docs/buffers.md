@@ -52,3 +52,5 @@ end
 ```
 
 既存のモデルに対して .buffer を実行した場合の戻り値は、そのモデルのインスタンスのバッファになります。また、Volt::ArrayModel に対して .buffer を実行した場合には、そのコレクションの新しい要素のバッファを取得します。save! を実行すると、```<<``` または ```create``` で要素をコレクションにプッシュするかのように、その要素をサブコレクションに追加することができます。will then add the item to that sub-collection as if you had done ```<<``` or ```create``` to push the item into the collection.
+
+で修正されましたt {{ file.mtime }}

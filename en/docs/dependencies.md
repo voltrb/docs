@@ -18,3 +18,5 @@ css_file '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'
 ```
 
 Note, however, that jquery and bootstrap are currently both included by default.  Dependencies included with ```javascript_file``` and ```css_file``` will be mixed in with your component assets at the correct locations according to the order that they occur in the dependencies.rb files.
+
+Modified at {{ file.mtime }}

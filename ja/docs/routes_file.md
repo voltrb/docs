@@ -53,3 +53,5 @@ delete "/api/todos/{{ id }}", controller: 'todos', action: 'destroy', safe: true
 上記では、```id```/```controller```/```action```/```safe```パラメーターのハッシュとしてコントローラーに渡されます。
 
 「method」をHTTP GETまたはPOSTパラメーターとして指定すれば、実際のHTTPメソッドを上書きすることも可能です。
+
+で修正されましたt {{ file.mtime }}

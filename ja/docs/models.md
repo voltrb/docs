@@ -120,3 +120,5 @@ page._items.size
 page._items[0]
 # => <Volt::Model {:id=>"997e8a28c9675452ebcd5fa7", :name=>"Item 1"}>
 ```
+
+で修正されましたt {{ file.mtime }}

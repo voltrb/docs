@@ -23,3 +23,5 @@ channel.on('disconnect') do
   .. disconnect ..
 end
 ```
+
+で修正されましたt {{ file.mtime }}

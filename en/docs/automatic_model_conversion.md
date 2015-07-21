@@ -60,3 +60,5 @@ items.to_a
 ```
 
 You can get a normal array again by calling .to_a on a Volt::ArrayModel.
+
+Modified at {{ file.mtime }}

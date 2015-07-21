@@ -33,3 +33,5 @@ unless もサポートしています。
   <p>render this when some_check?is false</p>
 {{ end }}
 ```
+
+で修正されましたt {{ file.mtime }}

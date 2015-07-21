@@ -4,3 +4,5 @@ So I used to do social gaming years ago and we kept a socket connection (via fla
 Hopefully that answers some questions. There are a lot of difficult problems for Volt to solve, but I don't believe that handling the persistent connections is one of them. For the most part that's a solved problem thanks to epoll and the O(1) linux scheduler.
 
 - Ryan
+
+Modified at {{ file.mtime }}

@@ -14,3 +14,5 @@ When rendering to the actual dom, Volt tracks the locations of the rendered DOM 
 Its not too bad, but out of the box gems like haml and slim aren't designed for what Volt needs. Any template language that can compile to Volt's compiled template format can be used.  The compiled template format is ruby code (that gets compiled to the client via Opal).  It consists of html and bindings.  The html has placeholders (currently special html comments) that show where the binding should be rendered.  The bindings are ruby Procs that setup instance of the bindings.  (Volt::EachBinding, Volt::ContentBinding, Volt::AttributeBinding, Volt::IfBinding, and Volt::EventBinding)
 
 To make haml or slim compile, someone will need to modify slim or haml to produce the Volt compiled template format (instead of pre-rendered html)  It shouldn't be that hard, but its not trivial.  If you are intereted, hit up @ryanstout on our [gitter](https://gitter.im/voltrb/volt).
+
+Modified at {{ file.mtime }}

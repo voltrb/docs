@@ -18,3 +18,5 @@ Volt では、HTTP を介してクライアントとサーバー間のデータ�
  - https://github.com/voltrb/todomvc
  - https://github.com/voltrb/blog5
 
+
+で修正されましたt {{ file.mtime }}

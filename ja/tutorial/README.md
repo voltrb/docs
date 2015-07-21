@@ -22,3 +22,5 @@ Voltのコンソールには以下でアクセスすることができます:
 
     bundle exec volt console
 
+
+で修正されましたt {{ file.mtime }}

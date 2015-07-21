@@ -15,3 +15,5 @@ rake release
 ```
 
 Rubygems のバージョンを利用する場合には、Gemfile の ```path:``` オプションを削除してください。
+
+で修正されましたt {{ file.mtime }}

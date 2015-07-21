@@ -14,3 +14,5 @@ If you really like having Gems auto-required, you can put the following at the s
 ```ruby
 Bundler.setup
 ```
+
+Modified at {{ file.mtime }}
