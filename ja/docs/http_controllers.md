@@ -104,3 +104,5 @@ Responseにはカスタヘッダーを追加することができます。. カ�
 
 例えば、:auth_token は 'Auth-Token' に変換されます。ヘッダーは```Symbol``` または ```String``` で設定することが可能です。
    ```:auth_token == 'Auth-Token' == 'auth-token' == 'Auth_Token'```
+
+で修正されましたt {{ file.mtime }}

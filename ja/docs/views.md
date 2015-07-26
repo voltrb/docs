@@ -21,3 +21,5 @@ Volt は MVC フレームワークと言うより、モデル - ビュー - ビ�
 ビューにおけるすべてのメソッド呼び出しやインスタンス変数の探索は、上記した「コントローラー」のコンテキストで実行されます。
 
 もしビューが ```app/main/views/index/index.html``` であるならば、```app/main/controller/index_controller.rb``` をコントローラーとして読み込みます。
+
+で修正されましたt {{ file.mtime }}

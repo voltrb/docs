@@ -37,3 +37,5 @@ While that works really well in controller code, in Volt when using a ModelContr
 While this works, we feel that it doesn't read as easy and is something that can be a source of confusion.
 
 While the _property syntax is not common in ruby, its easy to get used to and once you do it saves a lot of typing/reading.  If the above hasn't convinced you its the best solution, keep in mind you can always just use [fields](/docs/models.md).
+
+Modified at {{ file.mtime }}

@@ -60,3 +60,5 @@ items.to_a
 ```
 
 Volt::ArrayModel に対して .to_a を実行することで通常の配列を得ることができます。
+
+で修正されましたt {{ file.mtime }}

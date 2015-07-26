@@ -13,3 +13,5 @@ page._items.delete_at(0)
 ```
 
 This is used internally on each bindings, but can be used in your own code.
+
+Modified at {{ file.mtime }}

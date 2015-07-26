@@ -102,3 +102,5 @@ You can add custom HTTP headers to your response. The custom headers will be tra
 
 :auth_token will be transformed to 'Auth-Token'. You can either set headers by using a ```Symbol``` or a ```String```.
    ```:auth_token == 'Auth-Token' == 'auth-token' == 'Auth_Token'```
+
+Modified at {{ file.mtime }}

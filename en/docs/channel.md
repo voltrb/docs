@@ -23,3 +23,5 @@ channel.on('disconnect') do
   .. disconnect ..
 end
 ```
+
+Modified at {{ file.mtime }}

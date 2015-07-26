@@ -21,3 +21,5 @@ flash._notices << "message to flash"
 ```
 
 These messages will show for 5 seconds, then disappear (both from the screen and the collection).
+
+Modified at {{ file.mtime }}

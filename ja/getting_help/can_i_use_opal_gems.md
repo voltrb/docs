@@ -15,3 +15,5 @@ if RUBY_PLATFORM == 'opal'
   require 'browser'
 end
 ```
+
+で修正されましたt {{ file.mtime }}

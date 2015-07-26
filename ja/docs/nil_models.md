@@ -32,3 +32,5 @@ One gotcha with NilModels is that they are a truthy value (since only nil and fa
 Additionally, ```#and``` works the same way as ```&&```.  ```#and``` と ```#or``` によって、NilModel も含めて、初期値の扱いを簡単にすることができます。
 
 -- TODO: Document .true?/ .false?
+
+で修正されましたt {{ file.mtime }}

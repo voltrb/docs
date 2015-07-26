@@ -35,3 +35,5 @@ end
 3. IE - coming soon
 
 Chrome は、ChromeDriver に関する[この問題](https://code.google.com/p/chromedriver/issues/detail?id=887#makechanges) が存在するため、サポートしていません。[このページ](https://code.google.com/p/chromedriver/issues/detail?id=887#makechanges)から、修正してくれるように chromedriver チームにアピールをお願いします！
+
+で修正されましたt {{ file.mtime }}

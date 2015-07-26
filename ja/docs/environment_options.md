@@ -17,3 +17,5 @@ config/app.rb で指定するオプションに加えて、Volt では、イン�
 | DB_DRIVER              | Volt.config.db_driver と同様          |
 | DB_URI                 | Volt.config.db_uri と同様             |
 
+
+で修正されましたt {{ file.mtime }}

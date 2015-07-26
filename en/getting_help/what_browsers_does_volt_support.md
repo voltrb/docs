@@ -8,3 +8,5 @@ There are a few features of Volt that only work on certain browsers.
 
 1) Binding on hidden fields.
 To bind on hidden fields, the browser needs mutation observer events.  These are only supported in >=IE11.  There is a polyfill that can be used to support IE8-10, which we will be bundling into a gem.  Check back here soon.
+
+Modified at {{ file.mtime }}

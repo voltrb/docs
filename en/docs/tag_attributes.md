@@ -32,3 +32,5 @@ Instead of passing in individual attributes, you can also assign the controllers
     {{ end }}
   </li>
 ```
+
+Modified at {{ file.mtime }}

@@ -33,3 +33,5 @@ Unless is supported as well.
   <p>render this when some_check? is false</p>
 {{ end }}
 ```
+
+Modified at {{ file.mtime }}

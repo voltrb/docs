@@ -15,3 +15,5 @@ rake release
 ```
 
 Remove the ```path:``` option in the gemfile if you wish to use the rubygems version.
+
+Modified at {{ file.mtime }}

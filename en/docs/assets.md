@@ -13,3 +13,5 @@ Any JS/CSS from an included component or component gem will be included as well.
 It is reccomended that images and other assets be put in ```app/{component}/assets/images``` (or fonts, etc..)  Then the url for an image for example would be: ```/assets/{component}/assets/images/...```
 
 **Note: asset bundling is on the TODO list**
+
+Modified at {{ file.mtime }}

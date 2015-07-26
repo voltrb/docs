@@ -14,3 +14,5 @@ Gemfileに書かれたGemが自動的にVoltにrequireされることはあり�
 ```ruby
 Bundler.setup
 ```
+
+で修正されましたt {{ file.mtime }}

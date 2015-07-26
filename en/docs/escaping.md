@@ -5,3 +5,5 @@ When you need to use {{ and }} outside of bindings, anything in a triple mustach
 ```html
     {{{ bindings look like: {{this}}  }}}
 ```
+
+Modified at {{ file.mtime }}

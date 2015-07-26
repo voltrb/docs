@@ -97,3 +97,5 @@ end
 ## カスタムバリデーター
 
 TODO: Document custom validator classes
+
+で修正されましたt {{ file.mtime }}

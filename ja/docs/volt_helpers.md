@@ -30,3 +30,5 @@ Volt には、初めからいくつかのデフォルト構成が設定されて
 | db_host   | 'localhost'               | mongo のデータベースのためのホスト名です。|
 | db_port   | 27017                     | mongo のデータベースのためのポートです。|
 | compress_deflate | false              | true の場合、アプリケーションサーバーで圧縮を行います。(ただ、これは本来は Nginx などに任せた方が良いでしょう)|
+
+で修正されましたt {{ file.mtime }}

@@ -86,3 +86,5 @@ end
 ```
 
 In opal, local variables compile down to JS local variables, so we can assign ```post``` and then call ```#container```.  Inside of our JS we have access to the ```post``` variable.  We can pass the container node to jQuery and call our method on it.
+
+Modified at {{ file.mtime }}

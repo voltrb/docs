@@ -74,3 +74,5 @@
 * [コンポーネント Gem](contributing/component_gems.md)
 * [Volt への貢献](contributing/README.md)
 
+
+で修正されましたt {{ file.mtime }}

@@ -87,3 +87,5 @@ runnerは、Voltのenvironmentでコードを実行するため使用します�
 ## drop_collection
 
 TODO:...
+
+で修正されましたt {{ file.mtime }}

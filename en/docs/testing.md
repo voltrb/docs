@@ -35,3 +35,5 @@ The integration tests don't run by default, to run Capybara tests, you need to s
 3. IE - coming soon
 
 Chrome is not supported due to [this issue](https://code.google.com/p/chromedriver/issues/detail?id=887#makechanges) with ChromeDriver.  Feel free to go [here](https://code.google.com/p/chromedriver/issues/detail?id=887#makechanges) and pester the chromedriver team to fix it.
+
+Modified at {{ file.mtime }}
