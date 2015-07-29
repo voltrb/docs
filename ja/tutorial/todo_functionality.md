@@ -59,7 +59,7 @@ textarea {
 }
 ```
 
-これで、チェックボックスの状態に応じてクラスが変更されるようになりました。
+Now the class attribute changes based on the checkbox state.
 
 もうひとつ機能を追加しましょう。ある todo を選択し、その項目に対して詳細情報を追加できるようにします。そして、レイアウトを少しキレイに見せるために、いくつかグリッドフレークワーク (Bootstrap) のためのクラスをここで追加します。ビューを以下のように編集してください:
 
@@ -165,11 +165,21 @@ def completed
 end
 
 def incomplete
-  _todos.size - completed
+  # .size と completed はどちらも promise を返すため、
+  # その値の取得には .then を実行する必要がありまうｓ。
+  _todos.size.then do |size|
+    completed.then do |completed|
+      size - completed
+    end
+  end
 end
 
 def percent_complete
-  (completed / _todos.size.to_f * 100).round
+  _todos.size.then do |size|
+    completed.then do |completed|
+      (completed / size.to_f * 100).round
+    end
+  end
 end
 ...
 ```

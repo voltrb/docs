@@ -32,13 +32,13 @@ cd into the project:
 
 ```cd projectname```
 
-And start the server (on cloud9, you must pass in the port and ip from ENV's)
+And start the server (on Cloud9, you must pass in the port and ip from ENV's)
 
 ```bundle exec volt server -p $PORT -b $IP```
 
 Cloud9 will give each app a custom sub-domain, to visit the running app, click the ```Preview``` menu, then ```Preview Running Application```
 
-At least with the free version on Cloud9, your mogoDB may be uncleanly shut down periodically. You can set up a free Monogo store on www.mongolab.com instead as an alternative. Set up an account there, then add the following to your config/app.rb:
+At least with the free version on Cloud9, your mongoDB may be uncleanly shut down periodically. You can set up a free Mongo store on www.mongolab.com instead as an alternative. Set up an account there, then add the following to your config/app.rb:
 
 ```
 config.db_driver = 'mongo'
@@ -52,4 +52,4 @@ end
 ```
 
 
-NOTE: if anyone wants to create a custom Volt imagge for cloud9, please let @ryanstout know in the gitter room.  Thanks!
+NOTE: if anyone wants to create a custom Volt image for cloud9, please let @ryanstout know in the gitter room.  Thanks!
