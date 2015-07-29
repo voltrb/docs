@@ -20,6 +20,6 @@ This is just a quick over-view of the differences.  Just a few more small differ
 
 - Volt uses convention and file structure more than Meteor.
 - Volt's router is entierly different.
-- Volt hasn't raise $11MM in venture capital :-)
+- Volt hasn't raise $31MM in venture capital :-)
 
 There's lots more differences, but those are the ones that come to mind right now.
