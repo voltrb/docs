@@ -175,7 +175,7 @@ def incomplete
 end
 
 def percent_complete
-  _todos.size then do |size|
+  _todos.size.then do |size|
     completed.then do |completed|
       (completed / size.to_f * 100).round
     end
