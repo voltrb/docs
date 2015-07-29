@@ -28,7 +28,7 @@ Volt provides callbacks into the rendering life-cycle of views.  See [Callbacks 
 
 ```ruby
 class Post < Volt::ModelController
-    def show_rendered
+    def show_ready
         # example setup JS
         `$('.post').setupCodeHighlighting();`
     end
