@@ -1,6 +1,6 @@
 # Associations
 
-Volt provides a nested model structure that can be accessed without any explicit declarations.  However often you may want to association other models using external id's.  Volt uses the ```_id``` field naming convention.  Volt provides a ```belongs_to```, ```has_many```, and ```has_one``` methods to associate models.
+Volt provides a nested model structure that can be accessed without any explicit declarations.  However often you may want to associate other models using external id's.  Volt uses the ```_id``` field naming convention.  Volt provides a ```belongs_to```, ```has_many```, and ```has_one``` methods to associate models.
 
 ```ruby
 class Person < Volt::Model
@@ -13,6 +13,7 @@ class Address < Volt::Model
 end
 
 class Street < Volt::Model
+  belongs_to :address
 end
 ```
 
@@ -44,4 +45,3 @@ end
 ```
 
 ```belongs_to``` associations return a promise that resolves with the associated model.
-

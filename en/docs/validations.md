@@ -64,6 +64,7 @@ class Post < Volt::Model
   end
 end
 ```
+***Note: the Boolean type is currently not supported. Support for types other than String and Numeric is forthcoming.***
 
 You can also specify that the validation should only happen on create or update:
 
@@ -79,6 +80,7 @@ class Post < Volt::Model
   end
 end
 ```
+***Note: the Boolean type is currently not supported. Support for types other than String and Numeric is forthcoming.***
 
 Lastly, ```validations``` passes in :create or :update based on the state.
 
