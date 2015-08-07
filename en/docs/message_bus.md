@@ -6,7 +6,7 @@ The message bus is used internally in volt to push model updates between instanc
 
 ## PeerToPeer Bus
 
-The default peer to peer bus uses the database to sync a list of ip's and ports for socket servers that the instances can setup.  (See the generated ```config/app.rb``` code for configuration details)  As long as the server can talk to each other over the network, everything should *just work*™.  (In many deployment situations, servers can talk between each other in a private cloud)  If the servers only have some ports exposed, you can specify the available ports in ```config/app.rb```
+The default peer to peer bus uses the database to sync a list of ip's and ports for socket servers that the instances can setup.  (See the generated ```config/app.rb``` code for configuration details)  As long as the servers can talk to each other over the network, everything should *just work*™.  (In many deployment situations, servers can talk between each other in a private cloud)  If the servers only have some ports exposed, you can specify the available ports in ```config/app.rb```
 
 ## Message Bus in App Code
 
