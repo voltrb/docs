@@ -45,6 +45,7 @@
        * [Provided Components](docs/provided_components.md)
    * [Tags](docs/tags.md)
        * [Tag Arguments/Attributes](docs/tag_attributes.md)
+       * [Tag Events and Triggering](docs/tag_events_and_triggering.md)
    * [Routes](docs/routes.md)
        * [Routes File](docs/routes_file.md)
    * [Url](docs/url.md)

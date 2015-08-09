@@ -11,6 +11,7 @@ In addition to the options in config/app.rb, some instance specific options in V
 | WEBSOCKET_PING_TIME    | When present, the websocket connection will send a ping every ```WEBSOCKET_PING_TIME``` seconds. |
 | NO_WEBSOCKET_PING      | Websocket ping is only enabled by default on heroku (when the DYNO env is present), to prevent Heroku from killing idle connections. This forces a disable of the websocket ping |
 | SKIP_BUNDLER_REQUIRE   | Disables auto-requiring files in the Gemfile.  This feature is considered experimental. |
+| POLL_FS                | In some situations, the listen gem Volt uses to track file system changes for auto-reloading will not detect changes correctly.  In this situation, you can run with POLL_FS=true to have it poll the file system for changes.  One place you might need this is sharing files over a network. |
 | DB_NAME                | Same as Volt.config.db_name             |
 | DB_HOST                | Same as Volt.config.db_host             |
 | DB_PORT                | Same as Volt.config.db_port             |
