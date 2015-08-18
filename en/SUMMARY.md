@@ -12,7 +12,6 @@
        * [Each Binding](docs/each_binding.md)
        * [Attribute Bindings](docs/attribute_bindings.md)
        * [View Bindings](docs/view_bindings.md)
-       * [Yield Binding](docs/yield_binding.md)
        * [Escaping](docs/escaping.md)
        * [Event Bindings](docs/event_bindings.md)
    * [Models](docs/models.md)
@@ -45,6 +44,7 @@
        * [Provided Components](docs/provided_components.md)
    * [Tags](docs/tags.md)
        * [Tag Arguments/Attributes](docs/tag_attributes.md)
+       * [Yield Binding in Tags](docs/yield_binding.md)
        * [Tag Events and Triggering](docs/tag_events_and_triggering.md)
    * [Routes](docs/routes.md)
        * [Routes File](docs/routes_file.md)
@@ -74,4 +74,3 @@
    * [Does Volt support Haml, Slim, etc...](getting_help/does_volt_support_haml,_slim,_etc.md)
 * [Component Gems](contributing/component_gems.md)
 * [Contributing](contributing/README.md)
-
