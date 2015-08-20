@@ -18,7 +18,10 @@ end
 ```ruby
 module Main
   class TodosController < Volt::ModelController
-    def initialize
+    def initialize(*args)
+      # Don't forget to call include *args and call super
+      super
+      
       self.model = :page
     end
   end

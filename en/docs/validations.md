@@ -11,6 +11,7 @@ At the moment, we have the following validations (with more on the way):
 - numericality
 - phone number
 - unique
+- type
 
 See [this folder](https://github.com/voltrb/volt/tree/master/lib/volt/models/validators) for more info on the validators.
 
