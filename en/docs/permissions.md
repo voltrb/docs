@@ -40,7 +40,7 @@ class Todo < Volt::Model
 end
 ```
 
-^ The above would prevent anyone besides the owner from reading, creating, updating, or deleting this model.  (```.owner?``` returns true in create because ```own_by_user``` will have already assigned the ```user_id````)
+^ The above would prevent anyone besides the owner from reading, creating, updating, or deleting this model.  (```.owner?``` returns true in create because ```own_by_user``` will have already assigned the ```user_id```)
 
 ### Allow vs Deny
 
