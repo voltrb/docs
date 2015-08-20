@@ -31,7 +31,7 @@ in which case you can omit the platform test.
 
 #### Opal load path
 
-For client-only gems, you also need to instruct opal parser where to find the sources for the gem. This can be done in ```config/dependencies.rb``` with
+For client-only gems, you also need to instruct opal where to find the sources for the gem. This can be done in ```config/dependencies.rb``` with
 
 ```ruby
 Opal.use_gem("browser")
