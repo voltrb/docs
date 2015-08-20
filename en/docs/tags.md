@@ -14,7 +14,7 @@ or
 <:tag_name></:tag_name>
 ```
 
-Refer to the View Binding section to see how tags lookup their associated view files.  The above has the same lookup as ```{{ template "tag_name" }}```.  Doing ```<:blog:comments />``` is the same as ```{{ template "blog/comments" }}```
+Refer to the View Binding section to see how tags lookup their associated view files.  The above has the same lookup as ```{{ view "tag_name" }}```.  Doing ```<:blog:comments />``` is the same as ```{{ view "blog/comments" }}```
 
 A tag loads the same as a template, loading the controller, calling the action method (if one exists), and rendering the view.  You can also pass in attributes to Tags.
 
