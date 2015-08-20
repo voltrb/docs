@@ -13,7 +13,7 @@ There are some special features provided to make elements work as "two way bindi
 <input type="text" value="{{ _name }}" />
 ```
 
-Above if ```_name``` changes, the value in the text box will be updated.  The binding calls ```_name``` on the controller to fetch the name value. When a user types into the text box, the equivilent setter method will be called on the controller.  In this case ```_name=``` will be called on the controller and the new field value will be passed in.  This gives the effect of two way bindings, but you are able to change how data is updated (by defining a different setter).  We think this gives the benefits of both one way bindings and two way bindings.
+Above if ```_name``` changes, the value in the text box will be updated.  The binding calls ```_name``` on the controller to fetch the name value. When a user types into the text box, the equivalent setter method will be called on the controller.  In this case ```_name=``` will be called on the controller and the new field value will be passed in.  This gives the effect of two way bindings, but you are able to change how data is updated (by defining a different setter).  We think this gives the benefits of both one way bindings and two way bindings.
 
 ## CheckBoxes
 
@@ -51,4 +51,3 @@ Select boxes can be bound to a value (while not technically a DOM property, this
 ```
 
 When the selected option of the select above changes, ```_rating``` is changed to match.  When ```_rating``` is changed, the selected value is changed to the first option with a matching value.  If no matching values are found, the select box is unselected.
-

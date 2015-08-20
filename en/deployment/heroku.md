@@ -29,6 +29,3 @@ else
   config.db_port = 27017
 end
 ```
-
-You can see an example application that has been deployed [here](https://murmuring-hollows-3078.herokuapp.com/about).
-

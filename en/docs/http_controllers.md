@@ -38,7 +38,7 @@ For now the request body has to be parsed manually. You can access the body via 
 module Main
   class TodosController < Volt::HttpController
     def create
-      data = JSON.parse(request.body)
+      data = JSON.parse(request.body.read)
       store._links! << Link.new(data)
     end
   end
