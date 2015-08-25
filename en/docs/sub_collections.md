@@ -19,7 +19,7 @@ Then we can see the models we created:
 store._states
 # => #<Volt::ArrayModel [#<Volt::Model id: "9fd5..66ff", name: "Montana">, #<Volt::Model id: "7d72..f4a1", name: "Idaho">]>
 ```
-Next we can check our first state to see what cities it contains.  Since .first reutrns a promise, calling ._cities on it will also return a promise.
+Next we can check our first state to see what cities it contains.  Since ```.first``` returns a promise, calling ```._cities``` on it will also return a promise.
 
 ```ruby
 store._states.first._cities
