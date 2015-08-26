@@ -3,7 +3,7 @@
 バインディングは属性の内部にも配置することができます。
 
 ```html
-<p class="{{ if is_cool?}}cool{{ end }}">Text</p>
+<p class="{{ if is_cool? }}cool{{ end }}">Text</p>
 ```
 
 ## 双方向の属性バインディング
