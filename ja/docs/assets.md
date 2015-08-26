@@ -10,6 +10,6 @@ Volt では、JavaScript や CSS (または sass) といったアセットは、
 
 ## 画像/フォント/その他のアセット
 
-It is reccomended that images and other assets be put in ```app/{component}/assets/images``` (or fonts, etc..)  Then the url for an image for example would be: ```/assets/{component}/assets/images/...```
+画像やその他のアセットは```app/{component}/assets/images``` (又は fonts など) に配置することを勧めます。そうすると、例えば画像のURLは```/assets/{component}/assets/images/...```の様になります.
 
 **メモ: アセットバンドルについては検討中です**
