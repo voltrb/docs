@@ -10,4 +10,4 @@ module Main
 end
 ```
 
-これで、```query``` をビューからバインドすることができます。while also changing in and out the model. query へのアクセスは追跡され、変更があった際には評価が実行されます。
+これで、モデルの内外どちらでの変更に対しても```query``` をビューからバインドすることができます。while also changing in and out the model. query へのアクセスは追跡され、変更があった際には評価が実行されます。
