@@ -13,6 +13,7 @@ class Address < Volt::Model
 end
 
 class Street < Volt::Model
+  belongs_to :address
 end
 ```
 
@@ -44,4 +45,3 @@ end
 ```
 
 ```belongs_to``` アソシエーションは関連付けられたモデルで解決するpromiseオブジェクトを返します。
-

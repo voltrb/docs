@@ -30,6 +30,3 @@ else
   config.db_port = 27017
 end
 ```
-
-[ここ](https://murmuring-hollows-3078.herokuapp.com/about) でサンプルアプリケーションを確認することができます。
-

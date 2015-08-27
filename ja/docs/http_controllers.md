@@ -39,7 +39,7 @@ end
 module Main
   class TodosController < Volt::HttpController
     def create
-      data = JSON.parse(request.body)
+      data = JSON.parse(request.body.read)
       store._links!<< Link.new(data)
     end
   end
@@ -69,7 +69,7 @@ end
 
 ### リダイレクト
 
-リダイレクトには ```#redirect_to``メソッドを使います。その際、第1引数にロケーションを、第2引数にステータスコードを指定してください。デフォルトではステータスコードは302が設定されます。
+リダイレクトには ```#redirect_to`1` メソッドを使います。その際、第1引数にロケーションを、第2引数にステータスコードを指定してください。デフォルトではステータスコードは302が設定されます。
 
 ```ruby
 module Main
