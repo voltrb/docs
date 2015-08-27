@@ -11,6 +11,7 @@
 - numericality
 - phone number
 - unique
+- type
 
 より詳細な内容については、[このフォルダー](https://github.com/voltrb/volt/tree/master/lib/volt/models/validators) を参照してください。
 
@@ -64,6 +65,7 @@ class Post < Volt::Model
   end
 end
 ```
+***注意: Boolean 型は現在サポートされていません。String や Numeric 以外の型のサポートも追加される予定です***
 
 また、create/update の場合にのみバリデーションを実行したい場合は以下のようにします。
 
@@ -79,6 +81,7 @@ class Post < Volt::Model
   end
 end
 ```
+***注意: Boolean 型は現在サポートされていません。String や Numeric 以外の型のサポートも追加される予定です***
 
 ```validations``` に :create または :update を状態に応じて渡すことも可能です
 

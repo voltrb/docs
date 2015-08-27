@@ -12,7 +12,6 @@
        * [Each バインディング](docs/each_binding.md)
        * [属性バインディング](docs/attribute_bindings.md)
        * [ビューバインディング](docs/view_bindings.md)
-       * [Yieldバインディング](docs/yield_binding.md)
        * [エスケープ](docs/escaping.md)
        * [Event バインディング](docs/event_bindings.md)
    * [モデル](docs/models.md)
@@ -45,6 +44,8 @@
        * [提供するコレクション](docs/provided_components.md)
    * [タグ](docs/tags.md)
        * [タグの引数と属性](docs/tag_attributes.md)
+       * [タグの yield バインディング](docs/yield_binding.md)
+       * [タグイベントとトリガー](docs/tag_events_and_triggering.md)
    * [ルート](docs/routes.md)
        * [ルートファイル](docs/routes_file.md)
    * [URL](docs/url.md)
@@ -73,4 +74,3 @@
    * [Volt で Haml や Slim などを利用できますか？](getting_help/does_volt_support_haml,_slim,_etc.md)
 * [コンポーネント Gem](contributing/component_gems.md)
 * [Volt への貢献](contributing/README.md)
-
