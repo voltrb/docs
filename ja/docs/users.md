@@ -8,7 +8,7 @@ Voltのユーザーに関する機能は開発中の段階です。サードパ�
 
 ## ユーザーを利用する
 
-Volt は [volt-user-tempates](https://github.com/voltrb/volt-user-templates) gem を最初から組み込んでいます。まず、ユーザーの使いかたについて見てみましょう。その次に、独自のサインアップページとログインページの作成方法について説明します。
+Volt は [volt-user-templates](https://github.com/voltrb/volt-user-templates) gem を最初から組み込んでいます。まず、ユーザーの使いかたについて見てみましょう。その次に、独自のサインアップページとログインページの作成方法について説明します。
 
 volt-user-template はサインアップとログインのためのテンプレートを提供します。それらは、デフォルトのルーティングテンプレートによってレンダリングされます。Volt は ```/signup``` と ```/login``` を ```routes.rb``` に定義しています。タグを使ってテンプレートのレンダリングをすることも可能です。詳しくは、[volt-user-templates の readme](https://github.com/voltrb/volt-user-templates) を参照してください。
 
