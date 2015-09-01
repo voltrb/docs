@@ -108,7 +108,7 @@ end
 
 ### Skipping Permissions
 
-Sometimes rather than setting up comlex logic in permissions, you can simply deny changes, then only do changes from a task.  For example, if you wanted to set an ```admin``` flag on the user model.  You could simply deny updates to ```admin``` and then manually set admin by skipping permissions.
+Sometimes rather than setting up complex logic in permissions, you can simply deny changes, then only do changes from a task.  For example, if you wanted to set an ```admin``` flag on the user model.  You could simply deny updates to ```admin``` and then manually set admin by skipping permissions.
 
 ```ruby
 class User < Volt::User
