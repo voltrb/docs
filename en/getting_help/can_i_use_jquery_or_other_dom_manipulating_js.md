@@ -16,11 +16,28 @@ When Volt renders a view, the result is usually a number of dom-nodes, not just 
 - self.first_element
 - self.container
 
-`dom_nodes` is a [Range](https://developer.mozilla.org/en-US/docs/Web/API/Range) of *all* the nodes that were created. These include whitespace and can generally be somewhat tricky to work with.
+### dom_nodes
 
-`first_element` gives you the first  [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element) (as opposed to a Node) and is often what you want. Eg if you have views with a single root element (say div) first_element will return that, ignoring any whitespace before it. Even when that is not the element you need, you can query it for what you need.
+`dom_nodes` returns a [Range](https://developer.mozilla.org/en-US/docs/Web/API/Range) of *all* the nodes in the view. These include whitespace and can generally be somewhat tricky to work with directly.
 
-`container` will give you the  [common ancestor](https://developer.mozilla.org/en-US/docs/Web/API/Range/commonAncestorContainer) of `dom_nodes`, in other words the parent of `first_element`
+### first_element
+
+`first_element` gives you the first  [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element) (aka Dom Node) and is often what you want.  If you have views with a single root element (say div) first_element will return that, ignoring any whitespace before it. A common pattern is to get the first element, then query for the element inside of the view with it:
+
+``` `$(#{first_element}).find('.tab-header')` ```
+
+In the above example, we call jQuery's $(..) inside of backticks, then call Volt's ```first_element``` using #{} (going back to ruby).  This gives a jQuery wrapped node that represents the view (assuming we have a single root node in our view).  Then we can use ```.find``` to query for the node we are looking for.
+
+### container
+
+`container` will give you the  [common ancestor](https://developer.mozilla.org/en-US/docs/Web/API/Range/commonAncestorContainer) of `dom_nodes`, in other words the parent of `first_element`  This can be useful if you have multiple root nodes in a view.  For example, if you had the following in a view section:
+
+```html
+<td>{{ name }}</td>
+<td>{{ address }}</td>
+```
+
+In the above, the view has two root nodes (the td's), so first element will return the first ```td```.  Using ```container``` you can get back the parent node of the two ```td```'s.
 
 All three (ruby) functions return javascript objects. As such you can not use ruby directly to use those objects, but must either use backticks or the Native module, both described below.
 
