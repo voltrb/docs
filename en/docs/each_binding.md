@@ -27,3 +27,17 @@ For the array: ```['one', 'two', 'three']``` this would print:
 You can do ```{{ index + 1 }}``` to correct the zero offset.
 
 When items are removed or added to the array, the ```each``` binding automatically and intelligently adds or removes the items from/to the DOM.
+
+## With Index
+
+Each bindings support .each_with_index
+
+```html
+{{ _items.each_with_index do |item, index| }}
+    <p>{{ index }}. {{ item.name }}</p>
+{{ end }}
+```
+
+## Current Limitations
+
+Currently .each in bindings is rather limited. (We're working on it)  It can only handle arrays, not hashes.  To use hashes, convert them to arrays first.  Also, it can only take one argument (except when using .each_with_index)

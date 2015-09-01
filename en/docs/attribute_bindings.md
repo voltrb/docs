@@ -51,3 +51,7 @@ Select boxes can be bound to a value (while not technically a DOM property, this
 ```
 
 When the selected option of the select above changes, ```_rating``` is changed to match.  When ```_rating``` is changed, the selected value is changed to the first option with a matching value.  If no matching values are found, the select box is unselected.
+
+## Current Limitations
+
+Currently, bindings can only be inside of the attribute, the plan is to allow them to be within the tag, but outside of the attribute also.

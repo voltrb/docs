@@ -12,3 +12,5 @@ Volt.current_app.middleware.use(SomeMiddleware)
 - ```run```
 
 (more methods to reorder middleware coming soon)
+
+NOTE: Currently we don't have a way to specify where in the middleware stack middleware is loaded.  (Please ping @ryanstout in gitter if your interesting in implementing this, shoudl be fairly easy)

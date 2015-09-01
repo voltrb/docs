@@ -21,7 +21,7 @@ module Main
     def initialize(*args)
       # Don't forget to call include *args and call super
       super
-      
+
       self.model = :page
     end
   end

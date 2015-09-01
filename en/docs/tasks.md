@@ -35,3 +35,6 @@ end.fail do |error|
 end
 ```
 
+## Cookies
+
+You can set new cookies using the ```cookies``` repo from inside of tasks.  Any cookie set will be sent and set on the client.  NOTE: You can not read cookies from tasks, only set.  (This was a performance decision)

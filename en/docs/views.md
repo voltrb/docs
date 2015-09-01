@@ -1,6 +1,21 @@
 # Views
 
-Volt views have their own simple templating language.  They can be broken up into sections. A section header looks like the following:
+Views are files with an .html extension that can include ruby code to control how they are rendered.  Volt compiles the views on the server before sending them to the client.  Views might look something like this:
+
+```html
+<!-- app/main/views/main/index.html -->
+<:Title>
+My Page
+
+<:Body>
+<h1>My Page</h1>
+
+<p>Welcome {{ Volt.current_user.name }}!</p>
+```
+
+# Sections
+
+Volt views have their own simple templating language.  They can be broken up into sections. Sections start with a section header.  A section header looks like the following:
 
 ```html
 <:Body>

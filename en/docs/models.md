@@ -10,7 +10,7 @@ item
 # <Volt::Model {:id=>"beb492e2997ebd1365d3bf83"}>
 ```
 
-Volt models are automatically assigned an id attribute.  Models are similar to hashes in that you can get/set properties on them. There are two ways to handle working with properties on Models.
+Volt models are automatically assigned a [GUID](https://en.wikipedia.org/wiki/Globally_unique_identifier) for the id attribute.  Models are similar to hashes in that you can get/set properties on them. There are two ways to handle working with properties on Models.
 
 - underscore accessors
 - fields
@@ -45,12 +45,17 @@ Once you have a model class you can specify fields on the model explicitly inste
 
 ```ruby
 class Post < Volt::Model
-  field :title
-  field :body, String
+  field :title                              # no type restriction
+  field :body, String                       # a string
+  field :published, Volt::Boolean           # true or false
+  field :count_or_details, [String, Fixnum] # can be String or Fixnum
+  field :notes, String, allow_nil: true     # a String field that can also be nil
 end
 ```
 
-Fields can optionally take a type restriction.  Once you add fields, they can be read and assigned by calling a method with the property name on the model instance (a ruby getter).  You can set the property with an property name = method:
+Fields can optionally take on or more restrictions.  If the assigned value is not of the type (and can not be easily cast to the type (string -> int/float), the model will have a type validation error.  NOTE: Ruby does not have a Boolean class, and opal does not have TrueClass/FalseClass, so to specify a boolean, use ```Volt::Boolean``` as the type restriction.
+
+Once you add fields, they can be read and assigned by calling a method with the property name on the model instance (a ruby getter).  You can set the property with an property name = method:
 
 ```ruby
 new_post = Post.new(body: 'it was the best of times')

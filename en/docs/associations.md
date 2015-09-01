@@ -30,9 +30,22 @@ Calling .addresses on person would find all ```addresses``` with their person_id
 
 ```has_many``` associations return a cursor.
 
+#### Options
+
+You can pass the following options as the 2nd argument to has_many on a User model.
+
+:collection - the name of the collection in the database, and the class that should be loaded when the models are returned
+
+:foreign_key - (defaults to the current class name + "_id")  If you did: ```has_many :posts, foreign_key: :user_id```, it would do the following query: ```store.posts.where(user_id: self.id)```
+
+:local_key - the id of the model, defaults to ```self.id```.  If you did: ```has_many :posts, local_key: :user_system_id``` it would do the following query:
+```store.posts.where(user_id: self.user_system_id)```
+
 ## Has One
 
 You can call ```has_one``` in a model class to setup an association to a single other model.  ```has_one``` takes a symbol for the name of the other model.  If we passed ```:street``` on an ```Address``` model, Volt will look for a ```Street``` model that has the address_id set to the current address's id.
+
+Has one takes the same options as has_many.
 
 ## Belongs to
 
@@ -45,3 +58,15 @@ end
 ```
 
 ```belongs_to``` associations return a promise that resolves with the associated model.
+
+#### Options
+
+You can pass the following options as the 2nd argument to belongs_to on a Post model.
+
+:collection - he name of the collection in the database, and the class that should be loaded when the models are returned
+
+:foreign_key - (the field name on the model that this model belongs to, defaults to :id)  If you did: ```belongs_to :user, foreign_key: :user_system_id``` it would do the following query:
+```store.users.where(user_system_id: self.user_id).first```
+
+:local_key - the key on this model that should be used to lookup the belongs_to association - defaults to the belongs_to collection name + "_id".  If you did: ```belongs_to :user, local_key: :remote_user_id``` it would do the following query:
+```store.users.where(user_id: self.remote_user_id).first```

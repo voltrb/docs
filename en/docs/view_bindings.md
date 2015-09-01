@@ -1,17 +1,38 @@
 # View Bindings
 
-(Previously called Template Bindings)
-
-All ```views/*.html``` files (view files) can be rendered inside other views using the ```view``` binding.
+All ```views/*.html``` files (view files) can be rendered inside other views using the ```view``` binding.  The view binding takes in a *path string* and renders a view based on that path.  The contents of the view file replace where the view binding is in the orignal view file.
 
 
 ```html
+<h1>Header stuff</h1>
+
 {{ view "header" }}
 ```
 
-The string you pass to ```view``` should be a *view path*.  Both view bindings and tags (which we'll cover later) lookup views and controllers in the same way.
+If the header view file looked like this:
 
-Everyone wishes that we could predict the scope and required features for each part of an application, but in the real world, things we don't expect to grow large often do and things that we think will be large don't always end up that way.  View bindings and tags let you quickly setup reusable code and views.  The location of views or tags code can be moved as they grow without changing the way they are invoked.
+```html
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+```
+
+When the original file is rendered it will look like:
+
+```html
+<h1>Header stuff</h1>
+
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+```
+(Notice that the view binding was replaced with the contents of the "header" file)
+
+The string you pass to ```view``` should be a *path string*.  Both view bindings and tags (which we'll cover later) lookup views and controllers in the same way.
+
+Everyone wishes that we could predict the scope and required features for each part of an application, but in the real world, things we don't expect to grow large often do and things that we think will be large don't always end up that way.  View bindings and tags let you render controllers and views without worring if the code is in the same view folder, component, or in a gem.  The location of views or tags code can be moved to as they grow without changing the way they are invoked.
 
 Lets take a look at example lookup paths for a sample view.
 
@@ -27,22 +48,23 @@ Given the string "header", Volt will search for the view file in the following l
 | :body     | header.html  |                |             |
 | :body     | index.html   | header         |             |
 | :body     | index.html   | index          | header      |
-| :body     | index.html   | index          | gems/header |
+| :body     | index.html   | index          | {gems}/header |
 
-Once a view is found, the associated controller will be loaded first.
+Once a view is found, the associated controller will be loaded first.  The controller for a view file is always {something}_controller.rb where {something} is the name of the folder the view is in.  (Note, views should always be at {component}/views/{something}.html - Volt does not do folders under the views folder)
 
-Each part is explained below:
+Volt checks the following in order for a matching view:
 
-1. Section - views are composed of sections.  Sections start with a ```<:SectionName>``` and are not closed.  Volt will look first for a section in the same view.
+1. **Section** - view files (eg. something.html) are composed of sections.  Sections start with a ```<:SectionName>``` and are not closed.  Volt will look first for a section in the same view, and use the html in the section if one matches.
 
-2. Views - next, Volt will look for a view file with the template path.  If found, it will render the body section of that view.
+2. **Views** - next, Volt will look for a view file with the same *views* folder as the current view file.  If found, it will render the **Body** section of that view.
 
-3. View folder - failing above, Volt will look for a view folder with the control name, and an index.html file within that folder.  It will render the :body section of that view.  If a controller exists for the view folder, it will make a new instance of that controller and render in that instance.
+3. **View folder** - failing above, Volt will look for a view folder with the component with a matching name, and an index.html file within that folder.  It will render the :Body section of that view.  If a controller exists for the view folder.
 
-4. Component - next, all folders under app/ are checked.  The view path looked for is ```{component}/index/index.html``` with a section of :body.
+4. **Component** - next, all folders under app/ are checked.  The view path looked for is ```{component}/index/index.html``` with a section of :body.
 
-5. Gems - lastly, the app folder of all gems that start with ```volt``` are checked.  They are checked for similar paths to component, above.
+5. **Gems** - lastly, the app folder of all gems that start with ```volt-``` are checked.  They are checked for similar paths to component, above.
 
+Keep in mind each time a view is rendered, a new controller instance is created to be the context for that view.
 
 When you create a view binding, you can also specify multiple parts of the search path in the name.  The parts should be separated by a ```/```.  For example:
 
@@ -59,4 +81,4 @@ The above would search the following:
 | :body     | index.html   | comments       | blog        |
 | :body     | index.html   | comments       | gems/blog   |
 
-Once the file for the tag or view is found, Volt will look for a matching controller.  If the view file does not have an associated controller, a new ```ModelController``` will be used.  Once a controller is found and loaded, a corresponding "action" method will be called on it if it exists.  Action methods default to the name of the view file (without .html)
+Once the file (or section) for the view is found, Volt will look for a matching controller.  If the view file does not have an associated controller, a new ```ModelController``` will be used.  Once a controller is found and loaded, a corresponding "action" method will be called on it if it exists.  Action methods default to the name of the view file (without .html) - see [Callbacks and Actions](callbacks_and_actions.md) for more info.

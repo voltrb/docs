@@ -25,7 +25,7 @@ Obviously, our todo list also needs to be able to monitor which items have been 
 ...
 ```
 
-Here's some CSS that we'll use to make the todos prettier. In Volt, all CSS and JavaScript is included by default, so you rarely have to mess with require tags or script tags. You can just drop this into `app/main/assets/css/app.css.scss`:
+Here's some CSS that we'll use to make the todos prettier. In Volt, all CSS and JavaScript is included by default, so you rarely have to mess with require tags or script tags. You can just drop this into `app/main/assets/css/app.scss`:
 
 ```scss
 textarea {

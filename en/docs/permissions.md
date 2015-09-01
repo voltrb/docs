@@ -24,6 +24,22 @@ class Todo < Volt::Model
 end
 ```
 
+If the last value in a permissions block (the implicit return) is a Promise, the permissions block will resolve the permissions block before continuing.  (So you can query other models inside of permissions blocks, and use .then to return a new promise.
+
+```ruby
+class Todo < Volt::Model
+  permissions do
+    # Volt.current_user returns a promsie that resolves the current user, we
+    # then return a new promise that checks the admin state and denies unless
+    # the user is an admin.
+    Volt.current_user.then do |user|
+      deny unless user.admin?
+    end
+  end
+end
+
+```
+
 ## Own by User
 
 You can use the ```own_by_user``` method to automatically assign the ```user_id``` field to the logged in user when a model is created (See [Users](http://docs.voltframework.com/en/docs/users.html) for more info)  It will also setup a belongs_to :user (or optionally another key passed in for the ```user_id```)
