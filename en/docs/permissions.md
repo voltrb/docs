@@ -56,7 +56,7 @@ class Todo < Volt::Model
 end
 ```
 
-^ The above would prevent anyone besides the owner from reading, creating, updating, or deleting this model.  (```.owner?``` returns true in create because ```own_by_user``` will have already assigned the ```user_id````)
+^ The above would prevent anyone besides the owner from reading, creating, updating, or deleting this model.  (```.owner?``` returns true in create because ```own_by_user``` will have already assigned the ```user_id```)
 
 ### Allow vs Deny
 
@@ -108,7 +108,7 @@ end
 
 ### Skipping Permissions
 
-Sometimes rather than setting up comlex logic in permissions, you can simply deny changes, then only do changes from a task.  For example, if you wanted to set an ```admin``` flag on the user model.  You could simply deny updates to ```admin``` and then manually set admin by skipping permissions.
+Sometimes rather than setting up complex logic in permissions, you can simply deny changes, then only do changes from a task.  For example, if you wanted to set an ```admin``` flag on the user model.  You could simply deny updates to ```admin``` and then manually set admin by skipping permissions.
 
 ```ruby
 class User < Volt::User
