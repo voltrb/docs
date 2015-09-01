@@ -28,7 +28,7 @@ Volt は、ビューのレンダリングライフサイクルに対してのコ
 
 ```ruby
 class Post < Volt::ModelController
-    def show_rendered
+    def show_ready
         # example setup JS
         `$('.post').setupCodeHighlighting();`
     end

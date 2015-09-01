@@ -68,7 +68,7 @@ By default rendering will respond with HTTP status code 200. You can overwrite t
 
 ### Redirecting
 
-Redirecting can be done with the ```#redirect_to`` method. You have to supply a location as first argument and a status code as optional second argument. the default status code is 302.
+Redirecting can be done with the ```#redirect_to``` method. You have to supply a location as first argument and a status code as optional second argument. the default status code is 302.
 
 ```ruby
 module Main
