@@ -42,7 +42,7 @@ Gem generates the files for a component gem.  Component gems allow you to easily
 
 ```bundle exec volt generate view NAME COMPONENT```
 
-Gem generates the files for a Volt view. If a matching model controller is not present, it is created as well.
+'view' generates the files for a Volt view. If a matching model controller is not present, it is created as well.
 
 It optionally can be passed a component, but defaults to `main`.
 
@@ -50,19 +50,19 @@ It optionally can be passed a component, but defaults to `main`.
 
 ```bundle exec volt generate task NAME COMPONENT```
 
-Gem generates the files for a Volt task. It optionally can be passed a component, but defaults to `main`.
+'task' generates the files for a Volt task. It optionally can be passed a component, but defaults to `main`.
 
 ### model controller
 
 ```bundle exec volt generate controller NAME COMPONENT```
 
-Gem generates the files for a Volt model controller. It optionally can be passed a component, but defaults to `main`.
+'model controller' generates the files for a Volt model controller. It optionally can be passed a component, but defaults to `main`.
 
 ### http_controller
 
 ```bundle exec volt generate http_controller NAME COMPONENT```
 
-Gem generates the files for a Volt http_controller. It optionally can be passed a component, but defaults to `main`.
+'http_controller' generates the files for a Volt HTTP Controller. It optionally can be passed a component, but defaults to `main`.
 
 ## server
 
