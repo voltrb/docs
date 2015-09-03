@@ -25,27 +25,7 @@ To precompile your app's assets, simply run:
 
 Asset precompiling copies images referenced in css/sass/html files from components into the public folder.  You may notice that all assets are renamed during precompiling to have a fingerprint hash on the end (eg: ```profile-```)  This lets you cache all images/fonts/etc. in the public folder for an indefinite amount of time.  If the contents of the file changes, a new hash will be assigned.  (This is the same process used by rails, see their [much more complete docs](http://guides.rubyonrails.org/asset_pipeline.html) for more info)
 
-To make the asset path rewriting work, you need to change the way you reference asset paths in css and html.
-
-In css/sass, you can simply change:
-
-```background-image: url(../images/something.png);``` to ```background-image: asset-url("../images/something.png");```
-
-^ be sure to include the quotes.
-
-In html, instead of referencing an image src directly, you should do the following:
-
-```html
-<img src="{{ asset_url('../../assets/images/something.png') }}" />
-```
-
-^ note, when using asset_url, the path becomes relative to the .html file, not where it will be rendered.  You can also use the following url scheme:
-
-```css
-background-image: url(blog/assets/images/header.jpg);
-```
-
-In the example above, we start with in the app folder.  This lets you use assets from other components.
+See the [Assets](docs/assets.md) section for details on setting up image tags, css, etc. to point to assets correctly.
 
 ## Hosting Providers
 

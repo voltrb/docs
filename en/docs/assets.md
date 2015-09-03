@@ -32,6 +32,30 @@ This helper will look for your file under ```app/{component}/assets/css```. You 
 
 ## Images, Fonts, Other Assets
 
-It is recommended that images and other assets be put in ```app/{component}/assets/images``` (or fonts, etc..)  Then the url for an image for example would be: ```/assets/{component}/assets/images/...```. Images and other assets are not affected by ```disable_auto_import```.
+It is recommended that images and other assets be put in ```app/{component}/assets/images``` (or fonts, etc..)  When an app is deployed to production, you can precompile your assets, and Volt will append a fingerprint of the file contents (a file hash) onto the end of the filename.  This lets you cache all assets indefinitely.  (See [Deployment](deployment/README.md) for more details)
 
-**Note: asset bundling is on the TODO list**
+The app folder in volt is mounted at the /app url.  So an asset at:
+
+```app/main/assets/images/profile.jpg``` can be accessed at ```/app/main/assets/images/profile.jpg```  Typically though, you will use the asset_path helper(s) to reference assets.  These helpers can later rewrite urls when precompiling, to allow for various precompile optimizations.
+
+To make the asset path rewriting work, you need to change the way you reference asset paths in css and html.
+
+In css/sass, you can simply change:
+
+```background-image: url(../images/something.png);``` to ```background-image: asset-url("../images/something.png");```
+
+^ be sure to include the quotes.
+
+In html, instead of referencing an image src directly, you should do the following:
+
+```html
+<img src="{{ asset_url('../../assets/images/something.png') }}" />
+```
+
+^ note, when using asset_url, the path becomes relative to the .html file, not where it will be rendered.  You can also use the following url scheme:
+
+```css
+background-image: url(blog/assets/images/header.jpg);
+```
+
+In the example above, we start with in the app folder.  This lets you use assets from other components.
