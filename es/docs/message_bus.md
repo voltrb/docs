@@ -1,8 +1,8 @@
 # Bus de Mensajes
 
-Volt incluye una interfaz para el bus mensajes, el cual provee una interface para la publicación/subscripción entre todas las instancias de volt (servidor, consola, runner, etc...) dentro de un cluster volt (cualquier instancia conectada a la misma base de datos). Volt incluye un bus de mensajes PeerToPeer , pero puedes crear o usar otro buses de mensajes.
+Volt incluye una interfaz para el bus mensajes, el cual provee una interfase para la publicación/subscripción entre todas las instancias de volt (servidor, consola, runner, etc...) dentro de un cluster volt (cualquier instancia conectada a la misma base de datos). Volt incluye un bus de mensajes PeerToPeer , pero puedes crear o usar otro buses de mensajes.
 
-El bus de mensajes es usado internamente en volt para agregar actualizaciones del modelo entre las instancias. Luego estas actualizaciones pueden ser enviadas a cualquier browser que se encuentre conectada a una instancia de volt.  Esto permite a volt escalar horizontalmente mientras se mantiene el soporte para realizar nuevos updates.
+El bus de mensajes es usado internamente en volt para agregar actualizaciones del modelo entre las instancias. Luego estas actualizaciones pueden ser enviadas a cualquier browser que se encuentre conectada a una instancia de volt.  Esto permite a volt escalar horizontalmente mientras se mantiene el soporte para realizar nuevas actualizaciones.
 
 # Bus PeerToPeer
 

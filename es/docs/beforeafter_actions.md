@@ -1,6 +1,6 @@
 # Filtros Before/After
 
-A menudo en los controladores, cuando estos son renderizados, existe código que se necesita correr antes o despues de ciertas acciones. Volt nos provee acciones ```before_action``` y ```after_action```. Puedes configurar estas acciones de la siguiente manera:
+A menudo en los controladores, cuando estos son renderizados, existe código que se necesita correr antes o después de ciertas acciones. Volt nos provee acciones ```before_action``` y ```after_action```. Puedes configurar estas acciones de la siguiente manera:
 
 ```ruby
 module Main

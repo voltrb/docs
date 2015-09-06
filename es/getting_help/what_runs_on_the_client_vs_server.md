@@ -12,13 +12,13 @@ Los modelos corren en el servidor y en el cliente. Cuando un modelo cambia, sus 
 
 ## Tasks
 
-Los tasks son un caso interesante. Estan disenados principalmente para permitir que el cliente pueda llamar código en el servidor. Gracias al sincronizado de modelos de volt, puedes escribir tu aplicación de tal manera que corra solo en el cliente. Correr código en el lado del cliente permite recargas mucho mas rápidas y compartición de datos entre acciones. De todas maneras, hay veces en las que necesitamos llamar código del servidor desde el cliente:
+Los tasks son un caso interesante. Están diseñados principalmente para permitir que el cliente pueda llamar código en el servidor. Gracias al sincronizado de modelos de volt, puedes escribir tu aplicación de tal manera que corra solo en el cliente. Correr código en el lado del cliente permite recargas mucho mas rápidas y compartición de datos entre acciones. De todas maneras, hay veces en las que necesitamos llamar código del servidor desde el cliente:
 
 - Seguridad: Parte de los datos necesita ser procesado sin mandarlos al cliente
 - Ancho de Banda: Necesitas procesar una gran cantidad de datos para retornar un resultado pequeño
 - Gemas no compatibles con Opal: Algunas gemas no son soportadas por Opal, se pueden acceder a estas fácilmente por medio de Tasks.
 
-Tasks proveen una interfaz asincrona para todos los métodos dentro de una instancia task. Se pueden acceder a todos los métodos públicos de task a través de...
+Tasks proveen una interfaz asíncrona para todos los métodos dentro de una instancia task. Se pueden acceder a todos los métodos públicos de task a través de...
 
 ## Corriendo código solo en el cliente o el servidor
 

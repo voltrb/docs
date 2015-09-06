@@ -24,7 +24,7 @@ module Main
 end
 ```
 
-Los eventos de tag se activarán de abajo hacia arriba en el dom, por lo que podríamos seguir muchos mas arriba si así lo quisieramos (en cualquier parent tag):
+Los eventos de tag se activarán de abajo hacia arriba en el dom, por lo que podríamos seguir muchos mas arriba si así lo quisiéramos (en cualquier parent tag):
 
 ```html
 <div e-uploaded="was_uploaded">

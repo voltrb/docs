@@ -6,13 +6,13 @@ En las vistas se puedes enlazar eventos DOM y llamarlos en el controlador.  Simp
 <button e-click="alert">Alert Me</button>
 ```
 
-El código anterior llamará una método de alerta en el controlador cuando se haga click en el botón. Volt usa jQuery por debajo, se pueden usar todos los metodos disponibles en jQuery. Múltiples eventos pueden estar atados a un solo tag.
+El código anterior llamará una método de alerta en el controlador cuando se haga click en el botón. Volt usa jQuery por debajo, se pueden usar todos los métodos disponibles en jQuery. Múltiples eventos pueden estar atados a un solo tag.
 
 ```html
 <button e-click="alert" e-mousedown="alert_pressed_down">Alert Me</button>
 ```
 
-Tambien puedes usar eventos de objeto jQuery, los cuales son creados cuando un evento ocurre pasando la variable local ```event``` dentro del controlador.
+También puedes usar eventos de objeto jQuery, los cuales son creados cuando un evento ocurre pasando la variable local ```event``` dentro del controlador.
 
 ```html
 <button e-click="alert(event)">Alert Me</button>

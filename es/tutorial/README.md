@@ -4,7 +4,7 @@ Este tutorial te guiará en la creación una aplicación web básica en Volt. Es
 
 # Configuracion
 
-Primero, instalemos Volt y creemos una aplicación vacía. Asegurate de que tener una versión de ruby mayor a 2.1.0 y de que rubygems este instalado
+Primero, instalemos Volt y creemos una aplicación vacía. Asegúrate de que tener una versión de ruby mayor a 2.1.0 y de que rubygems este instalado
 
 Luego instala la gema de volt:
 

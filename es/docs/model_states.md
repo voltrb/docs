@@ -1,6 +1,6 @@
 # Estados del modelo
 
-Por el hecho de que los modelos corren en el cliente siempre exitirá una latencia entre el cliente y el servidor, Volt nos proveé algunos métodos de estado que nos permiten ver si nuetro modelo esta sincronizado con el servidor. Si guardas el modelo desde un buffer, la promesa retornada por el metodo save! solo se ejecutará cuando los datos hayan sido guardados en el servidor, por lo que estos métodos de estado nos muestran en gran parte lo que esta pasando.
+Por el hecho de que los modelos corren en el cliente siempre existirá una latencia entre el cliente y el servidor, Volt nos provee algunos métodos de estado que nos permiten ver si nuestro modelo esta sincronizado con el servidor. Si guardas el modelo desde un buffer, la promesa retornada por el método save! solo se ejecutará cuando los datos hayan sido guardados en el servidor, por lo que estos métodos de estado nos muestran en gran parte lo que esta pasando.
 
 ## Estado Guardado
 
@@ -9,7 +9,7 @@ En cualquier store de modelo (o buffer) puedes llamar al método saved_state y e
 | Estado    | Descripción                                                           |
 |-----------|-----------------------------------------------------------------------|
 | :not_saved | El modelo no ha sido guardado en el servidor                            |
-| :saving    | Los datos del modelo estan en proceso de ser guardados                       |
+| :saving    | Los datos del modelo están en proceso de ser guardados                       |
 | :saved     | El modelo es guardado en el servidor y los datos se encuentran actualizados   |
 
 ## Estado de Carga
@@ -19,7 +19,7 @@ En cualquier store de modelo (o buffer) puedes llamar al método saved_state y e
 | :not_loaded| El ArrayModel no esta cargado, y nada depende del modelo para su carga (este es un estado interno de volt que no verás a menudo) |
 | :loading   | ArrayModel se encuentra cargando datos                     |
 | :loaded    | Los datos se han cargado y están siendo sincronizados con el servidor    |
-| :dirty     | Los datos fueron cargados en algun punto, pero dejaron de sincronizarse con el servidor. Esto puede pasar cuando no existen bindings escuchando activamente los datos o cualquier resultado producido por los datos |
+| :dirty     | Los datos fueron cargados en algún punto, pero dejaron de sincronizarse con el servidor. Esto puede pasar cuando no existen bindings escuchando activamente los datos o cualquier resultado producido por los datos |
 
 ## Ejemplo
 
@@ -33,7 +33,7 @@ Puedes comprobar si un modelo se ha cargado de la siguiente manera:
 {{ end }}
 ```
 
-Volt tambien nos proveé un método para comprobar si el estado de carga es ```:loaded```
+Volt también nos provee un método para comprobar si el estado de carga es ```:loaded```
 
 ```html
 {{ if todo.loaded? }}

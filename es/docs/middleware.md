@@ -1,6 +1,6 @@
 # Middleware
 
-Aunque Volt usa websockets para comunicarse con la base y para tasks, este también usa rack para los HttpControllers y para configurar la conección de websocket.  Puedes añadir tu propio middleware si así lo deseas . En el archivo config/initializers/boot.rb del componente puedes hacer lo siguiente:
+Aunque Volt usa websockets para comunicarse con la base y para tasks, este también usa rack para los HttpControllers y para configurar la conexión de websocket.  Puedes añadir tu propio middleware si así lo deseas . En el archivo config/initializers/boot.rb del componente puedes hacer lo siguiente:
 
 ```ruby
 Volt.current_app.middleware.use(SomeMiddleware)

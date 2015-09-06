@@ -1,6 +1,6 @@
 # Comando Volt
 
-El comando volt proveé varios helpers para manejar un proyecto y trabajar con sus datos
+El comando volt provee varios helpers para manejar un proyecto y trabajar con sus datos
 
 ## new
 

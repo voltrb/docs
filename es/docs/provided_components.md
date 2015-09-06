@@ -1,6 +1,6 @@
 # Componentes por default
 
-Volt proveé algunos componentes para construir nuestra aplicación de manera muy fácil.
+Volt provee algunos componentes para construir nuestra aplicación de manera muy fácil.
 
 ## Notificaciones
 

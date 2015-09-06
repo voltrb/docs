@@ -1,6 +1,6 @@
 ## Logging
 
-Volt nos proveé un helper para almacenar nuestros loggings. Podemos llamar al método ```Volt.logger```, el cual nos retornará una instancia del logger de Ruby. Mira [aquí](http://www.ruby-doc.org/stdlib-2.1.3/libdoc/logger/rdoc/Logger.html) para obtener mas información.
+Volt nos provee un helper para almacenar nuestros loggings. Podemos llamar al método ```Volt.logger```, el cual nos retornará una instancia del logger de Ruby. Mira [aquí](http://www.ruby-doc.org/stdlib-2.1.3/libdoc/logger/rdoc/Logger.html) para obtener mas información.
 
 Un ejemplo:
 
@@ -14,7 +14,7 @@ Puedes cambiar el logger de la siguiente forma:
 Volt.logger = Logger.new
 ```
 
-## Configuracion del App
+## Configuración del App
 
 Como en muchos frameworks, Volt puede cambiar los settings por default basado en el flag de environment. Puedes cambiar el environment de volt por medio de la variable ```VOLT_ENV```.
 
