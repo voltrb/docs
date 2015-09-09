@@ -82,3 +82,11 @@ The above would search the following:
 | :body     | index.html   | comments       | gems/blog   |
 
 Once the file (or section) for the view is found, Volt will look for a matching controller.  If the view file does not have an associated controller, a new ```ModelController``` will be used.  Once a controller is found and loaded, a corresponding "action" method will be called on it if it exists.  Action methods default to the name of the view file (without .html) - see [Callbacks and Actions](callbacks_and_actions.md) for more info.
+
+## Options
+
+### Controller Group
+
+The `:controller_group` option for views makes it possible for multiple view bindings to share the same controller instance. Normally, each individual view binding (i.e. each instance of `view` or a tag on the page) is created with its own controller instance. When two or more view bindings are passed the same string in the `controller_group` option, however, those bindings will all share the same controller object between them.
+
+There is an example of this in the `main.html` file of new Volt apps. Both the body and the title view bindings are passed `controller_group: 'main'`, and as such they will share the same controller instance.
