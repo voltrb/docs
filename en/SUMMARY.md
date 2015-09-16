@@ -64,6 +64,7 @@
    * [Docker](deployment/docker.md)
    * [Cloud9](deployment/cloud9.md)
    * [Nginx](deployment/nginx.md)
+   * [Apache](deployment/apache.md)
 * [Getting Help](getting_help/README.md)
 * [FAQ](getting_help/faq.md)
    * [What runs on the Client vs Server?](getting_help/what_runs_on_the_client_vs_server.md)
