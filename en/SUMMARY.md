@@ -58,6 +58,7 @@
    * [Volt Helpers](docs/volt_helpers.md)
    * [Volt Command](docs/volt_command.md)
    * [Lib](docs/lib.md)
+   * [Requiring Files](docs/requiring_files.md)
    * [Environment Options](docs/environment_options.md)
 * [Deployment](deployment/README.md)
    * [Heroku](deployment/heroku.md)
