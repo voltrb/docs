@@ -88,6 +88,7 @@ http {
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_set_header Host $http_host;
       proxy_redirect off;
+      proxy_read_timeout 3600s; # 1 hour timeout.  This is needed because the websocket connection timeouts after this amount of time.  Volt will reconnect, but it will show a disconnect message.
       proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";

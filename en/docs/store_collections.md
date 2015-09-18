@@ -45,6 +45,12 @@ store._items.first.then {|i| i._name }
 store._items.first._name
 ```
 
+Promise method forwarding only works on methods not already defined on the Promise class.  Currently the following methods are defined on Promise.  (The plan is to redo the Promise class at some point to remove most of these)
+
+```error, prev, next, value, act?, action, exception?, realized?, resolved?, rejected?, ^, <<, >>, resolve, resolve!, reject, reject!, exception!, then, do, fail, rescue, catch, always, finally, ensure, trace, inspect, method_missing, each, value_or_error, to_json, unwrap, sync```
+
+The ones you may run into are .to_json and .inspect
+
 ## Promise Sync
 
 If you are working with store on the server only (in tasks for example), you can call ```.sync``` on a Promise to have it synchronusly resolve and return the result.  If the promise is rejected, ```.sync``` will raise the error.

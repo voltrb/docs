@@ -35,6 +35,20 @@ end.fail do |error|
 end
 ```
 
+## Timeout
+
+Tasks by default run with a 60 second timeout.  You can change the global timeout for all tasks by setting ```config.worker_timeout``` in ```config/app.rb```.  You can also change the timeout per task class by calling the ```timeout``` method in the class:
+
+```ruby
+class SampleTask < Volt::Task
+  timeout 200
+
+  # ...
+end
+```
+
+You can also set the timeout to 0 to disable the timeout.
+
 ## Cookies
 
 You can set new cookies using the ```cookies``` repo from inside of tasks.  Any cookie set will be sent and set on the client.  NOTE: You can not read cookies from tasks, only set.  (This was a performance decision)
