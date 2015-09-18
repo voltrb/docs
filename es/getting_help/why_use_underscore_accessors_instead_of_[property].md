@@ -1,6 +1,6 @@
 # Por que usar underscore para los accesors y no [:property] ?
 
-Una pregunta muy común es porque volt usa underscore para los accesors. Uno de los mótivos tiene que ver con los requerimientos para guardar/obtener propiedades de un modelo sin tener que definir previamente los nombres de estos.
+Una pregunta muy común es porque volt usa underscore para los accesors. Uno de los motivos tiene que ver con los requerimientos para guardar/obtener propiedades de un modelo sin tener que definir previamente los nombres de estos.
 
 ## Prevenir Ofuscación de Errores
 
@@ -11,7 +11,7 @@ item = Volt::Model.new
 item.name = 'Ryan'
 ```
 
-Existe el problema de que Volt necesita que una propiedad no asignada siempre retorne nil. Esto hace mas fácil el enlazar una propiedad sin tener que crearala antes, y el enlaze puede manejar el valor nil como lo necesite (por ejemplo un ```valor``` enlazado con un campo de texto puede asumir que nil significa un string vacío). El problema con el siguiente ejemplo es que si llamamos a un método que no existe este siempre retornará nil en lugar de ```NoMethodError```
+Existe el problema de que Volt necesita que una propiedad no asignada siempre retorne nil. Esto hace mas fácil el enlazar una propiedad sin tener que crearla antes, y el enlace puede manejar el valor nil como lo necesite (por ejemplo un ```valor``` enlazado con un campo de texto puede asumir que nil significa un string vacío). El problema con el siguiente ejemplo es que si llamamos a un método que no existe este siempre retornará nil en lugar de ```NoMethodError```
 
 ```ruby
 item = Volt::Model.new

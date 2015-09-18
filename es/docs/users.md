@@ -4,7 +4,7 @@ Los usuarios son un componente muy importante en la mayoría de aplicaciones web
 
 ## Nota
 
-La implementación de usuarios en volt todavía es un trabajo en progreso.  A futuro queremos añadir soporte para [omniauth](https://github.com/intridea/omniauth) con el objetivo de que el usuario pueda autenticarse a traves de otros servicios. Por ahora solo podemos autenticarnos ingresando el email/usuario y un password.
+La implementación de usuarios en volt todavía es un trabajo en progreso.  A futuro queremos añadir soporte para [omniauth](https://github.com/intridea/omniauth) con el objetivo de que el usuario pueda autenticarse a través de otros servicios. Por ahora solo podemos autenticarnos ingresando el email/usuario y un password.
 
 ## Trabajando con usuarios
 

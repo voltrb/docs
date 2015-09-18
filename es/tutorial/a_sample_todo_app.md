@@ -20,7 +20,7 @@ volt new todo_example
 cd todo_example
 ```
 
-Después de correr estos comandos veremos que Volt crea un folder llamado ```todo_example``` y también añade archivos por default para empezar un nuevo proyecto, conjuntamente con el árchivo Gemfile para añadir nuestras librerías y un archivo .gitignore. Las aplicaciones de Volt son creadas como componentes anidados , es por eso que nuestra aplicación se crea con un componente llamado `main`, el cual contiene un controlador y varias vistas.
+Después de correr estos comandos veremos que Volt crea un carpeta llamado ```todo_example``` y también añade archivos por default para empezar un nuevo proyecto, conjuntamente con el árchivo Gemfile para añadir nuestras librerías y un archivo .gitignore. Las aplicaciones de Volt son creadas como componentes anidados , es por eso que nuestra aplicación se crea con un componente llamado `main`, el cual contiene un controlador y varias vistas.
 
 Para correr el servidor ejecutamos el siguiente comando:
 
@@ -92,7 +92,7 @@ end
 
 Este metodo añadirá un hash a `page._todos` con el valor ingresado en `page._new_todo` y creará un valor por default (en este caso un string vacio) en `page._new_todo.
 
-**Nota:** Notece que en el método `add_todo` no inicializamos ningun array vacio en `page._todos`. Volt se encarga de esto al inicializar automáticamente todo los atributos declarados en plural dentro de un `Volt::ArrayModel` vacio. No necesitamos inicializar atributos con anterioridad. De igual manera, cuando añadimos un hash al final de ```Volt::ArrayModel``` este automáticamente se convertirá en un modelo de Volt.
+**Nota:** Nótese que en el método `add_todo` no inicializamos ningún arreglo vacio en `page._todos`. Volt se encarga de esto al inicializar automáticamente todo los atributos declarados en plural dentro de un `Volt::ArrayModel` vacio. No necesitamos inicializar atributos con anterioridad. De igual manera, cuando añadimos un hash al final de ```Volt::ArrayModel``` este automáticamente se convertirá en un modelo de Volt.
 
 Para hacer posible la visualización de la colección `page._todos`, añadiremos una tabla a la página:
 

@@ -1,6 +1,6 @@
 # Puede usar jquery? (u otra librería de javascript para manipular el dom?)
 
-Si! Por el momento Volt incluye jQuery, aunque este será removido en futuras versiones. (De todas maneras podras añadirlo tu mismo). Existen dos formas en las cuales puedes usar jQuery:
+Si! Por el momento Volt incluye jQuery, aunque este será removido en futuras versiones. (De todas maneras podrás añadirlo tu mismo). Existen dos formas en las cuales puedes usar jQuery:
 
 1. Para hacer llamadas JS desde los controladores de Volt (desde Opal)
 2. Usando callbacks para enlazar el dom cuando sea necesario

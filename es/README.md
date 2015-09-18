@@ -1,8 +1,8 @@
 # Introducción
 
-Volt es un web framework donde tu código Ruby corre tanto en el servidor como en el cliente (por medio de [opal](https://github.com/opal/opal)). El DOM se actualiza al mismo tiempo que el usuario interactua con la página. El estado de la página puede ser guardado en el url. Si el usuario ingresa la url directamente, el HTML se carga primero en el servidor (para una carga mas rápida y una mejor indexación en motores de busqueda) para luego ser manejada en el cliente.
+Volt es un web framework donde tu código Ruby corre tanto en el servidor como en el cliente (por medio de [opal](https://github.com/opal/opal)). El DOM se actualiza al mismo tiempo que el usuario interactúa con la página. El estado de la página puede ser guardado en el url. Si el usuario ingresa la url directamente, el HTML se carga primero en el servidor (para una carga mas rápida y una mejor indexación en motores de búsqueda) para luego ser manejada en el cliente.
 
-En lugar de sincronizar los datos entre el cliente y el servidor por http, Volt usa una conección permanente. Cuando los datos son actualizados en un cliente específico estos cambios se reflejan tanto en la base como en otros clientes (sin ninguna configuración adicional).
+En lugar de sincronizar los datos entre el cliente y el servidor por http, Volt usa una conexión permanente. Cuando los datos son actualizados en un cliente específico estos cambios se reflejan tanto en la base como en otros clientes (sin ninguna configuración adicional).
 
 El HTML se escribe en un lenguaje de templating donde puedes ingresar código ruby entre ```{{``` y ```}}```. Volt usa programación reactiva para propagar automáticamente los actualizaciones al DOM (o cualquier parte del código que necesita saber cuando los datos han sido cambiados). Cuando una parte del DOM cambia, Volt actualiza solo los nodos que necesitan ser actualizados.
 

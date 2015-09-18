@@ -1,6 +1,6 @@
 # Argumentos/Atributos de los tags
 
-Como en otros tags html, también puedes pasar atributos a los tags de Volt.  Estos atributos se convierten en un objeto que es pasado como primer argumento al método initialize del controller. El método initialize estandar de Volt::ModelController asignará el objeto a la variable ```attrs``` el cual puede ser accedida por medio del método ```#attrs```. Esto hace mucho mas fácil el acceder a los atributos guardados.
+Como en otros tags html, también puedes pasar atributos a los tags de Volt.  Estos atributos se convierten en un objeto que es pasado como primer argumento al método initialize del controller. El método initialize estándar de Volt::ModelController asignará el objeto a la variable ```attrs``` el cual puede ser accedida por medio del método ```#attrs```. Esto hace mucho mas fácil el acceder a los atributos guardados.
 
 ```html
 <:Body>

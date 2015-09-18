@@ -20,7 +20,7 @@ user._profile.class
 # => Volt::Model
 ```
 
-Puedes obtener un hash de vuelta llamando al metodo `#to_h` en el Modelo.
+Puedes obtener un hash de vuelta llamando al método `#to_h` en el Modelo.
 
 ## Array -> ArrayModel
 
@@ -37,7 +37,7 @@ model._items[0].class
 model._items[0]
 ```
 
-Para convertir un Volt::Model o un Volt::ArrayModel en una estructura normal de Ruby podemos llamar los metodos .to_h o to_a respectivamente. Para convertirlo a un objeto de JavaScript (y usarlo en código javascript), puedes llamar al método `#to_n`(to native)
+Para convertir un Volt::Model o un Volt::ArrayModel en una estructura normal de Ruby podemos llamar los métodos .to_h o to_a respectivamente. Para convertirlo a un objeto de JavaScript (y usarlo en código Javascript), puedes llamar al método `#to_n`(to native)
 
 ```ruby
 user = Volt::Model.new

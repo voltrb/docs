@@ -1,6 +1,6 @@
 # Que navegadores son compatibles con Volt?
 
-Descartando Firefox y Chrome, los cuales siempre están actualizados, seguramente te preguntarás por IE. La buena noticia es que opal soporta IE desde la versión 6. Volt solo soporta la version 10 de IE por el momento, pero estamos trabajando en la gema volt-ie8to9 que dara soporte a las versiones 8 y 9. Lo único que nos falta es un fallback para websockets.
+Descartando Firefox y Chrome, los cuales siempre están actualizados, seguramente te preguntarás por IE. La buena noticia es que opal soporta IE desde la versión 6. Volt solo soporta la versión 10 de IE por el momento, pero estamos trabajando en la gema volt-ie8to9 que dara soporte a las versiones 8 y 9. Lo único que nos falta es un fallback para websockets.
 
 ## Características limitadas
 

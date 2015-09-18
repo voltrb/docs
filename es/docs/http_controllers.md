@@ -1,6 +1,6 @@
 # Controladores HTTP
 
-Los controladores HTTP pueden ser usados como endpoints. La mayor parte de la comunicación del cliente se la hace por medio de websockets (u otros fallbacks de socket) por lo que no se usa Http para la sincronización de datos con el cliente, excepto para la carga inicial de la página. Los controladores HTTP nos proveén una manera fácil para enviar datos a terceros que necesitan acceso a los datos (por medio de un API REST, por ejemplo) por medio de HTTP.
+Los controladores HTTP pueden ser usados como endpoints. La mayor parte de la comunicación del cliente se la hace por medio de websockets (u otros fallbacks de socket) por lo que no se usa Http para la sincronización de datos con el cliente, excepto para la carga inicial de la página. Los controladores HTTP nos proveen una manera fácil para enviar datos a terceros que necesitan acceso a los datos (por medio de un API REST, por ejemplo) por medio de HTTP.
 
 ## Routing
 

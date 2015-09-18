@@ -5,9 +5,9 @@ Cuando un usuario interactúa con la página, generalmente queremos hacer dos co
 1. Cambiar el estado de la aplicación
 2. Actualizar el DOM
 
-Por ejemplo, cuando un usuario hace click para agregar un nuevo item en nuestra lista de tareas este creará un nuevo objeto, el cual representa un item TODO que sera añadido en el DOM. El verdadero reto al realizar esto es lograr que estos datos estén sincronizados (y que los cambios se actualizen asincronamente).
+Por ejemplo, cuando un usuario hace click para agregar un nuevo item en nuestra lista de tareas este creará un nuevo objeto, el cual representa un item TODO que sera añadido en el DOM. El verdadero reto al realizar esto es lograr que estos datos estén sincronizados (y que los cambios se actualicen asíncronamente).
 
-El concepto de 'programación reactiva' puede ser usado para solucionar el problema de mantener el DOM actualizado. En lugar de tener eventos que manejen los modelos y el DOM al mismo tiempo podemos tener eventos que actualizen modelos de datos reactivos. En este estilo de programación describimos nuestra capa DOM de una manera declarativa y este a su vez sabe como cargar datos y mantenerlos actualizados con los modelos.
+El concepto de 'programación reactiva' puede ser usado para solucionar el problema de mantener el DOM actualizado. En lugar de tener eventos que manejen los modelos y el DOM al mismo tiempo podemos tener eventos que actualicen modelos de datos reactivos. En este estilo de programación describimos nuestra capa DOM de una manera declarativa y este a su vez sabe como cargar datos y mantenerlos actualizados con los modelos.
 
 ## Estado y Computaciones
 
@@ -15,7 +15,7 @@ Generalmente las aplicaciones web giran en torno al manejo de estados.  Existen 
 
 En Volt, para simplificar el manejo del estado de la aplicación este se guarda en los modelos, los cuales pueden ser almacenados en distintos lugares. Al centralizar el estado de la aplicación reducimos la cantidad de código necesario para actualizar la página. Luego podremos construir nuestros html's de una manera mas declarativa. Las relaciones entre la página y los modelos son enlazados usando funciones y llamados a funciones.
 
-Nuestro objetivo es que nuestro DOM se actualize automáticamente cuando los datos de nuestro modelo cambien. Para hacer esto posible Volt nos deja 'vigilar' cualquier método y proceso para encontrar actualizaciones.
+Nuestro objetivo es que nuestro DOM se actualice automáticamente cuando los datos de nuestro modelo cambien. Para hacer esto posible Volt nos deja 'vigilar' cualquier método y proceso para encontrar actualizaciones.
 
 ## Computaciones
 

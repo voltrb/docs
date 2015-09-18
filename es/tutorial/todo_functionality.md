@@ -1,6 +1,6 @@
 # Mas funcionalidad en la aplicación de Tareas
 
-Finalmente tenemos nuestra lista de tareas!, pero no va a ser muy interesante hasta que no le agreguemos mayor funcionlidad.
+Finalmente tenemos nuestra lista de tareas!, pero no va a ser muy interesante hasta que no le agreguemos mayor funcionalidad.
 
 Dentro de la vista `app/main/views/main/todos.html` añade el siguiente botón en la tabla de la lista de tareas:
 
@@ -25,7 +25,7 @@ Obviamente, nuestra lista de tareas necesita ser capás de saber que tareas han 
 ...
 ```
 
-Puedes usar el siguiente código CSS para que tu lista se vea mejor. En Volt nuestros archivos CSS y JavaScript son incluidos automáticamente, por lo que en muy pocos casos tendras que incluirlos tu mismo. Puedes copiar el siguiente código dentro de `app/main/assets/css/app.css.scss`:
+Puedes usar el siguiente código CSS para que tu lista se vea mejor. En Volt nuestros archivos CSS y JavaScript son incluidos automáticamente, por lo que en muy pocos casos tendrás que incluirlos tu mismo. Puedes copiar el siguiente código dentro de `app/main/assets/css/app.css.scss`:
 
 ```scss
 textarea {
@@ -61,7 +61,7 @@ textarea {
 
 Ahora nuestro atributo de clases cambiará basado en el estado del checkbox.
 
-Otra característica que podriamos añadir es la habilidad de seleccionar una tarea y añadir información extra a la misma. En este punto deberíamos añadir estilos de bootstrap para que nuestro layout se vea mejor. Haremos esto añadiendo lo siguiente a nuestra vista:
+Otra característica que podríamos añadir es la habilidad de seleccionar una tarea y añadir información extra a la misma. En este punto deberíamos añadir estilos de bootstrap para que nuestro layout se vea mejor. Haremos esto añadiendo lo siguiente a nuestra vista:
 
 ```html
 ...
@@ -131,7 +131,7 @@ module Main
 
 Ahora podemos remplazar todas las referencias a `page._todos` con `_todos` (en la vista y en el controlador) y todas nuestras tareas serán guardadas en la base. Para esto debemos tener Mongo corriendo. (Nota: Agregaremos soporte para mas bases muy pronto!)
 
-Si nunca has usado Mongo antes, puede encontrar instrucciones para su instalación en su sitio web como [guias de instalación](http://docs.mongodb.org/manual/installation/).  Como se menciona en las instrucciones, asegurate que el usuario sobre el que se corre Mongo tiene permisos de escritura para el directorio `/data/db`. Si quieres correr Mongo sobre el usuario con el que estas conectado por medio de `sudo` o un comando similar, asegurate de correr `sudo chown $USER /data/db` después de haber creado el directorio.
+Si nunca has usado Mongo antes, puede encontrar instrucciones para su instalación en su sitio web como [guias de instalación](http://docs.mongodb.org/manual/installation/).  Como se menciona en las instrucciones, asegúrate que el usuario sobre el que se corre Mongo tiene permisos de escritura para el directorio `/data/db`. Si quieres correr Mongo sobre el usuario con el que estas conectado por medio de `sudo` o un comando similar, asegúrate de correr `sudo chown $USER /data/db` después de haber creado el directorio.
 
 Una ves que tengamos Mongo instalado, podremos correrlo como un proceso background, o simplemente ejecutamos `mongod` en otra terminal. Mientras estemos seguros que el proceso este corriendo y estemos usando `_todo` en la vista y en el controlador, Volt sincronizará automáticamente estos valores para cualquier cliente.
 
@@ -149,7 +149,7 @@ Ahora ya es mucho mas fácil agregar mas funcionalidad a nuestra lista:
 
 Esto nos mostrará el numero de tareas actuales y se actualizará automáticamente.
 
-Si queremos manejar múltiples listas al mismo tiempo, podemos aprovechar el hecho de que las colecciones en Volt soportan metodos normales para colecciones de ruby
+Si queremos manejar múltiples listas al mismo tiempo, podemos aprovechar el hecho de que las colecciones en Volt soportan métodos normales para colecciones de ruby
 
 ```ruby
 ...

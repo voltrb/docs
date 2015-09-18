@@ -1,6 +1,6 @@
 # Tasks
 
-A veces necesitas ejecutar explicitamente una parte del código en el servidor.  Volt nos permite hacer esto por medio de tasks. Puedes definir tus propios tasks heredando de la clase ```Volt::Task```. Los archivos de Ruby dentro de la carpeta ```tasks``` (y que terminen en ```_tasks.rb```), serán cargados automáticamente.
+A veces necesitas ejecutar explícitamente una parte del código en el servidor.  Volt nos permite hacer esto por medio de tasks. Puedes definir tus propios tasks heredando de la clase ```Volt::Task```. Los archivos de Ruby dentro de la carpeta ```tasks``` (y que terminen en ```_tasks.rb```), serán cargados automáticamente.
 
 ```ruby
 # app/main/tasks/logging_tasks.rb

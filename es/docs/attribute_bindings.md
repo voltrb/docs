@@ -6,9 +6,9 @@ Los bindings también pueden ser ingresados dentro de atributos
 <p class="{{ if is_cool? }}cool{{ end }}">Text</p>
 ```
 
-## Bindings de atributos de dos vias
+## Bindings de atributos de dos vías
 
-Volt nos permite tener elementos que actuan como enlaces de "dos vías":
+Volt nos permite tener elementos que actúan como enlaces de "dos vías":
 
 ```html
 <input type="text" value="{{ _name }}" />

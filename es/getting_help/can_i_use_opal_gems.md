@@ -2,7 +2,7 @@
 
 Si. Opal tiene su propia forma de incluir gemas. Esto generalmente significa que tienes que incluir la gema en tu código MRI antes de que sea añadida al load path de opal.
 
-Por ejemplo con opal/browser, puede simplimente añadir lo siguiente en config/app.rb
+Por ejemplo con opal/browser, puede simplemente añadir lo siguiente en config/app.rb
 
 ```ruby
 require 'opal/browser'

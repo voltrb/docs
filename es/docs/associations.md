@@ -1,6 +1,6 @@
 # Asociaciones
 
-Volt proveé modelos anidados, los cuales se pueden acceder sin una declaración explícita. Aunque, por lo general tendrás que asociar otros modelos usando id's externas. Volt usa la convención de usar undescore ```_id``` para los nombres de los campos. Volt también proveé métodos como ```belongs_to``` , ```has_many``` y ```has_one``` para asociar modelos.
+Volt provee modelos anidados, los cuales se pueden acceder sin una declaración explícita. Aunque, por lo general tendrás que asociar otros modelos usando id's externas. Volt usa la convención de usar undescore ```_id``` para los nombres de los campos. Volt también proveé métodos como ```belongs_to``` , ```has_many``` y ```has_one``` para asociar modelos.
 
 ```ruby
 class Person < Volt::Model

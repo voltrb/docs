@@ -1,6 +1,6 @@
 ## Buffers
 
-En Volt, todos los modelos se guardan automáticamete y todos los cambios se persisten en una base u otro repositorio. Por ejemplo, si cambiamos el nombre de un modelo en ```store```, estos cambios se sincronizarán automáticamente con la base de datos y otros clientes. A diferencia de otros frameworks, no existe la necesidad de llamar a un método save, los modelos se sincronizarán mientras los valores sean cambiados.
+En Volt, todos los modelos se guardan automáticamente y todos los cambios se persisten en una base u otro repositorio. Por ejemplo, si cambiamos el nombre de un modelo en ```store```, estos cambios se sincronizarán automáticamente con la base de datos y otros clientes. A diferencia de otros frameworks, no existe la necesidad de llamar a un método save, los modelos se sincronizarán mientras los valores sean cambiados.
 
 ```ruby
 store._items.first.then do |item|

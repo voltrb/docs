@@ -18,4 +18,4 @@ Y correrlo:
 docker run --name my-volt-app -p 3000:3000 -d my-volt-app
 ```
 
-Ahora ya puedes ver tu aplicación en esta direccion: http://localhost:3000
+Ahora ya puedes ver tu aplicación en esta dirección: http://localhost:3000
