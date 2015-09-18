@@ -27,6 +27,23 @@ Asset precompiling copies images referenced in css/sass/html files from componen
 
 See the [Assets](docs/assets.md) section for details on setting up image tags, css, etc. to point to assets correctly.
 
+### Custom Socket Url
+
+Volt does all database queries, updates, task calls, etc.. through a [websocket](https://en.wikipedia.org/wiki/WebSocket) connection.  Websockets are created by "Upgrading" existing http connections.  Typically volt will use the existing http connection to setup the websockets connection.  However sometimes you may need to connect to the websocket through a different domain, port, etc.. (usually due to the main app running behind a non-websocket compatible proxy server).  You can configure the websocket url in ```config/app.rb``` like so:
+
+```ruby
+# ...
+
+Volt.configure do |config|
+  # ...
+
+  config.public.websocket_url = 'websocket.mysite.com/socket'
+  # ...
+end
+```
+
+Volt will automatically add ws:// or wss:// to the front of the url if not specified.
+
 ## Hosting Providers
 
 The rest of this chapter highlights various deployment options for Volt on popular cloud providers.
