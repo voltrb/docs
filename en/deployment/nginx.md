@@ -63,7 +63,7 @@ http {
   }
 
   server {
-    listen 3001;
+    listen 80;
     root /Users/ryanstout/Sites/volt/apps/demos/blog_demo8/public;
 
     client_max_body_size 4G;
