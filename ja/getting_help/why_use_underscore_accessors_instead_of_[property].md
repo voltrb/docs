@@ -16,7 +16,7 @@ item.name = 'Ryan'
 ```ruby
 item = Volt::Model.new
 item.savr!# => nil
-# ^ .意図していたのは save!
+# ^ 意図していたのは save!
 ```
 
 ## 2. 簡潔であること/selfなし
