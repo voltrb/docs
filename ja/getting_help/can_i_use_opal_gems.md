@@ -1,6 +1,6 @@
 # Opal の Gem を利用できますか?
 
-はい。Opal は独自の方法で Gem をinclude します。このことは、通常、Opal のロードパスに追加される前に、MRI コードで Gem を require する必要があることを意味しています。
+はい。Opal は独自の方法で Gem を include します。このことは、通常、Opal のロードパスに追加される前に、MRI コードで Gem を require する必要があることを意味しています。
 
 例えば opal/browser を例にすると、単純に以下のように config/app.rb に追加することが可能です。
 

@@ -31,9 +31,9 @@ client "/todos/{{ index }}", view: 'todos'
 get "/api/todos", controller: 'todos', action: 'index'
 ```
 
-上記の場合、TodosControllerの```idnex```メソッドを実行します。詳しくは[HTTP コントローラー](http_controllers.md)を参照してください。
+上記の場合、TodosControllerの```index```メソッドを実行します。詳しくは[HTTP コントローラー](http_controllers.md)を参照してください。
 
-RESTfulなリソースを作成するためには、下記のルートを設定する必要がありまｓ。
+RESTfulなリソースを作成するためには、下記のルートを設定する必要があります。
 
 ```ruby
 get "/api/todos", controller: 'todos', action: 'index'

@@ -43,7 +43,7 @@ Cloud9 の無償バージョンでは、mongoDB は定期的にシャットダ�
 ```
 config.db_driver = 'mongo'
 config.db_name = (config.app_name + '_' + Volt.env.to_s)
-if ENV['MONGOHQ_URL'].present?```
+if ENV['MONGOHQ_URL'].present?
   config.db_uri = ENV['MONGOHQ_URL'] # Cloud9 ではこの行が必要です。
 else
   config.db_host = 'localhost'

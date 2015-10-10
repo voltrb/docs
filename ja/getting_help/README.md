@@ -6,4 +6,4 @@ Volt はまだ開発中ですが、早期のフィードバックは大歓迎で
 
 - **バグを見つけたときには**: [github issues](https://github.com/voltrb/volt/issues) に投稿してください。
 - **Volt への提案がある、こんな機能が欲しい**: [github issues](https://github.com/voltrb/volt/issues) に投稿してください。
-- **Volt について議論したいときには**: [gitterのチャット](https://gitter.im/voltrb/volt) 通常、Volt チームが誰かがオンラインです。喜んで助けになります。
+- **Volt について議論したいときには**: [gitterのチャット](https://gitter.im/voltrb/volt) 通常、Volt チームは誰かがオンラインです。喜んで助けになります。

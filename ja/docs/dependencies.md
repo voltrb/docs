@@ -17,4 +17,4 @@ javascript_file 'http://code.jquery.com/jquery-2.0.3.min.js'
 css_file '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'
 ```
 
-実際には、現在のところ jquery と bootstrap はデフォルトでインクルードされるようになっていますことに注意してください。```javascript_file``` と ```css_file``` でインクルードされた依存関係は、dependencies.rb ファイルに記載されている順序にしたがって、正しい場所にあるコンポーネントのアセットに mix-in されます。
+実際には、現在のところ jquery と bootstrap はデフォルトでインクルードされるようになっていることに注意してください。```javascript_file``` と ```css_file``` でインクルードされた依存関係は、dependencies.rb ファイルに記載されている順序にしたがって、正しい場所にあるコンポーネントのアセットに mix-in されます。

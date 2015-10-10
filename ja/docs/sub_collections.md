@@ -21,7 +21,7 @@ store._states
 ```
 では、最初の state が含んでいる city が何か確認してみましょう。.first は promise を返すので、._cities の呼び出しも同様に promise を返します。
 
-お```ruby
+```ruby
 store._states.first._cities
 # => #<Promise(70258435892520): #<Volt::ArrayModel [#<Volt::Model id: "41d5..b233", name: "Bozeman", state_id: "9fd53272ee1e4447c48866ff">, #<Volt::Model id: "f7ea..d07f", name: "Helena", state_id: "9fd53272ee1e4447c48866ff">]>>
 ```
