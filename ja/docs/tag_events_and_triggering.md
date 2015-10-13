@@ -11,13 +11,13 @@
 
 上記の例では、コントローラーが 'uploaded' イベントを起動したときに、upload ボタンに e-uploaded イベントバインディングのコードを実行させることができます。
 
-以下はトリガーの例です:
+以下はトリガーの例です。
 
 ```ruby
 module Main
   class UploadController < Volt::ModelController
     def upload
-      # ... アップロードのバインディング ..
+      # ... アップロードのハンドリング ..
 
       # uploaded イベントのトリガー
       trigger('uploaded')
@@ -50,7 +50,7 @@ end
 module Main
   class UploadController < Volt::ModelController
     def upload
-      # ... アップロードのバインディング ..
+      # ... アップロードのハンドリング ..
 
       # uploaded イベントのトリガー
       trigger('uploaded', file_name)
@@ -86,7 +86,7 @@ e- バインディングに渡された文字列は、渡した内容にした�
 
 上記の場合は Proc に変換され、uploaded イベントがトリガーされたときに呼び出されます。文字列の最後にカッコがない場合は、メソッドへの参照を渡していると解釈され、(文字列を ```method(:last_part_str)``` と変更することで) メソッドに変換されます。 
 
-例えば、以下のようになります:
+例えば、以下のようになります。
 
 ```<:upload e-uploaded="upload_handler.was_uploaded" />```
 

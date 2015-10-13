@@ -23,7 +23,6 @@ config.db_driver = 'mongo'
 config.db_name = (config.app_name + '_' + Volt.env.to_s)
 
 if ENV['MONGOHQ_URL'].present?
-
   config.db_uri = ENV['MONGOHQ_URL'] # Heroku ではこの行が必要です
 else
   config.db_host = 'localhost'

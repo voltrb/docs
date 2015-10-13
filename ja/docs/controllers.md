@@ -21,7 +21,7 @@ module Main
     def initialize(*args)
       # 必ず *args を設定し、super を呼び出してください
       super
-      
+
       self.model = :page
     end
   end

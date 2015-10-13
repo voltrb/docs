@@ -42,7 +42,7 @@ Gemはコンポーネントのgemのためのファイルを生成します。�
 
 ```bundle exec volt generate view NAME COMPONENT```
 
-viewはVoltのビューのためのファイルを生成します。もし、対応するモデルコントローラーが存在しない場合は、同時に生成を行います。
+'view' generates the files for a Volt view. もし、対応するモデルコントローラーが存在しない場合は、同時に生成を行います。
 
 オプションでコンポーネントを指定することも可能ですが、デフォルトでは`main`が指定されたものとします。
 
@@ -50,19 +50,19 @@ viewはVoltのビューのためのファイルを生成します。もし、対
 
 ```bundle exec volt generate task NAME COMPONENT```
 
-TaskはVoltタスクを生成します。オプションでコンポーネントを指定することも可能ですが、デフォルトでは`main`が指定されたものとします。
+'task' generates the files for a Volt task. オプションでコンポーネントを指定することも可能ですが、デフォルトでは`main`が指定されたものとします。
 
 ### model controller
 
 ```bundle exec volt generate controller NAME COMPONENT```
 
-ControllerはVoltのモデルコントローラーのファイルを生成します。オプションでコンポーネントを指定することも可能ですが、デフォルトでは`main`が指定されたものとします。
+'model controller' generates the files for a Volt model controller. オプションでコンポーネントを指定することも可能ですが、デフォルトでは`main`が指定されたものとします。
 
 ### http_controller
 
 ```bundle exec volt generate http_controller NAME COMPONENT```
 
-ControllerはVoltのHTTPコントローラーのファイルを生成します。オプションでコンポーネントを指定することも可能ですが、デフォルトでは`main`が指定されたものとします。
+'http_controller' generates the files for a Volt HTTP Controller. オプションでコンポーネントを指定することも可能ですが、デフォルトでは`main`が指定されたものとします。
 
 ## server
 

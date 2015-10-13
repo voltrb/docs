@@ -1,6 +1,6 @@
 # パーミッション
 
-デフォルトでは、Voltのモデルに対して誰でも読み書きすることができますが、モデルに対する読み書きを制限することは簡単です。パーミッションの操作は、VoltのパーミッションAPIによって、create/read/update/delete (CRUD) の4つのアクションに分類することができます。
+デフォルトでは、Volt のモデルに対して誰でも読み書きすることができますが、モデルに対する読み書きを制限することは簡単です。パーミッションの操作は、Volt のパーミッション API によって、create/read/update/delete (CRUD) の4つのアクションに分類することができます。
 
 以下のようにして、モデルクラスにおいてパーミッションを指定します。
 
@@ -12,9 +12,9 @@ class Todo < Volt::Model
     end
 end
 ```
-## Permission Logic
+## パーミッションの働き
 
-このpermissionsブロックはモデルに対していずれかのCRUD操作が行われた場合に常に呼び出されます。permissionsブロックの内部では、パーミッションを制限するために```allow```と```deny```を利用できます。それらを引数なしで実行すると、すべてのアクションが制限されます。引数にフィールド名のリストを渡すことも可能です。その場合、それらのフィールドのみが制限されます。permissionsブロックの中で、```self```は現在のモデルを指します。
+この permissions ブロックはモデルに対していずれかの CRUD 操作が行われた場合に常に呼び出されます。permissions ブロックの内部では、パーミッションを制限するために ```allow``` と ```deny``` を利用できます。それらを引数なしで実行すると、すべてのアクションが制限されます。引数にフィールド名のリストを渡すことも可能です。その場合、それらのフィールドのみが制限されます。permissions ブロックの中で、```self``` は現在のモデルを指します。
 
 ```ruby
 class Todo < Volt::Model
@@ -24,11 +24,27 @@ class Todo < Volt::Model
 end
 ```
 
-## own_by_user
+permissions ブロックの最後の値 (暗黙的な戻り値) が Promise である場合、後続処理を実行する前に permissions ブロックを解決します。(したがって、permissions  ブロックの中で他のモデルの問い合わせを行うことが可能で、.then によって新しい promise を返すことができます)
 
-```own_by_user```メソッドを利用すると、モデルが生成され、ユーザーがログインしている場合には```user_id```フィールドをアサインすることが可能です (詳しくは [ユーザー](http://docs.voltframework.com/en/docs/users.html)を参照してください)。そのとき、自動的に :user への belong_to 関連が設定されます (```user_id``` に別のキーを指定することも可能です)。
+```ruby
+class Todo < Volt::Model
+  permissions do
+    # Volt.current_user returns a promsie that resolves the current user, we
+    # then return a new promise that checks the admin state and denies unless
+    # the user is an admin.
+    Volt.current_user.then do |user|
+      deny unless user.admin?
+    end
+  end
+end
 
-ユーザーがモデルのオーナーである場合は、現在ログインしているユーザーがオーナーであるかどうかを、permissionsブロック内で```.owner?```を実行することで確認することができます。もし現在のユーザーがオーナーであれば、trueを返します。
+```
+
+## Own by User
+
+```own_by_user``` メソッドを利用すると、モデルが生成され、ユーザーがログインしている場合には ```user_id``` フィールドをアサインすることが可能です (詳しくは [ユーザー](http://docs.voltframework.com/en/docs/users.html)を参照してください)。そのとき、自動的に :user への belong_to 関連が設定されます (```user_id``` に別のキーを指定することも可能です)。
+
+ユーザーがモデルのオーナーである場合は、現在ログインしているユーザーがオーナーであるかどうかを、permissions ブロック内で ```.owner?``` を実行することで確認することができます。もし現在のユーザーがオーナーであれば、true を返します。
 
 ```ruby
 class Todo < Volt::Model
@@ -40,11 +56,11 @@ class Todo < Volt::Model
 end
 ```
 
-^ 上記の場合、オーナー以外はこのモデルに対してread/create/update/deleteの操作すべてが禁止されます。(createでは```.owner?``` はtrueとなります。なぜなら、```own_by_user``` が ```user_id```をアサインするからです)
+※上記の場合、オーナー以外はこのモデルに対して read/create/update/delete の操作すべてが禁止されます。(create では ```.owner?``` は true となります。なぜなら、```own_by_user``` が ```user_id``` をアサインするからです)
 
-### Allow vs Deny
+### Allow VS Deny
 
-もし1つでもallowが指定されると、他のフィールドはすべてdenyとして扱われます。denyはallowを上書きします。
+もし1つでも allow が指定されると、他のフィールドはすべて deny として扱われます。deny は allow を上書きします。
 
 ```ruby
 class Todo < Volt::Model
@@ -54,7 +70,7 @@ class Todo < Volt::Model
 end
 ```
 
-^ allowとcompleteのみがallowで、その他はすべてブロックされます。引数なしで```permissions```を利用すると、すべてのCRUD操作に対してパーミッションが設定されます。ある特定のアクションのみにパーミッションを指定したい場合には、アクションに対応するシンボルを```permission```メソッドの引数に指定してください。複数のpermissionsブロックを指定することも可能です。
+※label と complete のみが allow で、その他はすべてブロックされます。引数なしで ```permissions``` を利用すると、すべての CRUD 操作に対してパーミッションが設定されます。ある特定のアクションのみにパーミッションを指定したい場合には、アクションに対応するシンボルを ```permission``` メソッドの引数に指定してください。複数の permissions ブロックを指定することも可能です。
 
 ```ruby
 class Todo < Volt::Model
@@ -72,7 +88,7 @@ class Todo < Volt::Model
 end
 ```
 
-^ 上記では、```notes``` と ```secret_notes``` を変更することができるのはオーナーだけですが、他のフィールドは誰でも変更することが可能です。また、```secret_notes``` を読むことができるのはオーナーのみです (他のすべてのフィールドは誰でも読むことが可能です)。そして、モデルを削除できるはオーナーだけです。
+※上記では、```notes``` と ```secret_notes``` を変更することができるのはオーナーだけですが、他のフィールドは誰でも変更することが可能です。また、```secret_notes``` を読むことができるのはオーナーのみです (他のすべてのフィールドは誰でも読むことが可能です)。そして、モデルを削除できるはオーナーだけです。
 
 ### アクションを渡す
 
@@ -114,5 +130,5 @@ end
 ```
 ### まとめ
 
-パーミッションAPIによって、アプリケーションのデータに対して「誰が」「何を」できるのかをシンプルな方法で設定することが可能です。また、permissionsブロック内にはどんなロジックでも書くことができます。
+パーミッション API によって、アプリケーションのデータに対して「誰が」「何を」できるのかをシンプルな方法で設定することが可能です。また、permissions ブロック内にはどんなロジックでも書くことができます。
 

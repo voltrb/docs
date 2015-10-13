@@ -10,14 +10,14 @@ item
 # <Volt::Model {:id=>"beb492e2997ebd1365d3bf83"}>
 ```
 
-Volt のモデルには自動的に id 属性が設定されます。モデルは、set/get プロパティを利用できるハッシュのようなものです。モデルのプロパティを扱う方法は2つあります。
+Volt のモデルには ID 属性として自動的に [GUID](https://en.wikipedia.org/wiki/Globally_unique_identifier) が割り当てられます。モデルは、set/get プロパティを利用できるハッシュのようなものです。モデルのプロパティを扱う方法は2つあります。
 
 - アンダースコア アクセサ
 - フィールド
 
 ## アンダースコア アクセサ
 
-はじめにアンダースコア アクセサを見てみましょう。これは、明示的に事前に設定しておかなくても set/get プロパティを利用できるものです。
+First lets look at underscore accessors.  これは、明示的に事前に設定しておかなくても set/get プロパティを利用できるものです。
 
 ```ruby
 item = Volt::Model.new
@@ -29,13 +29,13 @@ item
 # => <Volt::Model {:id=>"d8872b283c6dc1a7861e9baa", :name=>"Ryan"}>
 ```
 
-フィールド名を事前に設定していないのがわかるでしょう。アンダースコアをプロパティ名の前につけることで、モデルの set/get プロパティを利用することができます。(※これはハッシュの ```[:property]``` と同様です。詳細は [こちら](/getting_help/why_use_underscore_accessors_instead_of_[property].md) を参照してください)
+Notice that we didn't have to setup the field name ahead of time.  アンダースコアをプロパティ名の前につけることで、モデルの set/get プロパティを利用することができます。(※これはハッシュの ```[:property]``` と同様です。詳細は [こちら](/getting_help/why_use_underscore_accessors_instead_of_[property].md) を参照してください)
 
 アンダースコア アクセサは、実際に必要なフィールドを決定する前のプロトタイピングに利用することが多いです。
 
 # フィールド
 
-クラスでフィールドを利用するには、モデルクラスを作成します。モデルクラスは　Volt::Model を継承して、app/{コンポーネント}/models/model_name.rb に配置される必要があります。(※もし Volt を使うのはじめてであれば、コンポーネントには「main」を指定してください) 新しいモデルを作るには以下のようにします:
+クラスでフィールドを利用するには、モデルクラスを作成します。モデルクラスは　Volt::Model を継承して、app/{コンポーネント}/models/model_name.rb に配置される必要があります。(※もし Volt を使うの初めてであれば、コンポーネントには「main」を指定してください) 新しいモデルを作るには以下のようにします:
 
 ```bash
 bundle exec volt generate model Item
@@ -45,12 +45,17 @@ bundle exec volt generate model Item
 
 ```ruby
 class Post < Volt::Model
-  field :title
-  field :body, String
+  field :title                              # 型制約なし
+  field :body, String                       # string
+  field :published, Volt::Boolean           # true または false
+  field :count_or_details, [String, Fixnum] # String または Fixnum
+  field :notes, String, allow_nil: true     # nil を許容する String フィールド
 end
 ```
 
-フィールドには、オプションで型の制約を設定することが可能です。フィールドを追加したら、モデルのインスタンスでプロパティ名のメソッドを実行することで read/assign が可能です (Ruby の getter)。プロパティは「プロパティ名 =」メソッドでセットできます。
+フィールドには、オプションで1つ以上の制約を設定することが可能です。もし代入される値が制約された型ではない場合 (そして、string -> int/float のように簡単にキャスト可能なものではない場合)、モデルはバリデーションエラーを発生させｔます。注意: Ruby には Boolean クラスが存在せず、Opal には TrueClass/FalseClass がありません。したがって、型制約で真偽値を指定したい場合には ```Volt::Boolean``` を使用してください。
+
+フィールドを追加したら、モデルのインスタンスでプロパティ名のメソッドを実行することで read/assign が可能です (Ruby の getter)。プロパティは「プロパティ名 =」メソッドでセットできます。
 
 ```ruby
 new_post = Post.new(body: 'it was the best of times')
