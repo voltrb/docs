@@ -2,7 +2,7 @@
 
 ## CSS/JavaScript
 
-Volt では、JavaScript や CSS (または sass) といったアセットは、デフォルトでは、自動的にページにインクルードされるようになっています。asset/js や assets/css フォルダーに格納されたコンポーネントの中のものはすべて、([Sprockets](https://github.com/sstephenson/sprockets) を介して) /assets/{js,css} としてサーブされます。/assets/css や /assets/js に格納されている css や js のファイルそれぞれに対して、link や script タグが自動的に追加されます。y.  ファイルはその並び順通りに読み込まれるので、読み込み順を変更したい場合にはファイル名の先頭に数値を付けてください。
+Volt では、JavaScript や CSS (または sass) といったアセットは、デフォルトでは、自動的にページにインクルードされるようになっています。asset/js や assets/css フォルダーに格納されたコンポーネントの中のものはすべて、([Sprockets](https://github.com/sstephenson/sprockets) を介して) /assets/{js,css} としてサーブされます。/assets/css や /assets/js に格納されている css や js のファイルそれぞれに対して、link や script タグが自動的に追加されます。ファイルはその並び順通りに読み込まれるので、読み込み順を変更したい場合にはファイル名の先頭に数値を付けてください。
 
 インクルードされたコンポーネントやコンポーネントの gem が持っているすべての JS/CSS も同様にインクルードされます。デフォルトで、 [bootstrap](http://getbootstrap.com/) が volt-bootstrap gem により提供されています。
 
@@ -32,6 +32,30 @@ javascript_file 'my_js.min.js'
 
 ## 画像/フォント/その他のアセット
 
-画像やその他のアセットは```app/{component}/assets/images``` (又は fonts など) に配置することを勧めます。そうすると、例えば画像のURLは```/assets/{component}/assets/images/...```の様になります. ```disable_auto_import``` は画像やその他のアセットに対しては無効です。
+画像やその他のアセットは```app/{component}/assets/images``` (または fonts など) に配置することを勧めます。そうすると、production にデプロイするときアセットをプリコンパイルすることができ、Volt はファイルの内容の fingerprint (ファイルのハッシュ) をファイル名の末尾に付け加えます。このことによって、すべてのアセットを無期限にキャッシュすることが可能になります。(詳細は [デプロイ](deployment/README.md)を参照してください)
 
-**メモ: アセットバンドルについては検討中です**
+Volt の app フォルダは /app の URL にマウントされます。したがって、
+
+```app/main/assets/images/profile.jpg``` というアセットには、```/app/main/assets/images/profile.jpg``` でアクセス可能です。ただ、一般的には、asset_path ヘルパーを使ってアセットを参照します。これらのヘルパーはプリコンパイルを行った際に URL を書き換え、様々なプリコンパイルの最適化を可能にします。
+
+アセットパスの書き換えを有効にするには、CSS や HTML でアセットのパスを参照する箇所を変更する必要があります。
+
+CSS/Sass では、単純に以下のように変更します。
+
+```background-image: url(../images/something.png);``` を ```background-image: asset-url("../images/something.png");``` にする。
+
+※クォートでくくるのを忘れないようにしてください。
+
+HTML では、画像を直接参照するのではなく、以下のようにします。
+
+```html
+<img src="{{ asset_url('../../assets/images/something.png') }}" />
+```
+
+※asset_url を利用する場合は、レンダリングされる場所ではなく、.html ファイルからの相対パスを指定してください。以下の URL スキーマを使うこともできます。
+
+```css
+background-image: url(blog/assets/images/header.jpg);
+```
+
+上記の例では、app フォルダからの指定となっています。この場合、別のコンポーネントからアセットを利用することが可能です。

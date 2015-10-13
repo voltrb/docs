@@ -3,7 +3,7 @@
 ```if``` バインディングは、基本的な制御文を提供します。
 
 ```html
-{{ if some_check? }}
+{{ if some_check?
   <p>render this</p>
 {{ end }}
 ```
@@ -15,9 +15,9 @@
 また、If バインディングは ```elsif``` と ```else``` ブロックを持つことができます。
 
 ```html
-{{ if condition_1? }}
+{{ if condition_1?
   <p>condition 1 true</p>
-{{ elsif condition_2? }}
+{{ elsif condition_2?
   <p>condition 2 true</p>
 {{ else }}
   <p>neither true</p>
@@ -29,7 +29,7 @@
 unless もサポートしています。
 
 ```html
-{{ unless some_check? }}
-  <p>render this when some_check?is false</p>
+{{ unless some_check?
+  <p>render this when some_check? is false</p>
 {{ end }}
 ```

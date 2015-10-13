@@ -17,7 +17,7 @@ class Street < Volt::Model
 end
 ```
 
-## has_many
+## Has Many
 
 ```has_many``` メソッドを使用することで、他のモデルのインスタンスで、その ```_id``` フィールドが現在のモデルを指しているものを見つけることができます。例えば、「person」インスタンスがあったとしましょう:
 
@@ -30,11 +30,23 @@ person.addresses
 
 ```has_many``` アソシエーションはカーソルを返します。
 
+#### オプション
+
+User モデルの has_many の2番目の引数として、以下のオプションを渡すことが可能です。
+
+:collection - データベースのコレクション名と、モデルが返された際にロードされるべきクラス
+
+:foreign_key - (デフォルトでは現在のクラス名 + "_id" となります) もし、```has_many :posts, foreign_key: :user_id``` としたときには、次のクエリとなります。```store.posts.where(user_id: self.id)```
+
+:local_key - モデルのID。デフォルトでは ```self.id```もし、```has_many :posts, local_key: :user_system_id``` としたときには、次のクエリとなります。```store.posts.where(user_id: self.user_system_id)```
+
 ## Has One
 
 モデルクラスで ```has_one``` を使用すると、別の1つのモデルとの関連を設定することができます。```has_one``` は引数に別のモデルの名前をシンボルとして受け取ります。```Address``` モデルで ```:street``` を渡した場合、同じ address_id を持った```Street``` モデルを検索します。
 
-## belongs_to
+has_one に対しても has_many と同じオプションを指定可能です。
+
+## Belongs to
 
 ```belongs_to``` を使うと、モデルの親であるモデルを見つけることができます。「address」インスタンスの場合を考えてみましょう。
 
@@ -45,3 +57,13 @@ end
 ```
 
 ```belongs_to``` アソシエーションは関連付けられたモデルで解決するpromiseオブジェクトを返します。
+
+#### オプション
+
+Post モデルの belongs_to の2番目の引数として、以下のオプションを渡すことが可能です。
+
+:collection - データベースのコレクション名と、モデルが返された際にロードされるべきクラス
+
+:foreign_key - (モデルの belongs_to の対象のモデルのフィールド名。デフォルトでは :id) もし、```belongs_to :user, foreign_key: :user_system_id``` としたときには、次のクエリとなります。```store.users.where(user_system_id: self.user_id).first```
+
+:local_key - モデルで、belongs_to の関連を見つけるために利用されるキー。デフォルトでは belongs_to のコレクション名 + "_id"もし、```belongs_to :user, local_key: :remote_user_id``` としたときには、次のクエリとなります。```store.users.where(user_id: self.remote_user_id).first```

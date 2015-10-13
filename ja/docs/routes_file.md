@@ -23,17 +23,17 @@ client "/todos/{{ index }}", view: 'todos'
 ルートは、ルートファイル上で上から下に順番にマッチングされます。
 
 
-### HTTPエンドポイントのためのルート
+### HTTP エンドポイントのためのルート
 
-[HTTPコントローラー](http_controllers.md) によってHTTPエンドポイントを設定する場合、```get```/```post```/```put```/```patch```/```delete```キーワードによってルートを指定する必要があります。また、HTTPエンドポイントのルートには「コントローラー」と「アクション」をパラメーターとして指定する必要があります。
+[HTTP コントローラー](http_controllers.md) によってHTTPエンドポイントを設定する場合、```get```/```post```/```put```/```patch```/```delete``` キーワードによってルートを指定する必要があります。また、HTTP エンドポイントのルートには「コントローラー」と「アクション」をパラメーターとして指定する必要があります。
 
 ```ruby
 get "/api/todos", controller: 'todos', action: 'index'
 ```
 
-上記の場合、TodosControllerの```idnex```メソッドを実行します。詳しくは[HTTP コントローラー](http_controllers.md)を参照してください。
+上記の場合、TodosController の ```index``` メソッドを実行します。詳しくは [HTTP コントローラー](http_controllers.md)を参照してください。
 
-RESTfulなリソースを作成するためには、下記のルートを設定する必要がありまｓ。
+RESTful なリソースを作成するためには、下記のルートを設定する必要があります。
 
 ```ruby
 get "/api/todos", controller: 'todos', action: 'index'
@@ -50,6 +50,6 @@ delete "/api/todos/{{ id }}", controller: 'todos', action: 'destroy'
 delete "/api/todos/{{ id }}", controller: 'todos', action: 'destroy', safe: true
 ```
 
-上記では、```id```/```controller```/```action```/```safe```パラメーターのハッシュとしてコントローラーに渡されます。
+上記では、```id```/```controller```/```action```/```safe``` パラメーターのハッシュとしてコントローラーに渡されます。
 
-「method」をHTTP GETまたはPOSTパラメーターとして指定すれば、実際のHTTPメソッドを上書きすることも可能です。
+「method」を HTTP GET または POST パラメーターとして指定すれば、実際の HTTP メソッドを上書きすることも可能です。

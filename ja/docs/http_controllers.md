@@ -25,7 +25,7 @@ end
 
 ## パラメーター
 
-パラメーターには、```#params```メソッドを使うことでアクセス可能です。[コントローラー](controllers.md)のパラメーターとは異なり、```Volt::HttpController``` の　```#params``` は、シンボルをキーとした単純なハッシュになっています。:controller と :action のキーがコントローラーと実行されるアクションを示します。また、:method を上書きすることで、別のHTTPメソッドを設定することも可能です。
+パラメーターには、```#params```メソッドを使うことでアクセス可能です。[コントローラー](controllers.md)のパラメーターとは異なり、```Volt::HttpController``` の ```#params``` は、シンボルをキーとした単純なハッシュになっています。:controller と :action のキーがコントローラーと実行されるアクションを示します。また、:method を上書きすることで、別のHTTPメソッドを設定することも可能です。
 
 ## Storeへのアクセス
 
@@ -40,7 +40,7 @@ module Main
   class TodosController < Volt::HttpController
     def create
       data = JSON.parse(request.body.read)
-      store._links!<< Link.new(data)
+      store._links! << Link.new(data)
     end
   end
 end
@@ -75,7 +75,7 @@ end
 module Main
   class TodosController < Volt::HttpController
     def create
-  	  # 何か処理をする
+  	  #do something
   	  redirect_to '/todos'
     end
   end
@@ -98,9 +98,8 @@ module Main
 end
 ```
 
-### ヘッダー
-
-Responseにはカスタヘッダーを追加することができます。. カスタムヘッダーの内容は変換されます。
+### Headers
+You can add custom HTTP headers to your response. カスタムヘッダーの内容は変換されます。
 
 例えば、:auth_token は 'Auth-Token' に変換されます。ヘッダーは```Symbol``` または ```String``` で設定することが可能です。
    ```:auth_token == 'Auth-Token' == 'auth-token' == 'Auth_Token'```
