@@ -40,4 +40,4 @@ Each bindings support .each_with_index
 
 ## Current Limitations
 
-Currently .each in bindings is rather limited. (We're working on it)  It can only handle arrays, not hashes.  To use hashes, convert them to arrays first.  Also, it can only take one argument (except when using .each_with_index)
+Currently .each in bindings is rather limited (we're working on it).  It can only handle arrays, not hashes.  To use hashes, convert them to arrays first.  Also, it can only take one argument (except when using .each_with_index).
