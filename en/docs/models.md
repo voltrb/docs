@@ -29,13 +29,13 @@ item
 # => <Volt::Model {:id=>"d8872b283c6dc1a7861e9baa", :name=>"Ryan"}>
 ```
 
-Notice that we didn't have to setup the field name ahead of time.  Using an underscore before any property name lets you set/get a property on the model.  (Note this is similar to doing ```[:property]``` on a hash.  [See here](/getting_help/why_use_underscore_accessors_instead_of_[property].md) for more info)
+Notice that we didn't have to setup the field name ahead of time.  Using an underscore before any property name lets you set/get a property on the model.  (Note this is similar to doing ```[:property]``` on a hash.  [See here](/getting_help/why_use_underscore_accessors_instead_of_[property].md) for more info.)
 
 Underscore accessors are often used for prototying, before you decide on exactly what fields will be used.
 
 # Fields
 
-Once you know the fields you will want on a model, you can create a model class to set up fields on the class.  A model class inherits from Volt::Model and should be put in app/{component}/models/model_name.rb  (If your new to Volt, use 'main' as the component)  You can generate a new model with the following:
+Once you know the fields you will want on a model, you can create a model class to set up fields on the class.  A model class inherits from Volt::Model and should be put in app/{component}/models/model_name.rb  (If you are new to Volt, use 'main' as the component.)  You can generate a new model with the following:
 
 ```bash
 bundle exec volt generate model Item
@@ -53,7 +53,7 @@ class Post < Volt::Model
 end
 ```
 
-Fields can optionally take on or more restrictions.  If the assigned value is not of the type (and can not be easily cast to the type (string -> int/float), the model will have a type validation error.  NOTE: Ruby does not have a Boolean class, and opal does not have TrueClass/FalseClass, so to specify a boolean, use ```Volt::Boolean``` as the type restriction.
+Fields can optionally take on or more restrictions.  If the assigned value is not of the type (and can not be easily cast to the type, e.g. string -> int/float), the model will have a type validation error.  NOTE: Ruby does not have a Boolean class, and opal does not have TrueClass/FalseClass, so to specify a boolean, use ```Volt::Boolean``` as the type restriction.
 
 Once you add fields, they can be read and assigned by calling a method with the property name on the model instance (a ruby getter).  You can set the property with an property name = method:
 
@@ -70,7 +70,7 @@ store._posts << new_post
 
 ## Collections
 
-Since Volt Models do not have built-in persistance, we can access them through a collection which set up the persistance for you.  Volt comes with many built-in collections; one is called ```page```.  If you call ```page``` in the console (or a controller), you will get access to the page collection.
+Because Volt Models do not have built-in persistence, you can access them through a collection which sets up the persistence for you.  Volt comes with many built-in collections; one is called ```page```.  If you call ```page``` in the console (or a controller), you will get access to the page collection.
 
 ```ruby
 page._name = 'Ryan'
@@ -78,7 +78,7 @@ page._name
 # => 'Ryan'
 ```
 
-Collections simply return a root model with the persistance setup for the model. When calling an underscore method, we either get back the attribute value, or ```nil``` if the value isn't defined.
+Collections simply return a root model with the persistence setup for the model. When calling an underscore method, we either get back the attribute value, or ```nil``` if the value isn't defined.
 
 ## Nesting
 
