@@ -70,5 +70,39 @@ t = VoltTime.from_time(tx)
 
 The Time `tx` will be converted to UTC to be held in the VoltTime, `t`.
 
+## Comparisons
 
+VoltTime offers the usual comparisons ``==`` and ``<==>` and these will compare a VolTime with another VoltTime or a Time.
+
+In addition, VoltTime also has a `compare` method which checks if two VoltTime objects are within the same year, month (of a year), day (of a month and year), hour (of a day), minute (of an hour in a day) or second (of a minute in an hour of a day).
+
+For example:
+
+```ruby
+t1 = VoltTime.new(:utc, 2015, 01, 01)
+t2 = VoltTime.new(:utc, 2015, 01, 02)
+t1.compare(t2, :year)
+# => 0
+t1.compare(t2, :day)
+# => -1
+```
+
+The options for the second parameter in `VoltTime#compare` are `:year`, `:month`, `:day`, `:hour`, `:min` and `:sec`. The method returns `0` if the two VoltTime objects are equal to within the same 'accuracy', `1` (if `t1` in the example above is after `t2`) or `-1` (if `t1` is before `t2` in the example above).
+
+## Calculations
+
+VoltTime has the same kind of calcuation methods as Rails adds to Time.
+
+| `#beginning_of_day` | Returns a VoltTime that is at time 00:00:00 for the date |
+| `#end_of_day`       | Returns a VoltTime that is at time 00:00:00.999 for the date |
+| `#seconds_since_midnight` | Returns the number of seconds since the beginning of the day |
+| `#seconds_until_end_of_day` | Returns the number of seconds until the end of the day |
+| `#ago` | Takes a number of seconds as a parameter and returns a VoltTime that number of seconds ago |
+| `#since` | Takes a number of seconds as a parameter and returns a VoltTime that is the number of seconds into the future |
+| `#middle_of_day` | Returns a VoltTime that is at time 12:00:00 for the date |
+| `#beginning_of_hour` | Returns a VoltTime that is at the start of the current hour |
+| `#end_of_hour` | Returns a VoltTime that is at the end of the current hour |
+| `#beginning_of_minute` | Returns a VoltTime that is the beginning of the current minute |
+| `#end_of_minute` | Returns a VoltTime that is the end of the current minute |
+| `#all_day` | Returns a Range of VoltTime objects from the beginning to the end of the day |
 
