@@ -93,6 +93,7 @@ The options for the second parameter in `VoltTime#compare` are `:year`, `:month`
 
 VoltTime has the same kind of calcuation methods as Rails adds to Time.
 
+| Method              | Description                                              |
 |---------------------|----------------------------------------------------------|
 | `#beginning_of_day` | Returns a VoltTime that is at time 00:00:00 for the date |
 | `#end_of_day`       | Returns a VoltTime that is at time 00:00:00.999 for the date |
