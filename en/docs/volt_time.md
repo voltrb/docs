@@ -90,7 +90,7 @@ The options for the second parameter in `VoltTime#compare` are `:year`, `:month`
 
 ## Calculations
 
-VoltTime has the same kind of calcuation methods as Rails adds to Time.
+VoltTime has the same kind of calcuation methods as Rails adds to Time. These calculations work in Ruby and Opal.
 
 | Method              | Description                                              |
 |---------------------|----------------------------------------------------------|
@@ -99,12 +99,38 @@ VoltTime has the same kind of calcuation methods as Rails adds to Time.
 | `#middle_of_day` | Returns a VoltTime that is at time 12:00:00 for the date |
 | `#seconds_since_midnight` | Returns the number of seconds since the beginning of the day |
 | `#seconds_until_end_of_day` | Returns the number of seconds until the end of the day |
-| `#ago(seconds)` | Takes a number of seconds as a parameter and returns a VoltTime that number of seconds ago |
-| `#since(seconds)` | Takes a number of seconds as a parameter and returns a VoltTime that is the number of seconds into the future |
 | `#beginning_of_hour` | Returns a VoltTime that is at the start of the hour |
 | `#end_of_hour` | Returns a VoltTime that is at the end of the hour |
 | `#beginning_of_minute` | Returns a VoltTime that is the beginning of the minute |
 | `#end_of_minute` | Returns a VoltTime that is the end of the minute |
 | `#all_day` | Returns a Range of VoltTime objects from the beginning to the end of the day |
+| `#ago(seconds)` | Takes a number of seconds as a parameter and returns a VoltTime that number of seconds ago |
+| `#since(seconds)` | Takes a number of seconds as a parameter and returns a VoltTime that is the number of seconds into the future |
+
+### Local calculations
+
+In Opal code that runs on the client, there are also calculations that are based on the user's local time. 
+If you try and use these methods in Ruby on the server they throw an exception since the local timezone setting on the server is unlikely to be relevant to your users.
 
 
+| Method              | Description                                              |
+|---------------------|----------------------------------------------------------|
+| `#local_beginning_of_day` | Returns a VoltTime that is at the start of the local day |
+| `#local_end_of_day`       | Returns a VoltTime that is at the end of the local day |
+| `#local_middle_of_day` | Returns a VoltTime that is at midday of the local day |
+| `#local_seconds_since_midnight` | Returns the number of seconds since the beginning of the local day |
+| `#local_seconds_until_end_of_day` | Returns the number of seconds until the end of the local day |
+| `#local_all_day` | Returns a Range of VoltTime objects from the beginning to the end of the local day |
+
+For example in the Pacific timezone:
+
+```ruby
+VoltTime.at(0).local_beginning_of_day
+# => 1969-12-31 08:00:00 UTC
+VoltTime.at(0).local_end_of_day
+# => 1970-01-01 07:59:59 UTC
+VoltTime.at(0).local_middle_of_day
+# => 1969-12-31 20:00:00 UTC
+VoltTime.at(0).local_all_day
+# => 1969-12-31 08:00:00 UTC..1970-01-01 07:59:59 UTC
+```
