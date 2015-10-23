@@ -22,6 +22,15 @@ If ```params._view``` is 'todos' and ```params._index``` is present, the route w
 
 Routes are matched from top to bottom in a routes file.
 
+### Splat matches
+
+You can use * as you would in a ruby splat to match the rest of the url (not just a single section):
+
+```ruby
+client "/blog/{{ *slug }}", component: 'main', controller: 'blog', action: 'show'
+```
+
+The above will match anything that starts with ```/blog/```, the rest of the url will be placed in ```params._slug```
 
 ### Routes for HTTP endpoints
 
