@@ -12,7 +12,7 @@ The benefits of using VoltTime over the standard ruby Time class are:
 
 * VoltTime has consistent behaviour across Ruby and Opal. Opal (because of the limitations of JavaScript) can only store times in either 
 UTC or the local timezone. Although VoltTime always stores 
-the time in the UTC timezone it can also accept and display time in the 
+the time in the UTC timezone it can also accept and display time in the client in the 
 local timezone.
 
 * VoltTime comes with an number of useful calculations and support for durations.  
@@ -60,11 +60,12 @@ t = VoltTime.at(60)
 # => 1970-01-01 00:01:00 UTC
 ```
 
-The final method to instantiate a `VoltTime` is to create one from an existing `Time` object.
+And you can create a `VoltTime` from an existing `Time` object:
 
 ```ruby
 tx = Time.now
 # => 2015-10-21 12:16:32 -0700
+
 t = VoltTime.from_time(tx)
 # => 2015-10-21 19:16:32 UTC
 ```
@@ -82,6 +83,7 @@ t1 = VoltTime.new(:utc, 2015, 01, 01)
 t2 = VoltTime.new(:utc, 2015, 01, 02)
 t1.compare(t2, :year)
 # => 0
+
 t1.compare(t2, :day)
 # => -1
 ```
@@ -127,10 +129,13 @@ For example in the Pacific timezone:
 ```ruby
 VoltTime.at(0).local_beginning_of_day
 # => 1969-12-31 08:00:00 UTC
+
 VoltTime.at(0).local_end_of_day
 # => 1970-01-01 07:59:59 UTC
+
 VoltTime.at(0).local_middle_of_day
 # => 1969-12-31 20:00:00 UTC
+
 VoltTime.at(0).local_all_day
 # => 1969-12-31 08:00:00 UTC..1970-01-01 07:59:59 UTC
 ```
