@@ -6,6 +6,8 @@ Volt provides an optional time helper class, `VoltTime` that can be required int
 require lib/volt/helpers/time
 ```
 
+Almost all methods that are available in Time call be called on VoltTime.
+
 The benefits of using VoltTime over the standard ruby Time class are:
 
 * VoltTime always holds the time in the UTC timezone so that there is no need for conversions between timezone when using VoltTime
@@ -92,7 +94,7 @@ The options for the second parameter in `VoltTime#compare` are `:year`, `:month`
 
 ## Calculations
 
-VoltTime has the same kind of calcuation methods as Rails adds to Time. These calculations work in Ruby and Opal.
+VoltTime has the same kind of calcuation methods as ActiveSupport adds to Time. These calculations work in Ruby and Opal.
 
 | Method              | Description                                              |
 |---------------------|----------------------------------------------------------|
@@ -111,8 +113,8 @@ VoltTime has the same kind of calcuation methods as Rails adds to Time. These ca
 
 ### Local calculations
 
-In Opal code that runs on the client, there are also calculations that are based on the user's local time. 
-If you try and use these methods in Ruby on the server they throw an exception since the local timezone setting on the server is unlikely to be relevant to your users.
+In client code (i.e. Opal code), there are also calculations that are based on the user's local time. 
+If you try and use these methods in Ruby on the server they throw an "unknown method" exception since the local timezone setting on the server is unlikely to be relevant. 
 
 
 | Method              | Description                                              |
@@ -139,3 +141,39 @@ VoltTime.at(0).local_middle_of_day
 VoltTime.at(0).local_all_day
 # => 1969-12-31 08:00:00 UTC..1970-01-01 07:59:59 UTC
 ```
+
+## Formatted strings
+
+VoltTime has many of the same output methods as Time which can be used in Opal and Ruby:
+
+* `#inspect`
+* `#to_s`
+* `#asctime`
+* `#ctime`
+* `#strftime(string)` see (Ruby doc)[http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime] for details of the formatting options
+
+### Local formatted string
+
+VoltTime also has a number of methods for outputting the local time as string. These are only available in client (i.e Opal) code; in Ruby they will throw an "method not found" exception.
+
+* `local_to_s`
+* `local_asctime`
+* `local_ctime`
+* `local_strftime(string)` see (Ruby doc)[http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime] for details of the formatting options
+
+For example in the PST timezone:
+
+```ruby
+VoltTime.at(0).local_to_s
+# => "1969-12-31 16:00:00 -0800"
+
+VoltTime.at(0).local_asctime
+# => "Wed Dec 31 16:00:00 1969"
+
+VoltTime.at(0).local_strftime("%Y %m %d")
+# => "1969 12 31"
+
+VoltTime.at(0).local_ctime
+# => "Wed Dec 31 16:00:00 1969"
+```
+
