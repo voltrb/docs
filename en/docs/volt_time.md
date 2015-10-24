@@ -1,29 +1,27 @@
 # VoltTime
 
-Volt provides an optional time helper class, `VoltTime` that can be required into your Volt application in a model or controller.
+Volt provides an optional time class, `VoltTime` that can be required into your Volt application in a model or controller.
 
 ```ruby
 require lib/volt/helpers/time
 ```
 
-Almost all methods that are available in Time call be called on VoltTime.
+The key feature of VoltTime is that it always holds the time in the UTC timezone.
 
-The benefits of using VoltTime over the standard ruby Time class are:
-
-* VoltTime always holds the time in the UTC timezone so that there is no need for conversions between timezone when using VoltTime
-
-* VoltTime has consistent behaviour across Ruby and Opal. Opal (because of the limitations of JavaScript) can only store times in either 
+It also has consistent behaviour across Ruby and Opal. Opal (because of the limitations of JavaScript) can only store times in either 
 UTC or the local timezone. Although VoltTime always stores 
 the time in the UTC timezone it can also accept and display time in the client in the 
 local timezone.
 
-* VoltTime comes with an number of useful calculations and support for durations.  
+VoltTime comes with an number of useful calculations and support for durations.  
 
-Many of the calculations and duration support are taken from ActiveSupport in Rails.
+Almost all methods that are available in Time call be called on VoltTime.
 
-## Instantiating a VoltTime object
+Much of the functionality of VolTime was inspired, copied and amended from Rails ActiveSupport.
 
-There are a number of ways of instantiating a new VoltTime.
+## Initializing a VoltTime object
+
+There are a number of ways of initializing a new VoltTime.
 
 To get a VoltTime holding the current time you can use either:
 
@@ -39,7 +37,7 @@ t = VoltTime.now
 # => 2015-10-21 18:57:46 UTC
 ```
 
-To get a VoltTime holding a specific time you can also use `VoltTime#new`. One main case for instantiating a VoltTime holding a specific 
+To get a VoltTime holding a specific time you can also use `VoltTime#new`. One main case for initializing  a VoltTime holding a specific 
 time is to turn user input into a VoltTime. In this case you would normally expect the user to provide the time in 
 their own timezone. 
 To create a VoltTime holding this time you would use the `:local` symbol as the first parameter to `VoltTime#new`:
@@ -49,14 +47,14 @@ t = VoltTime.new(:local, 2015, 10, 21, 11, 30, 00)
 # => 2015-10-21 18:30:00 UTC
 ```
 
-It is also possible to instantiate a VoltTime from a UTC time, using the `:utc` symbol as the first parameter.
+It is also possible to initialize a VoltTime from a UTC time, using the `:utc` symbol as the first parameter.
 
 ```ruby
 t = VoltTime.new(:utc, 2015, 10, 21, 11, 30, 00)
 # => 2015-10-21 11:30:00 UTC
 ```
 
-A VoltTime object can also be instantiated in a couple of other ways. First it can be created from the number of seconds past
+A VoltTime object can also be initialized in a couple of other ways. First it can be created from the number of seconds past
 the epoch (1 January 1970 00:00:00) like this:
 
 ```ruby
