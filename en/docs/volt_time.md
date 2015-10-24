@@ -150,7 +150,9 @@ VoltTime has many of the same output methods as Time which can be used in Opal a
 * `#to_s`
 * `#asctime`
 * `#ctime`
-* `#strftime(string)` see (Ruby doc)[http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime] for details of the formatting options
+* `#strftime(string)`
+
+See the [Ruby documentation](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) for details of the formatting options for `#strftime`.
 
 ### Local formatted string
 
@@ -159,9 +161,11 @@ VoltTime also has a number of methods for outputting the local time as string. T
 * `local_to_s`
 * `local_asctime`
 * `local_ctime`
-* `local_strftime(string)` see (Ruby doc)[http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime] for details of the formatting options
+* `local_strftime(string)`
 
-For example in the PST timezone:
+The formating options for `local_strftime` are the same as for `strftime`.
+
+For example in the Pacific timezone:
 
 ```ruby
 VoltTime.at(0).local_to_s
