@@ -96,20 +96,28 @@ The options for the second parameter in `VoltTime#compare` are `:year`, `:month`
 
 ## Calculations
 
-VoltTime has the same kind of calcuation methods as ActiveSupport adds to Time. These calculations work in Ruby and Opal.
+VoltTime supports the addition and subration of seconds with a VoltTime to return a VoltTime. 
+It is also possible to subtract two VoltTime objects to return the number of seconds between them.
+
+```ruby
+VoltTime.at(0) + 60
+# => 1970-01-01 00:01:00 UTC
+
+VoltTime.at(60) - 60
+# => 1970-01-01 00:00:00 UTC
+
+VoltTime.at(60) - VoltTime.at(0)
+# => 60.0
+```
+
+VoltTime also has the same kind of calcuation methods as ActiveSupport adds to Time. These calculations work in Ruby and Opal.
 
 | Method              | Description                                              |
 |---------------------|----------------------------------------------------------|
-| `#beginning_of_day` | Returns a VoltTime that is at time 00:00:00 for the date |
-| `#end_of_day`       | Returns a VoltTime that is at time 00:00:00.999 for the date |
-| `#middle_of_day` | Returns a VoltTime that is at time 12:00:00 for the date |
-| `#seconds_since_midnight` | Returns the number of seconds since the beginning of the day |
-| `#seconds_until_end_of_day` | Returns the number of seconds until the end of the day |
 | `#beginning_of_hour` | Returns a VoltTime that is at the start of the hour |
 | `#end_of_hour` | Returns a VoltTime that is at the end of the hour |
 | `#beginning_of_minute` | Returns a VoltTime that is the beginning of the minute |
 | `#end_of_minute` | Returns a VoltTime that is the end of the minute |
-| `#all_day` | Returns a Range of VoltTime objects from the beginning to the end of the day |
 | `#ago(seconds)` | Takes a number of seconds as a parameter and returns a VoltTime that number of seconds ago |
 | `#since(seconds)` | Takes a number of seconds as a parameter and returns a VoltTime that is the number of seconds into the future |
 
@@ -144,52 +152,22 @@ VoltTime.at(0).local_all_day
 # => 1969-12-31 08:00:00 UTC..1970-01-01 07:59:59 UTC
 ```
 
+### UTC calculations
+
+Similar calculations are available which give the result for the UTC timezone which can be used in Ruby and
+Opal:
+
+
+| Method              | Description                                              |
+|---------------------|----------------------------------------------------------|
+| `#beginning_of_day` | Returns a VoltTime that is at the start of the UTC day |
+| `#end_of_day`       | Returns a VoltTime that is at time end of the UTC day |
+| `#middle_of_day` | Returns a VoltTime that is at UTC midday of the day |
+| `#seconds_since_midnight` | Returns the number of seconds since the beginning of the UTC day |
+| `#seconds_until_end_of_day` | Returns the number of seconds until the end of the UTC day |
+| `#all_day` | Returns a Range of VoltTime objects from the beginning to the end of the UTC day |
+
 ### Durations
-
-Durations can be used with VoltTime for calculations. A duration is created by calling a duration method on a number, for example:
-
-```ruby
-1.da
-## Formatted strings
-
-VoltTime has many of the same output methods as Time which can be used in Opal and Ruby:
-
-* `#inspect`
-* `#to_s`
-* `#asctime`
-* `#ctime`
-* `#strftime(string)`
-
-See the [Ruby documentation](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) for details of the formatting options for `#strftime`.
-
-### Local formatted string
-
-VoltTime also has a number of methods for outputting the local time as string. These are only available in client (i.e Opal) code; in Ruby they will throw an "method not found" exception.
-
-* `#local_to_s`
-* `#local_asctime`
-* `#local_ctime`
-* `#local_strftime(string)`
-
-The formating options for `#local_strftime` are the same as for `#strftime`.
-
-For example in the Pacific timezone:
-
-```ruby
-VoltTime.at(0).local_to_s
-# => "1969-12-31 16:00:00 -0800"
-
-VoltTime.at(0).local_asctime
-# => "Wed Dec 31 16:00:00 1969"
-
-VoltTime.at(0).local_strftime("%Y %m %d")
-# => "1969 12 31"
-
-VoltTime.at(0).local_ctime
-# => "Wed Dec 31 16:00:00 1969"
-```
-
-# Durations
 
 Support for durations is included with VoltTime which allow calculations on VoltTime. A duration is created by
 calling a duration method on a number, for example:
@@ -214,7 +192,7 @@ Durations can be added together:
 
 ```ruby
 1.year + 3.months + 23.days
-=> 1 year,3 months and 23 days
+=> 1 year, 3 months and 23 days
 ```
 
 They can also be compared:
@@ -267,11 +245,53 @@ volt(main)> t.to_time
 # => 2015-10-24 15:08:40 -0700
 ```
 
+
+
+## Formatted strings
+
+VoltTime has many of the same output methods as Time which can be used in Opal and Ruby:
+
+* `#inspect`
+* `#to_s`
+* `#asctime`
+* `#ctime`
+* `#strftime(string)`
+
+See the [Ruby documentation](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) for details of the formatting options for `#strftime`.
+
+### Local formatted string
+
+VoltTime also has a number of methods for outputting the local time as string. These are only available in client (i.e Opal) code; in Ruby they will throw an "method not found" exception.
+
+* `#local_to_s`
+* `#local_asctime`
+* `#local_ctime`
+* `#local_strftime(string)`
+
+The formating options for `#local_strftime` are the same as for `#strftime`.
+
+For example in the Pacific timezone:
+
+```ruby
+VoltTime.at(0).local_to_s
+# => "1969-12-31 16:00:00 -0800"
+
+VoltTime.at(0).local_asctime
+# => "Wed Dec 31 16:00:00 1969"
+
+VoltTime.at(0).local_strftime("%Y %m %d")
+# => "1969 12 31"
+
+VoltTime.at(0).local_ctime
+# => "Wed Dec 31 16:00:00 1969"
+```
+
+
 ## Timezone information
 
 VoltTime has methods that will give information about the local timezone.
 
-There are class methods, `::current_zone` and `::current_offset` return the current timezone and the current offset from UTC in seconds.
+There are class methods, `::current_zone` and `::current_offset` which return the current local timezone and the current local offset from UTC in seconds.
 
 ```ruby
 VoltTime.current_zone
@@ -281,7 +301,7 @@ VoltTime.current_offset/60/60
 # => -7
 ```
 
-The instance method `#local_offset` gives the offset from UTC in seconds for the local time.
+The instance method `#local_offset` gives the offset from UTC in seconds for the VoltTime in the local timezone.
 
 ```ruby
 VoltTime.at(0).local_offset/60/60
