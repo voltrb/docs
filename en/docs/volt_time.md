@@ -19,6 +19,8 @@ local timezone.
 
 * VoltTime comes with an number of useful calculations and support for durations.  
 
+Many of the calculations and duration support are taken from ActiveSupport in Rails.
+
 ## Instantiating a VoltTime object
 
 There are a number of ways of instantiating a new VoltTime.
@@ -142,6 +144,12 @@ VoltTime.at(0).local_all_day
 # => 1969-12-31 08:00:00 UTC..1970-01-01 07:59:59 UTC
 ```
 
+### Durations
+
+Durations can be used with VoltTime for calculations. A duration is created by calling a duration method on a number, for example:
+
+```ruby
+1.da
 ## Formatted strings
 
 VoltTime has many of the same output methods as Time which can be used in Opal and Ruby:
@@ -158,12 +166,12 @@ See the [Ruby documentation](http://ruby-doc.org/core-2.2.0/Time.html#method-i-s
 
 VoltTime also has a number of methods for outputting the local time as string. These are only available in client (i.e Opal) code; in Ruby they will throw an "method not found" exception.
 
-* `local_to_s`
-* `local_asctime`
-* `local_ctime`
-* `local_strftime(string)`
+* `#local_to_s`
+* `#local_asctime`
+* `#local_ctime`
+* `#local_strftime(string)`
 
-The formating options for `local_strftime` are the same as for `strftime`.
+The formating options for `#local_strftime` are the same as for `#strftime`.
 
 For example in the Pacific timezone:
 
@@ -181,3 +189,101 @@ VoltTime.at(0).local_ctime
 # => "Wed Dec 31 16:00:00 1969"
 ```
 
+# Durations
+
+Support for durations is included with VoltTime which allow calculations on VoltTime. A duration is created by
+calling a duration method on a number, for example:
+
+```ruby
+3.months
+=> 3 months
+```
+
+The duration methods support are:
+
+* `#second` and `#seconds`
+* `#minute` and `#minutes`
+* `#hour` and `#hours`
+* `#day` and `#days`
+* `#week` and `#weeks`
+* `#fortnight` and `#fortnights`
+* `#month` and `#months`
+* `#year` and `#years`
+
+Durations can be added together:
+
+```ruby
+1.year + 3.months + 23.days
+=> 1 year,3 months and 23 days
+```
+
+They can also be compared:
+
+```ruby
+7.days == 1.week
+# => true
+
+30.days == 1.month
+# => true
+```
+
+Note that although a month duration is assumed to be 30 days, for the calculations on VoltTime that follow, a month is treated as a calendar month.
+
+Calculations on VoltTime can be done with durations. The methods `#ago` and `#from_now` are called without parameters to calculate a new VoltTime from
+the time now. For example:
+
+```ruby
+2.weeks.ago
+#  => 2015-10-10 21:58:50 UTC
+
+1.month.from_now
+# => 2015-11-24 21:58:30 UTC
+```
+
+The methods `#since` and `#until` take a VoltTime as a parameter and calculate the VoltTime before or after this:
+
+```ruby
+1.month.since(VoltTime.at(0))
+# => 1970-02-01 00:00:00 UTC
+
+2.weeks.until(VoltTime.at(0))
+# => 1969-12-18 00:00:00 UTC
+```
+
+## Converting to a Ruby `Time`
+
+There are a number of methods on VoltTime that will return a Ruby `Time`:
+
+* `#getlocal`
+* `#localtime`
+* `#to_time`
+
+For example:
+
+```ruby
+t = VoltTime.new
+# => 2015-10-24 22:08:40 UTC
+volt(main)> t.to_time
+# => 2015-10-24 15:08:40 -0700
+```
+
+## Timezone information
+
+VoltTime has methods that will give information about the local timezone.
+
+There are class methods, `::current_zone` and `::current_offset` return the current timezone and the current offset from UTC in seconds.
+
+```ruby
+VoltTime.current_zone
+# => "PDT"
+
+VoltTime.current_offset/60/60
+# => -7
+```
+
+The instance method `#local_offset` gives the offset from UTC in seconds for the local time.
+
+```ruby
+VoltTime.at(0).local_offset/60/60
+# => -8
+```
