@@ -72,7 +72,7 @@ t = VoltTime.from_time(tx)
 
 ## Comparisons
 
-VoltTime offers the usual comparisons ``==`` and ``<==>` and these will compare a VoltTime with another VoltTime or a Time.
+VoltTime offers the usual comparisons ``==`` and `<=>` and these will compare a VoltTime with another VoltTime or a Time.
 
 In addition, VoltTime also has a `#compare` method which checks if two VoltTime objects are within the same year, month (of a year), day (of a month and year), hour (of a day), minute (of an hour in a day) or second (of a minute in an hour of a day).
 
