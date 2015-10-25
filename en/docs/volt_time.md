@@ -17,7 +17,7 @@ VoltTime comes with an number of useful calculations and support for durations.
 
 Almost all methods that are available in Time call be called on VoltTime.
 
-Much of the functionality of VolTime was inspired, copied and amended from Rails ActiveSupport.
+Much of the functionality of VoltTime was inspired, copied and amended from Rails ActiveSupport.
 
 ## Initializing a VoltTime object
 
@@ -205,8 +205,19 @@ They can also be compared:
 
 Note that although a month duration is assumed to be 30 days, for the calculations on VoltTime that follow, a month is treated as a calendar month.
 
-Calculations on VoltTime can be done with durations. The methods `#ago` and `#from_now` are called without parameters to calculate a new VoltTime from
-the time now. For example:
+Calculations on VoltTime can be done with durations. Durations can be added to or substracted from a VoltTime (note that months are treated
+as calendar months):
+
+```ruby
+VoltTime.at(0) + 1.month
+# => 1970-02-01 00:00:00 UTC
+
+VoltTime.at(0) - 1.month
+# => 1969-12-01 00:00:00 UTC
+```
+
+The methods `#ago` and `#from_now` are called without parameters to calculate a new VoltTime from
+the time now. For example (note that months are treated as calender months):
 
 ```ruby
 2.weeks.ago
@@ -216,7 +227,8 @@ the time now. For example:
 # => 2015-11-24 21:58:30 UTC
 ```
 
-The methods `#since` and `#until` take a VoltTime as a parameter and calculate the VoltTime before or after this:
+The methods `#since` and `#until` take a VoltTime as a parameter and calculate the VoltTime before or after this 
+(note that months are treated as calendar months):
 
 ```ruby
 1.month.since(VoltTime.at(0))
