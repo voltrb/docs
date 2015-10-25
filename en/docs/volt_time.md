@@ -76,21 +76,30 @@ t = VoltTime.from_time(tx)
 
 VoltTime offers the usual comparisons ``==`` and `<=>` and these will compare a VoltTime with another VoltTime or a Time.
 
-In addition, VoltTime also has a `#compare` method which checks if two VoltTime objects are within the same year, month (of a year), day (of a month and year), hour (of a day), minute (of an hour in a day) or second (of a minute in an hour of a day).
+In addition, VoltTime also has `#compare` and `#compare?`  methods which check if two VoltTime objects are within the same year, month (of a year), day (of a month and year), hour (of a day), minute (of an hour in a day) or second (of a minute in an hour of a day).
 
 For example:
 
 ```ruby
 t1 = VoltTime.new(:utc, 2015, 01, 01)
 t2 = VoltTime.new(:utc, 2015, 01, 02)
+
 t1.compare(t2, :year)
 # => 0
 
+t1.compare?(t2, :year)
+# => true
+
 t1.compare(t2, :day)
 # => -1
+
+t1.compare?(t2, :day)
+# => false
 ```
 
-The options for the second parameter in `VoltTime#compare` are `:year`, `:month`, `:day`, `:hour`, `:min` and `:sec`. The method returns `0` if the two VoltTime objects are equal to within the same 'accuracy', `1` (if `t1` in the example above is after `t2`) or `-1` (if `t1` is before `t2` in the example above).
+The second parameter specifies the "accuracy" of the comparison and can be `:year`, `:month`, `:day`, `:hour`, `:min` or `:sec`. 
+The `#compare?` method returns `true` if the two times are equal to within the given accuracy.
+The `#compare`  method returns `0` if the two VoltTime objects are equal to within the given accuracy, `1` (if `t1` in the example above is after `t2`) or `-1` (if `t1` is before `t2` in the example above).
 
 ## Calculations
 
