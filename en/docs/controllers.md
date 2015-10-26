@@ -19,7 +19,7 @@ end
 module Main
   class TodosController < Volt::ModelController
     def initialize(*args)
-      # Don't forget to call include *args and call super
+      # Don't forget to use *args and call super
       super
 
       self.model = :page
