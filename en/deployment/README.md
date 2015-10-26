@@ -15,7 +15,7 @@ In volt, you can precompile all of your apps assets to a /public folder.  When p
 5. lossly compresses all images and strip metadata (using various tools with [image-optim](https://github.com/toy/image_optim))
 6. rename assets using fingerprinting, so the assets can be cached forever.  (Because if the file changes, a new fingerprint will be generated and linked to)
 
-All assets will be compiled into the /public folder, which you can serve directly via something like [nginx](http://nginx.org/).  Precompiling results in a substantial initial page load speed boost, and results in less requests from the browser.
+All assets will be compiled into the /public folder, which you can serve directly via something like [nginx](http://nginx.org/).  Precompiling results in a substantial initial page load speed boost, and results in fewer requests from the browser.
 
 To precompile your app's assets, simply run:
 
