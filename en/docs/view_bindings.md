@@ -32,7 +32,7 @@ When the original file is rendered it will look like:
 
 The string you pass to ```view``` should be a *path string*.  Both view bindings and tags (which we'll cover later) lookup views and controllers in the same way.
 
-Everyone wishes that they could predict the scope and required features for each part of an application. In the real world, howerver, things we don't expect to grow large often do, and things we think will be large don't always end up that way.  View bindings and tags let you render controllers and views without worrying if the code is in the same view folder, a component, or in a gem.  The location of views or tags code can be moved as they grow without changing the way they are invoked.
+Everyone wishes that they could predict the scope and required features for each part of an application. In the real world, however, things we don't expect to grow large often do, and things we think will be large don't always end up that way.  View bindings and tags let you render controllers and views without worrying if the code is in the same view folder, a component, or in a gem.  The location of views or tags code can be moved as they grow without changing the way they are invoked.
 
 Lets take a look at some example lookup paths for a sample view.
 
