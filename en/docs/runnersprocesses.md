@@ -19,4 +19,4 @@ require 'volt/boot'
 Volt.boot(Dir.pwd)
 ```
 
-```Volt.boot``` takes a signle argument, the path to the volt app directory.  Be sure to run in ```bundle exec``` with the app Gemfile so that volt and its dependencies are loaded.
+```Volt.boot``` takes a single argument, the path to the volt app directory.  Be sure to run in ```bundle exec``` with the app Gemfile so that volt and its dependencies are loaded.
