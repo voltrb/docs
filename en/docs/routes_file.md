@@ -31,7 +31,7 @@ For setting up HTTP endpoints via the [HTTP Controllers](http_controllers.md) yo
 get "/api/todos", controller: 'todos', action: 'index'
 ```
 
-The above will call the ```index``` method on the TodosController. See [HTTP Controllers](http_controllers.md) fo more details.
+The above will call the ```index``` method on the TodosController. See [HTTP Controllers](http_controllers.md) for more details.
 
 To create a RESTful resource you have to create the following routes
 
