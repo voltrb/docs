@@ -1,7 +1,7 @@
 # HTTP Controllers
 
 
-HTTP Controllers can be used as HTTP endpoints.  Volt does most client side communication via websockets (or other socket fallbacks) so it does not use Http for data synchronization to the client, except for the initial page load.  HTTP Controllers provide an easy way to provide data to third parties who need to access data (a REST API for example) via HTTP.
+HTTP Controllers can be used as HTTP endpoints.  Volt does most client side communication via websockets (or other socket fallbacks) so it does not use HTTP for data synchronization to the client, except for the initial page load.  HTTP Controllers provide an easy way to provide data to third parties who need to access data (a REST API for example) via HTTP.
 
 ## Routing
 
