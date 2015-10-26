@@ -1,6 +1,6 @@
 # What browsers does Volt support?
 
-Since Firefox and Chrome have been auto-updating for a while, your probably wondering about IE.  The good news is Opal supports IE way back (the rumor is IE6, because one of the core dev's needs support for it).  While Volt only targets IE10 at the moment, we're working on a volt-ie8to9 gem that will add back support for IE 8-9.  The only thing missing at the moment is a fallback for websockets.
+Since Firefox and Chrome have been auto-updating for a while, you're probably wondering about IE.  The good news is Opal supports IE way back (the rumor is IE6, because one of the core devs needs support for it).  While Volt only targets IE10 at the moment, we're working on a volt-ie8to9 gem that will add back support for IE 8-9.  The only thing missing at the moment is a fallback for websockets.
 
 ## Limited Features
 
