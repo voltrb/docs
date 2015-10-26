@@ -1,6 +1,6 @@
 # Associations
 
-Volt provides a nested model structure that can be accessed without any explicit declarations.  However often you may want to associate other models using external id's.  Volt uses the ```_id``` field naming convention.  Volt provides a ```belongs_to```, ```has_many```, and ```has_one``` methods to associate models.
+Volt provides a nested model structure that can be accessed without any explicit declarations.  However often you may want to associate other models using external id's.  Volt uses the ```_id``` field naming convention.  Volt provides ```belongs_to```, ```has_many```, and ```has_one``` methods to associate models.
 
 ```ruby
 class Person < Volt::Model
@@ -63,7 +63,7 @@ end
 
 You can pass the following options as the 2nd argument to belongs_to on a Post model.
 
-:collection - he name of the collection in the database, and the class that should be loaded when the models are returned
+:collection - the name of the collection in the database, and the class that should be loaded when the models are returned
 
 :foreign_key - (the field name on the model that this model belongs to, defaults to :id)  If you did: ```belongs_to :user, foreign_key: :user_system_id``` it would do the following query:
 ```store.users.where(user_system_id: self.user_id).first```
