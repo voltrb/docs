@@ -1,6 +1,6 @@
 # Apache
 
-does not support Websockets, [see this post](https://github.com/phusion/passenger/issues/1202).
+Apache does not support Websockets, [see this post](https://github.com/phusion/passenger/issues/1202).
 Therefore you'll have to use Apache as a forward-proxy to [thin](http://code.macournoyer.com/thin/).
 Your Apache will need the following modules enabled:
 - [mod_proxy](http://httpd.apache.org/docs/2.4/mod/mod_proxy.html)
