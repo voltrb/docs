@@ -1,6 +1,6 @@
 # Model States
 
-Because models run on the client and there is latency between the client and the server, Volt provides a few "state" methods to see if a model is synced to the server.  If you save from a buffer, the Promise returned from .save! will only resolve once the data has been saved on the server, so these state methods are mostly for showing the user what is happening.
+Since models are run on the client and there is latency between the client and the server, Volt provides a few "state" methods to see if a model is synced to the server.  If you save from a buffer, the Promise returned from .save! will only resolve once the data has been saved on the server. These state methods are mostly for showing the user what is happening.
 
 ## Saved State
 
@@ -43,4 +43,4 @@ Volt also provides a convience method for checking if the load state is ```:load
 
 ## Delayed Rendering with Model
 
-Keep in mind also that if you set ```self.model = ``` on a controller to a Promise, the view will not be render until the Promise resolves.  (See [Delayed Rendering](docs/delayed_rendering.md) for more info)
+Keep in mind also that if you set ```self.model = ``` on a controller to a Promise, the view will not render until the Promise resolves.  (See [Delayed Rendering](docs/delayed_rendering.md) for more info)
