@@ -1,6 +1,6 @@
 # Flash Collection
 
-The flash collection lets you easily display information to the user on the client side.  Flash contains four (default) ArrayModel's, ```successes```, ```notices```, ```warnings```, and ```errors```.  When these collections are appended to, the message will be displayed in a div with the classes of ```"alert alert-{{ ..collection name.. }}"```
+The flash collection lets you easily display information to the user on the client side.  Flash contains four (default) ArrayModels, ```successes```, ```notices```, ```warnings```, and ```errors```.  When these collections are appended to, the message will be displayed in a div with the classes of ```"alert alert-{{ ..collection name.. }}"```
 
 ### Example
 
