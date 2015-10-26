@@ -1,6 +1,6 @@
 # Permissions
 
-By default Volt models can be read or edited by anyone, however it is easy to restrict how a model can be read or changed.  Volt's permissions API breaks this down in to four different actions: create, read, update, delete (or CRUD)
+By default Volt models can be read or edited by anyone, however it is easy to restrict how a model can be read or changed.  Volt's permissions API breaks this down in to four different actions: create, read, update, and delete (or CRUD).
 
 You specify permissions inside of a model class like so:
 
@@ -14,7 +14,7 @@ end
 ```
 ## Permission Logic
 
-The permissions block is called anytime one of the CRUD actions happens on the model.  Inside of the permissiosn block, you can use ```allow``` and ```deny``` to restrict permissions  If you call either without any arguments, then the entire action is blocked.  You can instead pass in a list of field names as arguments, then the action will only be blocked for those fields.  When run, ```self``` inside of the permission block will be the current model.
+The permissions block is called anytime one of the CRUD actions happens on the model.  Inside of the permissions block, you can use ```allow``` and ```deny``` to restrict permissions.  If you call either without any arguments, the entire action is blocked.  If you instead pass in a list of field names as arguments, the action will only be blocked for those fields.  When run, ```self``` inside of the permission block will be the current model.
 
 ```ruby
 class Todo < Volt::Model
@@ -29,7 +29,7 @@ If the last value in a permissions block (the implicit return) is a Promise, the
 ```ruby
 class Todo < Volt::Model
   permissions do
-    # Volt.current_user returns a promsie that resolves the current user, we
+    # Volt.current_user returns a promise that resolves the current user, we
     # then return a new promise that checks the admin state and denies unless
     # the user is an admin.
     Volt.current_user.then do |user|
@@ -56,11 +56,11 @@ class Todo < Volt::Model
 end
 ```
 
-^ The above would prevent anyone besides the owner from reading, creating, updating, or deleting this model.  (```.owner?``` returns true in create because ```own_by_user``` will have already assigned the ```user_id```)
+The above would prevent anyone besides the owner from reading, creating, updating, or deleting this model.  (```.owner?``` returns true in create because ```own_by_user``` will have already assigned the ```user_id```)
 
 ### Allow vs Deny
 
-Once one allow is specified, all other fields will be denied.  Deny's override allow's.
+Once one allow is specified, all other fields will be denied.  Denys override allows.
 
 ```ruby
 class Todo < Volt::Model
@@ -70,7 +70,7 @@ class Todo < Volt::Model
 end
 ```
 
-^ only label and complete would be allowed, all others would be blocked.  Using ```permission``` without any arguments will setup permissions for all CRUD operations (create, read, update, delete)  To restrict the permissions to only certain actions, you can pass in symbol's for each action as arguments to the ```permissions``` method.  You can also specify multiple permission blocks.
+Here, only label and complete would be allowed, all others would be blocked.  Using ```permission``` without any arguments will setup permissions for all CRUD operations (create, read, update, delete).  To restrict the permissions to only certain actions, you can pass in symbol's for each action as arguments to the ```permissions``` method.  You can also specify multiple permission blocks.
 
 ```ruby
 class Todo < Volt::Model
@@ -88,7 +88,7 @@ class Todo < Volt::Model
 end
 ```
 
-^ The above would allow only the owner to change ```notes``` and ```secret_notes```, but anyone can change the other fields.  Only the owner could read ```secret_notes``` (while all other fields would be able to be read by anyone).  And only the owner could delete the model.
+The above would allow only the owner to change ```notes``` and ```secret_notes```, but anyone can change the other fields.  Only the owner could read ```secret_notes``` (while all other fields would be able to be read by anyone).  Only the owner could delete the model.
 
 ### Passing in the action
 
@@ -108,7 +108,7 @@ end
 
 ### Skipping Permissions
 
-Sometimes rather than setting up complex logic in permissions, you can simply deny changes, then only do changes from a task.  For example, if you wanted to set an ```admin``` flag on the user model.  You could simply deny updates to ```admin``` and then manually set admin by skipping permissions.
+Sometimes rather than setting up complex logic in permissions, you can simply deny changes on the client and do them in a task instead.  One example wouldbe setting an ```admin``` flag on the user model.  You could simply deny updates to ```admin``` and then manually set admin by skipping permissions.
 
 ```ruby
 class User < Volt::User
@@ -130,5 +130,5 @@ end
 ```
 ### Wrapping Up
 
-The permissions API attempts to provide a simple way to define who can do what to your app's data.  You can put any logic inside of the permissions blocks
+The permissions API attempts to provide a simple way to define who can do what to your app's data.  You can put any logic inside of the permissions blocks.
 
