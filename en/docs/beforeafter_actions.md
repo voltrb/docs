@@ -1,6 +1,6 @@
 # Before/After Filters
 
-Often in controllers, during rendering, there is code you want to run before or after your main action runs.  Volt provides a ```before_action``` and ```after_action``` methods on the class that you can use to setup a "before action" or "after action".  You can setup actions like below:
+Often in controllers, during rendering, there is code you want to run before or after your main action runs.  Volt provides ```before_action``` and ```after_action``` methods on the class that you can use to setup a "before action" or "after action".  You can setup actions like below:
 
 ```ruby
 module Main
