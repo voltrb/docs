@@ -12,11 +12,11 @@ store._items[0]
 # => #<Promise(70297821413860): #<Volt::Model id: "9a46..5dd7", name: "Item 1">>
 ```
 
-Calling ```create``` (or ```append```, or ```<<```) on ```store._items``` will create an ```items``` table in the data store (if it doesn't exist) and insert the model document into it.  A [golbally unique](http://en.wikipedia.org/wiki/Globally_unique_identifier) ```id``` will be generated automatically.
+Calling ```create``` (or ```append```, or ```<<```) on ```store._items``` will create an ```items``` table in the data store (if it doesn't exist) and insert the model document into it.  A [globally unique](http://en.wikipedia.org/wiki/Globally_unique_identifier) ```id``` will be generated automatically.
 
 ## Promises on store
 
-In order to support asynchronus loading, methods on store ArrayModel's return promises.  If you want to work with the results of a query, you can call .then on it.
+In order to support asynchronus loading, methods on store ArrayModels return promises.  If you want to work with the results of a query, you can call .then on it.
 
 ```ruby
 store._items.first.then do |item|
@@ -53,7 +53,7 @@ The ones you may run into are .to_json and .inspect
 
 ## Promise Sync
 
-If you are working with store on the server only (in tasks for example), you can call ```.sync``` on a Promise to have it synchronusly resolve and return the result.  If the promise is rejected, ```.sync``` will raise the error.
+If you are working with store on the server only (in tasks for example), you can call ```.sync``` on a Promise to have it synchronusly resolve and return the result.  If the promise is rejected, ```.sync``` will raise an error.
 
 ```ruby
 # Remember this only works on the server or console
