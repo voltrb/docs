@@ -12,7 +12,7 @@ In volt, you can precompile all of your apps assets to a /public folder.  When p
 2. minifies JS/opal js (via [uglifier](https://github.com/mishoo/UglifyJS2))
 3. minified CSS (via [csso](https://github.com/css/csso))
 4. concat css and javascript into single files (to make less requests on the clients)
-5. lossly compresses all images and strip metadata (using various tools with [image-optim](https://github.com/toy/image_optim))
+5. lossless compresses all images and strip metadata (using various tools with [image-optim](https://github.com/toy/image_optim))
 6. rename assets using fingerprinting, so the assets can be cached forever.  (Because if the file changes, a new fingerprint will be generated and linked to)
 
 All assets will be compiled into the /public folder, which you can serve directly via something like [nginx](http://nginx.org/).  Precompiling results in a substantial initial page load speed boost, and results in less requests from the browser.
