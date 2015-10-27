@@ -53,7 +53,7 @@ You may wish to use an existing validator only in certain situations.  For examp
 ```ruby
 class Post < Volt::Model
   field :title, String
-  field :published, Boolean
+  field :published, Volt::Boolean
   field :publish_date
 
   validate :title, length: 5
@@ -66,7 +66,7 @@ class Post < Volt::Model
 end
 ```
 
-***Note: the Boolean type is currently not supported. Support for types other than String and Numeric is forthcoming.***
+***Note: the Boolean type is currently not supported. Volt adds a Volt::Boolean class you can use***
 
 You can also specify that the validation should only happen on create or update:
 
