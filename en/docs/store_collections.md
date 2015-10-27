@@ -1,6 +1,6 @@
 # Store Collection
 
-The store collection backs data in the database.  Currently, the only supported database is Mongo. (More coming soon, RethinkDb and Postgres will probably be next).  Because ```store``` sometimes need to wait for data to come back from the server, all query methods on ```store``` return a Promise.  If you are new to promises, be sure to [read more about Opal's promises](http://opalrb.org/docs/promises/) before continuing.
+The store collection backs data in the database.  Currently, the only supported database is Mongo. (More coming soon, RethinkDb and Postgres will probably be next).  Because ```store``` sometimes need to wait for data to come back from the server, all query methods on ```store``` return a Promise.  If you are new to promises, be sure to [read more about Opal's promises](http://opalrb.org/docs/guides/0-8-stable/promises.html) before continuing.
 
 In Volt, you can access ```store``` on the front-end and the back-end.  Data will automatically be synced between the browser and the server.  Any changes to the data in ```store``` will be reflected on any clients using the data (unless a [buffer](#buffers) is in use - see below).
 
