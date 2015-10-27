@@ -1,6 +1,6 @@
 # View Bindings
 
-All ```views/*.html``` files (view files) can be rendered inside other views using the ```view``` binding.  The view binding takes in a *path string* and renders a view based on that path.  The contents of the view file replace where the view binding is in the orignal view file.
+All ```views/*.html``` files (view files) can be rendered inside other views using the ```view``` binding.  The view binding takes in a *path string* and renders a view based on that path.  The contents of the view file replace where the view binding is in the original view file.
 
 
 ```html
@@ -32,9 +32,9 @@ When the original file is rendered it will look like:
 
 The string you pass to ```view``` should be a *path string*.  Both view bindings and tags (which we'll cover later) lookup views and controllers in the same way.
 
-Everyone wishes that we could predict the scope and required features for each part of an application, but in the real world, things we don't expect to grow large often do and things that we think will be large don't always end up that way.  View bindings and tags let you render controllers and views without worring if the code is in the same view folder, component, or in a gem.  The location of views or tags code can be moved to as they grow without changing the way they are invoked.
+Everyone wishes that they could predict the scope and required features for each part of an application. In the real world, however, things we don't expect to grow large often do, and things we think will be large don't always end up that way.  View bindings and tags let you render controllers and views without worrying if the code is in the same view folder, a component, or in a gem.  The location of views or tags code can be moved as they grow without changing the way they are invoked.
 
-Lets take a look at example lookup paths for a sample view.
+Lets take a look at some example lookup paths for a sample view.
 
 ```html
 {{ view "header" }}
@@ -50,7 +50,7 @@ Given the string "header", Volt will search for the view file in the following l
 | :body     | index.html   | index          | header      |
 | :body     | index.html   | index          | {gems}/header |
 
-Once a view is found, the associated controller will be loaded first.  The controller for a view file is always {something}_controller.rb where {something} is the name of the folder the view is in.  (Note, views should always be at {component}/views/{something}.html - Volt does not do folders under the views folder)
+Once a view is found, the associated controller will be loaded first.  The controller for a view file is always {something}_controller.rb where {something} is the name of the folder the view is in.  (Note, views should always be at {component}/views/{something}.html - Volt does not support folders within the views folder)
 
 Volt checks the following in order for a matching view:
 
@@ -62,7 +62,7 @@ Volt checks the following in order for a matching view:
 
 4. **Component** - next, all folders under app/ are checked.  The view path looked for is ```{component}/index/index.html``` with a section of :body.
 
-5. **Gems** - lastly, the app folder of all gems that start with ```volt-``` are checked.  They are checked for similar paths to component, above.
+5. **Gems** - lastly, the app folder for each gem that starts with ```volt-``` is checked.  They are checked for similar paths to component, above.
 
 Keep in mind each time a view is rendered, a new controller instance is created to be the context for that view.
 
