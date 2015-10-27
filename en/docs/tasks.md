@@ -14,7 +14,7 @@ end
 
 Volt will automatically generate wrappers for you on the client side which will return a promise.
 
-*Note that the classes on the server side use instance methods while the wrapper classes represent those methods as class methods*  For more information on using promises in ruby see [here](http://opalrb.org/blog/2014/05/07/promises-in-opal/).
+*Note that the classes on the server side use instance methods while the wrapper classes represent those methods as class methods*.  For more information on using promises in Ruby see [here](http://opalrb.org/blog/2014/05/07/promises-in-opal/).
 
 ```ruby
 class Contacts < Volt::ModelController
