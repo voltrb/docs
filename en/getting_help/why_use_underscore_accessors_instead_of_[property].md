@@ -1,6 +1,6 @@
 # Why use underscore accessors instead of [:property]
 
-A common question about Volt is why we use underscore accessors.  There's a few reasons that have more to do with the requirements for setting/getting properties on a model without predefining the names of the properties.
+A common question about Volt is why we use underscore accessors.  There are a few reasons that have more to do with the requirements for setting/getting properties on a model without predefining the names of the properties.
 
 ## 1. Preventing Error Swallowing
 
@@ -36,4 +36,4 @@ While that works really well in controller code, in Volt when using a ModelContr
 
 While this works, we feel that it doesn't read as easy and is something that can be a source of confusion.
 
-While the _property syntax is not common in ruby, its easy to get used to and once you do it saves a lot of typing/reading.  If the above hasn't convinced you its the best solution, keep in mind you can always just use [fields](/docs/models.md).
+While the _property syntax is not common in ruby, its easy to get used to. Once you do it saves a lot of typing/reading.  If the above hasn't convinced you its the best solution, keep in mind you can always just use [fields](/docs/models.md).
