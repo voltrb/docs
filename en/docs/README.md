@@ -21,7 +21,7 @@ Most of your apps code will live in component folders inside of app.  Apps can b
 
 ### Components
 
-Components contain severial standard folders.
+Components contain several standard folders.
 
 | name            | description                                                      |
 |-----------------|------------------------------------------------------------------|
