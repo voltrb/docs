@@ -12,7 +12,7 @@ Volt クライアントとサーバー両方のためのフレームワークで
 ブラウザー上で利用できる Gem もどんどん増えています。Opal の Gem は通常、opal- でプレフィクスされています。
 例えば、ブラウザーや  DOM の API を利用するための opal-browser や opal-jquery が良い例でしょう。また、opal-pixi や opal-phantom もあります。
 
-opal-browser などの Gem を利用するには、以下のようにして条件ブロックの中で require してください。
+opal-browser などの Gem を利用するには、以下のようにして条件ブロックの中で require してください。そのためには以下のように記述します。
 
 ```ruby
 if RUBY_PLATFORM == 'opal'

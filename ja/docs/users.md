@@ -48,6 +48,16 @@ Volt.logout
 
 これは即座に実行され、```Volt.current_user``` に対して変更 (change) イベントをトリガーします。
 
+## ユーザーとしてログイン
+
+タスク、もしくは HttpController において、以下のようにすると直接ユーザーとしてログインすることができます。
+
+```ruby
+login_as(user)
+```
+
+このとき、user は User のインスタンスを指定します。
+
 ## ユーザーを作成する
 
 ユーザーを作成する例は [volt-user-templates](https://github.com/voltrb/volt-user-templates) を見てください。

@@ -1,6 +1,6 @@
 # Store コレクション
 
-ストアコレクションは、データベースにデータを保存するためのものです。現在サポートされているデータベースは Mongo のみです。(他のものも検討中です。おそらく次は RethinkDB と Postgres に対応するでしょう)```store``` は、サーバーからデータが帰ってくるのを待つ必要があります。したがって、```store``` に対するクエリメソッドはすべて promise を返すようになっています。もし promise について知らないのであれば、続きを読む前に [Opal の promise に関するドキュメントを一読してください](http://opalrb.org/docs/promises/)  。
+ストアコレクションは、データベースにデータを保存するためのものです。現在サポートされているデータベースは Mongo のみです。(他のものも検討中です。おそらく次は RethinkDB と Postgres に対応するでしょう)```store``` は、サーバーからデータが帰ってくるのを待つ必要があります。したがって、```store``` に対するクエリメソッドはすべて promise を返すようになっています。もし promise について知らないのであれば、続きを読む前に [Opal の promise に関するドキュメントを一読してください](http://opalrb.org/docs/promises/) 。
 
 Volt ではフロントエンドとバックエンドのどちらでも ```store``` にアクセスすることができます。そして、ブラウザとサーバー間でデータが自動的に同期されます。```store``` のデータに対する変更はすべて、そのデータを利用中のすべてのクライアントに対して反映されます。(ただし、後述の [buffer](#buffer) が使われている場合は除きます。)
 
@@ -28,7 +28,7 @@ ruby/opal のpromiseについては[このページを参照してください](
 
 ## バインディングにおけるpromise
 
-promiseはバインディングに渡され、promiseが解決されると値を更新します。これは、以下のようなことが可能であることを意味します:
+promiseはバインディングに渡され、promiseが解決されると値を更新します。これは、以下のようなことが可能であることを意味します。
 
 ```html
 {{ store._items.first.then {|i| i._name } }}
@@ -36,7 +36,7 @@ promiseはバインディングに渡され、promiseが解決されると値を
 
 これは最初の要素を取得し、それが解決したらその名前を返しています。これはリアクティブ性を保つためでもあります。なぜなら、もし最初の要素が変わった場合、バインディングを再度実行して再度解決するからです。
 
-## Promise メソッド フォワーディング
+## Promise メソッドフォワーディング
 
 上記の例をよりシンプルにするために、Volt は promise を拡張し、promise に対してのメソッドの直接実行を可能にし、promise が解決した場合にそのメソッドが解決された値に対して実行されるようにしています。したがって、意味的に以下は同じになります。
 
@@ -45,12 +45,18 @@ store._items.first.then {|i| i._name }
 store._items.first._name
 ```
 
-## promiseの同期
+Promise メソッドフォワーディングは、Promise クラスに定義されていないメソッドに対してのみ有効です。 現在のところ、以下のメソッドはすでに Promise クラスに定義されています。(以下のうち多くのものを削除するために、Promise クラスの再実装が計画されています) 。
 
-もしstoreが(例えばtasksなどで)サーバー側のみである場合、promiseに対して```.sync```を実行することで、同期的に解決しその結果を返すことができます。もしpromiseが失敗した場合、```.sync```はエラーを発生させます。
+```error、 prev、 next、 value、 act?、 action、 exception?、 realized?、 resolved?、 rejected?、 ^、 <<、 >>、 resolve、 resolve!、 reject、 reject!、 exception!、 then、 do、 fail、 rescue、 catch、 always、 finally、 ensure、 trace、 inspect、 method_missing、 each、 value_or_error、 to_json、 unwrap、 sync```
+
+おそらく、実際にこれが影響するのは .to_json や .inspect に関してでしょう。
+
+## promise の同期
+
+もし store が (例えば tasks などで) サーバー側のみである場合、promise に対して ```.sync``` を実行することで、同期的に解決しその結果を返すことができます。もし promise が失敗した場合、```.sync``` はエラーを発生させます。
 
 ```ruby
-# これはサーバー、もしくはコンドール上でのみ有効です
+# これはサーバー、もしくはコンソール上でのみ有効です
 
 store._items.create({name: 'Item 1'})
 
@@ -64,11 +70,11 @@ store._items.size.sync
 
 ## クエリ
 
-現在、storeはMongoDBのデータベースに永続化されます。データストアを問わないサポートを実現できるようにデータプロバイダAPIを開発中です。現在、Voltがサポートするクエリメソッドは以下の通りです。
+現在、store は MongoDB のデータベースに永続化されます。データストアを問わないサポートを実現できるようにデータプロバイダ API を開発中です。現在、Volt がサポートするクエリメソッドは以下の通りです。
 
 ### .where
 
-```.where``` は引数をMongoDBに渡し、```.find``` を実行します。
+```.where``` は引数を MongoDB に渡し、```.find``` を実行します。
 
 ### .limit
 
@@ -80,7 +86,7 @@ store._items.size.sync
 
 ### .order
 
-```.order``` は引数をMongoDBに渡し、```.sort``` を呼び出します。```.sort``` はすでにRubyのEnumクラスで定義されているため、代わりに```.order```をメソッド名として使っています。
+```.order``` は引数を MongoDB に渡し、```.sort``` を呼び出します。```.sort``` はすでに Ruby の Enum クラスで定義されているため、代わりに ```.order``` をメソッド名として使っています。
 
 ## モデルの状態の保存
 

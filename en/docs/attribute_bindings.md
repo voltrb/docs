@@ -15,7 +15,7 @@ There are some special features provided to make elements work as "two way bindi
 
 Above if ```_name``` changes, the value in the text box will be updated.  The binding calls ```_name``` on the controller to fetch the name value. When a user types into the text box, the equivalent setter method will be called on the controller.  In this case ```_name=``` will be called on the controller and the new field value will be passed in.  This gives the effect of two way bindings, but you are able to change how data is updated (by defining a different setter).  We think this gives the benefits of both one way bindings and two way bindings.
 
-## CheckBoxes
+## Check Boxes
 
 In the example above, if ```_name``` changes, the field will update, and if the field is updated, ```_name``` will be changed:
 
@@ -54,4 +54,4 @@ When the selected option of the select above changes, ```_rating``` is changed t
 
 ## Current Limitations
 
-Currently, bindings can only be inside of the attribute, the plan is to allow them to be within the tag, but outside of the attribute also.
+Currently, bindings can only be inside of the attribute. The plan is to allow them to be within the tag but outside of the attribute as well.

@@ -10,9 +10,9 @@ For gems that run on both client **and** server, ```config/app.rb``` is a good p
 ### Client only gems
 
 A growing list of gems exist for use in the browser. Opal gems are usually prefixed with opal-.
-Opal-browser or opal-jquery are good examples, just like opal-pixi or opal-phantom, all od which use the browser or DOM API.
+Opal-browser or opal-jquery are good examples, just like opal-pixi or opal-phantom, all of which use the browser or DOM API.
 
-To use a gem, say opal-browser, in your code you must require it in a conditional block. The syntax to do so is below.
+To use a gem in your code, say opal-browser, you must require it in a conditional block. The syntax to do so is below.
 
 ```ruby
 if RUBY_PLATFORM == 'opal'
@@ -39,7 +39,7 @@ Opal.use_gem("browser")
 
 ### Server only gems
 
-On the other hand some gems may not work on the browser, eg opal will never support c extensions. Also gems used in Tasks should be loaded only on the server. It is good practise to avoid loading gems into the browser, as anything loaded into the client takes network bandwidth.
+On the other hand some gems may not work on the browser, eg opal will never support c extensions. Also gems used in Tasks should be loaded only on the server. It is good practice to avoid loading gems into the browser, as anything loaded into the client takes network bandwidth.
 
 Similarly, you can require conditionally, eg:
 

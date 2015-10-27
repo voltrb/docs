@@ -1,6 +1,6 @@
 ## Buffers
 
-In volt all models automatically save any changes back to their persistor.  For example, if we change a name property on a model in ```store```, it will automatically sync to the database and any other clients.  Unlike other frameworks, there is no need to call save, models sync as soon as properties are changed.
+In volt, all models automatically save any changes back to their persistor.  For example, if we change a name property on a model in ```store```, it will automatically sync to the database and any other clients.  Unlike other frameworks, there is no need to call save, models sync as soon as properties are changed.
 
 ```ruby
 store._items.first.then do |item|
@@ -16,7 +16,7 @@ params._index = 20
 # ...url is updated
 ```
 
-Because the store collection is automatically synced to the backend, any change to a model's property will result in all other clients seeing the change immediately.  Often this is not the desired behavior.  To facilitate building [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) apps, Volt provides the concept of a "buffer".  A buffer can be created from one model and will not save data back to the model it was created from (the backing model) until ```.save!``` is called on the buffer. This lets you create a form thats not saved until a submit button is pressed.
+Because the store collection is automatically synced to the backend, any change to a model's property will result in all other clients seeing the change immediately.  Often this is not the desired behavior.  To facilitate building [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) apps, Volt provides the concept of a "buffer".  A buffer can be created from one model and will not save data back to the model it was created from (the backing model) until ```.save!``` is called on the buffer. This lets you create a form that's not saved until a submit button is pressed.
 
 ```ruby
 store._items << {name: 'Item 1'}

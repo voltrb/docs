@@ -21,7 +21,7 @@ Unlike some other frameworks, views in Volt can have multiple nodes at the root.
 
 ### Dom Range for View
 
-In the case below, we can't simply ask for the "node" of the view.  Instead Volt uses [Dom Range's](https://developer.mozilla.org/en-US/docs/Web/API/Range) to represent the nodes inside of the view.  You can get back a range for the nodes in the view by calling: ```dom_nodes``` on the controller.
+In the case below, we can't simply ask for the "node" of the view.  Instead Volt uses [Dom Ranges](https://developer.mozilla.org/en-US/docs/Web/API/Range) to represent the nodes inside of the view.  You can get back a range for the nodes in the view by calling ```dom_nodes``` on the controller.
 
 ### Container Node
 
@@ -29,7 +29,7 @@ Working with DOM ranges can be difficult however, since most libraries (jquery f
 
 ### First Element
 
-In the example above with two td's however, this will return the table, which is the only common node in an example with more than one "root" nodes in the view.  If you have a single node as the root in a view like below:
+In the example above with two ```td```s however, this will return the table, which is the only common node in an example with more than one "root" nodes in the view.  If you have a single node as the root in a view like below:
 
 ```html
 <:Post>

@@ -19,7 +19,7 @@ Another big difference is the way we handle data. Meteor has you say what data t
 This is just a quick over-view of the differences.  Just a few more small differences:
 
 - Volt uses convention and file structure more than Meteor.
-- Volt's router is entierly different.
+- Volt's router is entirely different.
 - Volt hasn't raises $31MM in venture capital :-)
 
-There's lots more differences, but those are the ones that come to mind right now.
+There are a lot more differences, but those are the ones that come to mind right now.

@@ -2,7 +2,7 @@
 
 Yes!  At the moment Volt ships with jQuery, though this will be removed in a future version.  (Though you'll always be able to use Volt with jQuery)  There's two parts to using jQuery in Volt:
 
-1. Calling JS from Volts controller's (via Opal)
+1. Calling JS from Volt's controllers (via Opal)
 2. Using action callbacks to bind to the dom at the right times.
 
 ## Accessing the DOM

@@ -21,4 +21,26 @@
 | loaded    | データは読み込まれ、サーバーと同期しています    |
 | dirty     | データは読み込まれていますが、サーバーと同期されていません。この状態は、バインディングがデータをリアクティブにリッスンしていない場合や、データが何も発生させない場合に発生します |
 
+## 例
 
+モデルがロードされているかどうかは、以下のように確認できます。
+
+```html
+{{ if todo.load_state == :loading }}
+  <p>Loading Todo...</p>
+{{ elsif todo.load_state == :loaded }}
+  <p>{{ todo.label }}</p>
+{{ end }}
+```
+
+また、Volt は読み込み状態が```:loaded``` であるかをチェックするための便利なメソッドを提供しています。
+
+```html
+{{ if todo.loaded? }}
+  <p>{{ todo.label }}</p>
+{{ end }}
+```
+
+## モデルの遅延レンダリング
+
+コントローラーで ```self.model = ``` を Promise と設定した場合、ビューは Promise が解決されるまではレンダリングされないことを覚えておいてください。(詳細は[遅延レンダリング](docs/delayed_rendering.md) for more info)を参照してください。
