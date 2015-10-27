@@ -22,8 +22,8 @@ Below you see an example for MongoHQ. You'll need to adapt for your provider.
 config.db_driver = 'mongo'
 config.db_name = (config.app_name + '_' + Volt.env.to_s)
 
-if ENV['MONGOHQ_URL'].present?
-  config.db_uri = ENV['MONGOHQ_URL'] # you will have to set this on heroku
+if ENV['MONGOLAB_URI'].present?
+  config.db_uri = ENV['MONGOLAB_URI'] # you will have to set this on heroku
 else
   config.db_host = 'localhost'
   config.db_port = 27017
