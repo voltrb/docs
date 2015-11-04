@@ -56,6 +56,7 @@
    * [Testing](docs/testing.md)
    * [Debugging](docs/debugging.md)
    * [Volt Helpers](docs/volt_helpers.md)
+      * [VoltTime](docs/volt_time.md)
    * [Volt Command](docs/volt_command.md)
    * [Lib](docs/lib.md)
    * [Requiring Files](docs/requiring_files.md)
