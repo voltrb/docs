@@ -3,7 +3,7 @@
 Volt provides an optional time class, `VoltTime` that can be required into your Volt application in a model or controller.
 
 ```ruby
-require lib/volt/helpers/time
+require 'volt/helpers/time'
 ```
 
 The key feature of VoltTime is that it always holds the time in the UTC timezone.
