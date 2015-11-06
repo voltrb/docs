@@ -326,3 +326,34 @@ The instance method `#local_offset` gives the offset from UTC in seconds for the
 VoltTime.at(0).local_offset/60/60
 # => -8
 ```
+
+## Time Distance in Words
+
+VoltTime provides a `#time_distance_in_words` method that returns a string representation of the duration between the VoltTime and either the current time, or the first argument to `#time_distance_in_words` (which should be a VoltTime)
+
+```ruby
+updated_at = 5.minutes.ago + 2.hours.ago + 1.day.ago
+update_at.time_distance_in_words # "1 day and 2 hours ago"
+```
+
+`#time_distance_in_words` takes the following optional arguments:
+- from_time: when the distance should be computed from (defaults to VoltTime.now.live)
+- places: how many units to show (year, month, week, day, hour, minute, second)
+- min_unit: the minimum unit to show (defaults to :minute)
+- recent_message: what to show when the duration is less than the min_unit (default: 'just now')
+
+## Reactive Time
+
+You can call ```.live``` on a VoltTime to get back a "reactive" instance of the VoltTime.  The reactive VoltTime lets you do things like:
+
+```html
+{{ VoltTime.now.live.local_to_s }}
+```
+
+This will show the time in the local timezone and that will reactively update.  You can pass in how often it should update in seconds as the first argument to ```.live```:
+
+For example, to only update every minute do:
+
+```html
+{{ VoltTime.now.live(60).local_to_s }}
+```
