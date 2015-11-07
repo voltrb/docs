@@ -16,5 +16,3 @@ Añade un ```Procfile``` que use Thin
 
 Configura tu conección a la base de datos en ```config/app.rb```, a continuación podemos ver un ejemplo para conectar con MongoHQ. Tienes que cambiarlo para el proveedor que usarás.
 [MongoLab](http://www.mongolab.com) es una alternativa gratuita.
-
-Puedes ver un ejemplo de aplicación deployada con heroku [aquí](https://murmuring-hollows-3078.herokuapp.com/about).

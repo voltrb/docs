@@ -11,6 +11,7 @@ Por el momento, contamos con las siguiente validaciones (mas validaciones muy pr
 - numericality
 - phone number
 - unique
+- type
 
 Mira [aquí](https://github.com/voltrb/volt/tree/master/lib/volt/models/validators) para mayor información sobre los validators.
 

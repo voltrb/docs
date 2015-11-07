@@ -15,3 +15,6 @@ page._items.delete_at(0)
 
 Esto es usado internamente para los each bindings, pero puedes usarlo
 en tu propio código.
+
+NOTA: Los eventos de ArrayModel son por ahora un 'feature' no oficial de
+volt. No hay garantías de que funcione bien en todos los casos

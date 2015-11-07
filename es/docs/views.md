@@ -1,12 +1,29 @@
 # Vistas
 
-Las vistas en volt tienen su propio sistema de templating.  Estos pueden ser separados en secciones. El header de una sección luce de la siguiente manera:
+Las vistas son archivos .html que pueden incluir código ruby para controlar como renderizamos la pagina. Volt compila los archivos de vista primero en el
+servidor antes de enviarla hacia el cliente. Vistas pueden lucir de la siguiente manera:
 
 ```html
+<!-- app/main/views/main/index.html -->
+<:Title>
+My Page
+
 <:Body>
+<h1>My Page</h1>
+
+<p>Welcome {{ Volt.current_user.name  }}!</p>
 ```
 
-Los secciones header deben empezar con una letra mayúscula (así no los confundiremos con [tags](#tags)). Estos no tienen que ser cerrados como los tags normales. Si no se proveé con un header de sección volt asumirá que estás en la sección ```:Body```.
+# Secciones
+
+Las vistas en Volt tienen su propia sintaxis. También pueden ser separadas en secciones, estas empiezan con un header de sección. Un header de sección luce
+de la siguiente manera:
+
+ ```html
+  <:Body>
+ ```
+
+Los secciones de cabecera deben empezar con una letra mayúscula (así no los confundiremos con [tags](#tags)). Estos no tienen que ser cerrados como los tags normales. Si no se provee con un cabecera de sección volt asumirá que estás en la sección ```:Body```.
 
 Las secciones nos ayudan a separar diferentes partes de un mismo contenido (usualmente el título y el body del html), pero dentro del mismo archivo
 
