@@ -66,7 +66,7 @@ You can pass the following options as the 2nd argument to belongs_to on a Post m
 :collection - the name of the collection in the database, and the class that should be loaded when the models are returned
 
 :foreign_key - (the field name on the model that this model belongs to, defaults to :id)  If you did: ```belongs_to :user, foreign_key: :user_system_id``` it would do the following query:
-```store.users.where(user_system_id: self.user_id).first```
+```store.posts.where(user_system_id: self.user_id).first```
 
 :local_key - the key on this model that should be used to lookup the belongs_to association - defaults to the belongs_to collection name + "_id".  If you did: ```belongs_to :user, local_key: :remote_user_id``` it would do the following query:
-```store.users.where(user_id: self.remote_user_id).first```
+```store.posts.where(user_id: self.remote_user_id).first```
