@@ -13,7 +13,7 @@ Dentro de la vista `app/main/views/main/todos.html` añade el siguiente botón e
 ...
 ```
 
-Obviamente, nuestra lista de tareas necesita ser capás de saber que tareas han sido completadas. No sería muy interesante si simplemente añadimos un checkbox, pero gracias al hecho de que los datos siempre están sincronizados podemos utilizar este valor de diversas maneras. Vamos a aplicar una clase de CSS a aquellas tareas que han sido completadas en la lista.
+Obviamente, nuestra lista de tareas necesita ser capaz de saber que tareas han sido completadas. No sería muy interesante si simplemente añadimos un checkbox, pero gracias al hecho de que los datos siempre están sincronizados podemos utilizar este valor de diversas maneras. Vamos a aplicar una clase de CSS a aquellas tareas que han sido completadas en la lista.
 
 ```html
 ...
