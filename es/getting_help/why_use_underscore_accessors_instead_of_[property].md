@@ -15,7 +15,7 @@ Existe el problema de que Volt necesita que una propiedad no asignada siempre re
 
 ```ruby
 item = Volt::Model.new
-item.savr! # => nil
+item.save! # => nil
 # ^ meant to type .save!
 ```
 
@@ -28,7 +28,7 @@ item = Volt::Model.new
 item[:name] # => nil
 ```
 
-Mientras esto funciona bien dentro del código de un controlador, en Volt , al usar un ModelController, tendrás que definir el modelo del controlador con la instancia de un modelo. En ese caso, tienes que hacer lo siguiente en los bindings (debido a la forma en la que funciona ruby)
+Mientras esto funciona bien dentro del código de un controlador, en Volt, al usar un ModelController, tendrás que definir el modelo del controlador con la instancia de un modelo. En ese caso, tienes que hacer lo siguiente en los bindings (debido a la forma en la que funciona ruby)
 
 ```html
 <input value="{{ self[:name] }}" />

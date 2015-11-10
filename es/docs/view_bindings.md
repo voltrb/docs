@@ -8,7 +8,7 @@ Todos los archivos ```views/*.html``` de las vistas pueden ser renderizados dent
 {{ view "header" }}
 ```
 
-el argumento del método ```view``` debe ser un *view path*. Los bindings de vistas y tags buscan las vistas y los controladores de la misma forma.
+El argumento del método ```view``` debe ser un *view path*. Los bindings de vistas y tags buscan las vistas y los controladores de la misma forma.
 
 A veces quisieramos poder predecir las características necesarias para cada parte de nuestra aplicación, pero en el mundo real, a veces las partes de nuestra aplicación que menos esparamos que crezcan lo hacen. Los bindings de vistas y tags nos permiten configurar el código que vamos a reutilizar de nuestras vistas. La ubicación de los códigos de vistas o tags puede ser movido a medida que estos crezcan sin cambiar la forma en la que estos son invocados.
 

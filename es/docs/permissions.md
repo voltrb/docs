@@ -45,7 +45,7 @@ El código anterior no permitirá que otros usuarios puedan crear, leer, actuali
 
 ### Allow vs Deny
 
-Una ves que allow ha sido especificado el resto de campos se bloquearán.
+Una vez que allow ha sido especificado el resto de campos se bloquearán.
 
 ```ruby
 class Todo < Volt::Model

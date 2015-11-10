@@ -34,7 +34,7 @@ Las promesas se pueden pasar a los bindings y los bindings se actualizarán con 
 {{ store._items.first.then {|i| i._name } }}
 ```
 
-Este código tomará el primer item, luego retornará el nombre una ves que se haya resuelto. Esto también preserva la reactividad, ya que si el primer item es modificado, este volverá a correr el binding.
+Este código tomará el primer item, luego retornará el nombre una vez que se haya resuelto. Esto también preserva la reactividad, ya que si el primer item es modificado, este volverá a correr el binding.
 
 ## Forwarding de métodos en las Promesas
 

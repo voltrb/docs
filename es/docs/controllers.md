@@ -1,6 +1,6 @@
 # Controladores
 
-Un controlador puede ser cualquier clase en Volt. Pero lo común es que este clase herede de ```Volt::ModelController```. Los controladores se encuentran dentro del mismo namespace del módulo con el nombre del componente. Este es un patrón muy común en Volt. El modelo para un controlador puede ser asignado de las siguientes maneras:
+Un controlador puede ser cualquier clase en Volt. Pero lo común es que esta clase herede de ```Volt::ModelController```. Los controladores se encuentran dentro del mismo namespace del módulo con el nombre del componente. Este es un patrón muy común en Volt. El modelo para un controlador puede ser asignado de las siguientes maneras:
 
 1. Mediante un símbolo que representa el nombre de una colección de modelo provista:
 

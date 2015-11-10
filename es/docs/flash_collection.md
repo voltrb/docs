@@ -20,7 +20,7 @@ La colección ```local_store``` guarda los datos en el store local del browser
 
 # Colección de cookies
 
-La colección ```cookies``` guarda los datos en un browser del cookie. Cada propiedad asignada es guardada en el cookie de la misma forma:
+La colección ```cookies``` guarda los datos en una cookie del browser. Cada propiedad asignada es guardada en el cookie de la misma forma:
 
 ```ruby
 cookies._user_id = 520

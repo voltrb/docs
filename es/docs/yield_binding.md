@@ -15,7 +15,7 @@ En el ejemplo anterior, "About" puede cargarse en otro lugar usando ```{{ yield 
     </li>
 ```
 
-Cualquier contenido o otros bindings pueden ser pasados a un ```tag```. También puedes pasar contenido al tag de un componente y hacer yield dentro de sus vistas.
+Cualquier contenido u otros bindings pueden ser pasados a un ```tag```. También puedes pasar contenido al tag de un componente y hacer yield dentro de sus vistas.
 
 Por último, si solo quieres obtener el contenido html como un string, puedes llamar al método ```yield_html``` en el controlador. Esto retornará un string en el cual puedes invocar el método ```.watch!``` en el caso de que lo necesites y este cargará de nuevo el contenido en el caso de que existan cambios.
 

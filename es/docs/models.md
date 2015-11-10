@@ -1,6 +1,6 @@
 # Modelos
 
-Los modelos en volt difieren en cierta forma de otros frameworks, donde el modelo es simplemente el nombre dado en el ORM para acceder a la base. En Volt, el modelo es una clase donde puedes guardar tus datos fácilmente. Los modelos pueden ser creados opcionalmente con un ```Volt::Persistor```, el cual es responsable de guardar los datos (a una base de datos, store local , parametros url, etc...).  Los modelos creados sin un persistor simplemente guardan los datos en la instancia de la clase. Primero veamos como se usa un modelo.
+Los modelos en volt difieren en cierta forma de otros frameworks, donde el modelo es simplemente el nombre dado en el ORM para acceder a la base de datos. En Volt, el modelo es una clase donde puedes guardar tus datos fácilmente. Los modelos pueden ser creados opcionalmente con un ```Volt::Persistor```, el cual es responsable de guardar los datos (a una base de datos, store local , parametros url, etc...).  Los modelos creados sin un persistor simplemente guardan los datos en la instancia de la clase. Primero veamos como se usa un modelo.
 
 Un modelo es simplemente una instancia de Volt::Model. Empezemos creando una instancia directamente:
 
@@ -29,9 +29,9 @@ item
 # => <Volt::Model {:id=>"d8872b283c6dc1a7861e9baa", :name=>"Ryan"}>
 ```
 
-Toma en cuenta que no inicializamos ninguna campo . Al usar un undescore (_) antes de cualquier de variable podemos obtener o crear una propiedad de un modelo. (esto es similar a llamar ```[:property]``` en un hash. [Revisa esto](/getting_help/why_use_underscore_accessors_instead_of_[property].md) para mayor información).
+Ten en cuenta que no hemos inicializado ningun campo. Al usar un undescore ```_``` antes de cualquier variable podemos obtener o crear una propiedad de un modelo. (esto es similar a llamar ```[:property]``` en un hash. [Revisa esto](/getting_help/why_use_underscore_accessors_instead_of_[property].md) para mayor información).
 
-Los accesors definidos con underscore son usados comunmente para prototipado, antes de decidir exactamente  que campos son los que vamos a usar.
+Los accesors definidos con underscore son usados comunmente para prototipado, antes de decidir exactamente que campos son los que vamos a usar.
 
 # Campos
 
@@ -99,7 +99,7 @@ page
 # => <PageRoot {:id=>"0df58b9f8b6b6f3404ea4d7b", :setting=><Volt::Model {:id=>"5ea3193e429c1f2ecba21bc5", :color=>"blue"}>}>
 ```
 
-Al llamar a ```._setting``` se creará automáticamente un nuevo modelo (si el nombre no se asigno antes). A esto se le llama "expanding"
+Al llamar a ```._setting``` se creará automáticamente un nuevo modelo (si el nombre no se asignó antes). A esto se le llama "expanding"
 
 ## ArrayModels
 
