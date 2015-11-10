@@ -344,10 +344,10 @@ update_at.time_distance_in_words # "1 day and 2 hours ago"
 
 ## Reactive Time
 
-You can call ```.live``` on a VoltTime to get back a "reactive" instance of the VoltTime.  The reactive VoltTime lets you do things like:
+You can call ```.live_now``` on a VoltTime to get back a "reactive" instance of the current VoltTime.  The reactive VoltTime lets you do things like:
 
 ```html
-{{ VoltTime.now.live.local_to_s }}
+{{ VoltTime.live_now.local_to_s }}
 ```
 
 This will show the time in the local timezone and that will reactively update.  You can pass in how often it should update in seconds as the first argument to ```.live```:
