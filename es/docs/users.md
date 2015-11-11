@@ -69,13 +69,13 @@ def index
 end
 ```
 
-Puedes usar [volt-fields](https://github.com/voltrb/volt-fields) para mostrar cualquier en la creación de usuarios.
+Puedes usar [volt-fields](https://github.com/voltrb/volt-fields) para mostrar cualquier error en la creación de usuarios.
 
 ## require_login
 
 Volt::ModelController tiene un método ```require_login``` el cual verificará que el usuario se encuentre logeado, y redireccionará a la página de login.  Tambien mostrará un mensaje de autenticación exitosa.
 
-Puedes requerir que el usuario se encuentre autenticado para algunas acciones usando la opción :require_login dentro de before_action
+Puedes requerir que el usuario se encuentre autenticado para algunas acciones usando la opción :require_login dentro de before_action.
 
 ```ruby
 module Main
@@ -88,7 +88,7 @@ module Main
 end
 ```
 
-También puedes cambiar el mensaje por default en require_login, o puedes dejar el valor de nil si no quieres sacar ningún mensaje flash
+También puedes cambiar el mensaje por defecto en require_login, o puedes dejar el valor a nil si no quieres sacar ningún mensaje flash.
 
 ```ruby
 module Main

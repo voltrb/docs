@@ -1,6 +1,6 @@
 # Tags
 
-Tags (formalmente llamados controls) te permiten renderizar una vista/controlador de forma similar a como se renderiza un view binding. La principal diferencia es que con en tags puedes enviar atributos como argumentos.
+Tags (formalmente llamados controls) te permiten renderizar una vista/controlador de forma similar a como se renderiza un view binding. La principal diferencia es que con tags puedes enviar atributos como argumentos.
 
 Los tags empiezan con un ```:``` (colon) para diferenciarlos de tags html normales. Al igual que los tags html normales, estos deben ser cerrados.
 

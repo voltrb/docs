@@ -1,6 +1,6 @@
 ## Accessors Reactivos
 
-```Volt::ModelController``` envia todos los llamados a métodos desconocidos al modelo asignado. A veces necesitas un store adicional (que maneje los datos reactivamente por fuera del modelo, aunque si vas a hacer esto talves debas considerar el crear otro controlador). En este caso, puedes añadir un ```reactive_accesor```. Este se comporta como un ```attr_accessor```, con la excepción de que los datos asignados retornan los datos reactivamente.
+```Volt::ModelController``` envia todos los llamados a métodos desconocidos al modelo asignado. A veces necesitas un store adicional (que maneje los datos reactivamente por fuera del modelo, aunque si vas a hacer esto tal vez debas considerar el crear otro controlador). En este caso, puedes añadir un ```reactive_accesor```. Este se comporta como un ```attr_accessor```, con la excepción de que los datos asignados retornan los datos reactivamente.
 
 ```ruby
 module Main
