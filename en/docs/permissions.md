@@ -6,7 +6,7 @@ You specify permissions inside of a model class like so:
 
 ```ruby
 class Todo < Volt::Model
-
+d
     permissions do
       # .. permissions logic ..
     end
@@ -60,7 +60,7 @@ The above would prevent anyone besides the owner from reading, creating, updatin
 
 ### Allow vs Deny
 
-Once one allow is specified, all other fields will be denied.  Denys override allows.
+Once one allow is specified, all other fields will be denied.  Denies override allows.
 
 ```ruby
 class Todo < Volt::Model
