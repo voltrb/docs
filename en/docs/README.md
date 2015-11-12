@@ -32,4 +32,4 @@ Components contain several standard folders.
 | models          | Classes that manage data, permissions, validations, and business logic |
 | views           | html files that are rendered on the browser to show the app      |
 
-The next sections of the doc's will take you through each of the parts of components before covering components in more detail.
+The following sections will take you through components in more detail.
