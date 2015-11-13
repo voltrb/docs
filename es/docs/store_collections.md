@@ -1,6 +1,6 @@
 # Colecciones Store
 
-La colección store guarda los datos directamente en un BD. Por ahora la única base de datos soportada es Mongo (Se añadirá soporte para mas bases de datos muy pronto, RethinkDb y postgres serán probablemente las primeras). Por el hecho de que ```store``` a veces necesita esperar a que los datos vengan del servidor, todos los métodos query hechos a store retornan una promesa. Si eres nuevo en el tema de promesas, puedes leer mas acerca de este tema en la sección de [Promesas en Opal](http://opalrb.org/docs/promises/).
+La colección store guarda los datos directamente en un BD. Por ahora la única base de datos soportada es Mongo (Se añadirá soporte para mas bases de datos muy pronto, RethinkDb y postgres serán probablemente las primeras). Por el hecho de que ```store``` a veces necesita esperar a que los datos vengan del servidor, todos los métodos query hechos a store retornan una promesa. Si eres nuevo en el tema de promesas, puedes leer mas acerca de este tema en la sección de [Promesas en Opal](http://opalrb.org/docs/guides/0-8-stable/promises.html).
 
 En Volt, puedes acceder a ```store``` en el front-end y en el back-end.  Los datos seran sincronizados automáticamente entre el browser y el servidor. Cualquier cambio a los datos en ```store``` se reflejará en todos los clientes que se encuentren usando esos datos (excepto en el caso de que usen [buffers](#buffers)).
 

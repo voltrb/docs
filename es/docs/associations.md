@@ -13,6 +13,7 @@ class Address < Volt::Model
 end
 
 class Street < Volt::Model
+  belongs_to :address
 end
 ```
 
@@ -29,9 +30,23 @@ Podemos llamar al método .addresses de person para encontrar todos los ```addre
 
 Las asociaciones ```has_many``` retornan un cursor.
 
+#### Options
+
+Puedes pasar cualquiera de las siguientes opciones como segundo argumento en has_many (para el modelo Usuario.)
+
+:collection - el nombre de la coleccion en la base de datos, y la clase que debe ser cargada cuando se retornen los modelos
+
+:foreign_key - (por default es el nombre de la clase actual + "_id") si añades ```has_many :posts, foreign_key: :user_id```, entonces
+realizara el siguiente query: ```store.posts.where(user_id: self.id)```
+
+:local_key - es el id del modelo, por default es ```self.id```. Si añades ```has_many :posts, local_key: :user_system_id``` este
+realizará el siguiente query: ```store.posts.where(user_id: self.user_system_id)```
+
 ## Has One
 
 Puedes llamar ```has_one``` en un modelo para crear una asociación con un único modelo. ```has_one``` toma un símbolo para el nombre del otro modelo. Si pasamos ```:street``` en un modelo ```Address```, Volt buscará un modelo ```Street``` que tiene el address_id del id del modelo ```Address```.
+
+Has one puede usar las mismas opciones que has_many
 
 ## Belongs to
 

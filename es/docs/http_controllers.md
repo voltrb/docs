@@ -1,12 +1,12 @@
 # Controladores HTTP
 
-Los controladores HTTP pueden ser usados como endpoints. La mayor parte de la comunicación del cliente se la hace por medio de websockets (u otros fallbacks de socket) por lo que no se usa Http para la sincronización de datos con el cliente, excepto para la carga inicial de la página. Los controladores HTTP nos proveen una manera fácil para enviar datos a terceros que necesitan acceso a los datos (por medio de un API REST, por ejemplo) por medio de HTTP.
+Los controladores HTTP pueden ser usados como endpoints. La mayor parte de la comunicación del cliente se la hace por medio de websockets (u otros fallbacks de socket) por lo que no se usa HTTP para la sincronización de datos con el cliente, excepto para la carga inicial de la página. Los controladores HTTP nos proveen una manera fácil para enviar datos a terceros que necesitan acceso a los datos (por medio de un API REST, por ejemplo) por medio de HTTP.
 
 ## Routing
 
 Para usar Controladores HTTP necesitas configurar tus rutas en el [Archivo de Rutas](routes_file.md)
 
-## Creando un contolador
+## Creando un controlador
 
 Puedes crear un controlador HTTP creando un archivo en ```app/component_name/controllers/server/``` y heredando de ```Volt::HttpController```
 
@@ -38,7 +38,7 @@ Por ahora el body del request tiene que ser parseado manualmente. Puedes obtener
 module Main
   class TodosController < Volt::HttpController
     def create
-      data = JSON.parse(request.body)
+      data = JSON.parse(request.body,read)
       store._links! << Link.new(data)
     end
   end
