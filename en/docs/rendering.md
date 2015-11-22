@@ -74,8 +74,53 @@ page._name = 'Jo'
 
 ## Dependencies
 
-As mentioned above, you will rarely use Dependencies directly, but having an understanding of them is useful. Let's take a brief look at them here.
+As mentioned above, you will rarely use Dependencies directly, but having an understanding of them is useful.
 
-TODO: Explain Dependencies
+Here is a plain old Ruby object for example purposes. This is similar to what happens in a Volt::Model, but far more simplified for the sake of example.
 
+```ruby
 
+class ReactiveExample
+  def value
+    @dep ||= Volt::Dependency.new
+    # Register this dependency with current computation.
+    @dep.depend
+    @value
+  end
+
+  def value=(val)
+    # Calling `changed!` on a dependency tells the computation to re-run.
+    @dep.changed! if @dep
+    @value = val
+  end
+end
+
+```
+
+In the following examples, we will reference this "fake model" using the variable `example`
+
+```ruby
+example = ReactiveExample.new
+```
+
+To add reactivity, we create a proc and `watch!` it. Let's pretend we need to print the value to STDOUT every time the value of `@value` changes.
+
+```ruby
+
+->{
+  puts "Value is: #{ example.value || 'empty' }"
+}.watch!
+
+```
+
+`watch!()`ing a proc causes the proc to be `call`ed on data changes. It also `call`s it the first time you call `watch!`. In the case of the example, it prints `Value is: empty`
+
+Calling the setter on this class calls Dependency#change!(), which will call our proc above.
+
+```ruby
+
+example.value= "changed"
+
+```
+
+this will print `Value is: changed`.
