@@ -1,4 +1,5 @@
 # Validations
+## Introduction to Validations
 
 Within a model class, you can setup validations.  Validations let you restrict the types of data that can be stored in a model.  Validations are mostly useful for the ```store``` collection, though they can be used elsewhere.
 
@@ -9,12 +10,14 @@ At the moment, we have the following validations (with more on the way):
 - email
 - format
 - numericality
+- inclusion
 - phone number
 - unique
 - type
 
 See [this folder](https://github.com/voltrb/volt/tree/master/lib/volt/models/validators) for more info on the validators.
 
+Validators should be called at the top of your model classes, and generally have this format:
 ```ruby
 class Info < Volt::Model
   validate :name, length: 5
@@ -29,6 +32,84 @@ When ```save!``` on a buffer with validations is called, the following occurs:
     - re-running the validations on the server-side helps to make sure that no data can be saved that doesn't pass the validations.
 3. If all validations pass, the data is saved to the database and the promise is resolved on the client.
 4. The data is synced to all other clients.
+
+## Validation Examples
+- length
+```ruby
+class Info < Volt::Model
+  # Pass a number for the minimum length
+  validate :first_name, length: 5
+  # or
+  # pass an array with min and max
+  validate :last_name, length: {minimum: 5, maximum: 10}
+end
+```
+
+- present
+```ruby
+class Info < Volt::Model
+  validate :name, present: true
+end
+```
+
+- email
+```ruby
+class Info < Volt::Model
+  validate :email, email: true
+end
+```
+
+- format
+```ruby
+class Info < Volt::Model
+  # takes an hash with keys with: and message:.
+  validate :name, format: { with: /.+@.+/, message: 'must include an @ symbol' }
+end
+```
+
+- numericality
+```ruby
+class Info < Volt::Model
+  # Pass true to only validate it's a number
+  validate :name, numericality: true
+  # Pass a hash with :gt, :lt, :lte, or :gte to specify a range
+  validate :name, numericality: {gt: 5, lte: 10}
+end
+```
+
+- inclusion
+```ruby
+class Info < Volt::Model
+  # pass an array to validate inclusion in the array
+  validate :name, inclusion: ['red', 'blue', 'green', 'purple']
+  # or specify a custom message by passing a hash with in: and message: keys
+  validate :name, inclusion: {in: ['red', 'blue', 'green', 'purple'], message: 'Must be in the list of colors' }
+end
+```
+
+- phone number
+```ruby
+class Info < Volt::Model
+  # pass true to validate U.S.-style phone numbers
+  validate :name, phone_number: true
+  # or pass a hash with with: and message: keys
+  validate :phone, phone_numbe: {with: /\d-\d+/, message: 'Must be a phone number in the format...'}
+end
+```
+
+- unique
+```ruby
+class Info < Volt::Model
+  validate :name, unique: true
+end
+```
+
+- type
+```ruby
+class Info < Volt::Model
+  validate :name, String #Valid options are currently String and Numeric. Volt::Boolean is available but unsupported.
+end
+```
 
 ## Custom Validations
 
