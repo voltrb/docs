@@ -11,3 +11,7 @@ This means that routes in Volt have to be able to go both from URL to params and
 ## Http Routes
 
 To provide data to clients that need to access it via Http (a REST api for example)
+
+## Troubleshooting
+
+If you add a new route to the [routes file](routes_file.md), you restarted the server and the new routing does not work, *and* you are sure it is correct, it may help to remove the /tmp folder in the project root folder.
