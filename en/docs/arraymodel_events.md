@@ -12,6 +12,6 @@ page._items.delete_at(0)
 # => item removed
 ```
 
-This is used internally on each bindings, but can be used in your own code.
+This is used internally on each binding, but can also be used in your own code.
 
-NOTE: ArrayModel events are sort of an unofficial feature right now.  No guarentees on them working in all cases.
+NOTE: ArrayModel events are sort of an unofficial feature right now.  There are no guarantees on them working in all cases.
