@@ -4,6 +4,9 @@ Create a Dockerfile in your Volt app with the following
 
 ```
 FROM otzy007/voltframework
+
+RUN apt-get update
+RUN apt-get install --yes nodejs
 ```
 
 Then you can build the Docker image:
