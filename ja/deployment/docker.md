@@ -4,6 +4,9 @@ Volt アプリケーションに Dockerfile を作成し、以下を記載して
 
 ```
 FROM otzy007/voltframework
+
+RUN apt-get update
+RUN apt-get install --yes nodejs
 ```
 
 これで、Docker イメージをビルドすることができます。
